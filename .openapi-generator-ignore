@@ -6,6 +6,7 @@ LICENSE
 justfile
 .github/**
 package.json
+tsconfig.json
 .gitignore
 .npmignore
 
