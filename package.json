@@ -1,0 +1,31 @@
+{
+  "name": "rippling-typescript-sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for the Rippling API, auto-generated from OpenAPI spec",
+  "author": "Rocket Science",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rocketsciencegg/rippling-typescript-sdk.git"
+  },
+  "keywords": [
+    "axios",
+    "typescript",
+    "openapi-client",
+    "openapi-generator",
+    "rippling-typescript-sdk"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.1",
+    "typescript": "^5.0"
+  }
+}

@@ -1,0 +1,14 @@
+# Preserve custom files from being overwritten by the generator
+README.md
+CLAUDE.md
+LLMs.txt
+LICENSE
+justfile
+.github/**
+package.json
+tsconfig.json
+.gitignore
+.npmignore
+
+# Prevent generator from creating unwanted files
+git_push.sh
