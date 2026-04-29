@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name used to identify business partner group | [default to undefined]
-**domain** | **string** | Type of business partner group | [optional] [default to undefined]
+**domain** | [**BusinessPartnerGroupDomain**](BusinessPartnerGroupDomain.md) | Type of business partner group | [optional] [default to undefined]
 **defaultBusinessPartnerId** | **string** | Id of Optional default business partner worker to whom all employees will be mapped if not explicitly mapped to a business partner in the group. | [optional] [default to undefined]
 
 ## Example

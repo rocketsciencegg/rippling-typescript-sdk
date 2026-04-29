@@ -4,8 +4,8 @@ All URIs are relative to *https://rest.ripplingapis.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**getJobFunctions**](#getjobfunctions) | **GET** /job-functions/{id} | Retrieve a specific job function|
-|[**listJobFunctions**](#listjobfunctions) | **GET** /job-functions | List job functions|
+|[**getJobFunctions**](#getjobfunctions) | **GET** /job-functions/{id}/ | Retrieve a specific job function|
+|[**listJobFunctions**](#listjobfunctions) | **GET** /job-functions/ | List job functions|
 
 # **getJobFunctions**
 > GetJobFunctions200Response getJobFunctions()
@@ -75,12 +75,10 @@ const configuration = new Configuration();
 const apiInstance = new JobFunctionsApi(configuration);
 
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
+let cursor: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listJobFunctions(
     orderBy,
-    limit,
     cursor
 );
 ```
@@ -90,8 +88,7 @@ const { status, data } = await apiInstance.listJobFunctions(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
+| **cursor** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

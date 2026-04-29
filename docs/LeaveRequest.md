@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **worker** | [**Worker**](Worker.md) | The worker associated with the leave request.  Expandable field | [optional] [default to undefined]
 **requesterId** | **string** | The ID of the worker who requested the leave request. | [optional] [default to undefined]
 **requester** | [**Worker**](Worker.md) | The worker who requested the leave request.  Expandable field | [optional] [default to undefined]
-**status** | **string** | The status of the leave request. | [default to undefined]
+**status** | [**LeaveRequestStatus**](LeaveRequestStatus.md) | The status of the leave request. | [default to undefined]
 **startDate** | **string** | The start date of the leave request. | [default to undefined]
 **startTime** | **string** | The start time of the leave request. | [optional] [default to undefined]
 **endDate** | **string** | The end date of the leave request. | [default to undefined]

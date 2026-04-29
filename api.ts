@@ -30,7 +30,7 @@ export interface Address {
     /**
      * The classification of the address.
      */
-    'type'?: AddressTypeEnum;
+    'type'?: ContactType;
     /**
      * The formatted mailing address.
      */
@@ -54,268 +54,9 @@ export interface Address {
     /**
      * The country component, pursuant to SCIM RFC 7643 4.1.2.
      */
-    'country'?: AddressCountryEnum;
+    'country'?: CountryCode;
 }
 
-export const AddressTypeEnum = {
-    Home: 'HOME',
-    Work: 'WORK',
-    Other: 'OTHER'
-} as const;
-
-export type AddressTypeEnum = typeof AddressTypeEnum[keyof typeof AddressTypeEnum];
-export const AddressCountryEnum = {
-    Af: 'AF',
-    Ax: 'AX',
-    Al: 'AL',
-    Dz: 'DZ',
-    As: 'AS',
-    Ad: 'AD',
-    Ao: 'AO',
-    Ai: 'AI',
-    Aq: 'AQ',
-    Ag: 'AG',
-    Ar: 'AR',
-    Am: 'AM',
-    Aw: 'AW',
-    Au: 'AU',
-    At: 'AT',
-    Az: 'AZ',
-    Bs: 'BS',
-    Bh: 'BH',
-    Bd: 'BD',
-    Bb: 'BB',
-    By: 'BY',
-    Be: 'BE',
-    Bz: 'BZ',
-    Bj: 'BJ',
-    Bm: 'BM',
-    Bt: 'BT',
-    Bo: 'BO',
-    Bq: 'BQ',
-    Ba: 'BA',
-    Bw: 'BW',
-    Bv: 'BV',
-    Br: 'BR',
-    Io: 'IO',
-    Bn: 'BN',
-    Bg: 'BG',
-    Bf: 'BF',
-    Bi: 'BI',
-    Cv: 'CV',
-    Kh: 'KH',
-    Cm: 'CM',
-    Ca: 'CA',
-    Ky: 'KY',
-    Cf: 'CF',
-    Td: 'TD',
-    Cl: 'CL',
-    Cn: 'CN',
-    Cx: 'CX',
-    Cc: 'CC',
-    Co: 'CO',
-    Km: 'KM',
-    Cg: 'CG',
-    Cd: 'CD',
-    Ck: 'CK',
-    Cr: 'CR',
-    Ci: 'CI',
-    Hr: 'HR',
-    Cw: 'CW',
-    Cy: 'CY',
-    Cz: 'CZ',
-    Dk: 'DK',
-    Dj: 'DJ',
-    Dm: 'DM',
-    Do: 'DO',
-    Ec: 'EC',
-    Eg: 'EG',
-    Sv: 'SV',
-    Gq: 'GQ',
-    Er: 'ER',
-    Ee: 'EE',
-    Sz: 'SZ',
-    Et: 'ET',
-    Fk: 'FK',
-    Fo: 'FO',
-    Fj: 'FJ',
-    Fi: 'FI',
-    Fr: 'FR',
-    Gf: 'GF',
-    Pf: 'PF',
-    Tf: 'TF',
-    Ga: 'GA',
-    Gm: 'GM',
-    Ge: 'GE',
-    De: 'DE',
-    Gh: 'GH',
-    Gi: 'GI',
-    Gr: 'GR',
-    Gl: 'GL',
-    Gd: 'GD',
-    Gp: 'GP',
-    Gu: 'GU',
-    Gt: 'GT',
-    Gg: 'GG',
-    Gn: 'GN',
-    Gw: 'GW',
-    Gy: 'GY',
-    Ht: 'HT',
-    Hm: 'HM',
-    Va: 'VA',
-    Hn: 'HN',
-    Hk: 'HK',
-    Hu: 'HU',
-    Is: 'IS',
-    In: 'IN',
-    Id: 'ID',
-    Iq: 'IQ',
-    Ie: 'IE',
-    Im: 'IM',
-    Il: 'IL',
-    It: 'IT',
-    Jm: 'JM',
-    Jp: 'JP',
-    Je: 'JE',
-    Jo: 'JO',
-    Kz: 'KZ',
-    Ke: 'KE',
-    Ki: 'KI',
-    Kr: 'KR',
-    Xk: 'XK',
-    Kw: 'KW',
-    Kg: 'KG',
-    La: 'LA',
-    Lv: 'LV',
-    Lb: 'LB',
-    Ls: 'LS',
-    Lr: 'LR',
-    Ly: 'LY',
-    Li: 'LI',
-    Lt: 'LT',
-    Lu: 'LU',
-    Mo: 'MO',
-    Mg: 'MG',
-    Mw: 'MW',
-    My: 'MY',
-    Mv: 'MV',
-    Ml: 'ML',
-    Mt: 'MT',
-    Mh: 'MH',
-    Mq: 'MQ',
-    Mr: 'MR',
-    Mu: 'MU',
-    Yt: 'YT',
-    Mx: 'MX',
-    Fm: 'FM',
-    Md: 'MD',
-    Mc: 'MC',
-    Mn: 'MN',
-    Me: 'ME',
-    Ms: 'MS',
-    Ma: 'MA',
-    Mz: 'MZ',
-    Mm: 'MM',
-    Na: 'NA',
-    Nr: 'NR',
-    Np: 'NP',
-    Nl: 'NL',
-    An: 'AN',
-    Nc: 'NC',
-    Nz: 'NZ',
-    Ni: 'NI',
-    Ne: 'NE',
-    Ng: 'NG',
-    Nu: 'NU',
-    Nf: 'NF',
-    Mk: 'MK',
-    Mp: 'MP',
-    No: 'NO',
-    Om: 'OM',
-    Pk: 'PK',
-    Pw: 'PW',
-    Ps: 'PS',
-    Pa: 'PA',
-    Pg: 'PG',
-    Py: 'PY',
-    Pe: 'PE',
-    Ph: 'PH',
-    Pn: 'PN',
-    Pl: 'PL',
-    Pt: 'PT',
-    Pr: 'PR',
-    Qa: 'QA',
-    Ro: 'RO',
-    Ru: 'RU',
-    Rw: 'RW',
-    Re: 'RE',
-    Bl: 'BL',
-    Sh: 'SH',
-    Kn: 'KN',
-    Lc: 'LC',
-    Mf: 'MF',
-    Pm: 'PM',
-    Vc: 'VC',
-    Ws: 'WS',
-    Sm: 'SM',
-    St: 'ST',
-    Sa: 'SA',
-    Sn: 'SN',
-    Rs: 'RS',
-    Sc: 'SC',
-    Sl: 'SL',
-    Sg: 'SG',
-    Sx: 'SX',
-    Sy: 'SY',
-    Sk: 'SK',
-    Si: 'SI',
-    Sb: 'SB',
-    So: 'SO',
-    Za: 'ZA',
-    Gs: 'GS',
-    Ss: 'SS',
-    Es: 'ES',
-    Lk: 'LK',
-    Sd: 'SD',
-    Sr: 'SR',
-    Sj: 'SJ',
-    Se: 'SE',
-    Ch: 'CH',
-    Tw: 'TW',
-    Tj: 'TJ',
-    Tz: 'TZ',
-    Th: 'TH',
-    Tl: 'TL',
-    Tg: 'TG',
-    Tk: 'TK',
-    To: 'TO',
-    Tt: 'TT',
-    Tn: 'TN',
-    Tr: 'TR',
-    Tm: 'TM',
-    Tc: 'TC',
-    Tv: 'TV',
-    Ug: 'UG',
-    Ua: 'UA',
-    Ae: 'AE',
-    Gb: 'GB',
-    Us: 'US',
-    Um: 'UM',
-    Uy: 'UY',
-    Uz: 'UZ',
-    Vu: 'VU',
-    Ve: 'VE',
-    Vn: 'VN',
-    Vg: 'VG',
-    Vi: 'VI',
-    Wf: 'WF',
-    Eh: 'EH',
-    Ye: 'YE',
-    Zm: 'ZM',
-    Zw: 'ZW'
-} as const;
-
-export type AddressCountryEnum = typeof AddressCountryEnum[keyof typeof AddressCountryEnum];
 
 /**
  * 
@@ -324,7 +65,7 @@ export interface AddressRequest {
     /**
      * The classification of the address.
      */
-    'type'?: AddressRequestTypeEnum;
+    'type'?: ContactType;
     /**
      * The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information, pursuant to SCIM RFC 7643 4.1.2..
      */
@@ -344,268 +85,9 @@ export interface AddressRequest {
     /**
      * The country component, pursuant to SCIM RFC 7643 4.1.2.
      */
-    'country'?: AddressRequestCountryEnum;
+    'country'?: CountryCode;
 }
 
-export const AddressRequestTypeEnum = {
-    Home: 'HOME',
-    Work: 'WORK',
-    Other: 'OTHER'
-} as const;
-
-export type AddressRequestTypeEnum = typeof AddressRequestTypeEnum[keyof typeof AddressRequestTypeEnum];
-export const AddressRequestCountryEnum = {
-    Af: 'AF',
-    Ax: 'AX',
-    Al: 'AL',
-    Dz: 'DZ',
-    As: 'AS',
-    Ad: 'AD',
-    Ao: 'AO',
-    Ai: 'AI',
-    Aq: 'AQ',
-    Ag: 'AG',
-    Ar: 'AR',
-    Am: 'AM',
-    Aw: 'AW',
-    Au: 'AU',
-    At: 'AT',
-    Az: 'AZ',
-    Bs: 'BS',
-    Bh: 'BH',
-    Bd: 'BD',
-    Bb: 'BB',
-    By: 'BY',
-    Be: 'BE',
-    Bz: 'BZ',
-    Bj: 'BJ',
-    Bm: 'BM',
-    Bt: 'BT',
-    Bo: 'BO',
-    Bq: 'BQ',
-    Ba: 'BA',
-    Bw: 'BW',
-    Bv: 'BV',
-    Br: 'BR',
-    Io: 'IO',
-    Bn: 'BN',
-    Bg: 'BG',
-    Bf: 'BF',
-    Bi: 'BI',
-    Cv: 'CV',
-    Kh: 'KH',
-    Cm: 'CM',
-    Ca: 'CA',
-    Ky: 'KY',
-    Cf: 'CF',
-    Td: 'TD',
-    Cl: 'CL',
-    Cn: 'CN',
-    Cx: 'CX',
-    Cc: 'CC',
-    Co: 'CO',
-    Km: 'KM',
-    Cg: 'CG',
-    Cd: 'CD',
-    Ck: 'CK',
-    Cr: 'CR',
-    Ci: 'CI',
-    Hr: 'HR',
-    Cw: 'CW',
-    Cy: 'CY',
-    Cz: 'CZ',
-    Dk: 'DK',
-    Dj: 'DJ',
-    Dm: 'DM',
-    Do: 'DO',
-    Ec: 'EC',
-    Eg: 'EG',
-    Sv: 'SV',
-    Gq: 'GQ',
-    Er: 'ER',
-    Ee: 'EE',
-    Sz: 'SZ',
-    Et: 'ET',
-    Fk: 'FK',
-    Fo: 'FO',
-    Fj: 'FJ',
-    Fi: 'FI',
-    Fr: 'FR',
-    Gf: 'GF',
-    Pf: 'PF',
-    Tf: 'TF',
-    Ga: 'GA',
-    Gm: 'GM',
-    Ge: 'GE',
-    De: 'DE',
-    Gh: 'GH',
-    Gi: 'GI',
-    Gr: 'GR',
-    Gl: 'GL',
-    Gd: 'GD',
-    Gp: 'GP',
-    Gu: 'GU',
-    Gt: 'GT',
-    Gg: 'GG',
-    Gn: 'GN',
-    Gw: 'GW',
-    Gy: 'GY',
-    Ht: 'HT',
-    Hm: 'HM',
-    Va: 'VA',
-    Hn: 'HN',
-    Hk: 'HK',
-    Hu: 'HU',
-    Is: 'IS',
-    In: 'IN',
-    Id: 'ID',
-    Iq: 'IQ',
-    Ie: 'IE',
-    Im: 'IM',
-    Il: 'IL',
-    It: 'IT',
-    Jm: 'JM',
-    Jp: 'JP',
-    Je: 'JE',
-    Jo: 'JO',
-    Kz: 'KZ',
-    Ke: 'KE',
-    Ki: 'KI',
-    Kr: 'KR',
-    Xk: 'XK',
-    Kw: 'KW',
-    Kg: 'KG',
-    La: 'LA',
-    Lv: 'LV',
-    Lb: 'LB',
-    Ls: 'LS',
-    Lr: 'LR',
-    Ly: 'LY',
-    Li: 'LI',
-    Lt: 'LT',
-    Lu: 'LU',
-    Mo: 'MO',
-    Mg: 'MG',
-    Mw: 'MW',
-    My: 'MY',
-    Mv: 'MV',
-    Ml: 'ML',
-    Mt: 'MT',
-    Mh: 'MH',
-    Mq: 'MQ',
-    Mr: 'MR',
-    Mu: 'MU',
-    Yt: 'YT',
-    Mx: 'MX',
-    Fm: 'FM',
-    Md: 'MD',
-    Mc: 'MC',
-    Mn: 'MN',
-    Me: 'ME',
-    Ms: 'MS',
-    Ma: 'MA',
-    Mz: 'MZ',
-    Mm: 'MM',
-    Na: 'NA',
-    Nr: 'NR',
-    Np: 'NP',
-    Nl: 'NL',
-    An: 'AN',
-    Nc: 'NC',
-    Nz: 'NZ',
-    Ni: 'NI',
-    Ne: 'NE',
-    Ng: 'NG',
-    Nu: 'NU',
-    Nf: 'NF',
-    Mk: 'MK',
-    Mp: 'MP',
-    No: 'NO',
-    Om: 'OM',
-    Pk: 'PK',
-    Pw: 'PW',
-    Ps: 'PS',
-    Pa: 'PA',
-    Pg: 'PG',
-    Py: 'PY',
-    Pe: 'PE',
-    Ph: 'PH',
-    Pn: 'PN',
-    Pl: 'PL',
-    Pt: 'PT',
-    Pr: 'PR',
-    Qa: 'QA',
-    Ro: 'RO',
-    Ru: 'RU',
-    Rw: 'RW',
-    Re: 'RE',
-    Bl: 'BL',
-    Sh: 'SH',
-    Kn: 'KN',
-    Lc: 'LC',
-    Mf: 'MF',
-    Pm: 'PM',
-    Vc: 'VC',
-    Ws: 'WS',
-    Sm: 'SM',
-    St: 'ST',
-    Sa: 'SA',
-    Sn: 'SN',
-    Rs: 'RS',
-    Sc: 'SC',
-    Sl: 'SL',
-    Sg: 'SG',
-    Sx: 'SX',
-    Sy: 'SY',
-    Sk: 'SK',
-    Si: 'SI',
-    Sb: 'SB',
-    So: 'SO',
-    Za: 'ZA',
-    Gs: 'GS',
-    Ss: 'SS',
-    Es: 'ES',
-    Lk: 'LK',
-    Sd: 'SD',
-    Sr: 'SR',
-    Sj: 'SJ',
-    Se: 'SE',
-    Ch: 'CH',
-    Tw: 'TW',
-    Tj: 'TJ',
-    Tz: 'TZ',
-    Th: 'TH',
-    Tl: 'TL',
-    Tg: 'TG',
-    Tk: 'TK',
-    To: 'TO',
-    Tt: 'TT',
-    Tn: 'TN',
-    Tr: 'TR',
-    Tm: 'TM',
-    Tc: 'TC',
-    Tv: 'TV',
-    Ug: 'UG',
-    Ua: 'UA',
-    Ae: 'AE',
-    Gb: 'GB',
-    Us: 'US',
-    Um: 'UM',
-    Uy: 'UY',
-    Uz: 'UZ',
-    Vu: 'VU',
-    Ve: 'VE',
-    Vn: 'VN',
-    Vg: 'VG',
-    Vi: 'VI',
-    Wf: 'WF',
-    Eh: 'EH',
-    Ye: 'YE',
-    Zm: 'ZM',
-    Zw: 'ZW'
-} as const;
-
-export type AddressRequestCountryEnum = typeof AddressRequestCountryEnum[keyof typeof AddressRequestCountryEnum];
 
 /**
  * 
@@ -658,6 +140,30 @@ export const ApplicationStatusEnum = {
 
 export type ApplicationStatusEnum = typeof ApplicationStatusEnum[keyof typeof ApplicationStatusEnum];
 
+export interface AssignUnassignedshifts200Response {
+    /**
+     * The ID of the newly created shift assignment
+     */
+    'assignment_id'?: string;
+    /**
+     * The current number of assigned workers for this shift
+     */
+    'assigned_count'?: number;
+    /**
+     * The target number of workers for this shift
+     */
+    'target_count'?: number;
+    /**
+     * List of shift assignment IDs for this shift
+     */
+    'assigned_shift_ids'?: Array<string>;
+}
+export interface AssignUnassignedshiftsRequest {
+    /**
+     * The ID of the worker (role) to assign to the shift
+     */
+    'worker_id': string;
+}
 /**
  * 
  */
@@ -849,7 +355,7 @@ export interface BusinessPartnerGroup {
     /**
      * Type of business partner group
      */
-    'domain'?: BusinessPartnerGroupDomainEnum;
+    'domain'?: BusinessPartnerGroupDomain;
     /**
      * Id of Optional default business partner worker to whom all employees will be mapped if not explicitly mapped to a business partner in the group.
      */
@@ -860,7 +366,9 @@ export interface BusinessPartnerGroup {
     'default_business_partner'?: Worker;
 }
 
-export const BusinessPartnerGroupDomainEnum = {
+
+
+export const BusinessPartnerGroupDomain = {
     Hr: 'HR',
     It: 'IT',
     Finance: 'FINANCE',
@@ -868,7 +376,8 @@ export const BusinessPartnerGroupDomainEnum = {
     Other: 'OTHER'
 } as const;
 
-export type BusinessPartnerGroupDomainEnum = typeof BusinessPartnerGroupDomainEnum[keyof typeof BusinessPartnerGroupDomainEnum];
+export type BusinessPartnerGroupDomain = typeof BusinessPartnerGroupDomain[keyof typeof BusinessPartnerGroupDomain];
+
 
 /**
  * 
@@ -881,22 +390,13 @@ export interface BusinessPartnerGroupRequest {
     /**
      * Type of business partner group
      */
-    'domain'?: BusinessPartnerGroupRequestDomainEnum;
+    'domain'?: BusinessPartnerGroupDomain;
     /**
      * Id of Optional default business partner worker to whom all employees will be mapped if not explicitly mapped to a business partner in the group.
      */
     'default_business_partner_id'?: string;
 }
 
-export const BusinessPartnerGroupRequestDomainEnum = {
-    Hr: 'HR',
-    It: 'IT',
-    Finance: 'FINANCE',
-    Recruiting: 'RECRUITING',
-    Other: 'OTHER'
-} as const;
-
-export type BusinessPartnerGroupRequestDomainEnum = typeof BusinessPartnerGroupRequestDomainEnum[keyof typeof BusinessPartnerGroupRequestDomainEnum];
 
 /**
  * 
@@ -1156,14 +656,55 @@ export interface Compensation {
 /**
  * 
  */
+export interface CompensationBandsDetails {
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * Internal job code
+     */
+    'internal_job_code'?: string;
+    /**
+     * ID of the worker associated with compensation bands
+     */
+    'worker_id'?: string;
+    /**
+     * The worker associated with compensation bands  Expandable field
+     */
+    'worker'?: Worker;
+}
+
+export const ContactType = {
+    Home: 'HOME',
+    Work: 'WORK',
+    Other: 'OTHER'
+} as const;
+
+export type ContactType = typeof ContactType[keyof typeof ContactType];
+
+
+/**
+ * 
+ */
 export interface Country {
     /**
      * The code of the country.
      */
-    'code': CountryCodeEnum;
+    'code': CountryCode;
 }
 
-export const CountryCodeEnum = {
+
+
+export const CountryCode = {
     Af: 'AF',
     Ax: 'AX',
     Al: 'AL',
@@ -1414,7 +955,8 @@ export const CountryCodeEnum = {
     Zw: 'ZW'
 } as const;
 
-export type CountryCodeEnum = typeof CountryCodeEnum[keyof typeof CountryCodeEnum];
+export type CountryCode = typeof CountryCode[keyof typeof CountryCode];
+
 
 /**
  * 
@@ -1479,6 +1021,81 @@ export interface Currency {
      * The decimal amount for the currency.
      */
     'value'?: number;
+}
+/**
+ * Currency column format for currency fields
+ */
+
+export const CurrencyColumn = {
+    TypeAndAmount: 'TYPE_AND_AMOUNT',
+    ValueOnly: 'VALUE_ONLY'
+} as const;
+
+export type CurrencyColumn = typeof CurrencyColumn[keyof typeof CurrencyColumn];
+
+
+export interface CurrencyFieldFormatting {
+    'columns': CurrencyColumn;
+    /**
+     * Currency type (e.g., \'USD\')
+     */
+    'currency_type'?: string | null;
+}
+
+
+/**
+ * 
+ */
+export interface CustomApp {
+    /**
+     * Identifier field
+     */
+    'id'?: string;
+    /**
+     * The display name of the custom app
+     */
+    'name': string;
+    /**
+     * The unique api name of the custom app
+     */
+    'api_name': string;
+    /**
+     * The description of the custom app
+     */
+    'description'?: string;
+    /**
+     * The icon URL of the custom app
+     */
+    'icon'?: string;
+    /**
+     * The pages of the custom app
+     */
+    'pages'?: Array<PageSummary>;
+    /**
+     * Record creation date
+     */
+    'created_at'?: string;
+    /**
+     * Record update date
+     */
+    'updated_at'?: string;
+}
+/**
+ * 
+ */
+export interface CustomAppRequest {
+    /**
+     * The display name of the custom app
+     */
+    'name': string;
+    /**
+     * The unique api name of the custom app
+     */
+    'api_name': string;
+    /**
+     * The description of the custom app
+     */
+    'description'?: string;
 }
 /**
  * 
@@ -1648,15 +1265,10 @@ export interface CustomObjectDataRow {
      * The external id of the custom object datarow
      */
     'external_id'?: string;
-    'created_by'?: CustomObjectDataRowCreatedBy;
-    'last_modified_by'?: CustomObjectDataRowCreatedBy;
-    'owner_role'?: CustomObjectDataRowCreatedBy;
+    'created_by'?: DisplayValueRef;
+    'last_modified_by'?: DisplayValueRef;
+    'owner_role'?: DisplayValueRef;
     'system_updated_at'?: string;
-}
-export interface CustomObjectDataRowCreatedBy {
-    'id'?: string;
-    'display_value'?: string;
-    'image'?: string;
 }
 /**
  * 
@@ -1718,6 +1330,77 @@ export interface CustomObjectField {
 /**
  * 
  */
+export interface CustomPage {
+    /**
+     * Identifier field
+     */
+    'id'?: string;
+    /**
+     * The display name of the custom page
+     */
+    'name'?: string;
+    /**
+     * The canvas component tree
+     */
+    'components'?: Array<{ [key: string]: any; }>;
+    /**
+     * Canvas actions
+     */
+    'actions'?: Array<{ [key: string]: any; }>;
+    /**
+     * Canvas actions (v2)
+     */
+    'canvas_actions'?: Array<{ [key: string]: any; }>;
+    /**
+     * Canvas variables
+     */
+    'variables'?: Array<{ [key: string]: any; }>;
+    /**
+     * Media assets
+     */
+    'media'?: object;
+    /**
+     * Record creation date
+     */
+    'created_at'?: string;
+    /**
+     * Record update date
+     */
+    'updated_at'?: string;
+}
+/**
+ * 
+ */
+export interface CustomPageRequest {
+    /**
+     * The display name of the custom page
+     */
+    'name'?: string;
+}
+export interface DateFieldFormatting {
+    'date_format': DateFormat;
+    /**
+     * Timezone for datetime fields (e.g., \'America/Los_Angeles\')
+     */
+    'datetime_timezone'?: string | null;
+}
+
+
+/**
+ * Date format for date fields in the report output
+ */
+
+export const DateFormat = {
+    Iso8601: 'ISO_8601',
+    ApplyVisualizationSettings: 'APPLY_VISUALIZATION_SETTINGS'
+} as const;
+
+export type DateFormat = typeof DateFormat[keyof typeof DateFormat];
+
+
+/**
+ * 
+ */
 export interface DayOff {
     /**
      * The date of the day off.
@@ -1770,6 +1453,31 @@ export interface Department {
     'department_hierarchy'?: Array<Department>;
 }
 /**
+ * 
+ */
+export interface DepartmentRequest {
+    /**
+     * The name of the department.
+     */
+    'name': string;
+    /**
+     * The parent department.
+     */
+    'parent_id'?: string;
+    /**
+     * Reference code of the department.
+     */
+    'reference_code'?: string;
+}
+/**
+ * A reference to another record, with a human-readable display value and optional image.
+ */
+export interface DisplayValueRef {
+    'id'?: string;
+    'display_value'?: string;
+    'image'?: string;
+}
+/**
  *      A draft hire represents a candidate who has been offered a position but hasn\'t started yet.      This class provides Platform API access to draft hire data stored as RoleWithCompany instances     in a candidate state, allowing external systems to create and manage draft hires.     
  */
 export interface DraftHire {
@@ -1789,19 +1497,11 @@ export interface DraftHire {
      * Custom fields for the draft hire
      */
     'custom_fields'?: Array<CustomFieldInfo>;
-    /**
-     * External reference ID for tracking purposes
-     */
-    'reference_id': string;
 }
 /**
  * Result for an individual draft hire creation.
  */
 export interface DraftHireResult {
-    /**
-     * External reference ID from the request
-     */
-    'reference_id': string;
     /**
      * Generated draft hire ID if successful
      */
@@ -1830,20 +1530,13 @@ export interface Email {
     /**
      * The classification of the email.
      */
-    'type'?: EmailTypeEnum;
+    'type'?: ContactType;
     /**
      * The display value of the email address.
      */
     'display'?: string;
 }
 
-export const EmailTypeEnum = {
-    Home: 'HOME',
-    Work: 'WORK',
-    Other: 'OTHER'
-} as const;
-
-export type EmailTypeEnum = typeof EmailTypeEnum[keyof typeof EmailTypeEnum];
 
 /**
  * Employment information for a draft hire.
@@ -1884,7 +1577,7 @@ export interface EmploymentInfo {
     /**
      * Title
      */
-    'title'?: string;
+    'title': string;
     /**
      * Level ID
      */
@@ -1950,6 +1643,10 @@ export interface EmploymentInfo {
      */
     'offer_expiration_date'?: string;
     'equity_vesting_schedule'?: EquityVestingSchedule;
+    /**
+     * EEOC job classification (e.g., EXECUTIVE, MID_LEVEL, PROFESSIONALS, TECHNICIANS, SALES_WORKERS, SUPPORT_WORKERS, CRAFT_WORKERS, OPERATIVES, HELPERS, SERVICE_WORKERS)
+     */
+    'eeoc_job_classification'?: string;
 }
 
 export const EmploymentInfoOvertimeExemptionEnum = {
@@ -2143,6 +1840,31 @@ export interface FunctionDeploymentLog {
 /**
  * 
  */
+export interface FunctionDeploymentRequest {
+    /**
+     * The code for the deployment
+     */
+    'code'?: string;
+    /**
+     * The dependencies of the deployment
+     */
+    'dependencies'?: object;
+    /**
+     * Domains that function runs from this deployment are allowed to access
+     */
+    'allowed_domains'?: Array<string>;
+    /**
+     * The runtime for the deployment
+     */
+    'runtime'?: string;
+    /**
+     * Additional, runtime-specific options for the deployment
+     */
+    'options'?: object;
+}
+/**
+ * 
+ */
 export interface FunctionDevBundle {
     /**
      * The bundle contents as a base64 encoded zip
@@ -2215,6 +1937,40 @@ export interface FunctionExecutionLog {
      */
     'params'?: object;
 }
+/**
+ * 
+ */
+export interface FunctionExecutionRequest {
+    /**
+     * The inputs of the execution
+     */
+    'inputs': object;
+}
+/**
+ * 
+ */
+export interface FunctionRequest {
+    /**
+     * The function name
+     */
+    'name'?: string;
+    /**
+     * The API name of the function
+     */
+    'api_name'?: string;
+    /**
+     * The function description
+     */
+    'description'?: string;
+    /**
+     * The current draft of code for the function
+     */
+    'code_draft'?: string;
+    /**
+     * The dependencies of the function
+     */
+    'dependencies'?: object;
+}
 export interface GetBusinessPartnerGroups200Response {
     '__meta'?: MetaResponseMeta;
     /**
@@ -2236,7 +1992,7 @@ export interface GetBusinessPartnerGroups200Response {
     /**
      * Type of business partner group
      */
-    'domain'?: GetBusinessPartnerGroups200ResponseDomainEnum;
+    'domain'?: BusinessPartnerGroupDomain;
     /**
      * Id of Optional default business partner worker to whom all employees will be mapped if not explicitly mapped to a business partner in the group.
      */
@@ -2247,15 +2003,6 @@ export interface GetBusinessPartnerGroups200Response {
     'default_business_partner'?: Worker;
 }
 
-export const GetBusinessPartnerGroups200ResponseDomainEnum = {
-    Hr: 'HR',
-    It: 'IT',
-    Finance: 'FINANCE',
-    Recruiting: 'RECRUITING',
-    Other: 'OTHER'
-} as const;
-
-export type GetBusinessPartnerGroups200ResponseDomainEnum = typeof GetBusinessPartnerGroups200ResponseDomainEnum[keyof typeof GetBusinessPartnerGroups200ResponseDomainEnum];
 
 export interface GetBusinessPartners200Response {
     '__meta'?: MetaResponseMeta;
@@ -2299,6 +2046,229 @@ export interface GetBusinessPartners200Response {
      * Number of workers associated with the business partner
      */
     'client_group_member_count'?: number;
+}
+export interface GetCompensationBandsDetails200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * Internal job code
+     */
+    'internal_job_code'?: string;
+    /**
+     * ID of the worker associated with compensation bands
+     */
+    'worker_id'?: string;
+    /**
+     * The worker associated with compensation bands  Expandable field
+     */
+    'worker'?: Worker;
+}
+export interface GetCompensations200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The worker\'s ID.
+     */
+    'worker_id'?: string;
+    /**
+     * The worker\'s details.  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * The worker\'s annual compensation. This calculation assumes 40-hour work weeks for workers with an hourly wage.
+     */
+    'annual_compensation'?: Currency;
+    /**
+     * The worker\'s annual salary equivalent, for insurance purposes. It will be equal to the worker\'s annual compensation, except for owners that are receiving no cashcompensation.
+     */
+    'annual_salary_equivalent'?: Currency;
+    /**
+     * The worker\'s hourly wage. This calculation assumes 40-hour work weeks for workers with fixed compensation.
+     */
+    'hourly_wage'?: Currency;
+    /**
+     * The worker\'s monthly compensation. This calculation assumes 40-hour work weeks for workers with an hourly wage.
+     */
+    'monthly_compensation'?: Currency;
+    /**
+     * The worker\'s on-target commission.
+     */
+    'on_target_commission'?: Currency;
+    /**
+     * The worker\'s hourly wage. This calculation assumes 40-hour work weeks for workers with fixed compensation.
+     */
+    'relocation_reimbursement'?: Currency;
+    /**
+     * The worker\'s signing bonus.
+     */
+    'signing_bonus'?: Currency;
+    /**
+     * The worker\'s target annual bonus amount.
+     */
+    'target_annual_bonus'?: Currency;
+    /**
+     * The worker\'s weekly compensation. This calculation assumes 40-hour work weeks for workers with an hourly wage.
+     */
+    'weekly_compensation'?: Currency;
+    /**
+     * The worker\'s target annual bonus as a percent of annual compensation.
+     */
+    'target_annual_bonus_percent'?: number;
+    /**
+     * The worker\'s bonus schedule.
+     */
+    'bonus_schedule'?: string;
+    /**
+     * The payment type for an worker\'s compensation.
+     */
+    'payment_type'?: string;
+    /**
+     * The payment terms for an worker\'s compensation.
+     */
+    'payment_terms'?: string;
+    /**
+     * Salary effective date
+     */
+    'salary_effective_date'?: string;
+}
+export interface GetCustomApps200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id'?: string;
+    /**
+     * The display name of the custom app
+     */
+    'name': string;
+    /**
+     * The unique api name of the custom app
+     */
+    'api_name': string;
+    /**
+     * The description of the custom app
+     */
+    'description'?: string;
+    /**
+     * The icon URL of the custom app
+     */
+    'icon'?: string;
+    /**
+     * The pages of the custom app
+     */
+    'pages'?: Array<PageSummary>;
+    /**
+     * Record creation date
+     */
+    'created_at'?: string;
+    /**
+     * Record update date
+     */
+    'updated_at'?: string;
+}
+export interface GetCustomPages200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id'?: string;
+    /**
+     * The display name of the custom page
+     */
+    'name'?: string;
+    /**
+     * The canvas component tree
+     */
+    'components'?: Array<{ [key: string]: object; }>;
+    /**
+     * Canvas actions
+     */
+    'actions'?: Array<{ [key: string]: object; }>;
+    /**
+     * Canvas actions (v2)
+     */
+    'canvas_actions'?: Array<{ [key: string]: object; }>;
+    /**
+     * Canvas variables
+     */
+    'variables'?: Array<{ [key: string]: object; }>;
+    /**
+     * Media assets
+     */
+    'media'?: object;
+    /**
+     * Record creation date
+     */
+    'created_at'?: string;
+    /**
+     * Record update date
+     */
+    'updated_at'?: string;
+}
+export interface GetCustomSettings200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The display name of setting
+     */
+    'display_name'?: string;
+    /**
+     * The unique api name of the setting
+     */
+    'api_name'?: string;
+    /**
+     * Data type of the setting
+     */
+    'data_type'?: string;
+    /**
+     * Secret value of the setting, if it has secret data type
+     */
+    'secret_value'?: string;
+    /**
+     * String value of the setting, if it has string data type
+     */
+    'string_value'?: string;
+    /**
+     * Number value of the setting, if it has number data type
+     */
+    'number_value'?: number;
+    /**
+     * Boolean value of the setting, if it has boolean data type
+     */
+    'boolean_value'?: boolean;
 }
 export interface GetDepartments200Response {
     '__meta'?: MetaResponseMeta;
@@ -2395,6 +2365,366 @@ export const GetEmploymentTypes200ResponseAmountWorkedEnum = {
 
 export type GetEmploymentTypes200ResponseAmountWorkedEnum = typeof GetEmploymentTypes200ResponseAmountWorkedEnum[keyof typeof GetEmploymentTypes200ResponseAmountWorkedEnum];
 
+export interface GetHeadcountPositions200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * Position name for the headcount, for ex PID100037
+     */
+    'position_id'?: string;
+    /**
+     * Type of headcount position. `OPEN_HEADCOUNT` A headcount position that\'s not yet filled. `FUTURE_START` Headcount where a candidate is going through the hiring process, or an offer has been accepted, but the person has not yet started. `ACTIVE` Headcount where a candidate has been hired and started. `CLOSED` Headcount that\'s no longer available to fill.
+     */
+    'position_type'?: GetHeadcountPositions200ResponsePositionTypeEnum;
+    /**
+     * More granular classification of headcount position type. `NEW` New headcount created, typically paired with the OPEN_HEADCOUNT type. `BACKFILL` Replacement headcount for someone who left the company. `FORECASTED_ATTRITION` Headcount that does not count toward the budget, also known as provisional position in the application,  `HIRING_STAGE` Person is going through the hiring process, paired with the FUTURE_START type. `OFFER_STAGE` Offer has been extended to a candidate, awaiting their decision. Paired with the FUTURE_START type. `OFFER_ACCEPTED` Candidate has accepted the offer but has not yet started. Paired with the FUTURE_START type. `PLAN_CHANGE` Headcount status changed due to business decision. Paired with CLOSED type. `TERMINATED` Role was filled, but the employee was separated from the company. Paired with CLOSED type. `TRANSFERRED` Employee moved internally to another role. Paired with CLOSED type.
+     */
+    'position_sub_type'?: GetHeadcountPositions200ResponsePositionSubTypeEnum;
+    /**
+     * ID for the department the headcount belongs to
+     */
+    'department_id'?: string;
+    /**
+     * Department the headcount belongs to  Expandable field
+     */
+    'department'?: Department;
+    /**
+     * ID for the work location the headcount is assigned to
+     */
+    'work_location_id'?: string;
+    /**
+     * Work location the headcount is assigned to  Expandable field
+     */
+    'work_location'?: WorkLocation;
+    /**
+     * ID for the level the headcount is assigned to
+     */
+    'level_id'?: string;
+    /**
+     * Level the headcount is assigned to  Expandable field
+     */
+    'level'?: Level;
+    /**
+     * IDs for the teams the headcount belongs to
+     */
+    'teams_id'?: Array<string>;
+    /**
+     * Teams the headcount belongs to  Expandable field
+     */
+    'teams'?: Array<Team>;
+    /**
+     * ID for the job requisition the headcount is associated with
+     */
+    'job_requisition_id'?: string;
+    /**
+     * Job requisition the headcount is associated with  Expandable field
+     */
+    'job_requisition'?: JobRequisition;
+    /**
+     * ID for the recruiter working on filling the position
+     */
+    'recruiter_id'?: string;
+    /**
+     * Recruiter working on filling the position  Expandable field
+     */
+    'recruiter'?: Worker;
+    /**
+     * ID for the headcount owner
+     */
+    'headcount_owner_id'?: string;
+    /**
+     * Owner of the headcount  Expandable field
+     */
+    'headcount_owner'?: Worker;
+    /**
+     * Headcount notes
+     */
+    'notes'?: string;
+    /**
+     * ID for the worker hired into the headcount
+     */
+    'worker_id'?: string;
+    /**
+     * Worker hired into the headcount  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * ID of the worker for whom this headcount position was requested as a backfill
+     */
+    'backfill_for_id'?: string;
+    /**
+     * Worker for whom this headcount position was requested as a backfill  Expandable field
+     */
+    'backfill_for'?: Worker;
+    /**
+     * Job title for the position. For a vacant headcount position, this can be defined on creation. Once the position is occupied, it’s synched from the associated worker’s job title.
+     */
+    'title'?: string;
+    /**
+     * ID for the employment type the headcount is assigned to
+     */
+    'employment_type_id'?: string;
+    /**
+     * Employment type the headcount is assigned to  Expandable field
+     */
+    'employment_type'?: CompanyEmploymentType;
+    /**
+     * Whether the headcount position is in budget
+     */
+    'in_budget'?: boolean;
+    /**
+     * The estimated start date when the position was first created
+     */
+    'target_start_date'?: string;
+    /**
+     * Most recent start date estimate or the actual hire date if already filled
+     */
+    'current_start_date'?: string;
+    /**
+     * Targeted end date for the headcount
+     */
+    'end_date'?: string;
+    /**
+     * ID for the headcount priority
+     */
+    'priority_id'?: string;
+    /**
+     * Priority assigned to this headcount  Expandable field
+     */
+    'priority'?: HeadcountPriority;
+    /**
+     * ID for the job function the headcount is assigned to
+     */
+    'job_function_id'?: string;
+    /**
+     * Job function assigned to this headcount  Expandable field
+     */
+    'job_function'?: JobFunction;
+    /**
+     * ID for the location factor the headcount is assigned to
+     */
+    'location_factor_id'?: string;
+    /**
+     * Location factor assigned to this headcount  Expandable field
+     */
+    'location_factor'?: LocationFactor;
+    /**
+     * Compensation data synched from worker compensation
+     */
+    'actual_compensation'?: HeadcountCompensationData;
+    /**
+     * Compensation data defined through comp band
+     */
+    'comp_band_compensation'?: HeadcountCompensationData;
+}
+
+export const GetHeadcountPositions200ResponsePositionTypeEnum = {
+    OpenHeadcount: 'OPEN_HEADCOUNT',
+    FutureStart: 'FUTURE_START',
+    Active: 'ACTIVE',
+    Closed: 'CLOSED'
+} as const;
+
+export type GetHeadcountPositions200ResponsePositionTypeEnum = typeof GetHeadcountPositions200ResponsePositionTypeEnum[keyof typeof GetHeadcountPositions200ResponsePositionTypeEnum];
+export const GetHeadcountPositions200ResponsePositionSubTypeEnum = {
+    New: 'NEW',
+    Backfill: 'BACKFILL',
+    ForecastedAttrition: 'FORECASTED_ATTRITION',
+    HiringStage: 'HIRING_STAGE',
+    OfferStage: 'OFFER_STAGE',
+    OfferAccepted: 'OFFER_ACCEPTED',
+    PlanChange: 'PLAN_CHANGE',
+    Terminated: 'TERMINATED',
+    Transferred: 'TRANSFERRED'
+} as const;
+
+export type GetHeadcountPositions200ResponsePositionSubTypeEnum = typeof GetHeadcountPositions200ResponsePositionSubTypeEnum[keyof typeof GetHeadcountPositions200ResponsePositionSubTypeEnum];
+
+export interface GetHeadcountPriorities200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * Display name of the headcount priority
+     */
+    'name'?: string;
+}
+export interface GetJobAssignments200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * Identifier of worker to whom job is assigned.
+     */
+    'worker_id': string;
+    /**
+     * Worker to whom job is assigned.  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * Base compensation rate of worker
+     */
+    'base_pay_rate'?: number;
+    /**
+     * Identifier of job that is assigned to worker
+     */
+    'job_code_id': string;
+    /**
+     * Job that is assigned to worker  Expandable field
+     */
+    'job_code'?: JobCode;
+    /**
+     * The pay rate for job assigned to worker. This can be different from the job\'s standard pay rate and can be overriden for a worker.
+     */
+    'job_pay_rate'?: number;
+    /**
+     * Identifier of pay rate exceptions applicable for the worker based on certain exception dimension values.
+     */
+    'job_pay_rate_exceptions_id'?: Array<string>;
+    /**
+     * Pay rate exceptions applicable for the worker based on certain exception dimension values.  Expandable field
+     */
+    'job_pay_rate_exceptions'?: Array<JobPayRateException>;
+}
+export interface GetJobCodes200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The name of the job dimension.
+     */
+    'name': string;
+    /**
+     * The ID of the job dimension this job code belongs to.
+     */
+    'job_dimension_id': string;
+    /**
+     * The job dimension this job code belongs to.  Expandable field
+     */
+    'job_dimension'?: JobDimension;
+    /**
+     * The unique identifier of the job code in an outside system.
+     */
+    'external_id'?: string;
+    /**
+     * The ID of the job roster group.
+     */
+    'group_id'?: string;
+    /**
+     * The custom location of the job code. This location will be used for tax calculation purposes if using US Payroll when an employee is working at this job code.
+     */
+    'custom_location'?: CustomLocation;
+    /**
+     * The work location associated with the job code.
+     */
+    'work_location_id'?: string;
+    /**
+     * The work location associated with the job code.  Expandable field
+     */
+    'work_location'?: WorkLocation;
+    /**
+     * The department associated with the job code.
+     */
+    'department_id'?: string;
+    /**
+     * The department associated with the job code.  Expandable field
+     */
+    'department'?: Department;
+    /**
+     * The pay rate for this job code. Only applicable if the associated job dimension includes the \'PAY_RATE\' organizational attribute.
+     */
+    'pay_rate'?: number;
+    /**
+     * Pay rate overrides id for the job based on exception dimension values.
+     */
+    'pay_rate_exceptions_id'?: Array<string>;
+    /**
+     * Pay rate overrides for the job based on exception dimension values.  Expandable field
+     */
+    'pay_rate_exceptions'?: Array<JobPayRateException>;
+}
+export interface GetJobDimensions200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The name of the job dimension
+     */
+    'name': string;
+    /**
+     * The unique identifier of the job dimension in a third party system
+     */
+    'external_id'?: string;
+    /**
+     * Whether the job dimension includes codes related to a custom location. Only one dimension can have this set to true.
+     */
+    'includes_custom_location'?: boolean;
+    /**
+     * The roster type of the dimension. PER_DIMENSION means that there is a group on the dimension level and employees within that group have access to all job codes in the dimension. PER_JOB_CODE means that each job code has its own group.
+     */
+    'roster_type'?: JobDimensionRosterType;
+    /**
+     * The ID of the dimension roster group.
+     */
+    'group_id'?: string;
+    /**
+     * Organizational attributes associated with the job dimension. Only \'PAY_RATE\' can be set or modified using POST or PATCH requests.
+     */
+    'org_attribute_associations'?: Array<JobDimensionOrgAttribute>;
+}
+
+
 export interface GetJobFunctions200Response {
     '__meta'?: MetaResponseMeta;
     /**
@@ -2413,6 +2743,87 @@ export interface GetJobFunctions200Response {
      * Displayed name of the job function
      */
     'name'?: string;
+}
+export interface GetJobPayRateExceptions200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * Identifier of Job for which exception is configured.
+     */
+    'job_code_id': string;
+    /**
+     * Job for which exception is configured.  Expandable field
+     */
+    'job_code'?: JobCode;
+    /**
+     * Type of dimension on which exception is configured
+     */
+    'exception_dimension_type'?: GetJobPayRateExceptions200ResponseExceptionDimensionTypeEnum;
+    /**
+     * Identifier of dimension object on which exception is configured. This objects details can be queried from exception_dimension_type\'s resource
+     */
+    'exception_dimension_id': string;
+    /**
+     * The pay rate for exception on job_code_id and exception_dimension_id combination
+     */
+    'pay_rate': number;
+}
+
+export const GetJobPayRateExceptions200ResponseExceptionDimensionTypeEnum = {
+    JobCode: 'JOB_CODE',
+    Level: 'LEVEL',
+    Team: 'TEAM',
+    Department: 'DEPARTMENT',
+    WorkLocation: 'WORK_LOCATION'
+} as const;
+
+export type GetJobPayRateExceptions200ResponseExceptionDimensionTypeEnum = typeof GetJobPayRateExceptions200ResponseExceptionDimensionTypeEnum[keyof typeof GetJobPayRateExceptions200ResponseExceptionDimensionTypeEnum];
+
+export interface GetKioskBadges200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The ID associated with the badge. Not to be confused with the record\'s ID.
+     */
+    'badge_id': string;
+    /**
+     * The worker associated with the badge.  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * The ID of the worker associated with the badge.
+     */
+    'worker_id'?: string;
+    /**
+     * The employee number of the worker associated with the badge.
+     */
+    'worker_number'?: number;
+    /**
+     * Whether this badge can be used with the Kiosk app.
+     */
+    'is_enabled'?: boolean;
 }
 export interface GetLeaveAccruals200Response {
     '__meta'?: MetaResponseMeta;
@@ -2449,6 +2860,10 @@ export interface GetLeaveAccruals200Response {
      */
     'leave_type_id': string;
     /**
+     * The type of accrual
+     */
+    'accrual_type'?: LeaveAccrualType;
+    /**
      * The date when this accrual becomes effective
      */
     'accrual_date': string;
@@ -2472,6 +2887,516 @@ export interface GetLeaveAccruals200Response {
      * The comment for this accrual. This is required if the leave policy requires a comment on accruals.
      */
     'comment'?: string;
+}
+
+
+export interface GetLeaveBalances200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The ID of the worker associated with the leave balance.
+     */
+    'worker_id': string;
+    /**
+     * The worker associated with the leave balance.  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * The ID of the leave type associated with the leave balance.
+     */
+    'leave_type_id'?: string;
+    /**
+     * The leave type associated with the leave balance.  Expandable field
+     */
+    'leave_type'?: LeaveType;
+    /**
+     * Indicates if the leave balance is unlimited.
+     */
+    'is_balance_unlimited'?: boolean;
+    /**
+     * The worker\'s leave balance including future leave requests. If the leave balance is unlimited, this field will be null.
+     */
+    'balance_including_future_requests'?: number;
+    /**
+     * The worker\'s leave balance excluding future leave requests. If the leave balance is unlimited, this field will be null.
+     */
+    'balance_excluding_future_requests'?: number;
+}
+export interface GetLeaveRequests200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The ID of the worker associated with the leave request.
+     */
+    'worker_id': string;
+    /**
+     * The worker associated with the leave request.  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * The ID of the worker who requested the leave request.
+     */
+    'requester_id'?: string;
+    /**
+     * The worker who requested the leave request.  Expandable field
+     */
+    'requester'?: Worker;
+    /**
+     * The status of the leave request.
+     */
+    'status': LeaveRequestStatus;
+    /**
+     * The start date of the leave request.
+     */
+    'start_date': string;
+    /**
+     * The start time of the leave request.
+     */
+    'start_time'?: string;
+    /**
+     * The end date of the leave request.
+     */
+    'end_date': string;
+    /**
+     * The end time of the leave request.
+     */
+    'end_time'?: string;
+    /**
+     * The comments associated with the leave request.
+     */
+    'comments'?: string;
+    /**
+     * The number of minutes requested for the leave request.
+     */
+    'number_of_minutes_requested'?: number;
+    /**
+     * The ID of the leave policy associated with the leave request, either leave_policy_id or leave_type_id must be provided.
+     */
+    'leave_policy_id'?: string;
+    /**
+     * The ID of the leave type associated with the leave request, either leave_policy_id or leave_type_id must be provided.
+     */
+    'leave_type_id'?: string;
+    /**
+     * The ID of the leave event associated with the leave request, if any.
+     */
+    'leave_event_id'?: string;
+    /**
+     * The leave type associated with the leave request.  Expandable field
+     */
+    'leave_type'?: LeaveType;
+    /**
+     * The reason for the leave request.
+     */
+    'reason_for_leave'?: string;
+    /**
+     * The ID of the worker who reviewed the leave request.
+     */
+    'reviewer_id'?: string;
+    /**
+     * The worker who reviewed the leave request.  Expandable field
+     */
+    'reviewer'?: Worker;
+    /**
+     * The timestamp of when the leave request was reviewed.
+     */
+    'reviewed_at'?: string;
+    /**
+     * The specific dates taken off and the amount of time taken off for each one.
+     */
+    'days_take_off'?: Array<DayOff>;
+    /**
+     * Whether the leave request is managed by an external system.
+     */
+    'is_managed_by_external_system'?: boolean;
+}
+
+
+export interface GetLeaveTypes200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The type of leave.
+     */
+    'type': string;
+    /**
+     * The name of the leave type.
+     */
+    'name': string;
+    /**
+     * The description of the leave type.
+     */
+    'description'?: string;
+    /**
+     * Whether the leave is paid.
+     */
+    'is_paid': boolean;
+    /**
+     * Whether the leave is managed by an external system.
+     */
+    'is_managed_by_external_system': boolean;
+}
+export interface GetLegalEntities200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The tax identifier for the legal entity.
+     */
+    'tax_identifier'?: string;
+    /**
+     * The country the legal entity is based in.
+     */
+    'country'?: Country;
+    /**
+     * The legal name of the legal entity.
+     */
+    'legal_name'?: string;
+    /**
+     * The legal entity\'s level in a hierarchy. * `PARENT`: The legal entity is considered the ultimate holding entity. * `SUBSIDIARY`: The legal entity is considered a subsidiary, fully or partially held by another. * `BRANCH`: The legal entity is considered a branch, associated with a parent legal entity.
+     */
+    'entity_level'?: GetLegalEntities200ResponseEntityLevelEnum;
+    /**
+     * The registration date of the entity.
+     */
+    'registration_date'?: string;
+    /**
+     * The mailing address of the legal entity.
+     */
+    'mailing_address'?: Address;
+    /**
+     * The physical address of the legal entity, if it differs from the mailing address.
+     */
+    'physical_address'?: Address;
+    /**
+     * The parent legal entity.
+     */
+    'parent_id'?: string;
+    /**
+     * The parent legal entity.  Expandable field
+     */
+    'parent'?: LegalEntity;
+    /**
+     * The legal entity management type in the case of an employer of record (EOR) or professional employment organization (PEO). * `PEO`: The legal entity is considered a Professional Employment Organization (PEO). * `EOR`: The legal entity is considered an Employer of Record (EOR).
+     */
+    'management_type'?: GetLegalEntities200ResponseManagementTypeEnum;
+    /**
+     * The company or organization associated with the legal entity
+     */
+    'company_id'?: string;
+    /**
+     * The company or organization associated with the legal entity  Expandable field
+     */
+    'company'?: Company;
+}
+
+export const GetLegalEntities200ResponseEntityLevelEnum = {
+    Parent: 'PARENT',
+    Subsidiary: 'SUBSIDIARY',
+    Branch: 'BRANCH'
+} as const;
+
+export type GetLegalEntities200ResponseEntityLevelEnum = typeof GetLegalEntities200ResponseEntityLevelEnum[keyof typeof GetLegalEntities200ResponseEntityLevelEnum];
+export const GetLegalEntities200ResponseManagementTypeEnum = {
+    Peo: 'PEO',
+    Eor: 'EOR'
+} as const;
+
+export type GetLegalEntities200ResponseManagementTypeEnum = typeof GetLegalEntities200ResponseManagementTypeEnum[keyof typeof GetLegalEntities200ResponseManagementTypeEnum];
+
+export interface GetLevels200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The name of the level. Must be unique within the company or organization.
+     */
+    'name': string;
+    /**
+     * The parent level.
+     */
+    'parent_id'?: string;
+    /**
+     * The parent level.  Expandable field
+     */
+    'parent'?: Level;
+    /**
+     * Global level is used to track the seniority of levels. The higher up a level is placed on the page, the more senior and higher-ranked the level. Global level is used in workflows, policies, and reports that use the level attribute (e.g., you can use Level Lookup to set up a workflow that notifies the nearest person in an worker\'s management chain at or above the specified level).
+     */
+    'global_level'?: number;
+    /**
+     * The description of the level.
+     */
+    'description'?: string;
+    /**
+     * The rank of the level within its track.
+     */
+    'rank'?: number;
+    /**
+     * The track associated with the level, if it\'s not a global level.
+     */
+    'track_id'?: string;
+    /**
+     * The track associated with the level, if it\'s not a global level.  Expandable field
+     */
+    'track'?: Track;
+}
+export interface GetLocationFactors200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The labor market category (e.g., \"Engineering\", \"Marketing\", \"Sales\")
+     */
+    'labour_bucket'?: string;
+    /**
+     * Human-readable name for the location factor
+     */
+    'display_name'?: string;
+    /**
+     * Compensation adjustment percentage
+     */
+    'adjustment_factor'?: number;
+    /**
+     * Country information set to the country code
+     */
+    'country'?: Country;
+}
+export interface GetReportRuns200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * The ID of this run
+     */
+    'id': string;
+    /**
+     * The ID of the report associated with this run
+     */
+    'report_id': string;
+    /**
+     * Report run status
+     */
+    'status': GetReportRuns200ResponseStatusEnum;
+    /**
+     * Report data, available once the run is complete
+     */
+    'result'?: ReportData;
+}
+
+export const GetReportRuns200ResponseStatusEnum = {
+    InProgress: 'IN_PROGRESS',
+    Success: 'SUCCESS',
+    Failure: 'FAILURE'
+} as const;
+
+export type GetReportRuns200ResponseStatusEnum = typeof GetReportRuns200ResponseStatusEnum[keyof typeof GetReportRuns200ResponseStatusEnum];
+
+export interface GetSchedules200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The name of the schedule.
+     */
+    'name'?: string;
+    /**
+     * The IDs of the managers of the schedule.
+     */
+    'managers_id'?: Array<string>;
+    /**
+     * The IDs of the observers of the schedule.
+     */
+    'observers_id'?: Array<string>;
+    /**
+     * The IDs of the members of the schedule.
+     */
+    'members_id'?: Array<string>;
+    /**
+     * The managers of the schedule.  Expandable field
+     */
+    'managers'?: Array<Worker>;
+    /**
+     * The observers of the schedule.  Expandable field
+     */
+    'observers'?: Array<Worker>;
+    /**
+     * The members of the schedule.  Expandable field
+     */
+    'members'?: Array<Worker>;
+    /**
+     * Whether the requesting role can edit the schedule.
+     */
+    'can_edit'?: boolean;
+    /**
+     * The settings of the schedule.
+     */
+    'settings'?: ScheduleSettings;
+}
+export interface GetShiftInputs200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The creator id associated with the shift input.
+     */
+    'creator_id'?: string;
+    /**
+     * The creator associated with the shift input.  Expandable field
+     */
+    'creator'?: Worker;
+    /**
+     * Name of the shift unit.
+     */
+    'name': string;
+    /**
+     * Prompt for the shift unit.
+     */
+    'prompt': string;
+    /**
+     * Type of shift unit.
+     */
+    'type': string;
+    /**
+     * Two letter string designating country code which the shift input is associated.
+     */
+    'country_code': string;
+    /**
+     * The party that manages this shift input
+     */
+    'managed_by'?: string;
+}
+export interface GetShiftassignments200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The ID of the worker. Empty string \'\' to unassign if shift is from an open/empty shift.
+     */
+    'worker_id': string;
+    /**
+     * The worker  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * The ID of the schedule
+     */
+    'schedule_id': string;
+    /**
+     * The schedule  Expandable field
+     */
+    'schedule'?: Schedule;
+    /**
+     * The data of the shift
+     */
+    'shift_data': ShiftData;
+    /**
+     * Whether the shift assignment can be edited
+     */
+    'can_edit'?: boolean;
+    /**
+     * Whether the shift assignment is published. If true, the published_version will be the same as the shift_data
+     */
+    'is_published': boolean;
+    /**
+     * The published version of the shift assignment, if it exists. If filled but is_published is false, the shift_data is the latest version.
+     */
+    'published_version'?: ShiftData;
+    /**
+     * Custom fields for the shift assignment
+     */
+    'custom_fields'?: Array<{ [key: string]: object; }>;
 }
 export interface GetSupergroups200Response {
     '__meta'?: MetaResponseMeta;
@@ -2578,6 +3503,223 @@ export interface GetTeams200Response {
      * The name of the team.
      */
     'name': string;
+}
+export interface GetTimeCards200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The ID of the worker associated with the time card.
+     */
+    'worker_id': string;
+    /**
+     * The worker associated with the time card.  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * The pay period associated with the time card.
+     */
+    'pay_period'?: PayPeriod;
+    /**
+     * The summary of the time card.
+     */
+    'summary'?: TimeCardSummary;
+}
+export interface GetTimeEntries200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The ID of the worker associated with the time entry.
+     */
+    'worker_id': string;
+    /**
+     * The worker associated with the time entry.  Expandable field
+     */
+    'worker'?: Worker;
+    /**
+     * The start time of the time entry.
+     */
+    'start_time'?: string;
+    /**
+     * The end time of the time entry.
+     */
+    'end_time'?: string;
+    /**
+     * The comments associated with the time entry.
+     */
+    'comments'?: Array<TimeEntryComment>;
+    /**
+     * The job shifts worked during the time entry.
+     */
+    'job_shifts'?: Array<JobShift>;
+    /**
+     * The breaks taken during the time entry.
+     */
+    'breaks'?: Array<Break>;
+    /**
+     * The premiums earned during the time entry.
+     */
+    'premiums'?: Array<Premiums>;
+    /**
+     * The piece-rate premiums earned during the time entry.
+     */
+    'piece_rate_premiums'?: Array<PieceRatePremiums>;
+    /**
+     * The pay rates for each segment of the time entry.
+     */
+    'segments'?: Array<Segments>;
+    /**
+     * A summary of the time entry.
+     */
+    'time_entry_summary'?: TimeEntrySummary;
+    /**
+     * The ID of the time card associated with the time entry.
+     */
+    'time_card_id'?: string;
+    /**
+     * The time card associated with the time entry.  Expandable field
+     */
+    'time_card'?: TimeCard;
+    /**
+     * The tags associated with the time entry.
+     */
+    'tags'?: Array<string>;
+    /**
+     * The unique key of the time entry in an outside system. If set, no other time entry with the same key can be created.
+     */
+    'idempotency_key'?: string;
+    /**
+     * Whether the time entry should create an extra hours run.
+     */
+    'create_extra_hours_run'?: boolean;
+    /**
+     * The status of the time entry.
+     */
+    'status'?: TimeEntryStatus;
+    /**
+     * The pay period associated with the time card.
+     */
+    'pay_period'?: PayPeriod;
+    /**
+     * Arbitrary shift inputs collected on the time entry
+     */
+    'shift_input_values'?: Array<ShiftInputValue>;
+}
+
+
+export interface GetTitles200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The name of the title.
+     */
+    'name': string;
+}
+export interface GetTracks200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The name of the track. Must be unique within the company or organization.
+     */
+    'name': string;
+}
+export interface GetUnassignedshifts200Response {
+    '__meta'?: MetaResponseMeta;
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The ID of the schedule
+     */
+    'schedule_id': string;
+    /**
+     * The schedule  Expandable field
+     */
+    'schedule'?: Schedule;
+    /**
+     * The data of the shift
+     */
+    'shift_data': ShiftData;
+    /**
+     * The number of assigned shifts
+     */
+    'assigned_count'?: number;
+    /**
+     * The target count of the shift
+     */
+    'target_count': number;
+    /**
+     * Whether the shift is published
+     */
+    'is_published': boolean;
+    /**
+     * The published version of the shift
+     */
+    'published_version'?: ShiftData;
+    /**
+     * Configuration for an open shift. If present, this is an open shift (workers can sign up). If absent/None, this is an empty shift (placeholder).
+     */
+    'open_shift_config'?: object;
+    /**
+     * The IDs of the assigned shifts that are part of this unassigned shift
+     */
+    'assigned_shift_ids'?: Array<string>;
+    /**
+     * Custom fields for the unassigned shift
+     */
+    'custom_fields'?: Array<{ [key: string]: object; }>;
 }
 export interface GetUsers200Response {
     '__meta'?: MetaResponseMeta;
@@ -2710,7 +3852,7 @@ export interface GetWorkers200Response {
     /**
      * The worker\'s country.
      */
-    'country'?: GetWorkers200ResponseCountryEnum;
+    'country'?: CountryCode;
     /**
      * The start date of the worker.
      */
@@ -2766,7 +3908,7 @@ export interface GetWorkers200Response {
     /**
      * The countries that the worker has citizenship in.
      */
-    'citizenship'?: GetWorkers200ResponseCitizenshipEnum;
+    'citizenship'?: CountryCode;
     /**
      * The compensation package for the worker.
      */
@@ -2816,7 +3958,7 @@ export interface GetWorkers200Response {
      */
     'termination_details'?: TerminationDetails;
     /**
-     * Custom fields for the worker  Expandable field
+     * Custom field values defined on the Employee object for this worker  Expandable field
      */
     'custom_fields'?: Array<{ [key: string]: object; }>;
     /**
@@ -2824,267 +3966,15 @@ export interface GetWorkers200Response {
      */
     'country_fields'?: CountryFields;
     /**
-     * Worker\'s assigned business partners unique identifiers
+     * Worker\'s assigned business partners unique identifiers. Returns an empty list ([]) if the worker has no business partners.
      */
     'business_partners_id'?: Array<string>;
     /**
-     * Worker\'s assigned business partners  Expandable field
+     * Worker\'s assigned business partners. This field is only populated when explicitly requested via the expand parameter (e.g., ?expand=business_partners). When expanded, returns an empty list ([]) if the worker has no business partners.  Expandable field
      */
     'business_partners'?: Array<BusinessPartner>;
 }
 
-export const GetWorkers200ResponseCountryEnum = {
-    Af: 'AF',
-    Ax: 'AX',
-    Al: 'AL',
-    Dz: 'DZ',
-    As: 'AS',
-    Ad: 'AD',
-    Ao: 'AO',
-    Ai: 'AI',
-    Aq: 'AQ',
-    Ag: 'AG',
-    Ar: 'AR',
-    Am: 'AM',
-    Aw: 'AW',
-    Au: 'AU',
-    At: 'AT',
-    Az: 'AZ',
-    Bs: 'BS',
-    Bh: 'BH',
-    Bd: 'BD',
-    Bb: 'BB',
-    By: 'BY',
-    Be: 'BE',
-    Bz: 'BZ',
-    Bj: 'BJ',
-    Bm: 'BM',
-    Bt: 'BT',
-    Bo: 'BO',
-    Bq: 'BQ',
-    Ba: 'BA',
-    Bw: 'BW',
-    Bv: 'BV',
-    Br: 'BR',
-    Io: 'IO',
-    Bn: 'BN',
-    Bg: 'BG',
-    Bf: 'BF',
-    Bi: 'BI',
-    Cv: 'CV',
-    Kh: 'KH',
-    Cm: 'CM',
-    Ca: 'CA',
-    Ky: 'KY',
-    Cf: 'CF',
-    Td: 'TD',
-    Cl: 'CL',
-    Cn: 'CN',
-    Cx: 'CX',
-    Cc: 'CC',
-    Co: 'CO',
-    Km: 'KM',
-    Cg: 'CG',
-    Cd: 'CD',
-    Ck: 'CK',
-    Cr: 'CR',
-    Ci: 'CI',
-    Hr: 'HR',
-    Cw: 'CW',
-    Cy: 'CY',
-    Cz: 'CZ',
-    Dk: 'DK',
-    Dj: 'DJ',
-    Dm: 'DM',
-    Do: 'DO',
-    Ec: 'EC',
-    Eg: 'EG',
-    Sv: 'SV',
-    Gq: 'GQ',
-    Er: 'ER',
-    Ee: 'EE',
-    Sz: 'SZ',
-    Et: 'ET',
-    Fk: 'FK',
-    Fo: 'FO',
-    Fj: 'FJ',
-    Fi: 'FI',
-    Fr: 'FR',
-    Gf: 'GF',
-    Pf: 'PF',
-    Tf: 'TF',
-    Ga: 'GA',
-    Gm: 'GM',
-    Ge: 'GE',
-    De: 'DE',
-    Gh: 'GH',
-    Gi: 'GI',
-    Gr: 'GR',
-    Gl: 'GL',
-    Gd: 'GD',
-    Gp: 'GP',
-    Gu: 'GU',
-    Gt: 'GT',
-    Gg: 'GG',
-    Gn: 'GN',
-    Gw: 'GW',
-    Gy: 'GY',
-    Ht: 'HT',
-    Hm: 'HM',
-    Va: 'VA',
-    Hn: 'HN',
-    Hk: 'HK',
-    Hu: 'HU',
-    Is: 'IS',
-    In: 'IN',
-    Id: 'ID',
-    Iq: 'IQ',
-    Ie: 'IE',
-    Im: 'IM',
-    Il: 'IL',
-    It: 'IT',
-    Jm: 'JM',
-    Jp: 'JP',
-    Je: 'JE',
-    Jo: 'JO',
-    Kz: 'KZ',
-    Ke: 'KE',
-    Ki: 'KI',
-    Kr: 'KR',
-    Xk: 'XK',
-    Kw: 'KW',
-    Kg: 'KG',
-    La: 'LA',
-    Lv: 'LV',
-    Lb: 'LB',
-    Ls: 'LS',
-    Lr: 'LR',
-    Ly: 'LY',
-    Li: 'LI',
-    Lt: 'LT',
-    Lu: 'LU',
-    Mo: 'MO',
-    Mg: 'MG',
-    Mw: 'MW',
-    My: 'MY',
-    Mv: 'MV',
-    Ml: 'ML',
-    Mt: 'MT',
-    Mh: 'MH',
-    Mq: 'MQ',
-    Mr: 'MR',
-    Mu: 'MU',
-    Yt: 'YT',
-    Mx: 'MX',
-    Fm: 'FM',
-    Md: 'MD',
-    Mc: 'MC',
-    Mn: 'MN',
-    Me: 'ME',
-    Ms: 'MS',
-    Ma: 'MA',
-    Mz: 'MZ',
-    Mm: 'MM',
-    Na: 'NA',
-    Nr: 'NR',
-    Np: 'NP',
-    Nl: 'NL',
-    An: 'AN',
-    Nc: 'NC',
-    Nz: 'NZ',
-    Ni: 'NI',
-    Ne: 'NE',
-    Ng: 'NG',
-    Nu: 'NU',
-    Nf: 'NF',
-    Mk: 'MK',
-    Mp: 'MP',
-    No: 'NO',
-    Om: 'OM',
-    Pk: 'PK',
-    Pw: 'PW',
-    Ps: 'PS',
-    Pa: 'PA',
-    Pg: 'PG',
-    Py: 'PY',
-    Pe: 'PE',
-    Ph: 'PH',
-    Pn: 'PN',
-    Pl: 'PL',
-    Pt: 'PT',
-    Pr: 'PR',
-    Qa: 'QA',
-    Ro: 'RO',
-    Ru: 'RU',
-    Rw: 'RW',
-    Re: 'RE',
-    Bl: 'BL',
-    Sh: 'SH',
-    Kn: 'KN',
-    Lc: 'LC',
-    Mf: 'MF',
-    Pm: 'PM',
-    Vc: 'VC',
-    Ws: 'WS',
-    Sm: 'SM',
-    St: 'ST',
-    Sa: 'SA',
-    Sn: 'SN',
-    Rs: 'RS',
-    Sc: 'SC',
-    Sl: 'SL',
-    Sg: 'SG',
-    Sx: 'SX',
-    Sy: 'SY',
-    Sk: 'SK',
-    Si: 'SI',
-    Sb: 'SB',
-    So: 'SO',
-    Za: 'ZA',
-    Gs: 'GS',
-    Ss: 'SS',
-    Es: 'ES',
-    Lk: 'LK',
-    Sd: 'SD',
-    Sr: 'SR',
-    Sj: 'SJ',
-    Se: 'SE',
-    Ch: 'CH',
-    Tw: 'TW',
-    Tj: 'TJ',
-    Tz: 'TZ',
-    Th: 'TH',
-    Tl: 'TL',
-    Tg: 'TG',
-    Tk: 'TK',
-    To: 'TO',
-    Tt: 'TT',
-    Tn: 'TN',
-    Tr: 'TR',
-    Tm: 'TM',
-    Tc: 'TC',
-    Tv: 'TV',
-    Ug: 'UG',
-    Ua: 'UA',
-    Ae: 'AE',
-    Gb: 'GB',
-    Us: 'US',
-    Um: 'UM',
-    Uy: 'UY',
-    Uz: 'UZ',
-    Vu: 'VU',
-    Ve: 'VE',
-    Vn: 'VN',
-    Vg: 'VG',
-    Vi: 'VI',
-    Wf: 'WF',
-    Eh: 'EH',
-    Ye: 'YE',
-    Zm: 'ZM',
-    Zw: 'ZW'
-} as const;
-
-export type GetWorkers200ResponseCountryEnum = typeof GetWorkers200ResponseCountryEnum[keyof typeof GetWorkers200ResponseCountryEnum];
 export const GetWorkers200ResponseStatusEnum = {
     Init: 'INIT',
     Hired: 'HIRED',
@@ -3112,6 +4002,7 @@ export const GetWorkers200ResponseRaceEnum = {
     Eurasian: 'EURASIAN',
     Indian: 'INDIAN',
     Indigenous: 'INDIGENOUS',
+    Malay: 'MALAY',
     White: 'WHITE',
     Yellow: 'YELLOW',
     NotInformed: 'NOT_INFORMED',
@@ -3127,6 +4018,7 @@ export const GetWorkers200ResponseEthnicityEnum = {
     Asian: 'ASIAN',
     AmericanIndianOrAlaskaNative: 'AMERICAN_INDIAN_OR_ALASKA_NATIVE',
     TwoOrMoreRaces: 'TWO_OR_MORE_RACES',
+    MiddleEasternOrNorthAfrican: 'MIDDLE_EASTERN_OR_NORTH_AFRICAN',
     DeclineToSelfIdentify: 'DECLINE_TO_SELF_IDENTIFY',
     African: 'AFRICAN',
     Coloured: 'COLOURED',
@@ -3136,258 +4028,6 @@ export const GetWorkers200ResponseEthnicityEnum = {
 } as const;
 
 export type GetWorkers200ResponseEthnicityEnum = typeof GetWorkers200ResponseEthnicityEnum[keyof typeof GetWorkers200ResponseEthnicityEnum];
-export const GetWorkers200ResponseCitizenshipEnum = {
-    Af: 'AF',
-    Ax: 'AX',
-    Al: 'AL',
-    Dz: 'DZ',
-    As: 'AS',
-    Ad: 'AD',
-    Ao: 'AO',
-    Ai: 'AI',
-    Aq: 'AQ',
-    Ag: 'AG',
-    Ar: 'AR',
-    Am: 'AM',
-    Aw: 'AW',
-    Au: 'AU',
-    At: 'AT',
-    Az: 'AZ',
-    Bs: 'BS',
-    Bh: 'BH',
-    Bd: 'BD',
-    Bb: 'BB',
-    By: 'BY',
-    Be: 'BE',
-    Bz: 'BZ',
-    Bj: 'BJ',
-    Bm: 'BM',
-    Bt: 'BT',
-    Bo: 'BO',
-    Bq: 'BQ',
-    Ba: 'BA',
-    Bw: 'BW',
-    Bv: 'BV',
-    Br: 'BR',
-    Io: 'IO',
-    Bn: 'BN',
-    Bg: 'BG',
-    Bf: 'BF',
-    Bi: 'BI',
-    Cv: 'CV',
-    Kh: 'KH',
-    Cm: 'CM',
-    Ca: 'CA',
-    Ky: 'KY',
-    Cf: 'CF',
-    Td: 'TD',
-    Cl: 'CL',
-    Cn: 'CN',
-    Cx: 'CX',
-    Cc: 'CC',
-    Co: 'CO',
-    Km: 'KM',
-    Cg: 'CG',
-    Cd: 'CD',
-    Ck: 'CK',
-    Cr: 'CR',
-    Ci: 'CI',
-    Hr: 'HR',
-    Cw: 'CW',
-    Cy: 'CY',
-    Cz: 'CZ',
-    Dk: 'DK',
-    Dj: 'DJ',
-    Dm: 'DM',
-    Do: 'DO',
-    Ec: 'EC',
-    Eg: 'EG',
-    Sv: 'SV',
-    Gq: 'GQ',
-    Er: 'ER',
-    Ee: 'EE',
-    Sz: 'SZ',
-    Et: 'ET',
-    Fk: 'FK',
-    Fo: 'FO',
-    Fj: 'FJ',
-    Fi: 'FI',
-    Fr: 'FR',
-    Gf: 'GF',
-    Pf: 'PF',
-    Tf: 'TF',
-    Ga: 'GA',
-    Gm: 'GM',
-    Ge: 'GE',
-    De: 'DE',
-    Gh: 'GH',
-    Gi: 'GI',
-    Gr: 'GR',
-    Gl: 'GL',
-    Gd: 'GD',
-    Gp: 'GP',
-    Gu: 'GU',
-    Gt: 'GT',
-    Gg: 'GG',
-    Gn: 'GN',
-    Gw: 'GW',
-    Gy: 'GY',
-    Ht: 'HT',
-    Hm: 'HM',
-    Va: 'VA',
-    Hn: 'HN',
-    Hk: 'HK',
-    Hu: 'HU',
-    Is: 'IS',
-    In: 'IN',
-    Id: 'ID',
-    Iq: 'IQ',
-    Ie: 'IE',
-    Im: 'IM',
-    Il: 'IL',
-    It: 'IT',
-    Jm: 'JM',
-    Jp: 'JP',
-    Je: 'JE',
-    Jo: 'JO',
-    Kz: 'KZ',
-    Ke: 'KE',
-    Ki: 'KI',
-    Kr: 'KR',
-    Xk: 'XK',
-    Kw: 'KW',
-    Kg: 'KG',
-    La: 'LA',
-    Lv: 'LV',
-    Lb: 'LB',
-    Ls: 'LS',
-    Lr: 'LR',
-    Ly: 'LY',
-    Li: 'LI',
-    Lt: 'LT',
-    Lu: 'LU',
-    Mo: 'MO',
-    Mg: 'MG',
-    Mw: 'MW',
-    My: 'MY',
-    Mv: 'MV',
-    Ml: 'ML',
-    Mt: 'MT',
-    Mh: 'MH',
-    Mq: 'MQ',
-    Mr: 'MR',
-    Mu: 'MU',
-    Yt: 'YT',
-    Mx: 'MX',
-    Fm: 'FM',
-    Md: 'MD',
-    Mc: 'MC',
-    Mn: 'MN',
-    Me: 'ME',
-    Ms: 'MS',
-    Ma: 'MA',
-    Mz: 'MZ',
-    Mm: 'MM',
-    Na: 'NA',
-    Nr: 'NR',
-    Np: 'NP',
-    Nl: 'NL',
-    An: 'AN',
-    Nc: 'NC',
-    Nz: 'NZ',
-    Ni: 'NI',
-    Ne: 'NE',
-    Ng: 'NG',
-    Nu: 'NU',
-    Nf: 'NF',
-    Mk: 'MK',
-    Mp: 'MP',
-    No: 'NO',
-    Om: 'OM',
-    Pk: 'PK',
-    Pw: 'PW',
-    Ps: 'PS',
-    Pa: 'PA',
-    Pg: 'PG',
-    Py: 'PY',
-    Pe: 'PE',
-    Ph: 'PH',
-    Pn: 'PN',
-    Pl: 'PL',
-    Pt: 'PT',
-    Pr: 'PR',
-    Qa: 'QA',
-    Ro: 'RO',
-    Ru: 'RU',
-    Rw: 'RW',
-    Re: 'RE',
-    Bl: 'BL',
-    Sh: 'SH',
-    Kn: 'KN',
-    Lc: 'LC',
-    Mf: 'MF',
-    Pm: 'PM',
-    Vc: 'VC',
-    Ws: 'WS',
-    Sm: 'SM',
-    St: 'ST',
-    Sa: 'SA',
-    Sn: 'SN',
-    Rs: 'RS',
-    Sc: 'SC',
-    Sl: 'SL',
-    Sg: 'SG',
-    Sx: 'SX',
-    Sy: 'SY',
-    Sk: 'SK',
-    Si: 'SI',
-    Sb: 'SB',
-    So: 'SO',
-    Za: 'ZA',
-    Gs: 'GS',
-    Ss: 'SS',
-    Es: 'ES',
-    Lk: 'LK',
-    Sd: 'SD',
-    Sr: 'SR',
-    Sj: 'SJ',
-    Se: 'SE',
-    Ch: 'CH',
-    Tw: 'TW',
-    Tj: 'TJ',
-    Tz: 'TZ',
-    Th: 'TH',
-    Tl: 'TL',
-    Tg: 'TG',
-    Tk: 'TK',
-    To: 'TO',
-    Tt: 'TT',
-    Tn: 'TN',
-    Tr: 'TR',
-    Tm: 'TM',
-    Tc: 'TC',
-    Tv: 'TV',
-    Ug: 'UG',
-    Ua: 'UA',
-    Ae: 'AE',
-    Gb: 'GB',
-    Us: 'US',
-    Um: 'UM',
-    Uy: 'UY',
-    Uz: 'UZ',
-    Vu: 'VU',
-    Ve: 'VE',
-    Vn: 'VN',
-    Vg: 'VG',
-    Vi: 'VI',
-    Wf: 'WF',
-    Eh: 'EH',
-    Ye: 'YE',
-    Zm: 'ZM',
-    Zw: 'ZW'
-} as const;
-
-export type GetWorkers200ResponseCitizenshipEnum = typeof GetWorkers200ResponseCitizenshipEnum[keyof typeof GetWorkers200ResponseCitizenshipEnum];
 export const GetWorkers200ResponseOvertimeExemptionEnum = {
     Exempt: 'EXEMPT',
     NonExempt: 'NON_EXEMPT'
@@ -3419,6 +4059,14 @@ export interface GroupMember {
      * The group member\'s associated work email address.
      */
     'work_email'?: string;
+    /**
+     * The worker\'s identifier associated with this group member.
+     */
+    'worker_id'?: string;
+    /**
+     * The worker associated with this group member.  Expandable field
+     */
+    'worker'?: Worker;
 }
 /**
  * 
@@ -3697,7 +4345,7 @@ export interface JobAssignment {
     /**
      * The pay rate for job assigned to worker. This can be different from the job\'s standard pay rate and can be overriden for a worker.
      */
-    'job_pay_rate': number;
+    'job_pay_rate'?: number;
     /**
      * Identifier of pay rate exceptions applicable for the worker based on certain exception dimension values.
      */
@@ -3706,6 +4354,31 @@ export interface JobAssignment {
      * Pay rate exceptions applicable for the worker based on certain exception dimension values.  Expandable field
      */
     'job_pay_rate_exceptions'?: Array<JobPayRateException>;
+}
+/**
+ * 
+ */
+export interface JobAssignmentRequest {
+    /**
+     * Identifier of worker to whom job is assigned.
+     */
+    'worker_id': string;
+    /**
+     * Identifier of job that is assigned to worker
+     */
+    'job_code_id': string;
+    /**
+     * The pay rate for job assigned to worker. This can be different from the job\'s standard pay rate and can be overriden for a worker.
+     */
+    'job_pay_rate'?: number;
+    /**
+     * Date and time the pay rate becomes effective (ISO 8601 format YYYY-MM-DDTHH:mm:ss.sssZ, e.g., 2025-11-07T17:00:00.000+00:00); defaults to current time in UTC if not provided.
+     */
+    'job_pay_rate_effective_from'?: string;
+    /**
+     * Reason for setting, updating, or resetting the pay rate for the job assigned to the worker.
+     */
+    'job_pay_rate_change_reason'?: string;
 }
 /**
  * 
@@ -3764,7 +4437,7 @@ export interface JobCode {
      */
     'department'?: Department;
     /**
-     * The pay rate for job, if job code is associated with pay rate.
+     * The pay rate for this job code. Only applicable if the associated job dimension includes the \'PAY_RATE\' organizational attribute.
      */
     'pay_rate'?: number;
     /**
@@ -3775,6 +4448,39 @@ export interface JobCode {
      * Pay rate overrides for the job based on exception dimension values.  Expandable field
      */
     'pay_rate_exceptions'?: Array<JobPayRateException>;
+}
+/**
+ * 
+ */
+export interface JobCodeRequest {
+    /**
+     * The name of the job dimension.
+     */
+    'name': string;
+    /**
+     * The ID of the job dimension this job code belongs to.
+     */
+    'job_dimension_id': string;
+    /**
+     * The unique identifier of the job code in an outside system.
+     */
+    'external_id'?: string;
+    /**
+     * The custom location of the job code. This location will be used for tax calculation purposes if using US Payroll when an employee is working at this job code.
+     */
+    'custom_location'?: CustomLocationRequest;
+    /**
+     * The pay rate for this job code. Only applicable if the associated job dimension includes the \'PAY_RATE\' organizational attribute.
+     */
+    'pay_rate'?: number;
+    /**
+     * Date and time the pay rate becomes effective (ISO 8601 format YYYY-MM-DDTHH:mm:ss.sssZ, e.g., 2025-11-07T17:00:00.000+00:00); defaults to current time in UTC if not provided.
+     */
+    'pay_rate_effective_from'?: string;
+    /**
+     * Reason for setting, updating, or resetting the pay rate on this job code.
+     */
+    'pay_rate_change_reason'?: string;
 }
 /**
  * 
@@ -3820,19 +4526,64 @@ export interface JobDimension {
     /**
      * The roster type of the dimension. PER_DIMENSION means that there is a group on the dimension level and employees within that group have access to all job codes in the dimension. PER_JOB_CODE means that each job code has its own group.
      */
-    'roster_type'?: JobDimensionRosterTypeEnum;
+    'roster_type'?: JobDimensionRosterType;
     /**
      * The ID of the dimension roster group.
      */
     'group_id'?: string;
+    /**
+     * Organizational attributes associated with the job dimension. Only \'PAY_RATE\' can be set or modified using POST or PATCH requests.
+     */
+    'org_attribute_associations'?: Array<JobDimensionOrgAttribute>;
 }
 
-export const JobDimensionRosterTypeEnum = {
+
+
+export const JobDimensionOrgAttribute = {
+    Department: 'DEPARTMENT',
+    WorkLocation: 'WORK_LOCATION',
+    PayRate: 'PAY_RATE',
+    Entity: 'ENTITY'
+} as const;
+
+export type JobDimensionOrgAttribute = typeof JobDimensionOrgAttribute[keyof typeof JobDimensionOrgAttribute];
+
+
+/**
+ * 
+ */
+export interface JobDimensionRequest {
+    /**
+     * The name of the job dimension
+     */
+    'name': string;
+    /**
+     * The unique identifier of the job dimension in a third party system
+     */
+    'external_id'?: string;
+    /**
+     * Whether the job dimension includes codes related to a custom location. Only one dimension can have this set to true.
+     */
+    'includes_custom_location'?: boolean;
+    /**
+     * The roster type of the dimension. PER_DIMENSION means that there is a group on the dimension level and employees within that group have access to all job codes in the dimension. PER_JOB_CODE means that each job code has its own group.
+     */
+    'roster_type'?: JobDimensionRosterType;
+    /**
+     * Organizational attributes associated with the job dimension. Only \'PAY_RATE\' can be set or modified using POST or PATCH requests.
+     */
+    'org_attribute_associations'?: Array<JobDimensionOrgAttribute>;
+}
+
+
+
+export const JobDimensionRosterType = {
     PerDimension: 'PER_DIMENSION',
     PerJobCode: 'PER_JOB_CODE'
 } as const;
 
-export type JobDimensionRosterTypeEnum = typeof JobDimensionRosterTypeEnum[keyof typeof JobDimensionRosterTypeEnum];
+export type JobDimensionRosterType = typeof JobDimensionRosterType[keyof typeof JobDimensionRosterType];
+
 
 /**
  * 
@@ -3940,6 +4691,252 @@ export const JobRequisitionStatusEnum = {
 export type JobRequisitionStatusEnum = typeof JobRequisitionStatusEnum[keyof typeof JobRequisitionStatusEnum];
 
 /**
+ *      DTO for creating JobRequisitions via the Platform API.     Maps to the existing ATS JobRequisitionDTO for use with create_from_DTO service.     
+ */
+export interface JobRequisitionBaseResourceDTO {
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * Title/name of the job requisition
+     */
+    'name': string;
+    /**
+     * Customer-defined requisition ID. Auto-generated if not provided.
+     */
+    'requisition_id'?: string;
+    /**
+     * Job requisition status (e.g., DRAFT, OPEN, CLOSED)
+     */
+    'status'?: string;
+    /**
+     * Job description
+     */
+    'description'?: string;
+    /**
+     * Internal employee title
+     */
+    'title'?: string;
+    /**
+     * List of department IDs
+     */
+    'departments'?: Array<string>;
+    /**
+     * List of team IDs
+     */
+    'teams'?: Array<string>;
+    /**
+     * List of work location IDs
+     */
+    'work_locations'?: Array<string>;
+    /**
+     * List of level IDs
+     */
+    'levels'?: Array<string>;
+    /**
+     * Company employment type ID
+     */
+    'employment_type_id'?: string;
+    /**
+     * Hiring manager role ID
+     */
+    'hiring_manager_id'?: string;
+    /**
+     * Primary recruiter role ID
+     */
+    'recruiter_id'?: string;
+    /**
+     * List of secondary recruiter role IDs
+     */
+    'secondary_recruiters'?: Array<string>;
+    /**
+     * Sourcer role ID
+     */
+    'sourcer_id'?: string;
+    /**
+     * Coordinator role ID
+     */
+    'coordinator_id'?: string;
+    /**
+     * Salary type
+     */
+    'salary_type'?: string;
+    /**
+     * Salary unit (HOUR, DAY, WEEK, MONTH, YEAR, PAY_PERIOD)
+     */
+    'salary_unit'?: string;
+    /**
+     * Salary amount per unit
+     */
+    'salary_per_unit'?: number;
+    /**
+     * Salary range lower bound
+     */
+    'salary_per_unit_low'?: number;
+    /**
+     * Salary range upper bound
+     */
+    'salary_per_unit_high'?: number;
+    /**
+     * Salary currency code
+     */
+    'salary_currency'?: string;
+    /**
+     * Target close date
+     */
+    'target_close'?: string;
+    /**
+     * Target employee start date
+     */
+    'target_employee_start_date'?: string;
+    /**
+     * Whether this is an evergreen requisition
+     */
+    'is_evergreen'?: boolean;
+    /**
+     * Whether this requisition is confidential
+     */
+    'confidential'?: boolean;
+    /**
+     * List of role IDs allowed to view confidential requisition
+     */
+    'confidential_whitelist'?: Array<string>;
+    /**
+     * Whether to default to private invites
+     */
+    'default_private_invites'?: boolean;
+    /**
+     * Pipeline plan ID to use for this requisition
+     */
+    'pipeline_plan_id'?: string;
+}
+/**
+ *      DTO for creating JobRequisitions via the Platform API.     Maps to the existing ATS JobRequisitionDTO for use with create_from_DTO service.     
+ */
+export interface JobRequisitionBaseResourceDTORequest {
+    /**
+     * Title/name of the job requisition
+     */
+    'name': string;
+    /**
+     * Customer-defined requisition ID. Auto-generated if not provided.
+     */
+    'requisition_id'?: string;
+    /**
+     * Job requisition status (e.g., DRAFT, OPEN, CLOSED)
+     */
+    'status'?: string;
+    /**
+     * Job description
+     */
+    'description'?: string;
+    /**
+     * Internal employee title
+     */
+    'title'?: string;
+    /**
+     * List of department IDs
+     */
+    'departments'?: Array<string>;
+    /**
+     * List of team IDs
+     */
+    'teams'?: Array<string>;
+    /**
+     * List of work location IDs
+     */
+    'work_locations'?: Array<string>;
+    /**
+     * List of level IDs
+     */
+    'levels'?: Array<string>;
+    /**
+     * Company employment type ID
+     */
+    'employment_type_id'?: string;
+    /**
+     * Hiring manager role ID
+     */
+    'hiring_manager_id'?: string;
+    /**
+     * Primary recruiter role ID
+     */
+    'recruiter_id'?: string;
+    /**
+     * List of secondary recruiter role IDs
+     */
+    'secondary_recruiters'?: Array<string>;
+    /**
+     * Sourcer role ID
+     */
+    'sourcer_id'?: string;
+    /**
+     * Coordinator role ID
+     */
+    'coordinator_id'?: string;
+    /**
+     * Salary type
+     */
+    'salary_type'?: string;
+    /**
+     * Salary unit (HOUR, DAY, WEEK, MONTH, YEAR, PAY_PERIOD)
+     */
+    'salary_unit'?: string;
+    /**
+     * Salary amount per unit
+     */
+    'salary_per_unit'?: number;
+    /**
+     * Salary range lower bound
+     */
+    'salary_per_unit_low'?: number;
+    /**
+     * Salary range upper bound
+     */
+    'salary_per_unit_high'?: number;
+    /**
+     * Salary currency code
+     */
+    'salary_currency'?: string;
+    /**
+     * Target close date
+     */
+    'target_close'?: string;
+    /**
+     * Target employee start date
+     */
+    'target_employee_start_date'?: string;
+    /**
+     * Whether this is an evergreen requisition
+     */
+    'is_evergreen'?: boolean;
+    /**
+     * Whether this requisition is confidential
+     */
+    'confidential'?: boolean;
+    /**
+     * List of role IDs allowed to view confidential requisition
+     */
+    'confidential_whitelist'?: Array<string>;
+    /**
+     * Whether to default to private invites
+     */
+    'default_private_invites'?: boolean;
+    /**
+     * Pipeline plan ID to use for this requisition
+     */
+    'pipeline_plan_id'?: string;
+}
+/**
  * 
  */
 export interface JobShift {
@@ -4042,6 +5039,10 @@ export interface LeaveAccrual {
      */
     'leave_type_id': string;
     /**
+     * The type of accrual
+     */
+    'accrual_type'?: LeaveAccrualType;
+    /**
      * The date when this accrual becomes effective
      */
     'accrual_date': string;
@@ -4066,6 +5067,8 @@ export interface LeaveAccrual {
      */
     'comment'?: string;
 }
+
+
 /**
  *      Leave accrual resource representing time off credits granted to employees.      Leave accruals track the allocation of paid time off (vacation, sick days, etc.)     to employees based on company policies, manual grants, or other accrual sources.     
  */
@@ -4083,6 +5086,10 @@ export interface LeaveAccrualRequest {
      */
     'leave_type_id': string;
     /**
+     * The type of accrual
+     */
+    'accrual_type'?: LeaveAccrualType;
+    /**
      * The date when this accrual becomes effective
      */
     'accrual_date': string;
@@ -4107,6 +5114,35 @@ export interface LeaveAccrualRequest {
      */
     'comment'?: string;
 }
+
+
+
+export const LeaveAccrualType = {
+    Auto: 'AUTO',
+    CarryoverPenalty: 'CARRYOVER_PENALTY',
+    ResetPenalty: 'RESET_PENALTY',
+    ResetNegativePenalty: 'RESET_NEGATIVE_PENALTY',
+    BalancePenalty: 'BALANCE_PENALTY',
+    LeaveGrant: 'LEAVE_GRANT',
+    BalanceCorrectionAdjustment: 'BALANCE_CORRECTION_ADJUSTMENT',
+    PaidOut: 'PAID_OUT',
+    SubBalanceExpiration: 'SUB_BALANCE_EXPIRATION',
+    TandaAccrualBonus: 'TANDA_ACCRUAL_BONUS',
+    TiltAdjustment: 'TILT_ADJUSTMENT',
+    WorkflowAction: 'WORKFLOW_ACTION',
+    ExpirationDeduction: 'EXPIRATION_DEDUCTION',
+    ExpirationPayout: 'EXPIRATION_PAYOUT',
+    ManualBalancePayout: 'MANUAL_BALANCE_PAYOUT',
+    CarryoverPenaltyPayout: 'CARRYOVER_PENALTY_PAYOUT',
+    ResetPenaltyPayout: 'RESET_PENALTY_PAYOUT',
+    HolidayAdjustment: 'HOLIDAY_ADJUSTMENT',
+    HoursWorkedTanda: 'HOURS_WORKED_TANDA',
+    TenureMilestone: 'TENURE_MILESTONE'
+} as const;
+
+export type LeaveAccrualType = typeof LeaveAccrualType[keyof typeof LeaveAccrualType];
+
+
 /**
  * 
  */
@@ -4187,7 +5223,7 @@ export interface LeaveRequest {
     /**
      * The status of the leave request.
      */
-    'status': LeaveRequestStatusEnum;
+    'status': LeaveRequestStatus;
     /**
      * The start date of the leave request.
      */
@@ -4254,14 +5290,88 @@ export interface LeaveRequest {
     'is_managed_by_external_system'?: boolean;
 }
 
-export const LeaveRequestStatusEnum = {
+
+/**
+ * 
+ */
+export interface LeaveRequestRequest {
+    /**
+     * The ID of the worker associated with the leave request.
+     */
+    'worker_id': string;
+    /**
+     * The ID of the worker who requested the leave request.
+     */
+    'requester_id'?: string;
+    /**
+     * The status of the leave request.
+     */
+    'status': LeaveRequestStatus;
+    /**
+     * The start date of the leave request.
+     */
+    'start_date': string;
+    /**
+     * The start time of the leave request.
+     */
+    'start_time'?: string;
+    /**
+     * The end date of the leave request.
+     */
+    'end_date': string;
+    /**
+     * The end time of the leave request.
+     */
+    'end_time'?: string;
+    /**
+     * The number of hours to take off on the start date.
+     */
+    'start_date_custom_hours'?: number;
+    /**
+     * The number of hours to take off on the end date.
+     */
+    'end_date_custom_hours'?: number;
+    /**
+     * The comments associated with the leave request.
+     */
+    'comments'?: string;
+    /**
+     * The ID of the leave policy associated with the leave request, either leave_policy_id or leave_type_id must be provided.
+     */
+    'leave_policy_id'?: string;
+    /**
+     * The ID of the leave type associated with the leave request, either leave_policy_id or leave_type_id must be provided.
+     */
+    'leave_type_id'?: string;
+    /**
+     * The ID of the leave event associated with the leave request, if any.
+     */
+    'leave_event_id'?: string;
+    /**
+     * The reason for the leave request.
+     */
+    'reason_for_leave'?: string;
+    /**
+     * The ID of the worker who reviewed the leave request.
+     */
+    'reviewer_id'?: string;
+    /**
+     * The timestamp of when the leave request was reviewed.
+     */
+    'reviewed_at'?: string;
+}
+
+
+
+export const LeaveRequestStatus = {
     Pending: 'PENDING',
     Approved: 'APPROVED',
     Rejected: 'REJECTED',
     Canceled: 'CANCELED'
 } as const;
 
-export type LeaveRequestStatusEnum = typeof LeaveRequestStatusEnum[keyof typeof LeaveRequestStatusEnum];
+export type LeaveRequestStatus = typeof LeaveRequestStatus[keyof typeof LeaveRequestStatus];
+
 
 /**
  * 
@@ -4454,9 +5564,49 @@ export interface ListByQueryCustomObjectsCustomObjectApiNameRecordsRequest {
     'limit'?: number;
     'cursor'?: string;
 }
+export interface ListCandidateApplications200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<Application>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListCandidates200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<Candidate>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
 export interface ListCompanies200Response {
     '__meta'?: RedactedFields;
     'results'?: Array<Company>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListCompensationBandsDetails200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<CompensationBandsDetails>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListCompensations200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<Compensation>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListCustomApps200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<CustomApp>;
     /**
      * A link to the next page of responses.
      */
@@ -4491,6 +5641,22 @@ export interface ListCustomObjectsCustomObjectApiNameRecords200Response {
      */
     'next_link'?: string;
 }
+export interface ListCustomPages200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<CustomPage>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListCustomSettings200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<Setting>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
 export interface ListDepartments200Response {
     '__meta'?: RedactedFields;
     'results'?: Array<Department>;
@@ -4515,6 +5681,77 @@ export interface ListEntitlements200Response {
      */
     'next_link'?: string;
 }
+export interface ListFunctions200Response {
+    'results'?: Array<Function>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListFunctionsFunctionApiNameDeployments200Response {
+    'results'?: Array<FunctionDeployment>;
+}
+export interface ListFunctionsFunctionApiNameDeploymentsDeploymentIdLogs200Response {
+    'results'?: Array<FunctionDeploymentLog>;
+}
+export interface ListFunctionsFunctionApiNameExecutions200Response {
+    'results'?: Array<FunctionExecution>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListFunctionsFunctionApiNameExecutionsExecutionIdLogs200Response {
+    'results'?: Array<FunctionExecutionLog>;
+}
+export interface ListHeadcountPositions200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<HeadcountPosition>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListHeadcountPriorities200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<HeadcountPriority>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListJobAssignments200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<JobAssignment>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListJobAssignmentsJobAssignmentIdChangeLog200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<AttributeChangeDetails>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListJobCodes200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<JobCode>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListJobDimensions200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<JobDimension>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
 export interface ListJobFunctions200Response {
     '__meta'?: RedactedFields;
     'results'?: Array<JobFunction>;
@@ -4523,8 +5760,112 @@ export interface ListJobFunctions200Response {
      */
     'next_link'?: string;
 }
+export interface ListJobPayRateExceptions200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<JobPayRateException>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListJobRequisitions200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<JobRequisition>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListKioskBadges200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<TimeKioskBadge>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListLeaveAccruals200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<LeaveAccrual>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListLeaveBalances200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<LeaveBalance>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListLeaveRequests200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<LeaveRequest>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListLeaveTypes200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<LeaveType>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListLegalEntities200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<LegalEntity>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListLevels200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<Level>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListLocationFactors200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<LocationFactor>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
 export interface ListObjectCategories200Response {
     'results'?: Array<ObjectCategory>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListSchedules200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<Schedule>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListShiftInputs200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<ShiftInput>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListShiftassignments200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<ShiftAssignment>;
     /**
      * A link to the next page of responses.
      */
@@ -4549,6 +5890,46 @@ export interface ListSupergroupsGroupIdMembers200Response {
 export interface ListTeams200Response {
     '__meta'?: RedactedFields;
     'results'?: Array<Team>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListTimeCards200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<TimeCard>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListTimeEntries200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<TimeEntry>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListTitles200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<Title>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListTracks200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<Track>;
+    /**
+     * A link to the next page of responses.
+     */
+    'next_link'?: string;
+}
+export interface ListUnassignedshifts200Response {
+    '__meta'?: RedactedFields;
+    'results'?: Array<UnassignedShift>;
     /**
      * A link to the next page of responses.
      */
@@ -4700,6 +6081,19 @@ export interface ObjectCategory {
     'description'?: string;
 }
 /**
+ * Summary of a page attached to a custom app.
+ */
+export interface PageSummary {
+    /**
+     * The unique name of the page within the app
+     */
+    'api_name'?: string;
+    /**
+     * The ID of the canvas instance backing this page
+     */
+    'canvas_instance_id'?: string;
+}
+/**
  * 
  */
 export interface PayPeriod {
@@ -4769,6 +6163,7 @@ export interface PersonalInfo {
      */
     'emergency_contact_name'?: string;
     'emergency_contact_phone'?: PhoneNumber;
+    'personal_phone'?: PhoneNumber;
     /**
      * Invite email of the candidate
      */
@@ -4826,64 +6221,6 @@ export interface Premiums {
     'premium_hours'?: number;
 }
 /**
- * 
- */
-export interface PrototypeJob {
-    /**
-     * Identifier field
-     */
-    'id': string;
-    /**
-     * Record creation date
-     */
-    'created_at': string;
-    /**
-     * Record update date
-     */
-    'updated_at': string;
-    /**
-     * The worker\'s ID.
-     */
-    'prototype_id'?: string;
-    /**
-     * Job title
-     */
-    'title'?: string;
-    /**
-     * Work Location Id
-     */
-    'work_location_id'?: string;
-    /**
-     * Work location for the job  Expandable field
-     */
-    'work_location'?: PrototypeWorkLocation;
-}
-/**
- * 
- */
-export interface PrototypeWorkLocation {
-    /**
-     * Identifier field
-     */
-    'id': string;
-    /**
-     * Record creation date
-     */
-    'created_at': string;
-    /**
-     * Record update date
-     */
-    'updated_at': string;
-    /**
-     * Address for the work location
-     */
-    'address'?: string;
-    /**
-     * Whether the work location is remote
-     */
-    'is_remote'?: boolean;
-}
-/**
  * Info about the redacted fields.
  */
 export interface RedactedField {
@@ -4912,6 +6249,98 @@ export interface RedactedFieldsRedactedFieldsInner {
      */
     'reason'?: string;
 }
+/**
+ * 
+ */
+export interface ReportData {
+    /**
+     * The presigned file url
+     */
+    'file_url': string;
+    /**
+     * The expiry time of the execution
+     */
+    'expires_at': string;
+    /**
+     * The type of the output file
+     */
+    'output_type': ReportDataOutputTypeEnum;
+}
+
+export const ReportDataOutputTypeEnum = {
+    Json: 'JSON',
+    Csv: 'CSV'
+} as const;
+
+export type ReportDataOutputTypeEnum = typeof ReportDataOutputTypeEnum[keyof typeof ReportDataOutputTypeEnum];
+
+/**
+ * Output format for the report data
+ */
+
+export const ReportOutputType = {
+    Json: 'JSON',
+    Csv: 'CSV'
+} as const;
+
+export type ReportOutputType = typeof ReportOutputType[keyof typeof ReportOutputType];
+
+
+/**
+ * 
+ */
+export interface ReportRun {
+    /**
+     * The ID of this run
+     */
+    'id': string;
+    /**
+     * The ID of the report associated with this run
+     */
+    'report_id': string;
+    /**
+     * Report run status
+     */
+    'status': ReportRunStatusEnum;
+    /**
+     * Report data, available once the run is complete
+     */
+    'result'?: ReportData;
+}
+
+export const ReportRunStatusEnum = {
+    InProgress: 'IN_PROGRESS',
+    Success: 'SUCCESS',
+    Failure: 'FAILURE'
+} as const;
+
+export type ReportRunStatusEnum = typeof ReportRunStatusEnum[keyof typeof ReportRunStatusEnum];
+
+export interface ReportRunPostRequest {
+    /**
+     * The ID of the report to run
+     */
+    'report_id': string;
+    /**
+     * Whether to include object IDs in the report output
+     */
+    'include_object_ids'?: boolean;
+    /**
+     * Whether to include total row count in the report output
+     */
+    'include_total_rows'?: boolean;
+    /**
+     * Formatting options for date fields
+     */
+    'format_date_fields'?: DateFieldFormatting | null;
+    /**
+     * Formatting options for currency fields
+     */
+    'format_currency_fields'?: CurrencyFieldFormatting | null;
+    'output_type'?: ReportOutputType;
+}
+
+
 /**
  * 
  */
@@ -4989,6 +6418,53 @@ export interface Schedule {
      * Whether the requesting role can edit the schedule.
      */
     'can_edit'?: boolean;
+    /**
+     * The settings of the schedule.
+     */
+    'settings'?: ScheduleSettings;
+}
+/**
+ * 
+ */
+export interface ScheduleRequest {
+    /**
+     * The name of the schedule.
+     */
+    'name'?: string;
+    /**
+     * The IDs of the managers of the schedule.
+     */
+    'managers_id'?: Array<string>;
+    /**
+     * The IDs of the observers of the schedule.
+     */
+    'observers_id'?: Array<string>;
+    /**
+     * The IDs of the members of the schedule.
+     */
+    'members_id'?: Array<string>;
+    /**
+     * The settings of the schedule.
+     */
+    'settings'?: ScheduleSettingsRequest;
+}
+/**
+ * Settings for a schedule - response DTO.
+ */
+export interface ScheduleSettings {
+    /**
+     * The IANA timezone identifier for the schedule (e.g., \'America/New_York\'). Accepted values are defined by the tz database, listed here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+     */
+    'timezone'?: string;
+}
+/**
+ * Settings for a schedule - response DTO.
+ */
+export interface ScheduleSettingsRequest {
+    /**
+     * The IANA timezone identifier for the schedule (e.g., \'America/New_York\'). Accepted values are defined by the tz database, listed here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+     */
+    'timezone'?: string;
 }
 /**
  * 
@@ -5026,6 +6502,84 @@ export interface Segments {
 /**
  * 
  */
+export interface Setting {
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The display name of setting
+     */
+    'display_name'?: string;
+    /**
+     * The unique api name of the setting
+     */
+    'api_name'?: string;
+    /**
+     * Data type of the setting
+     */
+    'data_type'?: string;
+    /**
+     * Secret value of the setting, if it has secret data type
+     */
+    'secret_value'?: string;
+    /**
+     * String value of the setting, if it has string data type
+     */
+    'string_value'?: string;
+    /**
+     * Number value of the setting, if it has number data type
+     */
+    'number_value'?: number;
+    /**
+     * Boolean value of the setting, if it has boolean data type
+     */
+    'boolean_value'?: boolean;
+}
+/**
+ * 
+ */
+export interface SettingRequest {
+    /**
+     * The display name of setting
+     */
+    'display_name'?: string;
+    /**
+     * The unique api name of the setting
+     */
+    'api_name'?: string;
+    /**
+     * Data type of the setting
+     */
+    'data_type'?: string;
+    /**
+     * Secret value of the setting, if it has secret data type
+     */
+    'secret_value'?: string;
+    /**
+     * String value of the setting, if it has string data type
+     */
+    'string_value'?: string;
+    /**
+     * Number value of the setting, if it has number data type
+     */
+    'number_value'?: number;
+    /**
+     * Boolean value of the setting, if it has boolean data type
+     */
+    'boolean_value'?: boolean;
+}
+/**
+ * 
+ */
 export interface ShiftAssignment {
     /**
      * Identifier field
@@ -5040,9 +6594,9 @@ export interface ShiftAssignment {
      */
     'updated_at': string;
     /**
-     * The ID of the worker
+     * The ID of the worker. Empty string \'\' to unassign if shift is from an open/empty shift.
      */
-    'worker_id'?: string;
+    'worker_id': string;
     /**
      * The worker  Expandable field
      */
@@ -5050,7 +6604,7 @@ export interface ShiftAssignment {
     /**
      * The ID of the schedule
      */
-    'schedule_id'?: string;
+    'schedule_id': string;
     /**
      * The schedule  Expandable field
      */
@@ -5058,11 +6612,11 @@ export interface ShiftAssignment {
     /**
      * The data of the shift
      */
-    'shift_data'?: ShiftData;
+    'shift_data': ShiftData;
     /**
      * Whether the shift assignment can be edited
      */
-    'can_edit': boolean;
+    'can_edit'?: boolean;
     /**
      * Whether the shift assignment is published. If true, the published_version will be the same as the shift_data
      */
@@ -5071,6 +6625,48 @@ export interface ShiftAssignment {
      * The published version of the shift assignment, if it exists. If filled but is_published is false, the shift_data is the latest version.
      */
     'published_version'?: ShiftData;
+    /**
+     * Custom fields for the shift assignment
+     */
+    'custom_fields'?: Array<{ [key: string]: any; }>;
+}
+/**
+ * 
+ */
+export interface ShiftAssignmentRequest {
+    /**
+     * The ID of the worker. Empty string \'\' to unassign if shift is from an open/empty shift.
+     */
+    'worker_id': string;
+    /**
+     * The ID of the schedule
+     */
+    'schedule_id': string;
+    /**
+     * The data of the shift
+     */
+    'shift_data': ShiftDataRequest;
+    /**
+     * Whether the shift assignment is published. If true, the published_version will be the same as the shift_data
+     */
+    'is_published': boolean;
+}
+/**
+ * 
+ */
+export interface ShiftAssignmentUpdateRequest {
+    /**
+     * The ID of the worker. Empty string \'\' to unassign if shift is from an open/empty shift.
+     */
+    'worker_id': string;
+    /**
+     * The data of the shift
+     */
+    'shift_data': ShiftDataRequest;
+    /**
+     * Whether the shift assignment is published. If true, the published_version will be the same as the shift_data
+     */
+    'is_published': boolean;
 }
 /**
  * 
@@ -5081,14 +6677,48 @@ export interface ShiftBreak {
      */
     'start_time': string;
     /**
-     * The end time of the shift break
+     * The duration of the shift break in minutes (input only for creation)
      */
-    'end_time': string;
+    'duration_minutes': number;
+    /**
+     * The end time of the shift break (calculated from start_time + duration_minutes)
+     */
+    'end_time'?: string;
     /**
      * The type of the shift break
      */
-    'type': string;
+    'type': ShiftBreakType;
 }
+
+
+/**
+ * 
+ */
+export interface ShiftBreakRequest {
+    /**
+     * The start time of the shift break
+     */
+    'start_time': string;
+    /**
+     * The duration of the shift break in minutes (input only for creation)
+     */
+    'duration_minutes': number;
+    /**
+     * The type of the shift break
+     */
+    'type': ShiftBreakType;
+}
+
+
+
+export const ShiftBreakType = {
+    Meal: 'MEAL',
+    Rest: 'REST'
+} as const;
+
+export type ShiftBreakType = typeof ShiftBreakType[keyof typeof ShiftBreakType];
+
+
 /**
  * 
  */
@@ -5104,11 +6734,40 @@ export interface ShiftData {
     /**
      * The segments of the shift
      */
-    'shift_segments': Array<ShiftSegment>;
+    'shift_segments'?: Array<ShiftSegment>;
     /**
      * The breaks of the shift
      */
-    'shift_breaks': Array<ShiftBreak>;
+    'shift_breaks'?: Array<ShiftBreak>;
+    /**
+     * Notes for the shift, max length 256 characters
+     */
+    'notes'?: string;
+}
+/**
+ * 
+ */
+export interface ShiftDataRequest {
+    /**
+     * The start time of the shift
+     */
+    'start_time': string;
+    /**
+     * The end time of the shift
+     */
+    'end_time': string;
+    /**
+     * The segments of the shift
+     */
+    'shift_segments'?: Array<ShiftSegmentRequest>;
+    /**
+     * The breaks of the shift
+     */
+    'shift_breaks'?: Array<ShiftBreakRequest>;
+    /**
+     * Notes for the shift, max length 256 characters
+     */
+    'notes'?: string;
 }
 /**
  * 
@@ -5158,6 +6817,31 @@ export interface ShiftInput {
 /**
  * 
  */
+export interface ShiftInputRequest {
+    /**
+     * The creator id associated with the shift input.
+     */
+    'creator_id'?: string;
+    /**
+     * Name of the shift unit.
+     */
+    'name': string;
+    /**
+     * Prompt for the shift unit.
+     */
+    'prompt': string;
+    /**
+     * Type of shift unit.
+     */
+    'type': string;
+    /**
+     * Two letter string designating country code which the shift input is associated.
+     */
+    'country_code': string;
+}
+/**
+ * 
+ */
 export interface ShiftInputValue {
     /**
      * The id of the relevant shift input
@@ -5198,9 +6882,30 @@ export interface ShiftSegment {
      */
     'start_time': string;
     /**
-     * The end time of the shift segment
+     * The duration of the shift segment in minutes (input only for creation)
      */
-    'end_time': string;
+    'duration_minutes': number;
+    /**
+     * The end time of the shift segment (calculated from start_time + duration_minutes)
+     */
+    'end_time'?: string;
+    /**
+     * The IDs of the job codes associated with the shift segment
+     */
+    'job_codes_id'?: Array<string>;
+}
+/**
+ * 
+ */
+export interface ShiftSegmentRequest {
+    /**
+     * The start time of the shift segment
+     */
+    'start_time': string;
+    /**
+     * The duration of the shift segment in minutes (input only for creation)
+     */
+    'duration_minutes': number;
     /**
      * The IDs of the job codes associated with the shift segment
      */
@@ -5286,6 +6991,25 @@ export interface Supergroup {
      * Whether to ignore provisioning group matching when determining group membership
      */
     'ignore_prov_group_matching'?: boolean;
+}
+/**
+ * A patch operation to add or remove members of a supergroup.
+ */
+export interface SupergroupMembershipOperation {
+    /**
+     * add or remove
+     */
+    'op'?: string;
+    /**
+     * The members to add or remove.
+     */
+    'value'?: Array<SupergroupMembershipOperationValueInner>;
+}
+export interface SupergroupMembershipOperationValueInner {
+    /**
+     * A member id.
+     */
+    'id'?: string;
 }
 /**
  * 
@@ -5516,7 +7240,7 @@ export interface TimeEntry {
     /**
      * The status of the time entry.
      */
-    'status'?: TimeEntryStatusEnum;
+    'status'?: TimeEntryStatus;
     /**
      * The pay period associated with the time card.
      */
@@ -5527,14 +7251,6 @@ export interface TimeEntry {
     'shift_input_values'?: Array<ShiftInputValue>;
 }
 
-export const TimeEntryStatusEnum = {
-    Draft: 'DRAFT',
-    Approved: 'APPROVED',
-    Paid: 'PAID',
-    Finalized: 'FINALIZED'
-} as const;
-
-export type TimeEntryStatusEnum = typeof TimeEntryStatusEnum[keyof typeof TimeEntryStatusEnum];
 
 /**
  * 
@@ -5562,6 +7278,72 @@ export interface TimeEntryCommentRequest {
      */
     'text'?: string;
 }
+/**
+ * 
+ */
+export interface TimeEntryRequest {
+    /**
+     * The ID of the worker associated with the time entry.
+     */
+    'worker_id': string;
+    /**
+     * The duration of the time entry.
+     */
+    'duration'?: number;
+    /**
+     * The date of the time entry if using duration.
+     */
+    'start_date'?: string;
+    /**
+     * The comments associated with the time entry.
+     */
+    'comments'?: Array<TimeEntryCommentRequest>;
+    /**
+     * The job shifts worked during the time entry.
+     */
+    'job_shifts'?: Array<JobShiftRequest>;
+    /**
+     * The breaks taken during the time entry.
+     */
+    'breaks'?: Array<BreakRequest>;
+    /**
+     * The tags associated with the time entry.
+     */
+    'tags'?: Array<string>;
+    /**
+     * The unique key of the time entry in an outside system. If set, no other time entry with the same key can be created.
+     */
+    'idempotency_key'?: string;
+    /**
+     * Whether the time entry should create an extra hours run.
+     */
+    'create_extra_hours_run'?: boolean;
+    /**
+     * The status of the time entry.
+     */
+    'status'?: TimeEntryStatus;
+    /**
+     * The pay period associated with the time card.
+     */
+    'pay_period'?: PayPeriodRequest;
+    /**
+     * Arbitrary shift inputs collected on the time entry
+     */
+    'shift_input_values'?: Array<ShiftInputValueRequest>;
+}
+
+
+
+export const TimeEntryStatus = {
+    Draft: 'DRAFT',
+    Approved: 'APPROVED',
+    Paid: 'PAID',
+    Finalized: 'FINALIZED'
+} as const;
+
+export type TimeEntryStatus = typeof TimeEntryStatus[keyof typeof TimeEntryStatus];
+
+
 /**
  *      DTO used to store the summary of a TimeEntry     
  */
@@ -5623,6 +7405,57 @@ export interface TimeKioskBadge {
 /**
  * 
  */
+export interface TimeKioskBadgeRequest {
+    /**
+     * The ID associated with the badge. Not to be confused with the record\'s ID.
+     */
+    'badge_id': string;
+    /**
+     * The ID of the worker associated with the badge.
+     */
+    'worker_id'?: string;
+    /**
+     * The employee number of the worker associated with the badge.
+     */
+    'worker_number'?: number;
+    /**
+     * Whether this badge can be used with the Kiosk app.
+     */
+    'is_enabled'?: boolean;
+}
+/**
+ * 
+ */
+export interface Title {
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The name of the title.
+     */
+    'name': string;
+}
+/**
+ * 
+ */
+export interface TitleRequest {
+    /**
+     * The name of the title.
+     */
+    'name': string;
+}
+/**
+ * 
+ */
 export interface Track {
     /**
      * Identifier field
@@ -5650,6 +7483,109 @@ export interface USFields {
      */
     'ssn'?: string;
 }
+/**
+ * 
+ */
+export interface UnassignedShift {
+    /**
+     * Identifier field
+     */
+    'id': string;
+    /**
+     * Record creation date
+     */
+    'created_at': string;
+    /**
+     * Record update date
+     */
+    'updated_at': string;
+    /**
+     * The ID of the schedule
+     */
+    'schedule_id': string;
+    /**
+     * The schedule  Expandable field
+     */
+    'schedule'?: Schedule;
+    /**
+     * The data of the shift
+     */
+    'shift_data': ShiftData;
+    /**
+     * The number of assigned shifts
+     */
+    'assigned_count'?: number;
+    /**
+     * The target count of the shift
+     */
+    'target_count': number;
+    /**
+     * Whether the shift is published
+     */
+    'is_published': boolean;
+    /**
+     * The published version of the shift
+     */
+    'published_version'?: ShiftData;
+    /**
+     * Configuration for an open shift. If present, this is an open shift (workers can sign up). If absent/None, this is an empty shift (placeholder).
+     */
+    'open_shift_config'?: object;
+    /**
+     * The IDs of the assigned shifts that are part of this unassigned shift
+     */
+    'assigned_shift_ids'?: Array<string>;
+    /**
+     * Custom fields for the unassigned shift
+     */
+    'custom_fields'?: Array<{ [key: string]: any; }>;
+}
+/**
+ * 
+ */
+export interface UnassignedShiftRequest {
+    /**
+     * The ID of the schedule
+     */
+    'schedule_id': string;
+    /**
+     * The data of the shift
+     */
+    'shift_data': ShiftDataRequest;
+    /**
+     * The target count of the shift
+     */
+    'target_count': number;
+    /**
+     * Whether the shift is published
+     */
+    'is_published': boolean;
+    /**
+     * Configuration for an open shift. If present, this is an open shift (workers can sign up). If absent/None, this is an empty shift (placeholder).
+     */
+    'open_shift_config'?: object;
+}
+/**
+ * 
+ */
+export interface UnassignedShiftUpdateRequest {
+    /**
+     * The data of the shift
+     */
+    'shift_data': ShiftDataRequest;
+    /**
+     * The target count of the shift
+     */
+    'target_count': number;
+    /**
+     * Whether the shift is published
+     */
+    'is_published': boolean;
+    /**
+     * Configuration for an open shift. If present, this is an open shift (workers can sign up). If absent/None, this is an empty shift (placeholder).
+     */
+    'open_shift_config'?: object;
+}
 export interface UpdateCustomObjectsCustomObjectApiNameFieldsRequest {
     'name'?: string;
     'description'?: string;
@@ -5670,6 +7606,17 @@ export interface UpdateCustomObjectsRequest {
     'plural_label'?: string;
     'owner_role'?: string;
 }
+/**
+ * Dictionary mapping custom field names to their values. Field names are dynamic and depend on your company\'s custom field configuration.
+ */
+export interface UpdateShiftassignmentsCustomfieldsRequest {
+    [key: string]: any;
+
+    /**
+     * Example custom field name. Replace with your actual custom field names.
+     */
+    'FieldName1'?: string;
+}
 export interface UpdateSupergroupsGroupIdInclusionMembers200Response {
     /**
      * Whether the operation succeeded.
@@ -5677,23 +7624,7 @@ export interface UpdateSupergroupsGroupIdInclusionMembers200Response {
     'ok'?: boolean;
 }
 export interface UpdateSupergroupsGroupIdInclusionMembersRequest {
-    'Operations'?: Array<UpdateSupergroupsGroupIdInclusionMembersRequestOperationsInner>;
-}
-export interface UpdateSupergroupsGroupIdInclusionMembersRequestOperationsInner {
-    /**
-     * add or remove
-     */
-    'op'?: string;
-    /**
-     * The members to add or remove.
-     */
-    'value'?: Array<UpdateSupergroupsGroupIdInclusionMembersRequestOperationsInnerValueInner>;
-}
-export interface UpdateSupergroupsGroupIdInclusionMembersRequestOperationsInnerValueInner {
-    /**
-     * A member id.
-     */
-    'id'?: string;
+    'Operations'?: Array<SupergroupMembershipOperation>;
 }
 /**
  * 
@@ -5767,7 +7698,7 @@ export interface UserAddress {
     /**
      * The classification of the address.
      */
-    'type'?: UserAddressTypeEnum;
+    'type'?: ContactType;
     /**
      * The formatted mailing address.
      */
@@ -5791,268 +7722,9 @@ export interface UserAddress {
     /**
      * The country component, pursuant to SCIM RFC 7643 4.1.2.
      */
-    'country'?: UserAddressCountryEnum;
+    'country'?: CountryCode;
 }
 
-export const UserAddressTypeEnum = {
-    Home: 'HOME',
-    Work: 'WORK',
-    Other: 'OTHER'
-} as const;
-
-export type UserAddressTypeEnum = typeof UserAddressTypeEnum[keyof typeof UserAddressTypeEnum];
-export const UserAddressCountryEnum = {
-    Af: 'AF',
-    Ax: 'AX',
-    Al: 'AL',
-    Dz: 'DZ',
-    As: 'AS',
-    Ad: 'AD',
-    Ao: 'AO',
-    Ai: 'AI',
-    Aq: 'AQ',
-    Ag: 'AG',
-    Ar: 'AR',
-    Am: 'AM',
-    Aw: 'AW',
-    Au: 'AU',
-    At: 'AT',
-    Az: 'AZ',
-    Bs: 'BS',
-    Bh: 'BH',
-    Bd: 'BD',
-    Bb: 'BB',
-    By: 'BY',
-    Be: 'BE',
-    Bz: 'BZ',
-    Bj: 'BJ',
-    Bm: 'BM',
-    Bt: 'BT',
-    Bo: 'BO',
-    Bq: 'BQ',
-    Ba: 'BA',
-    Bw: 'BW',
-    Bv: 'BV',
-    Br: 'BR',
-    Io: 'IO',
-    Bn: 'BN',
-    Bg: 'BG',
-    Bf: 'BF',
-    Bi: 'BI',
-    Cv: 'CV',
-    Kh: 'KH',
-    Cm: 'CM',
-    Ca: 'CA',
-    Ky: 'KY',
-    Cf: 'CF',
-    Td: 'TD',
-    Cl: 'CL',
-    Cn: 'CN',
-    Cx: 'CX',
-    Cc: 'CC',
-    Co: 'CO',
-    Km: 'KM',
-    Cg: 'CG',
-    Cd: 'CD',
-    Ck: 'CK',
-    Cr: 'CR',
-    Ci: 'CI',
-    Hr: 'HR',
-    Cw: 'CW',
-    Cy: 'CY',
-    Cz: 'CZ',
-    Dk: 'DK',
-    Dj: 'DJ',
-    Dm: 'DM',
-    Do: 'DO',
-    Ec: 'EC',
-    Eg: 'EG',
-    Sv: 'SV',
-    Gq: 'GQ',
-    Er: 'ER',
-    Ee: 'EE',
-    Sz: 'SZ',
-    Et: 'ET',
-    Fk: 'FK',
-    Fo: 'FO',
-    Fj: 'FJ',
-    Fi: 'FI',
-    Fr: 'FR',
-    Gf: 'GF',
-    Pf: 'PF',
-    Tf: 'TF',
-    Ga: 'GA',
-    Gm: 'GM',
-    Ge: 'GE',
-    De: 'DE',
-    Gh: 'GH',
-    Gi: 'GI',
-    Gr: 'GR',
-    Gl: 'GL',
-    Gd: 'GD',
-    Gp: 'GP',
-    Gu: 'GU',
-    Gt: 'GT',
-    Gg: 'GG',
-    Gn: 'GN',
-    Gw: 'GW',
-    Gy: 'GY',
-    Ht: 'HT',
-    Hm: 'HM',
-    Va: 'VA',
-    Hn: 'HN',
-    Hk: 'HK',
-    Hu: 'HU',
-    Is: 'IS',
-    In: 'IN',
-    Id: 'ID',
-    Iq: 'IQ',
-    Ie: 'IE',
-    Im: 'IM',
-    Il: 'IL',
-    It: 'IT',
-    Jm: 'JM',
-    Jp: 'JP',
-    Je: 'JE',
-    Jo: 'JO',
-    Kz: 'KZ',
-    Ke: 'KE',
-    Ki: 'KI',
-    Kr: 'KR',
-    Xk: 'XK',
-    Kw: 'KW',
-    Kg: 'KG',
-    La: 'LA',
-    Lv: 'LV',
-    Lb: 'LB',
-    Ls: 'LS',
-    Lr: 'LR',
-    Ly: 'LY',
-    Li: 'LI',
-    Lt: 'LT',
-    Lu: 'LU',
-    Mo: 'MO',
-    Mg: 'MG',
-    Mw: 'MW',
-    My: 'MY',
-    Mv: 'MV',
-    Ml: 'ML',
-    Mt: 'MT',
-    Mh: 'MH',
-    Mq: 'MQ',
-    Mr: 'MR',
-    Mu: 'MU',
-    Yt: 'YT',
-    Mx: 'MX',
-    Fm: 'FM',
-    Md: 'MD',
-    Mc: 'MC',
-    Mn: 'MN',
-    Me: 'ME',
-    Ms: 'MS',
-    Ma: 'MA',
-    Mz: 'MZ',
-    Mm: 'MM',
-    Na: 'NA',
-    Nr: 'NR',
-    Np: 'NP',
-    Nl: 'NL',
-    An: 'AN',
-    Nc: 'NC',
-    Nz: 'NZ',
-    Ni: 'NI',
-    Ne: 'NE',
-    Ng: 'NG',
-    Nu: 'NU',
-    Nf: 'NF',
-    Mk: 'MK',
-    Mp: 'MP',
-    No: 'NO',
-    Om: 'OM',
-    Pk: 'PK',
-    Pw: 'PW',
-    Ps: 'PS',
-    Pa: 'PA',
-    Pg: 'PG',
-    Py: 'PY',
-    Pe: 'PE',
-    Ph: 'PH',
-    Pn: 'PN',
-    Pl: 'PL',
-    Pt: 'PT',
-    Pr: 'PR',
-    Qa: 'QA',
-    Ro: 'RO',
-    Ru: 'RU',
-    Rw: 'RW',
-    Re: 'RE',
-    Bl: 'BL',
-    Sh: 'SH',
-    Kn: 'KN',
-    Lc: 'LC',
-    Mf: 'MF',
-    Pm: 'PM',
-    Vc: 'VC',
-    Ws: 'WS',
-    Sm: 'SM',
-    St: 'ST',
-    Sa: 'SA',
-    Sn: 'SN',
-    Rs: 'RS',
-    Sc: 'SC',
-    Sl: 'SL',
-    Sg: 'SG',
-    Sx: 'SX',
-    Sy: 'SY',
-    Sk: 'SK',
-    Si: 'SI',
-    Sb: 'SB',
-    So: 'SO',
-    Za: 'ZA',
-    Gs: 'GS',
-    Ss: 'SS',
-    Es: 'ES',
-    Lk: 'LK',
-    Sd: 'SD',
-    Sr: 'SR',
-    Sj: 'SJ',
-    Se: 'SE',
-    Ch: 'CH',
-    Tw: 'TW',
-    Tj: 'TJ',
-    Tz: 'TZ',
-    Th: 'TH',
-    Tl: 'TL',
-    Tg: 'TG',
-    Tk: 'TK',
-    To: 'TO',
-    Tt: 'TT',
-    Tn: 'TN',
-    Tr: 'TR',
-    Tm: 'TM',
-    Tc: 'TC',
-    Tv: 'TV',
-    Ug: 'UG',
-    Ua: 'UA',
-    Ae: 'AE',
-    Gb: 'GB',
-    Us: 'US',
-    Um: 'UM',
-    Uy: 'UY',
-    Uz: 'UZ',
-    Vu: 'VU',
-    Ve: 'VE',
-    Vn: 'VN',
-    Vg: 'VG',
-    Vi: 'VI',
-    Wf: 'WF',
-    Eh: 'EH',
-    Ye: 'YE',
-    Zm: 'ZM',
-    Zw: 'ZW'
-} as const;
-
-export type UserAddressCountryEnum = typeof UserAddressCountryEnum[keyof typeof UserAddressCountryEnum];
 
 /**
  * 
@@ -6177,6 +7849,19 @@ export interface WorkLocationInfo {
 /**
  * 
  */
+export interface WorkLocationRequest {
+    /**
+     * The name of the work location.
+     */
+    'name': string;
+    /**
+     * The address for the work location.
+     */
+    'address': AddressRequest;
+}
+/**
+ * 
+ */
 export interface Worker {
     /**
      * Identifier field
@@ -6221,7 +7906,7 @@ export interface Worker {
     /**
      * The worker\'s country.
      */
-    'country'?: WorkerCountryEnum;
+    'country'?: CountryCode;
     /**
      * The start date of the worker.
      */
@@ -6277,7 +7962,7 @@ export interface Worker {
     /**
      * The countries that the worker has citizenship in.
      */
-    'citizenship'?: WorkerCitizenshipEnum;
+    'citizenship'?: CountryCode;
     /**
      * The compensation package for the worker.
      */
@@ -6327,7 +8012,7 @@ export interface Worker {
      */
     'termination_details'?: TerminationDetails;
     /**
-     * Custom fields for the worker  Expandable field
+     * Custom field values defined on the Employee object for this worker  Expandable field
      */
     'custom_fields'?: Array<{ [key: string]: any; }>;
     /**
@@ -6335,267 +8020,15 @@ export interface Worker {
      */
     'country_fields'?: CountryFields;
     /**
-     * Worker\'s assigned business partners unique identifiers
+     * Worker\'s assigned business partners unique identifiers. Returns an empty list ([]) if the worker has no business partners.
      */
     'business_partners_id'?: Array<string>;
     /**
-     * Worker\'s assigned business partners  Expandable field
+     * Worker\'s assigned business partners. This field is only populated when explicitly requested via the expand parameter (e.g., ?expand=business_partners). When expanded, returns an empty list ([]) if the worker has no business partners.  Expandable field
      */
     'business_partners'?: Array<BusinessPartner>;
 }
 
-export const WorkerCountryEnum = {
-    Af: 'AF',
-    Ax: 'AX',
-    Al: 'AL',
-    Dz: 'DZ',
-    As: 'AS',
-    Ad: 'AD',
-    Ao: 'AO',
-    Ai: 'AI',
-    Aq: 'AQ',
-    Ag: 'AG',
-    Ar: 'AR',
-    Am: 'AM',
-    Aw: 'AW',
-    Au: 'AU',
-    At: 'AT',
-    Az: 'AZ',
-    Bs: 'BS',
-    Bh: 'BH',
-    Bd: 'BD',
-    Bb: 'BB',
-    By: 'BY',
-    Be: 'BE',
-    Bz: 'BZ',
-    Bj: 'BJ',
-    Bm: 'BM',
-    Bt: 'BT',
-    Bo: 'BO',
-    Bq: 'BQ',
-    Ba: 'BA',
-    Bw: 'BW',
-    Bv: 'BV',
-    Br: 'BR',
-    Io: 'IO',
-    Bn: 'BN',
-    Bg: 'BG',
-    Bf: 'BF',
-    Bi: 'BI',
-    Cv: 'CV',
-    Kh: 'KH',
-    Cm: 'CM',
-    Ca: 'CA',
-    Ky: 'KY',
-    Cf: 'CF',
-    Td: 'TD',
-    Cl: 'CL',
-    Cn: 'CN',
-    Cx: 'CX',
-    Cc: 'CC',
-    Co: 'CO',
-    Km: 'KM',
-    Cg: 'CG',
-    Cd: 'CD',
-    Ck: 'CK',
-    Cr: 'CR',
-    Ci: 'CI',
-    Hr: 'HR',
-    Cw: 'CW',
-    Cy: 'CY',
-    Cz: 'CZ',
-    Dk: 'DK',
-    Dj: 'DJ',
-    Dm: 'DM',
-    Do: 'DO',
-    Ec: 'EC',
-    Eg: 'EG',
-    Sv: 'SV',
-    Gq: 'GQ',
-    Er: 'ER',
-    Ee: 'EE',
-    Sz: 'SZ',
-    Et: 'ET',
-    Fk: 'FK',
-    Fo: 'FO',
-    Fj: 'FJ',
-    Fi: 'FI',
-    Fr: 'FR',
-    Gf: 'GF',
-    Pf: 'PF',
-    Tf: 'TF',
-    Ga: 'GA',
-    Gm: 'GM',
-    Ge: 'GE',
-    De: 'DE',
-    Gh: 'GH',
-    Gi: 'GI',
-    Gr: 'GR',
-    Gl: 'GL',
-    Gd: 'GD',
-    Gp: 'GP',
-    Gu: 'GU',
-    Gt: 'GT',
-    Gg: 'GG',
-    Gn: 'GN',
-    Gw: 'GW',
-    Gy: 'GY',
-    Ht: 'HT',
-    Hm: 'HM',
-    Va: 'VA',
-    Hn: 'HN',
-    Hk: 'HK',
-    Hu: 'HU',
-    Is: 'IS',
-    In: 'IN',
-    Id: 'ID',
-    Iq: 'IQ',
-    Ie: 'IE',
-    Im: 'IM',
-    Il: 'IL',
-    It: 'IT',
-    Jm: 'JM',
-    Jp: 'JP',
-    Je: 'JE',
-    Jo: 'JO',
-    Kz: 'KZ',
-    Ke: 'KE',
-    Ki: 'KI',
-    Kr: 'KR',
-    Xk: 'XK',
-    Kw: 'KW',
-    Kg: 'KG',
-    La: 'LA',
-    Lv: 'LV',
-    Lb: 'LB',
-    Ls: 'LS',
-    Lr: 'LR',
-    Ly: 'LY',
-    Li: 'LI',
-    Lt: 'LT',
-    Lu: 'LU',
-    Mo: 'MO',
-    Mg: 'MG',
-    Mw: 'MW',
-    My: 'MY',
-    Mv: 'MV',
-    Ml: 'ML',
-    Mt: 'MT',
-    Mh: 'MH',
-    Mq: 'MQ',
-    Mr: 'MR',
-    Mu: 'MU',
-    Yt: 'YT',
-    Mx: 'MX',
-    Fm: 'FM',
-    Md: 'MD',
-    Mc: 'MC',
-    Mn: 'MN',
-    Me: 'ME',
-    Ms: 'MS',
-    Ma: 'MA',
-    Mz: 'MZ',
-    Mm: 'MM',
-    Na: 'NA',
-    Nr: 'NR',
-    Np: 'NP',
-    Nl: 'NL',
-    An: 'AN',
-    Nc: 'NC',
-    Nz: 'NZ',
-    Ni: 'NI',
-    Ne: 'NE',
-    Ng: 'NG',
-    Nu: 'NU',
-    Nf: 'NF',
-    Mk: 'MK',
-    Mp: 'MP',
-    No: 'NO',
-    Om: 'OM',
-    Pk: 'PK',
-    Pw: 'PW',
-    Ps: 'PS',
-    Pa: 'PA',
-    Pg: 'PG',
-    Py: 'PY',
-    Pe: 'PE',
-    Ph: 'PH',
-    Pn: 'PN',
-    Pl: 'PL',
-    Pt: 'PT',
-    Pr: 'PR',
-    Qa: 'QA',
-    Ro: 'RO',
-    Ru: 'RU',
-    Rw: 'RW',
-    Re: 'RE',
-    Bl: 'BL',
-    Sh: 'SH',
-    Kn: 'KN',
-    Lc: 'LC',
-    Mf: 'MF',
-    Pm: 'PM',
-    Vc: 'VC',
-    Ws: 'WS',
-    Sm: 'SM',
-    St: 'ST',
-    Sa: 'SA',
-    Sn: 'SN',
-    Rs: 'RS',
-    Sc: 'SC',
-    Sl: 'SL',
-    Sg: 'SG',
-    Sx: 'SX',
-    Sy: 'SY',
-    Sk: 'SK',
-    Si: 'SI',
-    Sb: 'SB',
-    So: 'SO',
-    Za: 'ZA',
-    Gs: 'GS',
-    Ss: 'SS',
-    Es: 'ES',
-    Lk: 'LK',
-    Sd: 'SD',
-    Sr: 'SR',
-    Sj: 'SJ',
-    Se: 'SE',
-    Ch: 'CH',
-    Tw: 'TW',
-    Tj: 'TJ',
-    Tz: 'TZ',
-    Th: 'TH',
-    Tl: 'TL',
-    Tg: 'TG',
-    Tk: 'TK',
-    To: 'TO',
-    Tt: 'TT',
-    Tn: 'TN',
-    Tr: 'TR',
-    Tm: 'TM',
-    Tc: 'TC',
-    Tv: 'TV',
-    Ug: 'UG',
-    Ua: 'UA',
-    Ae: 'AE',
-    Gb: 'GB',
-    Us: 'US',
-    Um: 'UM',
-    Uy: 'UY',
-    Uz: 'UZ',
-    Vu: 'VU',
-    Ve: 'VE',
-    Vn: 'VN',
-    Vg: 'VG',
-    Vi: 'VI',
-    Wf: 'WF',
-    Eh: 'EH',
-    Ye: 'YE',
-    Zm: 'ZM',
-    Zw: 'ZW'
-} as const;
-
-export type WorkerCountryEnum = typeof WorkerCountryEnum[keyof typeof WorkerCountryEnum];
 export const WorkerStatusEnum = {
     Init: 'INIT',
     Hired: 'HIRED',
@@ -6623,6 +8056,7 @@ export const WorkerRaceEnum = {
     Eurasian: 'EURASIAN',
     Indian: 'INDIAN',
     Indigenous: 'INDIGENOUS',
+    Malay: 'MALAY',
     White: 'WHITE',
     Yellow: 'YELLOW',
     NotInformed: 'NOT_INFORMED',
@@ -6638,6 +8072,7 @@ export const WorkerEthnicityEnum = {
     Asian: 'ASIAN',
     AmericanIndianOrAlaskaNative: 'AMERICAN_INDIAN_OR_ALASKA_NATIVE',
     TwoOrMoreRaces: 'TWO_OR_MORE_RACES',
+    MiddleEasternOrNorthAfrican: 'MIDDLE_EASTERN_OR_NORTH_AFRICAN',
     DeclineToSelfIdentify: 'DECLINE_TO_SELF_IDENTIFY',
     African: 'AFRICAN',
     Coloured: 'COLOURED',
@@ -6647,258 +8082,6 @@ export const WorkerEthnicityEnum = {
 } as const;
 
 export type WorkerEthnicityEnum = typeof WorkerEthnicityEnum[keyof typeof WorkerEthnicityEnum];
-export const WorkerCitizenshipEnum = {
-    Af: 'AF',
-    Ax: 'AX',
-    Al: 'AL',
-    Dz: 'DZ',
-    As: 'AS',
-    Ad: 'AD',
-    Ao: 'AO',
-    Ai: 'AI',
-    Aq: 'AQ',
-    Ag: 'AG',
-    Ar: 'AR',
-    Am: 'AM',
-    Aw: 'AW',
-    Au: 'AU',
-    At: 'AT',
-    Az: 'AZ',
-    Bs: 'BS',
-    Bh: 'BH',
-    Bd: 'BD',
-    Bb: 'BB',
-    By: 'BY',
-    Be: 'BE',
-    Bz: 'BZ',
-    Bj: 'BJ',
-    Bm: 'BM',
-    Bt: 'BT',
-    Bo: 'BO',
-    Bq: 'BQ',
-    Ba: 'BA',
-    Bw: 'BW',
-    Bv: 'BV',
-    Br: 'BR',
-    Io: 'IO',
-    Bn: 'BN',
-    Bg: 'BG',
-    Bf: 'BF',
-    Bi: 'BI',
-    Cv: 'CV',
-    Kh: 'KH',
-    Cm: 'CM',
-    Ca: 'CA',
-    Ky: 'KY',
-    Cf: 'CF',
-    Td: 'TD',
-    Cl: 'CL',
-    Cn: 'CN',
-    Cx: 'CX',
-    Cc: 'CC',
-    Co: 'CO',
-    Km: 'KM',
-    Cg: 'CG',
-    Cd: 'CD',
-    Ck: 'CK',
-    Cr: 'CR',
-    Ci: 'CI',
-    Hr: 'HR',
-    Cw: 'CW',
-    Cy: 'CY',
-    Cz: 'CZ',
-    Dk: 'DK',
-    Dj: 'DJ',
-    Dm: 'DM',
-    Do: 'DO',
-    Ec: 'EC',
-    Eg: 'EG',
-    Sv: 'SV',
-    Gq: 'GQ',
-    Er: 'ER',
-    Ee: 'EE',
-    Sz: 'SZ',
-    Et: 'ET',
-    Fk: 'FK',
-    Fo: 'FO',
-    Fj: 'FJ',
-    Fi: 'FI',
-    Fr: 'FR',
-    Gf: 'GF',
-    Pf: 'PF',
-    Tf: 'TF',
-    Ga: 'GA',
-    Gm: 'GM',
-    Ge: 'GE',
-    De: 'DE',
-    Gh: 'GH',
-    Gi: 'GI',
-    Gr: 'GR',
-    Gl: 'GL',
-    Gd: 'GD',
-    Gp: 'GP',
-    Gu: 'GU',
-    Gt: 'GT',
-    Gg: 'GG',
-    Gn: 'GN',
-    Gw: 'GW',
-    Gy: 'GY',
-    Ht: 'HT',
-    Hm: 'HM',
-    Va: 'VA',
-    Hn: 'HN',
-    Hk: 'HK',
-    Hu: 'HU',
-    Is: 'IS',
-    In: 'IN',
-    Id: 'ID',
-    Iq: 'IQ',
-    Ie: 'IE',
-    Im: 'IM',
-    Il: 'IL',
-    It: 'IT',
-    Jm: 'JM',
-    Jp: 'JP',
-    Je: 'JE',
-    Jo: 'JO',
-    Kz: 'KZ',
-    Ke: 'KE',
-    Ki: 'KI',
-    Kr: 'KR',
-    Xk: 'XK',
-    Kw: 'KW',
-    Kg: 'KG',
-    La: 'LA',
-    Lv: 'LV',
-    Lb: 'LB',
-    Ls: 'LS',
-    Lr: 'LR',
-    Ly: 'LY',
-    Li: 'LI',
-    Lt: 'LT',
-    Lu: 'LU',
-    Mo: 'MO',
-    Mg: 'MG',
-    Mw: 'MW',
-    My: 'MY',
-    Mv: 'MV',
-    Ml: 'ML',
-    Mt: 'MT',
-    Mh: 'MH',
-    Mq: 'MQ',
-    Mr: 'MR',
-    Mu: 'MU',
-    Yt: 'YT',
-    Mx: 'MX',
-    Fm: 'FM',
-    Md: 'MD',
-    Mc: 'MC',
-    Mn: 'MN',
-    Me: 'ME',
-    Ms: 'MS',
-    Ma: 'MA',
-    Mz: 'MZ',
-    Mm: 'MM',
-    Na: 'NA',
-    Nr: 'NR',
-    Np: 'NP',
-    Nl: 'NL',
-    An: 'AN',
-    Nc: 'NC',
-    Nz: 'NZ',
-    Ni: 'NI',
-    Ne: 'NE',
-    Ng: 'NG',
-    Nu: 'NU',
-    Nf: 'NF',
-    Mk: 'MK',
-    Mp: 'MP',
-    No: 'NO',
-    Om: 'OM',
-    Pk: 'PK',
-    Pw: 'PW',
-    Ps: 'PS',
-    Pa: 'PA',
-    Pg: 'PG',
-    Py: 'PY',
-    Pe: 'PE',
-    Ph: 'PH',
-    Pn: 'PN',
-    Pl: 'PL',
-    Pt: 'PT',
-    Pr: 'PR',
-    Qa: 'QA',
-    Ro: 'RO',
-    Ru: 'RU',
-    Rw: 'RW',
-    Re: 'RE',
-    Bl: 'BL',
-    Sh: 'SH',
-    Kn: 'KN',
-    Lc: 'LC',
-    Mf: 'MF',
-    Pm: 'PM',
-    Vc: 'VC',
-    Ws: 'WS',
-    Sm: 'SM',
-    St: 'ST',
-    Sa: 'SA',
-    Sn: 'SN',
-    Rs: 'RS',
-    Sc: 'SC',
-    Sl: 'SL',
-    Sg: 'SG',
-    Sx: 'SX',
-    Sy: 'SY',
-    Sk: 'SK',
-    Si: 'SI',
-    Sb: 'SB',
-    So: 'SO',
-    Za: 'ZA',
-    Gs: 'GS',
-    Ss: 'SS',
-    Es: 'ES',
-    Lk: 'LK',
-    Sd: 'SD',
-    Sr: 'SR',
-    Sj: 'SJ',
-    Se: 'SE',
-    Ch: 'CH',
-    Tw: 'TW',
-    Tj: 'TJ',
-    Tz: 'TZ',
-    Th: 'TH',
-    Tl: 'TL',
-    Tg: 'TG',
-    Tk: 'TK',
-    To: 'TO',
-    Tt: 'TT',
-    Tn: 'TN',
-    Tr: 'TR',
-    Tm: 'TM',
-    Tc: 'TC',
-    Tv: 'TV',
-    Ug: 'UG',
-    Ua: 'UA',
-    Ae: 'AE',
-    Gb: 'GB',
-    Us: 'US',
-    Um: 'UM',
-    Uy: 'UY',
-    Uz: 'UZ',
-    Vu: 'VU',
-    Ve: 'VE',
-    Vn: 'VN',
-    Vg: 'VG',
-    Vi: 'VI',
-    Wf: 'WF',
-    Eh: 'EH',
-    Ye: 'YE',
-    Zm: 'ZM',
-    Zw: 'ZW'
-} as const;
-
-export type WorkerCitizenshipEnum = typeof WorkerCitizenshipEnum[keyof typeof WorkerCitizenshipEnum];
 export const WorkerOvertimeExemptionEnum = {
     Exempt: 'EXEMPT',
     NonExempt: 'NON_EXEMPT'
@@ -6941,7 +8124,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
          * @throws {RequiredError}
          */
         createBusinessPartnerGroups: async (businessPartnerGroupRequest?: BusinessPartnerGroupRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/business-partner-groups`;
+            const localVarPath = `/business-partner-groups/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6955,7 +8138,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
 
             // authentication OAuth2Production required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["business-partner-groups.read", "business-partner-groups.read-write"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["business-partner-groups.read-write"], configuration)
 
             // authentication BearerTokenProduction required
             // http bearer authentication required
@@ -6982,7 +8165,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
          * @throws {RequiredError}
          */
         createBusinessPartners: async (businessPartnerRequest?: BusinessPartnerRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/business-partners`;
+            const localVarPath = `/business-partners/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6996,7 +8179,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
 
             // authentication OAuth2Production required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["business-partners.read", "business-partners.read-write"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["business-partners.read-write"], configuration)
 
             // authentication BearerTokenProduction required
             // http bearer authentication required
@@ -7025,7 +8208,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
         deleteBusinessPartnerGroups: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteBusinessPartnerGroups', 'id', id)
-            const localVarPath = `/business-partner-groups/{id}`
+            const localVarPath = `/business-partner-groups/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7040,7 +8223,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
 
             // authentication OAuth2Production required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["business-partner-groups.read"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["business-partner-groups.read-write"], configuration)
 
             // authentication BearerTokenProduction required
             // http bearer authentication required
@@ -7066,7 +8249,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
         deleteBusinessPartners: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteBusinessPartners', 'id', id)
-            const localVarPath = `/business-partners/{id}`
+            const localVarPath = `/business-partners/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7081,7 +8264,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
 
             // authentication OAuth2Production required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["business-partners.read"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["business-partners.read-write"], configuration)
 
             // authentication BearerTokenProduction required
             // http bearer authentication required
@@ -7108,7 +8291,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
         getBusinessPartnerGroups: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getBusinessPartnerGroups', 'id', id)
-            const localVarPath = `/business-partner-groups/{id}`
+            const localVarPath = `/business-partner-groups/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7155,7 +8338,7 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
         getBusinessPartners: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getBusinessPartners', 'id', id)
-            const localVarPath = `/business-partners/{id}`
+            const localVarPath = `/business-partners/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7196,13 +8379,12 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
          * @summary List business partner groups
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listBusinessPartnerGroups: async (expand?: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/business-partner-groups`;
+        listBusinessPartnerGroups: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/business-partner-groups/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7230,10 +8412,6 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['order_by'] = orderBy;
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
             if (cursor !== undefined) {
                 localVarQueryParameter['cursor'] = cursor;
             }
@@ -7255,13 +8433,12 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
          * @param {string} [filter] 
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listBusinessPartners: async (filter?: string, expand?: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/business-partners`;
+        listBusinessPartners: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/business-partners/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7291,10 +8468,6 @@ export const BusinessPartnersApiAxiosParamCreator = function (configuration?: Co
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
 
             if (cursor !== undefined) {
@@ -7406,13 +8579,12 @@ export const BusinessPartnersApiFp = function(configuration?: Configuration) {
          * @summary List business partner groups
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listBusinessPartnerGroups(expand?: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListBusinessPartnerGroups200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listBusinessPartnerGroups(expand, orderBy, limit, cursor, options);
+        async listBusinessPartnerGroups(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListBusinessPartnerGroups200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listBusinessPartnerGroups(expand, orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BusinessPartnersApi.listBusinessPartnerGroups']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7423,13 +8595,12 @@ export const BusinessPartnersApiFp = function(configuration?: Configuration) {
          * @param {string} [filter] 
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listBusinessPartners(filter?: string, expand?: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListBusinessPartners200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listBusinessPartners(filter, expand, orderBy, limit, cursor, options);
+        async listBusinessPartners(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListBusinessPartners200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listBusinessPartners(filter, expand, orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BusinessPartnersApi.listBusinessPartners']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7511,7 +8682,7 @@ export const BusinessPartnersApiFactory = function (configuration?: Configuratio
          * @throws {RequiredError}
          */
         listBusinessPartnerGroups(requestParameters: BusinessPartnersApiListBusinessPartnerGroupsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListBusinessPartnerGroups200Response> {
-            return localVarFp.listBusinessPartnerGroups(requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listBusinessPartnerGroups(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
         /**
          * A List of business partners  - Requires: `API Tier 1`  - Filterable fields: `worker_id`, `business_partner_group_id`  - Expandable fields: `business_partner_group`, `worker`, `client_group`  - Sortable fields: `id`, `created_at`, `updated_at`
@@ -7521,7 +8692,7 @@ export const BusinessPartnersApiFactory = function (configuration?: Configuratio
          * @throws {RequiredError}
          */
         listBusinessPartners(requestParameters: BusinessPartnersApiListBusinessPartnersRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListBusinessPartners200Response> {
-            return localVarFp.listBusinessPartners(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listBusinessPartners(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7592,14 +8763,6 @@ export interface BusinessPartnersApiListBusinessPartnerGroupsRequest {
 
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -7613,14 +8776,6 @@ export interface BusinessPartnersApiListBusinessPartnersRequest {
 
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -7702,7 +8857,7 @@ export class BusinessPartnersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listBusinessPartnerGroups(requestParameters: BusinessPartnersApiListBusinessPartnerGroupsRequest = {}, options?: RawAxiosRequestConfig) {
-        return BusinessPartnersApiFp(this.configuration).listBusinessPartnerGroups(requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return BusinessPartnersApiFp(this.configuration).listBusinessPartnerGroups(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -7713,7 +8868,265 @@ export class BusinessPartnersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listBusinessPartners(requestParameters: BusinessPartnersApiListBusinessPartnersRequest = {}, options?: RawAxiosRequestConfig) {
-        return BusinessPartnersApiFp(this.configuration).listBusinessPartners(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return BusinessPartnersApiFp(this.configuration).listBusinessPartners(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * CandidateApplicationsApi - axios parameter creator
+ */
+export const CandidateApplicationsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * A List of candidate applications  - Requires: `API Tier 2`  - Expandable fields: `job`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List candidate applications
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCandidateApplications: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/candidate-applications/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["candidate-applications.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CandidateApplicationsApi - functional programming interface
+ */
+export const CandidateApplicationsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CandidateApplicationsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * A List of candidate applications  - Requires: `API Tier 2`  - Expandable fields: `job`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List candidate applications
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCandidateApplications(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCandidateApplications200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCandidateApplications(expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CandidateApplicationsApi.listCandidateApplications']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * CandidateApplicationsApi - factory interface
+ */
+export const CandidateApplicationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CandidateApplicationsApiFp(configuration)
+    return {
+        /**
+         * A List of candidate applications  - Requires: `API Tier 2`  - Expandable fields: `job`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List candidate applications
+         * @param {CandidateApplicationsApiListCandidateApplicationsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCandidateApplications(requestParameters: CandidateApplicationsApiListCandidateApplicationsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListCandidateApplications200Response> {
+            return localVarFp.listCandidateApplications(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for listCandidateApplications operation in CandidateApplicationsApi.
+ */
+export interface CandidateApplicationsApiListCandidateApplicationsRequest {
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * CandidateApplicationsApi - object-oriented interface
+ */
+export class CandidateApplicationsApi extends BaseAPI {
+    /**
+     * A List of candidate applications  - Requires: `API Tier 2`  - Expandable fields: `job`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List candidate applications
+     * @param {CandidateApplicationsApiListCandidateApplicationsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCandidateApplications(requestParameters: CandidateApplicationsApiListCandidateApplicationsRequest = {}, options?: RawAxiosRequestConfig) {
+        return CandidateApplicationsApiFp(this.configuration).listCandidateApplications(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * CandidatesApi - axios parameter creator
+ */
+export const CandidatesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * A List of candidates  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List candidates
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCandidates: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/candidates/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["candidates.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CandidatesApi - functional programming interface
+ */
+export const CandidatesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CandidatesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * A List of candidates  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List candidates
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCandidates(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCandidates200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCandidates(orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CandidatesApi.listCandidates']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * CandidatesApi - factory interface
+ */
+export const CandidatesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CandidatesApiFp(configuration)
+    return {
+        /**
+         * A List of candidates  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List candidates
+         * @param {CandidatesApiListCandidatesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCandidates(requestParameters: CandidatesApiListCandidatesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListCandidates200Response> {
+            return localVarFp.listCandidates(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for listCandidates operation in CandidatesApi.
+ */
+export interface CandidatesApiListCandidatesRequest {
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * CandidatesApi - object-oriented interface
+ */
+export class CandidatesApi extends BaseAPI {
+    /**
+     * A List of candidates  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List candidates
+     * @param {CandidatesApiListCandidatesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCandidates(requestParameters: CandidatesApiListCandidatesRequest = {}, options?: RawAxiosRequestConfig) {
+        return CandidatesApiFp(this.configuration).listCandidates(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -7729,13 +9142,12 @@ export const CompaniesApiAxiosParamCreator = function (configuration?: Configura
          * @summary List companies
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCompanies: async (expand?: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/companies`;
+        listCompanies: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/companies/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7761,10 +9173,6 @@ export const CompaniesApiAxiosParamCreator = function (configuration?: Configura
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
 
             if (cursor !== undefined) {
@@ -7796,13 +9204,12 @@ export const CompaniesApiFp = function(configuration?: Configuration) {
          * @summary List companies
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCompanies(expand?: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCompanies200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompanies(expand, orderBy, limit, cursor, options);
+        async listCompanies(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCompanies200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompanies(expand, orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CompaniesApi.listCompanies']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7824,7 +9231,7 @@ export const CompaniesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         listCompanies(requestParameters: CompaniesApiListCompaniesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListCompanies200Response> {
-            return localVarFp.listCompanies(requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listCompanies(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7837,14 +9244,6 @@ export interface CompaniesApiListCompaniesRequest {
 
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -7860,7 +9259,916 @@ export class CompaniesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listCompanies(requestParameters: CompaniesApiListCompaniesRequest = {}, options?: RawAxiosRequestConfig) {
-        return CompaniesApiFp(this.configuration).listCompanies(requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return CompaniesApiFp(this.configuration).listCompanies(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * CompensationBandsDetailsApi - axios parameter creator
+ */
+export const CompensationBandsDetailsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve a specific compensation bands detail
+         * @summary Retrieve a specific compensation bands detail
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCompensationBandsDetails: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCompensationBandsDetails', 'id', id)
+            const localVarPath = `/compensation-bands-details/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["compensation-bands-details.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of compensation bands details  - Requires: `API Tier 2`  - Filterable fields: `created_at`, `updated_at`, `internal_job_code`, `worker_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List compensation bands details
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCompensationBandsDetails: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/compensation-bands-details/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["compensation-bands-details.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CompensationBandsDetailsApi - functional programming interface
+ */
+export const CompensationBandsDetailsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CompensationBandsDetailsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve a specific compensation bands detail
+         * @summary Retrieve a specific compensation bands detail
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCompensationBandsDetails(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCompensationBandsDetails200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompensationBandsDetails(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CompensationBandsDetailsApi.getCompensationBandsDetails']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of compensation bands details  - Requires: `API Tier 2`  - Filterable fields: `created_at`, `updated_at`, `internal_job_code`, `worker_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List compensation bands details
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCompensationBandsDetails(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCompensationBandsDetails200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompensationBandsDetails(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CompensationBandsDetailsApi.listCompensationBandsDetails']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * CompensationBandsDetailsApi - factory interface
+ */
+export const CompensationBandsDetailsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CompensationBandsDetailsApiFp(configuration)
+    return {
+        /**
+         * Retrieve a specific compensation bands detail
+         * @summary Retrieve a specific compensation bands detail
+         * @param {CompensationBandsDetailsApiGetCompensationBandsDetailsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCompensationBandsDetails(requestParameters: CompensationBandsDetailsApiGetCompensationBandsDetailsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetCompensationBandsDetails200Response> {
+            return localVarFp.getCompensationBandsDetails(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of compensation bands details  - Requires: `API Tier 2`  - Filterable fields: `created_at`, `updated_at`, `internal_job_code`, `worker_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List compensation bands details
+         * @param {CompensationBandsDetailsApiListCompensationBandsDetailsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCompensationBandsDetails(requestParameters: CompensationBandsDetailsApiListCompensationBandsDetailsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListCompensationBandsDetails200Response> {
+            return localVarFp.listCompensationBandsDetails(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getCompensationBandsDetails operation in CompensationBandsDetailsApi.
+ */
+export interface CompensationBandsDetailsApiGetCompensationBandsDetailsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listCompensationBandsDetails operation in CompensationBandsDetailsApi.
+ */
+export interface CompensationBandsDetailsApiListCompensationBandsDetailsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * CompensationBandsDetailsApi - object-oriented interface
+ */
+export class CompensationBandsDetailsApi extends BaseAPI {
+    /**
+     * Retrieve a specific compensation bands detail
+     * @summary Retrieve a specific compensation bands detail
+     * @param {CompensationBandsDetailsApiGetCompensationBandsDetailsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getCompensationBandsDetails(requestParameters: CompensationBandsDetailsApiGetCompensationBandsDetailsRequest, options?: RawAxiosRequestConfig) {
+        return CompensationBandsDetailsApiFp(this.configuration).getCompensationBandsDetails(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of compensation bands details  - Requires: `API Tier 2`  - Filterable fields: `created_at`, `updated_at`, `internal_job_code`, `worker_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List compensation bands details
+     * @param {CompensationBandsDetailsApiListCompensationBandsDetailsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCompensationBandsDetails(requestParameters: CompensationBandsDetailsApiListCompensationBandsDetailsRequest = {}, options?: RawAxiosRequestConfig) {
+        return CompensationBandsDetailsApiFp(this.configuration).listCompensationBandsDetails(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * CompensationsApi - axios parameter creator
+ */
+export const CompensationsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieves the Compensation for the Worker with the ID provided in the URL path.
+         * @summary Retrieve a specific compensation
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCompensations: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCompensations', 'id', id)
+            const localVarPath = `/compensations/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["compensations.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of compensations  - Requires: `API Tier 2`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List compensations
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCompensations: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/compensations/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["compensations.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CompensationsApi - functional programming interface
+ */
+export const CompensationsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CompensationsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieves the Compensation for the Worker with the ID provided in the URL path.
+         * @summary Retrieve a specific compensation
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCompensations(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCompensations200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompensations(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CompensationsApi.getCompensations']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of compensations  - Requires: `API Tier 2`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List compensations
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCompensations(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCompensations200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompensations(expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CompensationsApi.listCompensations']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * CompensationsApi - factory interface
+ */
+export const CompensationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CompensationsApiFp(configuration)
+    return {
+        /**
+         * Retrieves the Compensation for the Worker with the ID provided in the URL path.
+         * @summary Retrieve a specific compensation
+         * @param {CompensationsApiGetCompensationsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCompensations(requestParameters: CompensationsApiGetCompensationsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetCompensations200Response> {
+            return localVarFp.getCompensations(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of compensations  - Requires: `API Tier 2`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List compensations
+         * @param {CompensationsApiListCompensationsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCompensations(requestParameters: CompensationsApiListCompensationsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListCompensations200Response> {
+            return localVarFp.listCompensations(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getCompensations operation in CompensationsApi.
+ */
+export interface CompensationsApiGetCompensationsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listCompensations operation in CompensationsApi.
+ */
+export interface CompensationsApiListCompensationsRequest {
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * CompensationsApi - object-oriented interface
+ */
+export class CompensationsApi extends BaseAPI {
+    /**
+     * Retrieves the Compensation for the Worker with the ID provided in the URL path.
+     * @summary Retrieve a specific compensation
+     * @param {CompensationsApiGetCompensationsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getCompensations(requestParameters: CompensationsApiGetCompensationsRequest, options?: RawAxiosRequestConfig) {
+        return CompensationsApiFp(this.configuration).getCompensations(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of compensations  - Requires: `API Tier 2`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List compensations
+     * @param {CompensationsApiListCompensationsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCompensations(requestParameters: CompensationsApiListCompensationsRequest = {}, options?: RawAxiosRequestConfig) {
+        return CompensationsApiFp(this.configuration).listCompensations(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * CustomAppApi - axios parameter creator
+ */
+export const CustomAppApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new CustomApp
+         * @summary Create a new CustomApp
+         * @param {CustomAppRequest} [customAppRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomApps: async (customAppRequest?: CustomAppRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/custom-apps/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(customAppRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a CustomApp
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomApps: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteCustomApps', 'id', id)
+            const localVarPath = `/custom-apps/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific CustomApp
+         * @summary Retrieve a specific CustomApp
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomApps: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCustomApps', 'id', id)
+            const localVarPath = `/custom-apps/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of CustomApp  - Requires: `API Tier 1`
+         * @summary List CustomApp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCustomApps: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/custom-apps/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific CustomApp
+         * @summary Update a CustomApp
+         * @param {string} id ID of the resource to patch
+         * @param {CustomAppRequest} [customAppRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCustomApps: async (id: string, customAppRequest?: CustomAppRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateCustomApps', 'id', id)
+            const localVarPath = `/custom-apps/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(customAppRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CustomAppApi - functional programming interface
+ */
+export const CustomAppApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CustomAppApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new CustomApp
+         * @summary Create a new CustomApp
+         * @param {CustomAppRequest} [customAppRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomApps(customAppRequest?: CustomAppRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomApp>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomApps(customAppRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomAppApi.createCustomApps']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a CustomApp
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCustomApps(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomApps(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomAppApi.deleteCustomApps']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific CustomApp
+         * @summary Retrieve a specific CustomApp
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomApps(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCustomApps200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomApps(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomAppApi.getCustomApps']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of CustomApp  - Requires: `API Tier 1`
+         * @summary List CustomApp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCustomApps(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomApps200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomApps(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomAppApi.listCustomApps']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific CustomApp
+         * @summary Update a CustomApp
+         * @param {string} id ID of the resource to patch
+         * @param {CustomAppRequest} [customAppRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateCustomApps(id: string, customAppRequest?: CustomAppRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomApp>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCustomApps(id, customAppRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomAppApi.updateCustomApps']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * CustomAppApi - factory interface
+ */
+export const CustomAppApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CustomAppApiFp(configuration)
+    return {
+        /**
+         * Create a new CustomApp
+         * @summary Create a new CustomApp
+         * @param {CustomAppApiCreateCustomAppsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomApps(requestParameters: CustomAppApiCreateCustomAppsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<CustomApp> {
+            return localVarFp.createCustomApps(requestParameters.customAppRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a CustomApp
+         * @param {CustomAppApiDeleteCustomAppsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomApps(requestParameters: CustomAppApiDeleteCustomAppsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteCustomApps(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific CustomApp
+         * @summary Retrieve a specific CustomApp
+         * @param {CustomAppApiGetCustomAppsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomApps(requestParameters: CustomAppApiGetCustomAppsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetCustomApps200Response> {
+            return localVarFp.getCustomApps(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of CustomApp  - Requires: `API Tier 1`
+         * @summary List CustomApp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCustomApps(options?: RawAxiosRequestConfig): AxiosPromise<ListCustomApps200Response> {
+            return localVarFp.listCustomApps(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific CustomApp
+         * @summary Update a CustomApp
+         * @param {CustomAppApiUpdateCustomAppsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCustomApps(requestParameters: CustomAppApiUpdateCustomAppsRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomApp> {
+            return localVarFp.updateCustomApps(requestParameters.id, requestParameters.customAppRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createCustomApps operation in CustomAppApi.
+ */
+export interface CustomAppApiCreateCustomAppsRequest {
+    readonly customAppRequest?: CustomAppRequest
+}
+
+/**
+ * Request parameters for deleteCustomApps operation in CustomAppApi.
+ */
+export interface CustomAppApiDeleteCustomAppsRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getCustomApps operation in CustomAppApi.
+ */
+export interface CustomAppApiGetCustomAppsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for updateCustomApps operation in CustomAppApi.
+ */
+export interface CustomAppApiUpdateCustomAppsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly customAppRequest?: CustomAppRequest
+}
+
+/**
+ * CustomAppApi - object-oriented interface
+ */
+export class CustomAppApi extends BaseAPI {
+    /**
+     * Create a new CustomApp
+     * @summary Create a new CustomApp
+     * @param {CustomAppApiCreateCustomAppsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCustomApps(requestParameters: CustomAppApiCreateCustomAppsRequest = {}, options?: RawAxiosRequestConfig) {
+        return CustomAppApiFp(this.configuration).createCustomApps(requestParameters.customAppRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a CustomApp
+     * @param {CustomAppApiDeleteCustomAppsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCustomApps(requestParameters: CustomAppApiDeleteCustomAppsRequest, options?: RawAxiosRequestConfig) {
+        return CustomAppApiFp(this.configuration).deleteCustomApps(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific CustomApp
+     * @summary Retrieve a specific CustomApp
+     * @param {CustomAppApiGetCustomAppsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getCustomApps(requestParameters: CustomAppApiGetCustomAppsRequest, options?: RawAxiosRequestConfig) {
+        return CustomAppApiFp(this.configuration).getCustomApps(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of CustomApp  - Requires: `API Tier 1`
+     * @summary List CustomApp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomApps(options?: RawAxiosRequestConfig) {
+        return CustomAppApiFp(this.configuration).listCustomApps(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific CustomApp
+     * @summary Update a CustomApp
+     * @param {CustomAppApiUpdateCustomAppsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCustomApps(requestParameters: CustomAppApiUpdateCustomAppsRequest, options?: RawAxiosRequestConfig) {
+        return CustomAppApiFp(this.configuration).updateCustomApps(requestParameters.id, requestParameters.customAppRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -7875,13 +10183,12 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
          * A List of custom fields  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List custom fields
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCustomFields: async (orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/custom-fields`;
+        listCustomFields: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/custom-fields/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7903,10 +10210,6 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
 
             if (cursor !== undefined) {
@@ -7937,13 +10240,12 @@ export const CustomFieldsApiFp = function(configuration?: Configuration) {
          * A List of custom fields  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List custom fields
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCustomFields(orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomFields200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomFields(orderBy, limit, cursor, options);
+        async listCustomFields(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomFields200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomFields(orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFieldsApi.listCustomFields']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7965,7 +10267,7 @@ export const CustomFieldsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         listCustomFields(requestParameters: CustomFieldsApiListCustomFieldsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListCustomFields200Response> {
-            return localVarFp.listCustomFields(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listCustomFields(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7976,14 +10278,6 @@ export const CustomFieldsApiFactory = function (configuration?: Configuration, b
 export interface CustomFieldsApiListCustomFieldsRequest {
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -7999,7 +10293,7 @@ export class CustomFieldsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listCustomFields(requestParameters: CustomFieldsApiListCustomFieldsRequest = {}, options?: RawAxiosRequestConfig) {
-        return CustomFieldsApiFp(this.configuration).listCustomFields(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return CustomFieldsApiFp(this.configuration).listCustomFields(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -8150,12 +10444,10 @@ export const CustomObjectFieldsApiAxiosParamCreator = function (configuration?: 
          * A List of custom object fields  - Requires: `API Tier 1`
          * @summary List custom object fields
          * @param {string} customObjectApiName 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCustomObjectsCustomObjectApiNameFields: async (customObjectApiName: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listCustomObjectsCustomObjectApiNameFields: async (customObjectApiName: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'customObjectApiName' is not null or undefined
             assertParamExists('listCustomObjectsCustomObjectApiNameFields', 'customObjectApiName', customObjectApiName)
             const localVarPath = `/custom-objects/{custom_object_api_name}/fields/`
@@ -8178,14 +10470,6 @@ export const CustomObjectFieldsApiAxiosParamCreator = function (configuration?: 
             // authentication BearerTokenProduction required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -8302,13 +10586,11 @@ export const CustomObjectFieldsApiFp = function(configuration?: Configuration) {
          * A List of custom object fields  - Requires: `API Tier 1`
          * @summary List custom object fields
          * @param {string} customObjectApiName 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCustomObjectsCustomObjectApiNameFields(customObjectApiName: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomObjectsCustomObjectApiNameFields200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomObjectsCustomObjectApiNameFields(customObjectApiName, limit, cursor, options);
+        async listCustomObjectsCustomObjectApiNameFields(customObjectApiName: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomObjectsCustomObjectApiNameFields200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomObjectsCustomObjectApiNameFields(customObjectApiName, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomObjectFieldsApi.listCustomObjectsCustomObjectApiNameFields']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -8375,7 +10657,7 @@ export const CustomObjectFieldsApiFactory = function (configuration?: Configurat
          * @throws {RequiredError}
          */
         listCustomObjectsCustomObjectApiNameFields(requestParameters: CustomObjectFieldsApiListCustomObjectsCustomObjectApiNameFieldsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListCustomObjectsCustomObjectApiNameFields200Response> {
-            return localVarFp.listCustomObjectsCustomObjectApiNameFields(requestParameters.customObjectApiName, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listCustomObjectsCustomObjectApiNameFields(requestParameters.customObjectApiName, options).then((request) => request(axios, basePath));
         },
         /**
          * Updated a specific custom object field
@@ -8422,16 +10704,6 @@ export interface CustomObjectFieldsApiGetCustomObjectsCustomObjectApiNameFieldsR
  */
 export interface CustomObjectFieldsApiListCustomObjectsCustomObjectApiNameFieldsRequest {
     readonly customObjectApiName: string
-
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
 }
 
 /**
@@ -8490,7 +10762,7 @@ export class CustomObjectFieldsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listCustomObjectsCustomObjectApiNameFields(requestParameters: CustomObjectFieldsApiListCustomObjectsCustomObjectApiNameFieldsRequest, options?: RawAxiosRequestConfig) {
-        return CustomObjectFieldsApiFp(this.configuration).listCustomObjectsCustomObjectApiNameFields(requestParameters.customObjectApiName, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return CustomObjectFieldsApiFp(this.configuration).listCustomObjectsCustomObjectApiNameFields(requestParameters.customObjectApiName, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8877,12 +11149,10 @@ export const CustomObjectRecordsApiAxiosParamCreator = function (configuration?:
          * A List of custom object records  - Requires: `API Tier 1`
          * @summary List custom object records
          * @param {string} customObjectApiName 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCustomObjectsCustomObjectApiNameRecords: async (customObjectApiName: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listCustomObjectsCustomObjectApiNameRecords: async (customObjectApiName: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'customObjectApiName' is not null or undefined
             assertParamExists('listCustomObjectsCustomObjectApiNameRecords', 'customObjectApiName', customObjectApiName)
             const localVarPath = `/custom-objects/{custom_object_api_name}/records/`
@@ -8905,14 +11175,6 @@ export const CustomObjectRecordsApiAxiosParamCreator = function (configuration?:
             // authentication BearerTokenProduction required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9099,13 +11361,11 @@ export const CustomObjectRecordsApiFp = function(configuration?: Configuration) 
          * A List of custom object records  - Requires: `API Tier 1`
          * @summary List custom object records
          * @param {string} customObjectApiName 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCustomObjectsCustomObjectApiNameRecords(customObjectApiName: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomObjectsCustomObjectApiNameRecords200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomObjectsCustomObjectApiNameRecords(customObjectApiName, limit, cursor, options);
+        async listCustomObjectsCustomObjectApiNameRecords(customObjectApiName: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomObjectsCustomObjectApiNameRecords200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomObjectsCustomObjectApiNameRecords(customObjectApiName, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomObjectRecordsApi.listCustomObjectsCustomObjectApiNameRecords']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -9222,7 +11482,7 @@ export const CustomObjectRecordsApiFactory = function (configuration?: Configura
          * @throws {RequiredError}
          */
         listCustomObjectsCustomObjectApiNameRecords(requestParameters: CustomObjectRecordsApiListCustomObjectsCustomObjectApiNameRecordsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListCustomObjectsCustomObjectApiNameRecords200Response> {
-            return localVarFp.listCustomObjectsCustomObjectApiNameRecords(requestParameters.customObjectApiName, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listCustomObjectsCustomObjectApiNameRecords(requestParameters.customObjectApiName, options).then((request) => request(axios, basePath));
         },
         /**
          * Updated a specific custom object record
@@ -9314,16 +11574,6 @@ export interface CustomObjectRecordsApiListByQueryCustomObjectsCustomObjectApiNa
  */
 export interface CustomObjectRecordsApiListCustomObjectsCustomObjectApiNameRecordsRequest {
     readonly customObjectApiName: string
-
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
 }
 
 /**
@@ -9437,7 +11687,7 @@ export class CustomObjectRecordsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listCustomObjectsCustomObjectApiNameRecords(requestParameters: CustomObjectRecordsApiListCustomObjectsCustomObjectApiNameRecordsRequest, options?: RawAxiosRequestConfig) {
-        return CustomObjectRecordsApiFp(this.configuration).listCustomObjectsCustomObjectApiNameRecords(requestParameters.customObjectApiName, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return CustomObjectRecordsApiFp(this.configuration).listCustomObjectsCustomObjectApiNameRecords(requestParameters.customObjectApiName, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9586,12 +11836,10 @@ export const CustomObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * A List of custom objects  - Requires: `API Tier 1`
          * @summary List custom objects
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCustomObjects: async (limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listCustomObjects: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/custom-objects/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9611,14 +11859,6 @@ export const CustomObjectsApiAxiosParamCreator = function (configuration?: Confi
             // authentication BearerTokenProduction required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9727,13 +11967,11 @@ export const CustomObjectsApiFp = function(configuration?: Configuration) {
         /**
          * A List of custom objects  - Requires: `API Tier 1`
          * @summary List custom objects
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCustomObjects(limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomObjects200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomObjects(limit, cursor, options);
+        async listCustomObjects(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomObjects200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomObjects(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomObjectsApi.listCustomObjects']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -9794,12 +12032,11 @@ export const CustomObjectsApiFactory = function (configuration?: Configuration, 
         /**
          * A List of custom objects  - Requires: `API Tier 1`
          * @summary List custom objects
-         * @param {CustomObjectsApiListCustomObjectsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCustomObjects(requestParameters: CustomObjectsApiListCustomObjectsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListCustomObjects200Response> {
-            return localVarFp.listCustomObjects(requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        listCustomObjects(options?: RawAxiosRequestConfig): AxiosPromise<ListCustomObjects200Response> {
+            return localVarFp.listCustomObjects(options).then((request) => request(axios, basePath));
         },
         /**
          * Updated a specific custom object
@@ -9833,21 +12070,6 @@ export interface CustomObjectsApiDeleteCustomObjectsRequest {
  */
 export interface CustomObjectsApiGetCustomObjectsRequest {
     readonly customObjectApiName: string
-}
-
-/**
- * Request parameters for listCustomObjects operation in CustomObjectsApi.
- */
-export interface CustomObjectsApiListCustomObjectsRequest {
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
 }
 
 /**
@@ -9899,12 +12121,11 @@ export class CustomObjectsApi extends BaseAPI {
     /**
      * A List of custom objects  - Requires: `API Tier 1`
      * @summary List custom objects
-     * @param {CustomObjectsApiListCustomObjectsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listCustomObjects(requestParameters: CustomObjectsApiListCustomObjectsRequest = {}, options?: RawAxiosRequestConfig) {
-        return CustomObjectsApiFp(this.configuration).listCustomObjects(requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    public listCustomObjects(options?: RawAxiosRequestConfig) {
+        return CustomObjectsApiFp(this.configuration).listCustomObjects(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9922,10 +12143,498 @@ export class CustomObjectsApi extends BaseAPI {
 
 
 /**
+ * CustomPageApi - axios parameter creator
+ */
+export const CustomPageApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new CustomPage
+         * @summary Create a new CustomPage
+         * @param {CustomPageRequest} [customPageRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomPages: async (customPageRequest?: CustomPageRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/custom-pages/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(customPageRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a CustomPage
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomPages: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteCustomPages', 'id', id)
+            const localVarPath = `/custom-pages/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific CustomPage
+         * @summary Retrieve a specific CustomPage
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomPages: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCustomPages', 'id', id)
+            const localVarPath = `/custom-pages/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of CustomPage  - Requires: `API Tier 1`
+         * @summary List CustomPage
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCustomPages: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/custom-pages/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific CustomPage
+         * @summary Update a CustomPage
+         * @param {string} id ID of the resource to patch
+         * @param {CustomPageRequest} [customPageRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCustomPages: async (id: string, customPageRequest?: CustomPageRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateCustomPages', 'id', id)
+            const localVarPath = `/custom-pages/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(customPageRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CustomPageApi - functional programming interface
+ */
+export const CustomPageApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CustomPageApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new CustomPage
+         * @summary Create a new CustomPage
+         * @param {CustomPageRequest} [customPageRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomPages(customPageRequest?: CustomPageRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPage>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPages(customPageRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomPageApi.createCustomPages']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a CustomPage
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCustomPages(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomPages(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomPageApi.deleteCustomPages']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific CustomPage
+         * @summary Retrieve a specific CustomPage
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomPages(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCustomPages200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomPages(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomPageApi.getCustomPages']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of CustomPage  - Requires: `API Tier 1`
+         * @summary List CustomPage
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCustomPages(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomPages200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomPages(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomPageApi.listCustomPages']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific CustomPage
+         * @summary Update a CustomPage
+         * @param {string} id ID of the resource to patch
+         * @param {CustomPageRequest} [customPageRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateCustomPages(id: string, customPageRequest?: CustomPageRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPage>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCustomPages(id, customPageRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CustomPageApi.updateCustomPages']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * CustomPageApi - factory interface
+ */
+export const CustomPageApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CustomPageApiFp(configuration)
+    return {
+        /**
+         * Create a new CustomPage
+         * @summary Create a new CustomPage
+         * @param {CustomPageApiCreateCustomPagesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomPages(requestParameters: CustomPageApiCreateCustomPagesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<CustomPage> {
+            return localVarFp.createCustomPages(requestParameters.customPageRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a CustomPage
+         * @param {CustomPageApiDeleteCustomPagesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomPages(requestParameters: CustomPageApiDeleteCustomPagesRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteCustomPages(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific CustomPage
+         * @summary Retrieve a specific CustomPage
+         * @param {CustomPageApiGetCustomPagesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomPages(requestParameters: CustomPageApiGetCustomPagesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetCustomPages200Response> {
+            return localVarFp.getCustomPages(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of CustomPage  - Requires: `API Tier 1`
+         * @summary List CustomPage
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCustomPages(options?: RawAxiosRequestConfig): AxiosPromise<ListCustomPages200Response> {
+            return localVarFp.listCustomPages(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific CustomPage
+         * @summary Update a CustomPage
+         * @param {CustomPageApiUpdateCustomPagesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCustomPages(requestParameters: CustomPageApiUpdateCustomPagesRequest, options?: RawAxiosRequestConfig): AxiosPromise<CustomPage> {
+            return localVarFp.updateCustomPages(requestParameters.id, requestParameters.customPageRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createCustomPages operation in CustomPageApi.
+ */
+export interface CustomPageApiCreateCustomPagesRequest {
+    readonly customPageRequest?: CustomPageRequest
+}
+
+/**
+ * Request parameters for deleteCustomPages operation in CustomPageApi.
+ */
+export interface CustomPageApiDeleteCustomPagesRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getCustomPages operation in CustomPageApi.
+ */
+export interface CustomPageApiGetCustomPagesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for updateCustomPages operation in CustomPageApi.
+ */
+export interface CustomPageApiUpdateCustomPagesRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly customPageRequest?: CustomPageRequest
+}
+
+/**
+ * CustomPageApi - object-oriented interface
+ */
+export class CustomPageApi extends BaseAPI {
+    /**
+     * Create a new CustomPage
+     * @summary Create a new CustomPage
+     * @param {CustomPageApiCreateCustomPagesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCustomPages(requestParameters: CustomPageApiCreateCustomPagesRequest = {}, options?: RawAxiosRequestConfig) {
+        return CustomPageApiFp(this.configuration).createCustomPages(requestParameters.customPageRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a CustomPage
+     * @param {CustomPageApiDeleteCustomPagesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCustomPages(requestParameters: CustomPageApiDeleteCustomPagesRequest, options?: RawAxiosRequestConfig) {
+        return CustomPageApiFp(this.configuration).deleteCustomPages(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific CustomPage
+     * @summary Retrieve a specific CustomPage
+     * @param {CustomPageApiGetCustomPagesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getCustomPages(requestParameters: CustomPageApiGetCustomPagesRequest, options?: RawAxiosRequestConfig) {
+        return CustomPageApiFp(this.configuration).getCustomPages(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of CustomPage  - Requires: `API Tier 1`
+     * @summary List CustomPage
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomPages(options?: RawAxiosRequestConfig) {
+        return CustomPageApiFp(this.configuration).listCustomPages(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific CustomPage
+     * @summary Update a CustomPage
+     * @param {CustomPageApiUpdateCustomPagesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCustomPages(requestParameters: CustomPageApiUpdateCustomPagesRequest, options?: RawAxiosRequestConfig) {
+        return CustomPageApiFp(this.configuration).updateCustomPages(requestParameters.id, requestParameters.customPageRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
  * DepartmentsApi - axios parameter creator
  */
 export const DepartmentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Create a new department
+         * @summary Create a new department
+         * @param {DepartmentRequest} [departmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDepartments: async (departmentRequest?: DepartmentRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/departments/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["departments.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(departmentRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Retrieve a specific department
          * @summary Retrieve a specific department
@@ -9937,7 +12646,7 @@ export const DepartmentsApiAxiosParamCreator = function (configuration?: Configu
         getDepartments: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getDepartments', 'id', id)
-            const localVarPath = `/departments/{id}`
+            const localVarPath = `/departments/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9978,13 +12687,12 @@ export const DepartmentsApiAxiosParamCreator = function (configuration?: Configu
          * @summary List departments
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDepartments: async (expand?: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/departments`;
+        listDepartments: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/departments/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -10012,10 +12720,6 @@ export const DepartmentsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['order_by'] = orderBy;
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
             if (cursor !== undefined) {
                 localVarQueryParameter['cursor'] = cursor;
             }
@@ -10031,6 +12735,51 @@ export const DepartmentsApiAxiosParamCreator = function (configuration?: Configu
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Updated a specific department
+         * @summary Update a department
+         * @param {string} id ID of the resource to patch
+         * @param {DepartmentRequest} [departmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateDepartments: async (id: string, departmentRequest?: DepartmentRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateDepartments', 'id', id)
+            const localVarPath = `/departments/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["departments.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(departmentRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -10040,6 +12789,19 @@ export const DepartmentsApiAxiosParamCreator = function (configuration?: Configu
 export const DepartmentsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DepartmentsApiAxiosParamCreator(configuration)
     return {
+        /**
+         * Create a new department
+         * @summary Create a new department
+         * @param {DepartmentRequest} [departmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createDepartments(departmentRequest?: DepartmentRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Department>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDepartments(departmentRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DepartmentsApi.createDepartments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
         /**
          * Retrieve a specific department
          * @summary Retrieve a specific department
@@ -10059,15 +12821,28 @@ export const DepartmentsApiFp = function(configuration?: Configuration) {
          * @summary List departments
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listDepartments(expand?: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListDepartments200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listDepartments(expand, orderBy, limit, cursor, options);
+        async listDepartments(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListDepartments200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listDepartments(expand, orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DepartmentsApi.listDepartments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific department
+         * @summary Update a department
+         * @param {string} id ID of the resource to patch
+         * @param {DepartmentRequest} [departmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateDepartments(id: string, departmentRequest?: DepartmentRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Department>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDepartments(id, departmentRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DepartmentsApi.updateDepartments']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -10079,6 +12854,16 @@ export const DepartmentsApiFp = function(configuration?: Configuration) {
 export const DepartmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DepartmentsApiFp(configuration)
     return {
+        /**
+         * Create a new department
+         * @summary Create a new department
+         * @param {DepartmentsApiCreateDepartmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDepartments(requestParameters: DepartmentsApiCreateDepartmentsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Department> {
+            return localVarFp.createDepartments(requestParameters.departmentRequest, options).then((request) => request(axios, basePath));
+        },
         /**
          * Retrieve a specific department
          * @summary Retrieve a specific department
@@ -10097,10 +12882,27 @@ export const DepartmentsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         listDepartments(requestParameters: DepartmentsApiListDepartmentsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListDepartments200Response> {
-            return localVarFp.listDepartments(requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listDepartments(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific department
+         * @summary Update a department
+         * @param {DepartmentsApiUpdateDepartmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateDepartments(requestParameters: DepartmentsApiUpdateDepartmentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Department> {
+            return localVarFp.updateDepartments(requestParameters.id, requestParameters.departmentRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
+
+/**
+ * Request parameters for createDepartments operation in DepartmentsApi.
+ */
+export interface DepartmentsApiCreateDepartmentsRequest {
+    readonly departmentRequest?: DepartmentRequest
+}
 
 /**
  * Request parameters for getDepartments operation in DepartmentsApi.
@@ -10122,21 +12924,36 @@ export interface DepartmentsApiListDepartmentsRequest {
 
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateDepartments operation in DepartmentsApi.
+ */
+export interface DepartmentsApiUpdateDepartmentsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly departmentRequest?: DepartmentRequest
 }
 
 /**
  * DepartmentsApi - object-oriented interface
  */
 export class DepartmentsApi extends BaseAPI {
+    /**
+     * Create a new department
+     * @summary Create a new department
+     * @param {DepartmentsApiCreateDepartmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDepartments(requestParameters: DepartmentsApiCreateDepartmentsRequest = {}, options?: RawAxiosRequestConfig) {
+        return DepartmentsApiFp(this.configuration).createDepartments(requestParameters.departmentRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Retrieve a specific department
      * @summary Retrieve a specific department
@@ -10156,7 +12973,18 @@ export class DepartmentsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listDepartments(requestParameters: DepartmentsApiListDepartmentsRequest = {}, options?: RawAxiosRequestConfig) {
-        return DepartmentsApiFp(this.configuration).listDepartments(requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return DepartmentsApiFp(this.configuration).listDepartments(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific department
+     * @summary Update a department
+     * @param {DepartmentsApiUpdateDepartmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDepartments(requestParameters: DepartmentsApiUpdateDepartmentsRequest, options?: RawAxiosRequestConfig) {
+        return DepartmentsApiFp(this.configuration).updateDepartments(requestParameters.id, requestParameters.departmentRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -10292,7 +13120,7 @@ export const EmploymentTypesApiAxiosParamCreator = function (configuration?: Con
         getEmploymentTypes: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getEmploymentTypes', 'id', id)
-            const localVarPath = `/employment-types/{id}`
+            const localVarPath = `/employment-types/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10328,13 +13156,12 @@ export const EmploymentTypesApiAxiosParamCreator = function (configuration?: Con
          * A List of employment types  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List employment types
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listEmploymentTypes: async (orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/employment-types`;
+        listEmploymentTypes: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/employment-types/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -10356,10 +13183,6 @@ export const EmploymentTypesApiAxiosParamCreator = function (configuration?: Con
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
 
             if (cursor !== undefined) {
@@ -10403,13 +13226,12 @@ export const EmploymentTypesApiFp = function(configuration?: Configuration) {
          * A List of employment types  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List employment types
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listEmploymentTypes(orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListEmploymentTypes200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listEmploymentTypes(orderBy, limit, cursor, options);
+        async listEmploymentTypes(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListEmploymentTypes200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEmploymentTypes(orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EmploymentTypesApi.listEmploymentTypes']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -10441,7 +13263,7 @@ export const EmploymentTypesApiFactory = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         listEmploymentTypes(requestParameters: EmploymentTypesApiListEmploymentTypesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListEmploymentTypes200Response> {
-            return localVarFp.listEmploymentTypes(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listEmploymentTypes(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10462,14 +13284,6 @@ export interface EmploymentTypesApiGetEmploymentTypesRequest {
 export interface EmploymentTypesApiListEmploymentTypesRequest {
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -10496,7 +13310,7 @@ export class EmploymentTypesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listEmploymentTypes(requestParameters: EmploymentTypesApiListEmploymentTypesRequest = {}, options?: RawAxiosRequestConfig) {
-        return EmploymentTypesApiFp(this.configuration).listEmploymentTypes(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return EmploymentTypesApiFp(this.configuration).listEmploymentTypes(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -10510,13 +13324,11 @@ export const EntitlementsApiAxiosParamCreator = function (configuration?: Config
         /**
          * A List of entitlements  - Requires: `API Tier 1`
          * @summary List entitlements
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlements: async (limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/entitlements`;
+        listEntitlements: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/entitlements/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -10535,14 +13347,6 @@ export const EntitlementsApiAxiosParamCreator = function (configuration?: Config
             // authentication BearerTokenProduction required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -10567,13 +13371,11 @@ export const EntitlementsApiFp = function(configuration?: Configuration) {
         /**
          * A List of entitlements  - Requires: `API Tier 1`
          * @summary List entitlements
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlements(limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListEntitlements200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlements(limit, cursor, options);
+        async listEntitlements(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListEntitlements200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlements(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.listEntitlements']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -10590,30 +13392,14 @@ export const EntitlementsApiFactory = function (configuration?: Configuration, b
         /**
          * A List of entitlements  - Requires: `API Tier 1`
          * @summary List entitlements
-         * @param {EntitlementsApiListEntitlementsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlements(requestParameters: EntitlementsApiListEntitlementsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListEntitlements200Response> {
-            return localVarFp.listEntitlements(requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        listEntitlements(options?: RawAxiosRequestConfig): AxiosPromise<ListEntitlements200Response> {
+            return localVarFp.listEntitlements(options).then((request) => request(axios, basePath));
         },
     };
 };
-
-/**
- * Request parameters for listEntitlements operation in EntitlementsApi.
- */
-export interface EntitlementsApiListEntitlementsRequest {
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
-}
 
 /**
  * EntitlementsApi - object-oriented interface
@@ -10622,12 +13408,3546 @@ export class EntitlementsApi extends BaseAPI {
     /**
      * A List of entitlements  - Requires: `API Tier 1`
      * @summary List entitlements
-     * @param {EntitlementsApiListEntitlementsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listEntitlements(requestParameters: EntitlementsApiListEntitlementsRequest = {}, options?: RawAxiosRequestConfig) {
-        return EntitlementsApiFp(this.configuration).listEntitlements(requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    public listEntitlements(options?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).listEntitlements(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * FunctionsApi - axios parameter creator
+ */
+export const FunctionsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new function
+         * @summary Create a new function
+         * @param {FunctionRequest} [functionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFunctions: async (functionRequest?: FunctionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/functions/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(functionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new function deployment
+         * @summary Create a new function deployment
+         * @param {string} functionApiName 
+         * @param {FunctionDeploymentRequest} [functionDeploymentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFunctionsFunctionApiNameDeployments: async (functionApiName: string, functionDeploymentRequest?: FunctionDeploymentRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('createFunctionsFunctionApiNameDeployments', 'functionApiName', functionApiName)
+            const localVarPath = `/functions/{function_api_name}/deployments/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(functionDeploymentRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new function dev bundle
+         * @summary Create a new function dev bundle
+         * @param {string} functionApiName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFunctionsFunctionApiNameDevBundles: async (functionApiName: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('createFunctionsFunctionApiNameDevBundles', 'functionApiName', functionApiName)
+            const localVarPath = `/functions/{function_api_name}/dev_bundles/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new function execution
+         * @summary Create a new function execution
+         * @param {string} functionApiName 
+         * @param {FunctionExecutionRequest} [functionExecutionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFunctionsFunctionApiNameExecutions: async (functionApiName: string, functionExecutionRequest?: FunctionExecutionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('createFunctionsFunctionApiNameExecutions', 'functionApiName', functionApiName)
+            const localVarPath = `/functions/{function_api_name}/executions/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["function-executions.read-write", "function-executions.write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(functionExecutionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific function
+         * @summary Retrieve a specific function
+         * @param {string} functionApiName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFunctions: async (functionApiName: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('getFunctions', 'functionApiName', functionApiName)
+            const localVarPath = `/functions/{function_api_name}/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read", "functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific function deployment
+         * @summary Retrieve a specific function deployment
+         * @param {string} functionApiName 
+         * @param {string} deploymentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFunctionsFunctionApiNameDeployments: async (functionApiName: string, deploymentId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('getFunctionsFunctionApiNameDeployments', 'functionApiName', functionApiName)
+            // verify required parameter 'deploymentId' is not null or undefined
+            assertParamExists('getFunctionsFunctionApiNameDeployments', 'deploymentId', deploymentId)
+            const localVarPath = `/functions/{function_api_name}/deployments/{deployment_id}/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)))
+                .replace(`{${"deployment_id"}}`, encodeURIComponent(String(deploymentId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read", "functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific function execution
+         * @summary Retrieve a specific function execution
+         * @param {string} functionApiName 
+         * @param {string} executionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFunctionsFunctionApiNameExecutions: async (functionApiName: string, executionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('getFunctionsFunctionApiNameExecutions', 'functionApiName', functionApiName)
+            // verify required parameter 'executionId' is not null or undefined
+            assertParamExists('getFunctionsFunctionApiNameExecutions', 'executionId', executionId)
+            const localVarPath = `/functions/{function_api_name}/executions/{execution_id}/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)))
+                .replace(`{${"execution_id"}}`, encodeURIComponent(String(executionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["function-executions.read", "function-executions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of functions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List functions
+         * @param {string} [orderBy] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctions: async (orderBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/functions/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read", "functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of function deployments  - Requires: `API Tier 2`
+         * @summary List function deployments
+         * @param {string} functionApiName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctionsFunctionApiNameDeployments: async (functionApiName: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('listFunctionsFunctionApiNameDeployments', 'functionApiName', functionApiName)
+            const localVarPath = `/functions/{function_api_name}/deployments/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read", "functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of function deployment logs  - Requires: `API Tier 2`
+         * @summary List function deployment logs
+         * @param {string} functionApiName 
+         * @param {string} deploymentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs: async (functionApiName: string, deploymentId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs', 'functionApiName', functionApiName)
+            // verify required parameter 'deploymentId' is not null or undefined
+            assertParamExists('listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs', 'deploymentId', deploymentId)
+            const localVarPath = `/functions/{function_api_name}/deployments/{deployment_id}/logs/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)))
+                .replace(`{${"deployment_id"}}`, encodeURIComponent(String(deploymentId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read", "functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of function executions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List function executions
+         * @param {string} functionApiName 
+         * @param {string} [orderBy] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctionsFunctionApiNameExecutions: async (functionApiName: string, orderBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('listFunctionsFunctionApiNameExecutions', 'functionApiName', functionApiName)
+            const localVarPath = `/functions/{function_api_name}/executions/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["function-executions.read", "function-executions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of function execution logs  - Requires: `API Tier 2`
+         * @summary List function execution logs
+         * @param {string} functionApiName 
+         * @param {string} executionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctionsFunctionApiNameExecutionsExecutionIdLogs: async (functionApiName: string, executionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('listFunctionsFunctionApiNameExecutionsExecutionIdLogs', 'functionApiName', functionApiName)
+            // verify required parameter 'executionId' is not null or undefined
+            assertParamExists('listFunctionsFunctionApiNameExecutionsExecutionIdLogs', 'executionId', executionId)
+            const localVarPath = `/functions/{function_api_name}/executions/{execution_id}/logs/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)))
+                .replace(`{${"execution_id"}}`, encodeURIComponent(String(executionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["functions.read", "functions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Update a function
+         * @param {string} functionApiName 
+         * @param {FunctionRequest} [functionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFunctions: async (functionApiName: string, functionRequest?: FunctionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'functionApiName' is not null or undefined
+            assertParamExists('updateFunctions', 'functionApiName', functionApiName)
+            const localVarPath = `/functions/{function_api_name}/`
+                .replace(`{${"function_api_name"}}`, encodeURIComponent(String(functionApiName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(functionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * FunctionsApi - functional programming interface
+ */
+export const FunctionsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = FunctionsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new function
+         * @summary Create a new function
+         * @param {FunctionRequest} [functionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFunctions(functionRequest?: FunctionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Function>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFunctions(functionRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.createFunctions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Create a new function deployment
+         * @summary Create a new function deployment
+         * @param {string} functionApiName 
+         * @param {FunctionDeploymentRequest} [functionDeploymentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFunctionsFunctionApiNameDeployments(functionApiName: string, functionDeploymentRequest?: FunctionDeploymentRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionDeployment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFunctionsFunctionApiNameDeployments(functionApiName, functionDeploymentRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.createFunctionsFunctionApiNameDeployments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Create a new function dev bundle
+         * @summary Create a new function dev bundle
+         * @param {string} functionApiName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFunctionsFunctionApiNameDevBundles(functionApiName: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionDevBundle>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFunctionsFunctionApiNameDevBundles(functionApiName, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.createFunctionsFunctionApiNameDevBundles']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Create a new function execution
+         * @summary Create a new function execution
+         * @param {string} functionApiName 
+         * @param {FunctionExecutionRequest} [functionExecutionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFunctionsFunctionApiNameExecutions(functionApiName: string, functionExecutionRequest?: FunctionExecutionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionExecution>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFunctionsFunctionApiNameExecutions(functionApiName, functionExecutionRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.createFunctionsFunctionApiNameExecutions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific function
+         * @summary Retrieve a specific function
+         * @param {string} functionApiName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFunctions(functionApiName: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Function>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFunctions(functionApiName, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.getFunctions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific function deployment
+         * @summary Retrieve a specific function deployment
+         * @param {string} functionApiName 
+         * @param {string} deploymentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFunctionsFunctionApiNameDeployments(functionApiName: string, deploymentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionDeployment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFunctionsFunctionApiNameDeployments(functionApiName, deploymentId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.getFunctionsFunctionApiNameDeployments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific function execution
+         * @summary Retrieve a specific function execution
+         * @param {string} functionApiName 
+         * @param {string} executionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFunctionsFunctionApiNameExecutions(functionApiName: string, executionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FunctionExecution>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFunctionsFunctionApiNameExecutions(functionApiName, executionId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.getFunctionsFunctionApiNameExecutions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of functions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List functions
+         * @param {string} [orderBy] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listFunctions(orderBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFunctions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listFunctions(orderBy, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.listFunctions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of function deployments  - Requires: `API Tier 2`
+         * @summary List function deployments
+         * @param {string} functionApiName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listFunctionsFunctionApiNameDeployments(functionApiName: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFunctionsFunctionApiNameDeployments200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listFunctionsFunctionApiNameDeployments(functionApiName, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.listFunctionsFunctionApiNameDeployments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of function deployment logs  - Requires: `API Tier 2`
+         * @summary List function deployment logs
+         * @param {string} functionApiName 
+         * @param {string} deploymentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs(functionApiName: string, deploymentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFunctionsFunctionApiNameDeploymentsDeploymentIdLogs200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs(functionApiName, deploymentId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of function executions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List function executions
+         * @param {string} functionApiName 
+         * @param {string} [orderBy] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listFunctionsFunctionApiNameExecutions(functionApiName: string, orderBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFunctionsFunctionApiNameExecutions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listFunctionsFunctionApiNameExecutions(functionApiName, orderBy, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.listFunctionsFunctionApiNameExecutions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of function execution logs  - Requires: `API Tier 2`
+         * @summary List function execution logs
+         * @param {string} functionApiName 
+         * @param {string} executionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listFunctionsFunctionApiNameExecutionsExecutionIdLogs(functionApiName: string, executionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFunctionsFunctionApiNameExecutionsExecutionIdLogs200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listFunctionsFunctionApiNameExecutionsExecutionIdLogs(functionApiName, executionId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.listFunctionsFunctionApiNameExecutionsExecutionIdLogs']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Update a function
+         * @param {string} functionApiName 
+         * @param {FunctionRequest} [functionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateFunctions(functionApiName: string, functionRequest?: FunctionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Function>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFunctions(functionApiName, functionRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FunctionsApi.updateFunctions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * FunctionsApi - factory interface
+ */
+export const FunctionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = FunctionsApiFp(configuration)
+    return {
+        /**
+         * Create a new function
+         * @summary Create a new function
+         * @param {FunctionsApiCreateFunctionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFunctions(requestParameters: FunctionsApiCreateFunctionsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Function> {
+            return localVarFp.createFunctions(requestParameters.functionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new function deployment
+         * @summary Create a new function deployment
+         * @param {FunctionsApiCreateFunctionsFunctionApiNameDeploymentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFunctionsFunctionApiNameDeployments(requestParameters: FunctionsApiCreateFunctionsFunctionApiNameDeploymentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<FunctionDeployment> {
+            return localVarFp.createFunctionsFunctionApiNameDeployments(requestParameters.functionApiName, requestParameters.functionDeploymentRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new function dev bundle
+         * @summary Create a new function dev bundle
+         * @param {FunctionsApiCreateFunctionsFunctionApiNameDevBundlesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFunctionsFunctionApiNameDevBundles(requestParameters: FunctionsApiCreateFunctionsFunctionApiNameDevBundlesRequest, options?: RawAxiosRequestConfig): AxiosPromise<FunctionDevBundle> {
+            return localVarFp.createFunctionsFunctionApiNameDevBundles(requestParameters.functionApiName, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new function execution
+         * @summary Create a new function execution
+         * @param {FunctionsApiCreateFunctionsFunctionApiNameExecutionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFunctionsFunctionApiNameExecutions(requestParameters: FunctionsApiCreateFunctionsFunctionApiNameExecutionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<FunctionExecution> {
+            return localVarFp.createFunctionsFunctionApiNameExecutions(requestParameters.functionApiName, requestParameters.functionExecutionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific function
+         * @summary Retrieve a specific function
+         * @param {FunctionsApiGetFunctionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFunctions(requestParameters: FunctionsApiGetFunctionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Function> {
+            return localVarFp.getFunctions(requestParameters.functionApiName, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific function deployment
+         * @summary Retrieve a specific function deployment
+         * @param {FunctionsApiGetFunctionsFunctionApiNameDeploymentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFunctionsFunctionApiNameDeployments(requestParameters: FunctionsApiGetFunctionsFunctionApiNameDeploymentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<FunctionDeployment> {
+            return localVarFp.getFunctionsFunctionApiNameDeployments(requestParameters.functionApiName, requestParameters.deploymentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific function execution
+         * @summary Retrieve a specific function execution
+         * @param {FunctionsApiGetFunctionsFunctionApiNameExecutionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFunctionsFunctionApiNameExecutions(requestParameters: FunctionsApiGetFunctionsFunctionApiNameExecutionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<FunctionExecution> {
+            return localVarFp.getFunctionsFunctionApiNameExecutions(requestParameters.functionApiName, requestParameters.executionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of functions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List functions
+         * @param {FunctionsApiListFunctionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctions(requestParameters: FunctionsApiListFunctionsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListFunctions200Response> {
+            return localVarFp.listFunctions(requestParameters.orderBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of function deployments  - Requires: `API Tier 2`
+         * @summary List function deployments
+         * @param {FunctionsApiListFunctionsFunctionApiNameDeploymentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctionsFunctionApiNameDeployments(requestParameters: FunctionsApiListFunctionsFunctionApiNameDeploymentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListFunctionsFunctionApiNameDeployments200Response> {
+            return localVarFp.listFunctionsFunctionApiNameDeployments(requestParameters.functionApiName, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of function deployment logs  - Requires: `API Tier 2`
+         * @summary List function deployment logs
+         * @param {FunctionsApiListFunctionsFunctionApiNameDeploymentsDeploymentIdLogsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs(requestParameters: FunctionsApiListFunctionsFunctionApiNameDeploymentsDeploymentIdLogsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListFunctionsFunctionApiNameDeploymentsDeploymentIdLogs200Response> {
+            return localVarFp.listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs(requestParameters.functionApiName, requestParameters.deploymentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of function executions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List function executions
+         * @param {FunctionsApiListFunctionsFunctionApiNameExecutionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctionsFunctionApiNameExecutions(requestParameters: FunctionsApiListFunctionsFunctionApiNameExecutionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListFunctionsFunctionApiNameExecutions200Response> {
+            return localVarFp.listFunctionsFunctionApiNameExecutions(requestParameters.functionApiName, requestParameters.orderBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of function execution logs  - Requires: `API Tier 2`
+         * @summary List function execution logs
+         * @param {FunctionsApiListFunctionsFunctionApiNameExecutionsExecutionIdLogsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFunctionsFunctionApiNameExecutionsExecutionIdLogs(requestParameters: FunctionsApiListFunctionsFunctionApiNameExecutionsExecutionIdLogsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListFunctionsFunctionApiNameExecutionsExecutionIdLogs200Response> {
+            return localVarFp.listFunctionsFunctionApiNameExecutionsExecutionIdLogs(requestParameters.functionApiName, requestParameters.executionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Update a function
+         * @param {FunctionsApiUpdateFunctionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFunctions(requestParameters: FunctionsApiUpdateFunctionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Function> {
+            return localVarFp.updateFunctions(requestParameters.functionApiName, requestParameters.functionRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createFunctions operation in FunctionsApi.
+ */
+export interface FunctionsApiCreateFunctionsRequest {
+    readonly functionRequest?: FunctionRequest
+}
+
+/**
+ * Request parameters for createFunctionsFunctionApiNameDeployments operation in FunctionsApi.
+ */
+export interface FunctionsApiCreateFunctionsFunctionApiNameDeploymentsRequest {
+    readonly functionApiName: string
+
+    readonly functionDeploymentRequest?: FunctionDeploymentRequest
+}
+
+/**
+ * Request parameters for createFunctionsFunctionApiNameDevBundles operation in FunctionsApi.
+ */
+export interface FunctionsApiCreateFunctionsFunctionApiNameDevBundlesRequest {
+    readonly functionApiName: string
+}
+
+/**
+ * Request parameters for createFunctionsFunctionApiNameExecutions operation in FunctionsApi.
+ */
+export interface FunctionsApiCreateFunctionsFunctionApiNameExecutionsRequest {
+    readonly functionApiName: string
+
+    readonly functionExecutionRequest?: FunctionExecutionRequest
+}
+
+/**
+ * Request parameters for getFunctions operation in FunctionsApi.
+ */
+export interface FunctionsApiGetFunctionsRequest {
+    readonly functionApiName: string
+}
+
+/**
+ * Request parameters for getFunctionsFunctionApiNameDeployments operation in FunctionsApi.
+ */
+export interface FunctionsApiGetFunctionsFunctionApiNameDeploymentsRequest {
+    readonly functionApiName: string
+
+    readonly deploymentId: string
+}
+
+/**
+ * Request parameters for getFunctionsFunctionApiNameExecutions operation in FunctionsApi.
+ */
+export interface FunctionsApiGetFunctionsFunctionApiNameExecutionsRequest {
+    readonly functionApiName: string
+
+    readonly executionId: string
+}
+
+/**
+ * Request parameters for listFunctions operation in FunctionsApi.
+ */
+export interface FunctionsApiListFunctionsRequest {
+    readonly orderBy?: string
+}
+
+/**
+ * Request parameters for listFunctionsFunctionApiNameDeployments operation in FunctionsApi.
+ */
+export interface FunctionsApiListFunctionsFunctionApiNameDeploymentsRequest {
+    readonly functionApiName: string
+}
+
+/**
+ * Request parameters for listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs operation in FunctionsApi.
+ */
+export interface FunctionsApiListFunctionsFunctionApiNameDeploymentsDeploymentIdLogsRequest {
+    readonly functionApiName: string
+
+    readonly deploymentId: string
+}
+
+/**
+ * Request parameters for listFunctionsFunctionApiNameExecutions operation in FunctionsApi.
+ */
+export interface FunctionsApiListFunctionsFunctionApiNameExecutionsRequest {
+    readonly functionApiName: string
+
+    readonly orderBy?: string
+}
+
+/**
+ * Request parameters for listFunctionsFunctionApiNameExecutionsExecutionIdLogs operation in FunctionsApi.
+ */
+export interface FunctionsApiListFunctionsFunctionApiNameExecutionsExecutionIdLogsRequest {
+    readonly functionApiName: string
+
+    readonly executionId: string
+}
+
+/**
+ * Request parameters for updateFunctions operation in FunctionsApi.
+ */
+export interface FunctionsApiUpdateFunctionsRequest {
+    readonly functionApiName: string
+
+    readonly functionRequest?: FunctionRequest
+}
+
+/**
+ * FunctionsApi - object-oriented interface
+ */
+export class FunctionsApi extends BaseAPI {
+    /**
+     * Create a new function
+     * @summary Create a new function
+     * @param {FunctionsApiCreateFunctionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFunctions(requestParameters: FunctionsApiCreateFunctionsRequest = {}, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).createFunctions(requestParameters.functionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new function deployment
+     * @summary Create a new function deployment
+     * @param {FunctionsApiCreateFunctionsFunctionApiNameDeploymentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFunctionsFunctionApiNameDeployments(requestParameters: FunctionsApiCreateFunctionsFunctionApiNameDeploymentsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).createFunctionsFunctionApiNameDeployments(requestParameters.functionApiName, requestParameters.functionDeploymentRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new function dev bundle
+     * @summary Create a new function dev bundle
+     * @param {FunctionsApiCreateFunctionsFunctionApiNameDevBundlesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFunctionsFunctionApiNameDevBundles(requestParameters: FunctionsApiCreateFunctionsFunctionApiNameDevBundlesRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).createFunctionsFunctionApiNameDevBundles(requestParameters.functionApiName, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new function execution
+     * @summary Create a new function execution
+     * @param {FunctionsApiCreateFunctionsFunctionApiNameExecutionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFunctionsFunctionApiNameExecutions(requestParameters: FunctionsApiCreateFunctionsFunctionApiNameExecutionsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).createFunctionsFunctionApiNameExecutions(requestParameters.functionApiName, requestParameters.functionExecutionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific function
+     * @summary Retrieve a specific function
+     * @param {FunctionsApiGetFunctionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getFunctions(requestParameters: FunctionsApiGetFunctionsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).getFunctions(requestParameters.functionApiName, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific function deployment
+     * @summary Retrieve a specific function deployment
+     * @param {FunctionsApiGetFunctionsFunctionApiNameDeploymentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getFunctionsFunctionApiNameDeployments(requestParameters: FunctionsApiGetFunctionsFunctionApiNameDeploymentsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).getFunctionsFunctionApiNameDeployments(requestParameters.functionApiName, requestParameters.deploymentId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific function execution
+     * @summary Retrieve a specific function execution
+     * @param {FunctionsApiGetFunctionsFunctionApiNameExecutionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getFunctionsFunctionApiNameExecutions(requestParameters: FunctionsApiGetFunctionsFunctionApiNameExecutionsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).getFunctionsFunctionApiNameExecutions(requestParameters.functionApiName, requestParameters.executionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of functions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List functions
+     * @param {FunctionsApiListFunctionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctions(requestParameters: FunctionsApiListFunctionsRequest = {}, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).listFunctions(requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of function deployments  - Requires: `API Tier 2`
+     * @summary List function deployments
+     * @param {FunctionsApiListFunctionsFunctionApiNameDeploymentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionsFunctionApiNameDeployments(requestParameters: FunctionsApiListFunctionsFunctionApiNameDeploymentsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).listFunctionsFunctionApiNameDeployments(requestParameters.functionApiName, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of function deployment logs  - Requires: `API Tier 2`
+     * @summary List function deployment logs
+     * @param {FunctionsApiListFunctionsFunctionApiNameDeploymentsDeploymentIdLogsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs(requestParameters: FunctionsApiListFunctionsFunctionApiNameDeploymentsDeploymentIdLogsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).listFunctionsFunctionApiNameDeploymentsDeploymentIdLogs(requestParameters.functionApiName, requestParameters.deploymentId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of function executions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List function executions
+     * @param {FunctionsApiListFunctionsFunctionApiNameExecutionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionsFunctionApiNameExecutions(requestParameters: FunctionsApiListFunctionsFunctionApiNameExecutionsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).listFunctionsFunctionApiNameExecutions(requestParameters.functionApiName, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of function execution logs  - Requires: `API Tier 2`
+     * @summary List function execution logs
+     * @param {FunctionsApiListFunctionsFunctionApiNameExecutionsExecutionIdLogsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionsFunctionApiNameExecutionsExecutionIdLogs(requestParameters: FunctionsApiListFunctionsFunctionApiNameExecutionsExecutionIdLogsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).listFunctionsFunctionApiNameExecutionsExecutionIdLogs(requestParameters.functionApiName, requestParameters.executionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Update a function
+     * @param {FunctionsApiUpdateFunctionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFunctions(requestParameters: FunctionsApiUpdateFunctionsRequest, options?: RawAxiosRequestConfig) {
+        return FunctionsApiFp(this.configuration).updateFunctions(requestParameters.functionApiName, requestParameters.functionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * HeadcountPositionApi - axios parameter creator
+ */
+export const HeadcountPositionApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve a specific headcount position
+         * @summary Retrieve a specific headcount position
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHeadcountPositions: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getHeadcountPositions', 'id', id)
+            const localVarPath = `/headcount-positions/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["headcount-positions.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of headcount positions  - Requires: `API Tier 2`  - Filterable fields: `created_at`, `position_id`, `position_type`, `position_sub_type`, `department_id`, `work_location_id`, `level_id`, `teams_id`, `job_requisition_id`, `recruiter_id`, `headcount_owner_id`, `worker_id`, `backfill_for_id`, `employment_type_id`, `in_budget`, `target_start_date`, `current_start_date`, `job_function_id`, `priority_id`  - Expandable fields: `department`, `work_location`, `level`, `teams`, `job_requisition`, `recruiter`, `headcount_owner`, `worker`, `backfill_for`, `employment_type`, `priority`, `job_function`, `location_factor`  - Sortable fields: `id`, `created_at`, `updated_at`, `position_id`, `position_type`, `position_sub_type`, `department_id`, `work_location_id`, `level_id`, `job_requisition_id`, `recruiter_id`, `headcount_owner_id`, `worker_id`, `backfill_for_id`, `employment_type_id`, `in_budget`, `target_start_date`, `current_start_date`, `priority_id`, `job_function_id`
+         * @summary List headcount positions
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listHeadcountPositions: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/headcount-positions/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["headcount-positions.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * HeadcountPositionApi - functional programming interface
+ */
+export const HeadcountPositionApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = HeadcountPositionApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve a specific headcount position
+         * @summary Retrieve a specific headcount position
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getHeadcountPositions(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetHeadcountPositions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getHeadcountPositions(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['HeadcountPositionApi.getHeadcountPositions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of headcount positions  - Requires: `API Tier 2`  - Filterable fields: `created_at`, `position_id`, `position_type`, `position_sub_type`, `department_id`, `work_location_id`, `level_id`, `teams_id`, `job_requisition_id`, `recruiter_id`, `headcount_owner_id`, `worker_id`, `backfill_for_id`, `employment_type_id`, `in_budget`, `target_start_date`, `current_start_date`, `job_function_id`, `priority_id`  - Expandable fields: `department`, `work_location`, `level`, `teams`, `job_requisition`, `recruiter`, `headcount_owner`, `worker`, `backfill_for`, `employment_type`, `priority`, `job_function`, `location_factor`  - Sortable fields: `id`, `created_at`, `updated_at`, `position_id`, `position_type`, `position_sub_type`, `department_id`, `work_location_id`, `level_id`, `job_requisition_id`, `recruiter_id`, `headcount_owner_id`, `worker_id`, `backfill_for_id`, `employment_type_id`, `in_budget`, `target_start_date`, `current_start_date`, `priority_id`, `job_function_id`
+         * @summary List headcount positions
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listHeadcountPositions(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListHeadcountPositions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listHeadcountPositions(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['HeadcountPositionApi.listHeadcountPositions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * HeadcountPositionApi - factory interface
+ */
+export const HeadcountPositionApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = HeadcountPositionApiFp(configuration)
+    return {
+        /**
+         * Retrieve a specific headcount position
+         * @summary Retrieve a specific headcount position
+         * @param {HeadcountPositionApiGetHeadcountPositionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHeadcountPositions(requestParameters: HeadcountPositionApiGetHeadcountPositionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetHeadcountPositions200Response> {
+            return localVarFp.getHeadcountPositions(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of headcount positions  - Requires: `API Tier 2`  - Filterable fields: `created_at`, `position_id`, `position_type`, `position_sub_type`, `department_id`, `work_location_id`, `level_id`, `teams_id`, `job_requisition_id`, `recruiter_id`, `headcount_owner_id`, `worker_id`, `backfill_for_id`, `employment_type_id`, `in_budget`, `target_start_date`, `current_start_date`, `job_function_id`, `priority_id`  - Expandable fields: `department`, `work_location`, `level`, `teams`, `job_requisition`, `recruiter`, `headcount_owner`, `worker`, `backfill_for`, `employment_type`, `priority`, `job_function`, `location_factor`  - Sortable fields: `id`, `created_at`, `updated_at`, `position_id`, `position_type`, `position_sub_type`, `department_id`, `work_location_id`, `level_id`, `job_requisition_id`, `recruiter_id`, `headcount_owner_id`, `worker_id`, `backfill_for_id`, `employment_type_id`, `in_budget`, `target_start_date`, `current_start_date`, `priority_id`, `job_function_id`
+         * @summary List headcount positions
+         * @param {HeadcountPositionApiListHeadcountPositionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listHeadcountPositions(requestParameters: HeadcountPositionApiListHeadcountPositionsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListHeadcountPositions200Response> {
+            return localVarFp.listHeadcountPositions(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getHeadcountPositions operation in HeadcountPositionApi.
+ */
+export interface HeadcountPositionApiGetHeadcountPositionsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listHeadcountPositions operation in HeadcountPositionApi.
+ */
+export interface HeadcountPositionApiListHeadcountPositionsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * HeadcountPositionApi - object-oriented interface
+ */
+export class HeadcountPositionApi extends BaseAPI {
+    /**
+     * Retrieve a specific headcount position
+     * @summary Retrieve a specific headcount position
+     * @param {HeadcountPositionApiGetHeadcountPositionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getHeadcountPositions(requestParameters: HeadcountPositionApiGetHeadcountPositionsRequest, options?: RawAxiosRequestConfig) {
+        return HeadcountPositionApiFp(this.configuration).getHeadcountPositions(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of headcount positions  - Requires: `API Tier 2`  - Filterable fields: `created_at`, `position_id`, `position_type`, `position_sub_type`, `department_id`, `work_location_id`, `level_id`, `teams_id`, `job_requisition_id`, `recruiter_id`, `headcount_owner_id`, `worker_id`, `backfill_for_id`, `employment_type_id`, `in_budget`, `target_start_date`, `current_start_date`, `job_function_id`, `priority_id`  - Expandable fields: `department`, `work_location`, `level`, `teams`, `job_requisition`, `recruiter`, `headcount_owner`, `worker`, `backfill_for`, `employment_type`, `priority`, `job_function`, `location_factor`  - Sortable fields: `id`, `created_at`, `updated_at`, `position_id`, `position_type`, `position_sub_type`, `department_id`, `work_location_id`, `level_id`, `job_requisition_id`, `recruiter_id`, `headcount_owner_id`, `worker_id`, `backfill_for_id`, `employment_type_id`, `in_budget`, `target_start_date`, `current_start_date`, `priority_id`, `job_function_id`
+     * @summary List headcount positions
+     * @param {HeadcountPositionApiListHeadcountPositionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHeadcountPositions(requestParameters: HeadcountPositionApiListHeadcountPositionsRequest = {}, options?: RawAxiosRequestConfig) {
+        return HeadcountPositionApiFp(this.configuration).listHeadcountPositions(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * HeadcountPriorityApi - axios parameter creator
+ */
+export const HeadcountPriorityApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve a specific headcount priority
+         * @summary Retrieve a specific headcount priority
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHeadcountPriorities: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getHeadcountPriorities', 'id', id)
+            const localVarPath = `/headcount-priorities/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["headcount-priorities.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of headcount priorities  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List headcount priorities
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listHeadcountPriorities: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/headcount-priorities/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["headcount-priorities.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * HeadcountPriorityApi - functional programming interface
+ */
+export const HeadcountPriorityApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = HeadcountPriorityApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve a specific headcount priority
+         * @summary Retrieve a specific headcount priority
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getHeadcountPriorities(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetHeadcountPriorities200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getHeadcountPriorities(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['HeadcountPriorityApi.getHeadcountPriorities']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of headcount priorities  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List headcount priorities
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listHeadcountPriorities(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListHeadcountPriorities200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listHeadcountPriorities(orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['HeadcountPriorityApi.listHeadcountPriorities']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * HeadcountPriorityApi - factory interface
+ */
+export const HeadcountPriorityApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = HeadcountPriorityApiFp(configuration)
+    return {
+        /**
+         * Retrieve a specific headcount priority
+         * @summary Retrieve a specific headcount priority
+         * @param {HeadcountPriorityApiGetHeadcountPrioritiesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHeadcountPriorities(requestParameters: HeadcountPriorityApiGetHeadcountPrioritiesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetHeadcountPriorities200Response> {
+            return localVarFp.getHeadcountPriorities(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of headcount priorities  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List headcount priorities
+         * @param {HeadcountPriorityApiListHeadcountPrioritiesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listHeadcountPriorities(requestParameters: HeadcountPriorityApiListHeadcountPrioritiesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListHeadcountPriorities200Response> {
+            return localVarFp.listHeadcountPriorities(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getHeadcountPriorities operation in HeadcountPriorityApi.
+ */
+export interface HeadcountPriorityApiGetHeadcountPrioritiesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listHeadcountPriorities operation in HeadcountPriorityApi.
+ */
+export interface HeadcountPriorityApiListHeadcountPrioritiesRequest {
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * HeadcountPriorityApi - object-oriented interface
+ */
+export class HeadcountPriorityApi extends BaseAPI {
+    /**
+     * Retrieve a specific headcount priority
+     * @summary Retrieve a specific headcount priority
+     * @param {HeadcountPriorityApiGetHeadcountPrioritiesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getHeadcountPriorities(requestParameters: HeadcountPriorityApiGetHeadcountPrioritiesRequest, options?: RawAxiosRequestConfig) {
+        return HeadcountPriorityApiFp(this.configuration).getHeadcountPriorities(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of headcount priorities  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List headcount priorities
+     * @param {HeadcountPriorityApiListHeadcountPrioritiesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHeadcountPriorities(requestParameters: HeadcountPriorityApiListHeadcountPrioritiesRequest = {}, options?: RawAxiosRequestConfig) {
+        return HeadcountPriorityApiFp(this.configuration).listHeadcountPriorities(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * JobApi - axios parameter creator
+ */
+export const JobApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new job assignment
+         * @summary Create a new job assignment
+         * @param {JobAssignmentRequest} [jobAssignmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createJobAssignments: async (jobAssignmentRequest?: JobAssignmentRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-assignments/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-assignments.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobAssignmentRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new job code
+         * @summary Create a new job code
+         * @param {JobCodeRequest} [jobCodeRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createJobCodes: async (jobCodeRequest?: JobCodeRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-codes/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-codes.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobCodeRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new job dimension
+         * @summary Create a new job dimension
+         * @param {JobDimensionRequest} [jobDimensionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createJobDimensions: async (jobDimensionRequest?: JobDimensionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-dimensions/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-dimensions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobDimensionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a job assignment
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteJobAssignments: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteJobAssignments', 'id', id)
+            const localVarPath = `/job-assignments/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-assignments.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a job code
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteJobCodes: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteJobCodes', 'id', id)
+            const localVarPath = `/job-codes/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-codes.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a job dimension
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteJobDimensions: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteJobDimensions', 'id', id)
+            const localVarPath = `/job-dimensions/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-dimensions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific job assignment
+         * @summary Retrieve a specific job assignment
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJobAssignments: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getJobAssignments', 'id', id)
+            const localVarPath = `/job-assignments/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-assignments.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific job code
+         * @summary Retrieve a specific job code
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJobCodes: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getJobCodes', 'id', id)
+            const localVarPath = `/job-codes/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-codes.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific job dimension
+         * @summary Retrieve a specific job dimension
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJobDimensions: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getJobDimensions', 'id', id)
+            const localVarPath = `/job-dimensions/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-dimensions.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific job pay rate exception
+         * @summary Retrieve a specific job pay rate exception
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJobPayRateExceptions: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getJobPayRateExceptions', 'id', id)
+            const localVarPath = `/job-pay-rate-exceptions/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-pay-rate-exceptions.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of job assignments  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `job_code_id`  - Expandable fields: `worker`, `job_code`, `job_pay_rate_exceptions`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job assignments
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobAssignments: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-assignments/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-assignments.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {string} jobAssignmentId 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobAssignmentsJobAssignmentIdChangeLog: async (jobAssignmentId: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jobAssignmentId' is not null or undefined
+            assertParamExists('listJobAssignmentsJobAssignmentIdChangeLog', 'jobAssignmentId', jobAssignmentId)
+            const localVarPath = `/job-assignments/{job_assignment_id}/change-log/`
+                .replace(`{${"job_assignment_id"}}`, encodeURIComponent(String(jobAssignmentId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-assignments.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of job codes  - Requires: `API Tier 2`  - Filterable fields: `job_dimension_id`, `group_id`  - Expandable fields: `job_dimension`, `work_location`, `department`, `pay_rate_exceptions`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job codes
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobCodes: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-codes/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-codes.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {string} jobCodeId 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobCodesJobCodeIdChangeLog: async (jobCodeId: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jobCodeId' is not null or undefined
+            assertParamExists('listJobCodesJobCodeIdChangeLog', 'jobCodeId', jobCodeId)
+            const localVarPath = `/job-codes/{job_code_id}/change-log/`
+                .replace(`{${"job_code_id"}}`, encodeURIComponent(String(jobCodeId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-codes.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of job dimensions  - Requires: `API Tier 2`  - Filterable fields: `name`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job dimensions
+         * @param {string} [filter] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobDimensions: async (filter?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-dimensions/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-dimensions.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of job pay rate exceptions  - Requires: `API Tier 2`  - Filterable fields: `job_code_id`  - Expandable fields: `job_code`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job pay rate exceptions
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobPayRateExceptions: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-pay-rate-exceptions/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-pay-rate-exceptions.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {string} jobPayRateExceptionId 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobPayRateExceptionsJobPayRateExceptionIdChangeLog: async (jobPayRateExceptionId: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jobPayRateExceptionId' is not null or undefined
+            assertParamExists('listJobPayRateExceptionsJobPayRateExceptionIdChangeLog', 'jobPayRateExceptionId', jobPayRateExceptionId)
+            const localVarPath = `/job-pay-rate-exceptions/{job_pay_rate_exception_id}/change-log/`
+                .replace(`{${"job_pay_rate_exception_id"}}`, encodeURIComponent(String(jobPayRateExceptionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-pay-rate-exceptions.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific job assignment
+         * @summary Update a job assignment
+         * @param {string} id ID of the resource to patch
+         * @param {JobAssignmentRequest} [jobAssignmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateJobAssignments: async (id: string, jobAssignmentRequest?: JobAssignmentRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateJobAssignments', 'id', id)
+            const localVarPath = `/job-assignments/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-assignments.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobAssignmentRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific job code
+         * @summary Update a job code
+         * @param {string} id ID of the resource to patch
+         * @param {JobCodeRequest} [jobCodeRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateJobCodes: async (id: string, jobCodeRequest?: JobCodeRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateJobCodes', 'id', id)
+            const localVarPath = `/job-codes/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-codes.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobCodeRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific job dimension
+         * @summary Update a job dimension
+         * @param {string} id ID of the resource to patch
+         * @param {JobDimensionRequest} [jobDimensionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateJobDimensions: async (id: string, jobDimensionRequest?: JobDimensionRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateJobDimensions', 'id', id)
+            const localVarPath = `/job-dimensions/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-dimensions.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobDimensionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * JobApi - functional programming interface
+ */
+export const JobApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = JobApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new job assignment
+         * @summary Create a new job assignment
+         * @param {JobAssignmentRequest} [jobAssignmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createJobAssignments(jobAssignmentRequest?: JobAssignmentRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobAssignment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createJobAssignments(jobAssignmentRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.createJobAssignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Create a new job code
+         * @summary Create a new job code
+         * @param {JobCodeRequest} [jobCodeRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createJobCodes(jobCodeRequest?: JobCodeRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobCode>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createJobCodes(jobCodeRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.createJobCodes']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Create a new job dimension
+         * @summary Create a new job dimension
+         * @param {JobDimensionRequest} [jobDimensionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createJobDimensions(jobDimensionRequest?: JobDimensionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobDimension>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createJobDimensions(jobDimensionRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.createJobDimensions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a job assignment
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteJobAssignments(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteJobAssignments(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.deleteJobAssignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a job code
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteJobCodes(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteJobCodes(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.deleteJobCodes']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a job dimension
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteJobDimensions(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteJobDimensions(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.deleteJobDimensions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific job assignment
+         * @summary Retrieve a specific job assignment
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getJobAssignments(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetJobAssignments200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getJobAssignments(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.getJobAssignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific job code
+         * @summary Retrieve a specific job code
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getJobCodes(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetJobCodes200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getJobCodes(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.getJobCodes']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific job dimension
+         * @summary Retrieve a specific job dimension
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getJobDimensions(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetJobDimensions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getJobDimensions(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.getJobDimensions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific job pay rate exception
+         * @summary Retrieve a specific job pay rate exception
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getJobPayRateExceptions(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetJobPayRateExceptions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getJobPayRateExceptions(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.getJobPayRateExceptions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of job assignments  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `job_code_id`  - Expandable fields: `worker`, `job_code`, `job_pay_rate_exceptions`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job assignments
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJobAssignments(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobAssignments200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobAssignments(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.listJobAssignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {string} jobAssignmentId 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJobAssignmentsJobAssignmentIdChangeLog(jobAssignmentId: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobAssignmentsJobAssignmentIdChangeLog200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobAssignmentsJobAssignmentIdChangeLog(jobAssignmentId, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.listJobAssignmentsJobAssignmentIdChangeLog']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of job codes  - Requires: `API Tier 2`  - Filterable fields: `job_dimension_id`, `group_id`  - Expandable fields: `job_dimension`, `work_location`, `department`, `pay_rate_exceptions`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job codes
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJobCodes(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobCodes200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobCodes(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.listJobCodes']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {string} jobCodeId 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJobCodesJobCodeIdChangeLog(jobCodeId: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobAssignmentsJobAssignmentIdChangeLog200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobCodesJobCodeIdChangeLog(jobCodeId, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.listJobCodesJobCodeIdChangeLog']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of job dimensions  - Requires: `API Tier 2`  - Filterable fields: `name`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job dimensions
+         * @param {string} [filter] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJobDimensions(filter?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobDimensions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobDimensions(filter, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.listJobDimensions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of job pay rate exceptions  - Requires: `API Tier 2`  - Filterable fields: `job_code_id`  - Expandable fields: `job_code`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job pay rate exceptions
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJobPayRateExceptions(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobPayRateExceptions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobPayRateExceptions(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.listJobPayRateExceptions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {string} jobPayRateExceptionId 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJobPayRateExceptionsJobPayRateExceptionIdChangeLog(jobPayRateExceptionId: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobAssignmentsJobAssignmentIdChangeLog200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobPayRateExceptionsJobPayRateExceptionIdChangeLog(jobPayRateExceptionId, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.listJobPayRateExceptionsJobPayRateExceptionIdChangeLog']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific job assignment
+         * @summary Update a job assignment
+         * @param {string} id ID of the resource to patch
+         * @param {JobAssignmentRequest} [jobAssignmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateJobAssignments(id: string, jobAssignmentRequest?: JobAssignmentRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobAssignment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateJobAssignments(id, jobAssignmentRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.updateJobAssignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific job code
+         * @summary Update a job code
+         * @param {string} id ID of the resource to patch
+         * @param {JobCodeRequest} [jobCodeRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateJobCodes(id: string, jobCodeRequest?: JobCodeRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobCode>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateJobCodes(id, jobCodeRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.updateJobCodes']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific job dimension
+         * @summary Update a job dimension
+         * @param {string} id ID of the resource to patch
+         * @param {JobDimensionRequest} [jobDimensionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateJobDimensions(id: string, jobDimensionRequest?: JobDimensionRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobDimension>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateJobDimensions(id, jobDimensionRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobApi.updateJobDimensions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * JobApi - factory interface
+ */
+export const JobApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = JobApiFp(configuration)
+    return {
+        /**
+         * Create a new job assignment
+         * @summary Create a new job assignment
+         * @param {JobApiCreateJobAssignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createJobAssignments(requestParameters: JobApiCreateJobAssignmentsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<JobAssignment> {
+            return localVarFp.createJobAssignments(requestParameters.jobAssignmentRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new job code
+         * @summary Create a new job code
+         * @param {JobApiCreateJobCodesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createJobCodes(requestParameters: JobApiCreateJobCodesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<JobCode> {
+            return localVarFp.createJobCodes(requestParameters.jobCodeRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new job dimension
+         * @summary Create a new job dimension
+         * @param {JobApiCreateJobDimensionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createJobDimensions(requestParameters: JobApiCreateJobDimensionsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<JobDimension> {
+            return localVarFp.createJobDimensions(requestParameters.jobDimensionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a job assignment
+         * @param {JobApiDeleteJobAssignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteJobAssignments(requestParameters: JobApiDeleteJobAssignmentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteJobAssignments(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a job code
+         * @param {JobApiDeleteJobCodesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteJobCodes(requestParameters: JobApiDeleteJobCodesRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteJobCodes(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a job dimension
+         * @param {JobApiDeleteJobDimensionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteJobDimensions(requestParameters: JobApiDeleteJobDimensionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteJobDimensions(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific job assignment
+         * @summary Retrieve a specific job assignment
+         * @param {JobApiGetJobAssignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJobAssignments(requestParameters: JobApiGetJobAssignmentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetJobAssignments200Response> {
+            return localVarFp.getJobAssignments(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific job code
+         * @summary Retrieve a specific job code
+         * @param {JobApiGetJobCodesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJobCodes(requestParameters: JobApiGetJobCodesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetJobCodes200Response> {
+            return localVarFp.getJobCodes(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific job dimension
+         * @summary Retrieve a specific job dimension
+         * @param {JobApiGetJobDimensionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJobDimensions(requestParameters: JobApiGetJobDimensionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetJobDimensions200Response> {
+            return localVarFp.getJobDimensions(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific job pay rate exception
+         * @summary Retrieve a specific job pay rate exception
+         * @param {JobApiGetJobPayRateExceptionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJobPayRateExceptions(requestParameters: JobApiGetJobPayRateExceptionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetJobPayRateExceptions200Response> {
+            return localVarFp.getJobPayRateExceptions(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of job assignments  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `job_code_id`  - Expandable fields: `worker`, `job_code`, `job_pay_rate_exceptions`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job assignments
+         * @param {JobApiListJobAssignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobAssignments(requestParameters: JobApiListJobAssignmentsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListJobAssignments200Response> {
+            return localVarFp.listJobAssignments(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {JobApiListJobAssignmentsJobAssignmentIdChangeLogRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobAssignmentsJobAssignmentIdChangeLog(requestParameters: JobApiListJobAssignmentsJobAssignmentIdChangeLogRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListJobAssignmentsJobAssignmentIdChangeLog200Response> {
+            return localVarFp.listJobAssignmentsJobAssignmentIdChangeLog(requestParameters.jobAssignmentId, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of job codes  - Requires: `API Tier 2`  - Filterable fields: `job_dimension_id`, `group_id`  - Expandable fields: `job_dimension`, `work_location`, `department`, `pay_rate_exceptions`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job codes
+         * @param {JobApiListJobCodesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobCodes(requestParameters: JobApiListJobCodesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListJobCodes200Response> {
+            return localVarFp.listJobCodes(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {JobApiListJobCodesJobCodeIdChangeLogRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobCodesJobCodeIdChangeLog(requestParameters: JobApiListJobCodesJobCodeIdChangeLogRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListJobAssignmentsJobAssignmentIdChangeLog200Response> {
+            return localVarFp.listJobCodesJobCodeIdChangeLog(requestParameters.jobCodeId, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of job dimensions  - Requires: `API Tier 2`  - Filterable fields: `name`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job dimensions
+         * @param {JobApiListJobDimensionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobDimensions(requestParameters: JobApiListJobDimensionsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListJobDimensions200Response> {
+            return localVarFp.listJobDimensions(requestParameters.filter, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of job pay rate exceptions  - Requires: `API Tier 2`  - Filterable fields: `job_code_id`  - Expandable fields: `job_code`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job pay rate exceptions
+         * @param {JobApiListJobPayRateExceptionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobPayRateExceptions(requestParameters: JobApiListJobPayRateExceptionsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListJobPayRateExceptions200Response> {
+            return localVarFp.listJobPayRateExceptions(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+         * @summary List attribute change logs
+         * @param {JobApiListJobPayRateExceptionsJobPayRateExceptionIdChangeLogRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobPayRateExceptionsJobPayRateExceptionIdChangeLog(requestParameters: JobApiListJobPayRateExceptionsJobPayRateExceptionIdChangeLogRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListJobAssignmentsJobAssignmentIdChangeLog200Response> {
+            return localVarFp.listJobPayRateExceptionsJobPayRateExceptionIdChangeLog(requestParameters.jobPayRateExceptionId, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific job assignment
+         * @summary Update a job assignment
+         * @param {JobApiUpdateJobAssignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateJobAssignments(requestParameters: JobApiUpdateJobAssignmentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<JobAssignment> {
+            return localVarFp.updateJobAssignments(requestParameters.id, requestParameters.jobAssignmentRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific job code
+         * @summary Update a job code
+         * @param {JobApiUpdateJobCodesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateJobCodes(requestParameters: JobApiUpdateJobCodesRequest, options?: RawAxiosRequestConfig): AxiosPromise<JobCode> {
+            return localVarFp.updateJobCodes(requestParameters.id, requestParameters.jobCodeRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific job dimension
+         * @summary Update a job dimension
+         * @param {JobApiUpdateJobDimensionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateJobDimensions(requestParameters: JobApiUpdateJobDimensionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<JobDimension> {
+            return localVarFp.updateJobDimensions(requestParameters.id, requestParameters.jobDimensionRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createJobAssignments operation in JobApi.
+ */
+export interface JobApiCreateJobAssignmentsRequest {
+    readonly jobAssignmentRequest?: JobAssignmentRequest
+}
+
+/**
+ * Request parameters for createJobCodes operation in JobApi.
+ */
+export interface JobApiCreateJobCodesRequest {
+    readonly jobCodeRequest?: JobCodeRequest
+}
+
+/**
+ * Request parameters for createJobDimensions operation in JobApi.
+ */
+export interface JobApiCreateJobDimensionsRequest {
+    readonly jobDimensionRequest?: JobDimensionRequest
+}
+
+/**
+ * Request parameters for deleteJobAssignments operation in JobApi.
+ */
+export interface JobApiDeleteJobAssignmentsRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteJobCodes operation in JobApi.
+ */
+export interface JobApiDeleteJobCodesRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteJobDimensions operation in JobApi.
+ */
+export interface JobApiDeleteJobDimensionsRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getJobAssignments operation in JobApi.
+ */
+export interface JobApiGetJobAssignmentsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for getJobCodes operation in JobApi.
+ */
+export interface JobApiGetJobCodesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for getJobDimensions operation in JobApi.
+ */
+export interface JobApiGetJobDimensionsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getJobPayRateExceptions operation in JobApi.
+ */
+export interface JobApiGetJobPayRateExceptionsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listJobAssignments operation in JobApi.
+ */
+export interface JobApiListJobAssignmentsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for listJobAssignmentsJobAssignmentIdChangeLog operation in JobApi.
+ */
+export interface JobApiListJobAssignmentsJobAssignmentIdChangeLogRequest {
+    readonly jobAssignmentId: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for listJobCodes operation in JobApi.
+ */
+export interface JobApiListJobCodesRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for listJobCodesJobCodeIdChangeLog operation in JobApi.
+ */
+export interface JobApiListJobCodesJobCodeIdChangeLogRequest {
+    readonly jobCodeId: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for listJobDimensions operation in JobApi.
+ */
+export interface JobApiListJobDimensionsRequest {
+    readonly filter?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for listJobPayRateExceptions operation in JobApi.
+ */
+export interface JobApiListJobPayRateExceptionsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for listJobPayRateExceptionsJobPayRateExceptionIdChangeLog operation in JobApi.
+ */
+export interface JobApiListJobPayRateExceptionsJobPayRateExceptionIdChangeLogRequest {
+    readonly jobPayRateExceptionId: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateJobAssignments operation in JobApi.
+ */
+export interface JobApiUpdateJobAssignmentsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly jobAssignmentRequest?: JobAssignmentRequest
+}
+
+/**
+ * Request parameters for updateJobCodes operation in JobApi.
+ */
+export interface JobApiUpdateJobCodesRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly jobCodeRequest?: JobCodeRequest
+}
+
+/**
+ * Request parameters for updateJobDimensions operation in JobApi.
+ */
+export interface JobApiUpdateJobDimensionsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly jobDimensionRequest?: JobDimensionRequest
+}
+
+/**
+ * JobApi - object-oriented interface
+ */
+export class JobApi extends BaseAPI {
+    /**
+     * Create a new job assignment
+     * @summary Create a new job assignment
+     * @param {JobApiCreateJobAssignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createJobAssignments(requestParameters: JobApiCreateJobAssignmentsRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).createJobAssignments(requestParameters.jobAssignmentRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new job code
+     * @summary Create a new job code
+     * @param {JobApiCreateJobCodesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createJobCodes(requestParameters: JobApiCreateJobCodesRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).createJobCodes(requestParameters.jobCodeRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new job dimension
+     * @summary Create a new job dimension
+     * @param {JobApiCreateJobDimensionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createJobDimensions(requestParameters: JobApiCreateJobDimensionsRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).createJobDimensions(requestParameters.jobDimensionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a job assignment
+     * @param {JobApiDeleteJobAssignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteJobAssignments(requestParameters: JobApiDeleteJobAssignmentsRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).deleteJobAssignments(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a job code
+     * @param {JobApiDeleteJobCodesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteJobCodes(requestParameters: JobApiDeleteJobCodesRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).deleteJobCodes(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a job dimension
+     * @param {JobApiDeleteJobDimensionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteJobDimensions(requestParameters: JobApiDeleteJobDimensionsRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).deleteJobDimensions(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific job assignment
+     * @summary Retrieve a specific job assignment
+     * @param {JobApiGetJobAssignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getJobAssignments(requestParameters: JobApiGetJobAssignmentsRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).getJobAssignments(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific job code
+     * @summary Retrieve a specific job code
+     * @param {JobApiGetJobCodesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getJobCodes(requestParameters: JobApiGetJobCodesRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).getJobCodes(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific job dimension
+     * @summary Retrieve a specific job dimension
+     * @param {JobApiGetJobDimensionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getJobDimensions(requestParameters: JobApiGetJobDimensionsRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).getJobDimensions(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific job pay rate exception
+     * @summary Retrieve a specific job pay rate exception
+     * @param {JobApiGetJobPayRateExceptionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getJobPayRateExceptions(requestParameters: JobApiGetJobPayRateExceptionsRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).getJobPayRateExceptions(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of job assignments  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `job_code_id`  - Expandable fields: `worker`, `job_code`, `job_pay_rate_exceptions`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List job assignments
+     * @param {JobApiListJobAssignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobAssignments(requestParameters: JobApiListJobAssignmentsRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).listJobAssignments(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+     * @summary List attribute change logs
+     * @param {JobApiListJobAssignmentsJobAssignmentIdChangeLogRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobAssignmentsJobAssignmentIdChangeLog(requestParameters: JobApiListJobAssignmentsJobAssignmentIdChangeLogRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).listJobAssignmentsJobAssignmentIdChangeLog(requestParameters.jobAssignmentId, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of job codes  - Requires: `API Tier 2`  - Filterable fields: `job_dimension_id`, `group_id`  - Expandable fields: `job_dimension`, `work_location`, `department`, `pay_rate_exceptions`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List job codes
+     * @param {JobApiListJobCodesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobCodes(requestParameters: JobApiListJobCodesRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).listJobCodes(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+     * @summary List attribute change logs
+     * @param {JobApiListJobCodesJobCodeIdChangeLogRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobCodesJobCodeIdChangeLog(requestParameters: JobApiListJobCodesJobCodeIdChangeLogRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).listJobCodesJobCodeIdChangeLog(requestParameters.jobCodeId, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of job dimensions  - Requires: `API Tier 2`  - Filterable fields: `name`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List job dimensions
+     * @param {JobApiListJobDimensionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobDimensions(requestParameters: JobApiListJobDimensionsRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).listJobDimensions(requestParameters.filter, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of job pay rate exceptions  - Requires: `API Tier 2`  - Filterable fields: `job_code_id`  - Expandable fields: `job_code`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List job pay rate exceptions
+     * @param {JobApiListJobPayRateExceptionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobPayRateExceptions(requestParameters: JobApiListJobPayRateExceptionsRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).listJobPayRateExceptions(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of attribute change logs  - Requires: `API Tier 2`  - Expandable fields: `changed_by_worker`  - Sortable fields: `id`
+     * @summary List attribute change logs
+     * @param {JobApiListJobPayRateExceptionsJobPayRateExceptionIdChangeLogRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobPayRateExceptionsJobPayRateExceptionIdChangeLog(requestParameters: JobApiListJobPayRateExceptionsJobPayRateExceptionIdChangeLogRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).listJobPayRateExceptionsJobPayRateExceptionIdChangeLog(requestParameters.jobPayRateExceptionId, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific job assignment
+     * @summary Update a job assignment
+     * @param {JobApiUpdateJobAssignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateJobAssignments(requestParameters: JobApiUpdateJobAssignmentsRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).updateJobAssignments(requestParameters.id, requestParameters.jobAssignmentRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific job code
+     * @summary Update a job code
+     * @param {JobApiUpdateJobCodesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateJobCodes(requestParameters: JobApiUpdateJobCodesRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).updateJobCodes(requestParameters.id, requestParameters.jobCodeRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific job dimension
+     * @summary Update a job dimension
+     * @param {JobApiUpdateJobDimensionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateJobDimensions(requestParameters: JobApiUpdateJobDimensionsRequest, options?: RawAxiosRequestConfig) {
+        return JobApiFp(this.configuration).updateJobDimensions(requestParameters.id, requestParameters.jobDimensionRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -10648,7 +16968,7 @@ export const JobFunctionsApiAxiosParamCreator = function (configuration?: Config
         getJobFunctions: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getJobFunctions', 'id', id)
-            const localVarPath = `/job-functions/{id}`
+            const localVarPath = `/job-functions/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10684,13 +17004,12 @@ export const JobFunctionsApiAxiosParamCreator = function (configuration?: Config
          * A List of job functions  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List job functions
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listJobFunctions: async (orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/job-functions`;
+        listJobFunctions: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-functions/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -10712,10 +17031,6 @@ export const JobFunctionsApiAxiosParamCreator = function (configuration?: Config
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
 
             if (cursor !== undefined) {
@@ -10759,13 +17074,12 @@ export const JobFunctionsApiFp = function(configuration?: Configuration) {
          * A List of job functions  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List job functions
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listJobFunctions(orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobFunctions200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobFunctions(orderBy, limit, cursor, options);
+        async listJobFunctions(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobFunctions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobFunctions(orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JobFunctionsApi.listJobFunctions']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -10797,7 +17111,7 @@ export const JobFunctionsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         listJobFunctions(requestParameters: JobFunctionsApiListJobFunctionsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListJobFunctions200Response> {
-            return localVarFp.listJobFunctions(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listJobFunctions(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10818,14 +17132,6 @@ export interface JobFunctionsApiGetJobFunctionsRequest {
 export interface JobFunctionsApiListJobFunctionsRequest {
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -10852,7 +17158,708 @@ export class JobFunctionsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listJobFunctions(requestParameters: JobFunctionsApiListJobFunctionsRequest = {}, options?: RawAxiosRequestConfig) {
-        return JobFunctionsApiFp(this.configuration).listJobFunctions(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return JobFunctionsApiFp(this.configuration).listJobFunctions(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * JobRequisitionsApi - axios parameter creator
+ */
+export const JobRequisitionsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new job requisition
+         * @summary Create a new job requisition
+         * @param {JobRequisitionBaseResourceDTORequest} [jobRequisitionBaseResourceDTORequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createJobRequisitionsWrite: async (jobRequisitionBaseResourceDTORequest?: JobRequisitionBaseResourceDTORequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-requisitions-write/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-requisitions-write.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jobRequisitionBaseResourceDTORequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of job requisitions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job requisitions
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobRequisitions: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/job-requisitions/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["job-requisitions.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * JobRequisitionsApi - functional programming interface
+ */
+export const JobRequisitionsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = JobRequisitionsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new job requisition
+         * @summary Create a new job requisition
+         * @param {JobRequisitionBaseResourceDTORequest} [jobRequisitionBaseResourceDTORequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createJobRequisitionsWrite(jobRequisitionBaseResourceDTORequest?: JobRequisitionBaseResourceDTORequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JobRequisitionBaseResourceDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createJobRequisitionsWrite(jobRequisitionBaseResourceDTORequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobRequisitionsApi.createJobRequisitionsWrite']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of job requisitions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job requisitions
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJobRequisitions(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListJobRequisitions200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJobRequisitions(orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobRequisitionsApi.listJobRequisitions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * JobRequisitionsApi - factory interface
+ */
+export const JobRequisitionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = JobRequisitionsApiFp(configuration)
+    return {
+        /**
+         * Create a new job requisition
+         * @summary Create a new job requisition
+         * @param {JobRequisitionsApiCreateJobRequisitionsWriteRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createJobRequisitionsWrite(requestParameters: JobRequisitionsApiCreateJobRequisitionsWriteRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<JobRequisitionBaseResourceDTO> {
+            return localVarFp.createJobRequisitionsWrite(requestParameters.jobRequisitionBaseResourceDTORequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of job requisitions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List job requisitions
+         * @param {JobRequisitionsApiListJobRequisitionsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJobRequisitions(requestParameters: JobRequisitionsApiListJobRequisitionsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListJobRequisitions200Response> {
+            return localVarFp.listJobRequisitions(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createJobRequisitionsWrite operation in JobRequisitionsApi.
+ */
+export interface JobRequisitionsApiCreateJobRequisitionsWriteRequest {
+    readonly jobRequisitionBaseResourceDTORequest?: JobRequisitionBaseResourceDTORequest
+}
+
+/**
+ * Request parameters for listJobRequisitions operation in JobRequisitionsApi.
+ */
+export interface JobRequisitionsApiListJobRequisitionsRequest {
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * JobRequisitionsApi - object-oriented interface
+ */
+export class JobRequisitionsApi extends BaseAPI {
+    /**
+     * Create a new job requisition
+     * @summary Create a new job requisition
+     * @param {JobRequisitionsApiCreateJobRequisitionsWriteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createJobRequisitionsWrite(requestParameters: JobRequisitionsApiCreateJobRequisitionsWriteRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobRequisitionsApiFp(this.configuration).createJobRequisitionsWrite(requestParameters.jobRequisitionBaseResourceDTORequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of job requisitions  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List job requisitions
+     * @param {JobRequisitionsApiListJobRequisitionsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJobRequisitions(requestParameters: JobRequisitionsApiListJobRequisitionsRequest = {}, options?: RawAxiosRequestConfig) {
+        return JobRequisitionsApiFp(this.configuration).listJobRequisitions(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * KioskBadgeApi - axios parameter creator
+ */
+export const KioskBadgeApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new kiosk badge
+         * @summary Create a new kiosk badge
+         * @param {TimeKioskBadgeRequest} [timeKioskBadgeRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createKioskBadges: async (timeKioskBadgeRequest?: TimeKioskBadgeRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/kiosk-badges/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["kiosk-badges.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(timeKioskBadgeRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a kiosk badge
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteKioskBadges: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteKioskBadges', 'id', id)
+            const localVarPath = `/kiosk-badges/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["kiosk-badges.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific kiosk badge
+         * @summary Retrieve a specific kiosk badge
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getKioskBadges: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getKioskBadges', 'id', id)
+            const localVarPath = `/kiosk-badges/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["kiosk-badges.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of kiosk badges  - Requires: `API Tier 2`  - Filterable fields: `badge_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List kiosk badges
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listKioskBadges: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/kiosk-badges/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["kiosk-badges.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific kiosk badge
+         * @summary Update a kiosk badge
+         * @param {string} id ID of the resource to patch
+         * @param {TimeKioskBadgeRequest} [timeKioskBadgeRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateKioskBadges: async (id: string, timeKioskBadgeRequest?: TimeKioskBadgeRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateKioskBadges', 'id', id)
+            const localVarPath = `/kiosk-badges/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["kiosk-badges.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(timeKioskBadgeRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * KioskBadgeApi - functional programming interface
+ */
+export const KioskBadgeApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = KioskBadgeApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new kiosk badge
+         * @summary Create a new kiosk badge
+         * @param {TimeKioskBadgeRequest} [timeKioskBadgeRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createKioskBadges(timeKioskBadgeRequest?: TimeKioskBadgeRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimeKioskBadge>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createKioskBadges(timeKioskBadgeRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['KioskBadgeApi.createKioskBadges']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a kiosk badge
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteKioskBadges(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteKioskBadges(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['KioskBadgeApi.deleteKioskBadges']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific kiosk badge
+         * @summary Retrieve a specific kiosk badge
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getKioskBadges(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetKioskBadges200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getKioskBadges(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['KioskBadgeApi.getKioskBadges']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of kiosk badges  - Requires: `API Tier 2`  - Filterable fields: `badge_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List kiosk badges
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listKioskBadges(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListKioskBadges200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listKioskBadges(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['KioskBadgeApi.listKioskBadges']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific kiosk badge
+         * @summary Update a kiosk badge
+         * @param {string} id ID of the resource to patch
+         * @param {TimeKioskBadgeRequest} [timeKioskBadgeRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateKioskBadges(id: string, timeKioskBadgeRequest?: TimeKioskBadgeRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimeKioskBadge>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateKioskBadges(id, timeKioskBadgeRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['KioskBadgeApi.updateKioskBadges']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * KioskBadgeApi - factory interface
+ */
+export const KioskBadgeApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = KioskBadgeApiFp(configuration)
+    return {
+        /**
+         * Create a new kiosk badge
+         * @summary Create a new kiosk badge
+         * @param {KioskBadgeApiCreateKioskBadgesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createKioskBadges(requestParameters: KioskBadgeApiCreateKioskBadgesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<TimeKioskBadge> {
+            return localVarFp.createKioskBadges(requestParameters.timeKioskBadgeRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a kiosk badge
+         * @param {KioskBadgeApiDeleteKioskBadgesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteKioskBadges(requestParameters: KioskBadgeApiDeleteKioskBadgesRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteKioskBadges(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific kiosk badge
+         * @summary Retrieve a specific kiosk badge
+         * @param {KioskBadgeApiGetKioskBadgesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getKioskBadges(requestParameters: KioskBadgeApiGetKioskBadgesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetKioskBadges200Response> {
+            return localVarFp.getKioskBadges(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of kiosk badges  - Requires: `API Tier 2`  - Filterable fields: `badge_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List kiosk badges
+         * @param {KioskBadgeApiListKioskBadgesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listKioskBadges(requestParameters: KioskBadgeApiListKioskBadgesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListKioskBadges200Response> {
+            return localVarFp.listKioskBadges(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific kiosk badge
+         * @summary Update a kiosk badge
+         * @param {KioskBadgeApiUpdateKioskBadgesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateKioskBadges(requestParameters: KioskBadgeApiUpdateKioskBadgesRequest, options?: RawAxiosRequestConfig): AxiosPromise<TimeKioskBadge> {
+            return localVarFp.updateKioskBadges(requestParameters.id, requestParameters.timeKioskBadgeRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createKioskBadges operation in KioskBadgeApi.
+ */
+export interface KioskBadgeApiCreateKioskBadgesRequest {
+    readonly timeKioskBadgeRequest?: TimeKioskBadgeRequest
+}
+
+/**
+ * Request parameters for deleteKioskBadges operation in KioskBadgeApi.
+ */
+export interface KioskBadgeApiDeleteKioskBadgesRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getKioskBadges operation in KioskBadgeApi.
+ */
+export interface KioskBadgeApiGetKioskBadgesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listKioskBadges operation in KioskBadgeApi.
+ */
+export interface KioskBadgeApiListKioskBadgesRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateKioskBadges operation in KioskBadgeApi.
+ */
+export interface KioskBadgeApiUpdateKioskBadgesRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly timeKioskBadgeRequest?: TimeKioskBadgeRequest
+}
+
+/**
+ * KioskBadgeApi - object-oriented interface
+ */
+export class KioskBadgeApi extends BaseAPI {
+    /**
+     * Create a new kiosk badge
+     * @summary Create a new kiosk badge
+     * @param {KioskBadgeApiCreateKioskBadgesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createKioskBadges(requestParameters: KioskBadgeApiCreateKioskBadgesRequest = {}, options?: RawAxiosRequestConfig) {
+        return KioskBadgeApiFp(this.configuration).createKioskBadges(requestParameters.timeKioskBadgeRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a kiosk badge
+     * @param {KioskBadgeApiDeleteKioskBadgesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteKioskBadges(requestParameters: KioskBadgeApiDeleteKioskBadgesRequest, options?: RawAxiosRequestConfig) {
+        return KioskBadgeApiFp(this.configuration).deleteKioskBadges(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific kiosk badge
+     * @summary Retrieve a specific kiosk badge
+     * @param {KioskBadgeApiGetKioskBadgesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getKioskBadges(requestParameters: KioskBadgeApiGetKioskBadgesRequest, options?: RawAxiosRequestConfig) {
+        return KioskBadgeApiFp(this.configuration).getKioskBadges(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of kiosk badges  - Requires: `API Tier 2`  - Filterable fields: `badge_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List kiosk badges
+     * @param {KioskBadgeApiListKioskBadgesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKioskBadges(requestParameters: KioskBadgeApiListKioskBadgesRequest = {}, options?: RawAxiosRequestConfig) {
+        return KioskBadgeApiFp(this.configuration).listKioskBadges(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific kiosk badge
+     * @summary Update a kiosk badge
+     * @param {KioskBadgeApiUpdateKioskBadgesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateKioskBadges(requestParameters: KioskBadgeApiUpdateKioskBadgesRequest, options?: RawAxiosRequestConfig) {
+        return KioskBadgeApiFp(this.configuration).updateKioskBadges(requestParameters.id, requestParameters.timeKioskBadgeRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -10871,7 +17878,7 @@ export const LeaveAccrualsApiAxiosParamCreator = function (configuration?: Confi
          * @throws {RequiredError}
          */
         createLeaveAccruals: async (leaveAccrualRequest?: LeaveAccrualRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/leave-accruals`;
+            const localVarPath = `/leave-accruals/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -10885,7 +17892,7 @@ export const LeaveAccrualsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication OAuth2Production required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-accruals.read", "leave-accruals.read-write"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-accruals.read-write"], configuration)
 
             // authentication BearerTokenProduction required
             // http bearer authentication required
@@ -10915,7 +17922,7 @@ export const LeaveAccrualsApiAxiosParamCreator = function (configuration?: Confi
         getLeaveAccruals: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getLeaveAccruals', 'id', id)
-            const localVarPath = `/leave-accruals/{id}`
+            const localVarPath = `/leave-accruals/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10938,6 +17945,64 @@ export const LeaveAccrualsApiAxiosParamCreator = function (configuration?: Confi
 
             if (expand !== undefined) {
                 localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of leave accruals  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `leave_type_id`, `accrual_date`  - Expandable fields: `worker`, `grantor`  - Sortable fields: `id`, `created_at`, `updated_at`, `accrual_date`, `expiration_date`
+         * @summary List leave accruals
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLeaveAccruals: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/leave-accruals/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-accruals.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -10987,6 +18052,22 @@ export const LeaveAccrualsApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['LeaveAccrualsApi.getLeaveAccruals']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * A List of leave accruals  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `leave_type_id`, `accrual_date`  - Expandable fields: `worker`, `grantor`  - Sortable fields: `id`, `created_at`, `updated_at`, `accrual_date`, `expiration_date`
+         * @summary List leave accruals
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listLeaveAccruals(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListLeaveAccruals200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLeaveAccruals(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveAccrualsApi.listLeaveAccruals']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -11016,6 +18097,16 @@ export const LeaveAccrualsApiFactory = function (configuration?: Configuration, 
         getLeaveAccruals(requestParameters: LeaveAccrualsApiGetLeaveAccrualsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetLeaveAccruals200Response> {
             return localVarFp.getLeaveAccruals(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
         },
+        /**
+         * A List of leave accruals  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `leave_type_id`, `accrual_date`  - Expandable fields: `worker`, `grantor`  - Sortable fields: `id`, `created_at`, `updated_at`, `accrual_date`, `expiration_date`
+         * @summary List leave accruals
+         * @param {LeaveAccrualsApiListLeaveAccrualsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLeaveAccruals(requestParameters: LeaveAccrualsApiListLeaveAccrualsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListLeaveAccruals200Response> {
+            return localVarFp.listLeaveAccruals(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -11036,6 +18127,19 @@ export interface LeaveAccrualsApiGetLeaveAccrualsRequest {
     readonly id: string
 
     readonly expand?: string
+}
+
+/**
+ * Request parameters for listLeaveAccruals operation in LeaveAccrualsApi.
+ */
+export interface LeaveAccrualsApiListLeaveAccrualsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
 }
 
 /**
@@ -11063,6 +18167,1318 @@ export class LeaveAccrualsApi extends BaseAPI {
     public getLeaveAccruals(requestParameters: LeaveAccrualsApiGetLeaveAccrualsRequest, options?: RawAxiosRequestConfig) {
         return LeaveAccrualsApiFp(this.configuration).getLeaveAccruals(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
     }
+
+    /**
+     * A List of leave accruals  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `leave_type_id`, `accrual_date`  - Expandable fields: `worker`, `grantor`  - Sortable fields: `id`, `created_at`, `updated_at`, `accrual_date`, `expiration_date`
+     * @summary List leave accruals
+     * @param {LeaveAccrualsApiListLeaveAccrualsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLeaveAccruals(requestParameters: LeaveAccrualsApiListLeaveAccrualsRequest = {}, options?: RawAxiosRequestConfig) {
+        return LeaveAccrualsApiFp(this.configuration).listLeaveAccruals(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * LeaveBalancesApi - axios parameter creator
+ */
+export const LeaveBalancesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve a specific leave balance
+         * @summary Retrieve a specific leave balance
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLeaveBalances: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getLeaveBalances', 'id', id)
+            const localVarPath = `/leave-balances/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-balances.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of leave balances  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `leave_type_id`  - Expandable fields: `worker`, `leave_type`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave balances
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLeaveBalances: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/leave-balances/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-balances.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * LeaveBalancesApi - functional programming interface
+ */
+export const LeaveBalancesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = LeaveBalancesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve a specific leave balance
+         * @summary Retrieve a specific leave balance
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLeaveBalances(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLeaveBalances200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeaveBalances(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveBalancesApi.getLeaveBalances']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of leave balances  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `leave_type_id`  - Expandable fields: `worker`, `leave_type`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave balances
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listLeaveBalances(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListLeaveBalances200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLeaveBalances(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveBalancesApi.listLeaveBalances']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * LeaveBalancesApi - factory interface
+ */
+export const LeaveBalancesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = LeaveBalancesApiFp(configuration)
+    return {
+        /**
+         * Retrieve a specific leave balance
+         * @summary Retrieve a specific leave balance
+         * @param {LeaveBalancesApiGetLeaveBalancesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLeaveBalances(requestParameters: LeaveBalancesApiGetLeaveBalancesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetLeaveBalances200Response> {
+            return localVarFp.getLeaveBalances(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of leave balances  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `leave_type_id`  - Expandable fields: `worker`, `leave_type`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave balances
+         * @param {LeaveBalancesApiListLeaveBalancesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLeaveBalances(requestParameters: LeaveBalancesApiListLeaveBalancesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListLeaveBalances200Response> {
+            return localVarFp.listLeaveBalances(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getLeaveBalances operation in LeaveBalancesApi.
+ */
+export interface LeaveBalancesApiGetLeaveBalancesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listLeaveBalances operation in LeaveBalancesApi.
+ */
+export interface LeaveBalancesApiListLeaveBalancesRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * LeaveBalancesApi - object-oriented interface
+ */
+export class LeaveBalancesApi extends BaseAPI {
+    /**
+     * Retrieve a specific leave balance
+     * @summary Retrieve a specific leave balance
+     * @param {LeaveBalancesApiGetLeaveBalancesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getLeaveBalances(requestParameters: LeaveBalancesApiGetLeaveBalancesRequest, options?: RawAxiosRequestConfig) {
+        return LeaveBalancesApiFp(this.configuration).getLeaveBalances(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of leave balances  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `leave_type_id`  - Expandable fields: `worker`, `leave_type`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List leave balances
+     * @param {LeaveBalancesApiListLeaveBalancesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLeaveBalances(requestParameters: LeaveBalancesApiListLeaveBalancesRequest = {}, options?: RawAxiosRequestConfig) {
+        return LeaveBalancesApiFp(this.configuration).listLeaveBalances(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * LeaveRequestsApi - axios parameter creator
+ */
+export const LeaveRequestsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new leave request
+         * @summary Create a new leave request
+         * @param {LeaveRequestRequest} [leaveRequestRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createLeaveRequests: async (leaveRequestRequest?: LeaveRequestRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/leave-requests/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-requests.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(leaveRequestRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific leave request
+         * @summary Retrieve a specific leave request
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLeaveRequests: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getLeaveRequests', 'id', id)
+            const localVarPath = `/leave-requests/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-requests.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of leave requests  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `requester_id`, `reviewer_id`, `status`, `leave_policy_id`, `leave_type_id`, `start_date`, `end_date`  - Expandable fields: `worker`, `requester`, `leave_type`, `reviewer`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave requests
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLeaveRequests: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/leave-requests/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-requests.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific leave request
+         * @summary Update a leave request
+         * @param {string} id ID of the resource to patch
+         * @param {LeaveRequestRequest} [leaveRequestRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateLeaveRequests: async (id: string, leaveRequestRequest?: LeaveRequestRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateLeaveRequests', 'id', id)
+            const localVarPath = `/leave-requests/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-requests.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(leaveRequestRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * LeaveRequestsApi - functional programming interface
+ */
+export const LeaveRequestsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = LeaveRequestsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new leave request
+         * @summary Create a new leave request
+         * @param {LeaveRequestRequest} [leaveRequestRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createLeaveRequests(leaveRequestRequest?: LeaveRequestRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LeaveRequest>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createLeaveRequests(leaveRequestRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveRequestsApi.createLeaveRequests']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific leave request
+         * @summary Retrieve a specific leave request
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLeaveRequests(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLeaveRequests200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeaveRequests(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveRequestsApi.getLeaveRequests']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of leave requests  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `requester_id`, `reviewer_id`, `status`, `leave_policy_id`, `leave_type_id`, `start_date`, `end_date`  - Expandable fields: `worker`, `requester`, `leave_type`, `reviewer`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave requests
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listLeaveRequests(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListLeaveRequests200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLeaveRequests(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveRequestsApi.listLeaveRequests']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific leave request
+         * @summary Update a leave request
+         * @param {string} id ID of the resource to patch
+         * @param {LeaveRequestRequest} [leaveRequestRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateLeaveRequests(id: string, leaveRequestRequest?: LeaveRequestRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LeaveRequest>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLeaveRequests(id, leaveRequestRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveRequestsApi.updateLeaveRequests']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * LeaveRequestsApi - factory interface
+ */
+export const LeaveRequestsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = LeaveRequestsApiFp(configuration)
+    return {
+        /**
+         * Create a new leave request
+         * @summary Create a new leave request
+         * @param {LeaveRequestsApiCreateLeaveRequestsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createLeaveRequests(requestParameters: LeaveRequestsApiCreateLeaveRequestsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<LeaveRequest> {
+            return localVarFp.createLeaveRequests(requestParameters.leaveRequestRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific leave request
+         * @summary Retrieve a specific leave request
+         * @param {LeaveRequestsApiGetLeaveRequestsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLeaveRequests(requestParameters: LeaveRequestsApiGetLeaveRequestsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetLeaveRequests200Response> {
+            return localVarFp.getLeaveRequests(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of leave requests  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `requester_id`, `reviewer_id`, `status`, `leave_policy_id`, `leave_type_id`, `start_date`, `end_date`  - Expandable fields: `worker`, `requester`, `leave_type`, `reviewer`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave requests
+         * @param {LeaveRequestsApiListLeaveRequestsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLeaveRequests(requestParameters: LeaveRequestsApiListLeaveRequestsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListLeaveRequests200Response> {
+            return localVarFp.listLeaveRequests(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific leave request
+         * @summary Update a leave request
+         * @param {LeaveRequestsApiUpdateLeaveRequestsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateLeaveRequests(requestParameters: LeaveRequestsApiUpdateLeaveRequestsRequest, options?: RawAxiosRequestConfig): AxiosPromise<LeaveRequest> {
+            return localVarFp.updateLeaveRequests(requestParameters.id, requestParameters.leaveRequestRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createLeaveRequests operation in LeaveRequestsApi.
+ */
+export interface LeaveRequestsApiCreateLeaveRequestsRequest {
+    readonly leaveRequestRequest?: LeaveRequestRequest
+}
+
+/**
+ * Request parameters for getLeaveRequests operation in LeaveRequestsApi.
+ */
+export interface LeaveRequestsApiGetLeaveRequestsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listLeaveRequests operation in LeaveRequestsApi.
+ */
+export interface LeaveRequestsApiListLeaveRequestsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateLeaveRequests operation in LeaveRequestsApi.
+ */
+export interface LeaveRequestsApiUpdateLeaveRequestsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly leaveRequestRequest?: LeaveRequestRequest
+}
+
+/**
+ * LeaveRequestsApi - object-oriented interface
+ */
+export class LeaveRequestsApi extends BaseAPI {
+    /**
+     * Create a new leave request
+     * @summary Create a new leave request
+     * @param {LeaveRequestsApiCreateLeaveRequestsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLeaveRequests(requestParameters: LeaveRequestsApiCreateLeaveRequestsRequest = {}, options?: RawAxiosRequestConfig) {
+        return LeaveRequestsApiFp(this.configuration).createLeaveRequests(requestParameters.leaveRequestRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific leave request
+     * @summary Retrieve a specific leave request
+     * @param {LeaveRequestsApiGetLeaveRequestsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getLeaveRequests(requestParameters: LeaveRequestsApiGetLeaveRequestsRequest, options?: RawAxiosRequestConfig) {
+        return LeaveRequestsApiFp(this.configuration).getLeaveRequests(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of leave requests  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `requester_id`, `reviewer_id`, `status`, `leave_policy_id`, `leave_type_id`, `start_date`, `end_date`  - Expandable fields: `worker`, `requester`, `leave_type`, `reviewer`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List leave requests
+     * @param {LeaveRequestsApiListLeaveRequestsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLeaveRequests(requestParameters: LeaveRequestsApiListLeaveRequestsRequest = {}, options?: RawAxiosRequestConfig) {
+        return LeaveRequestsApiFp(this.configuration).listLeaveRequests(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific leave request
+     * @summary Update a leave request
+     * @param {LeaveRequestsApiUpdateLeaveRequestsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLeaveRequests(requestParameters: LeaveRequestsApiUpdateLeaveRequestsRequest, options?: RawAxiosRequestConfig) {
+        return LeaveRequestsApiFp(this.configuration).updateLeaveRequests(requestParameters.id, requestParameters.leaveRequestRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * LeaveTypesApi - axios parameter creator
+ */
+export const LeaveTypesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve a specific leave type
+         * @summary Retrieve a specific leave type
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLeaveTypes: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getLeaveTypes', 'id', id)
+            const localVarPath = `/leave-types/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-types.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of leave types  - Requires: `API Tier 2`  - Filterable fields: `name`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave types
+         * @param {string} [filter] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLeaveTypes: async (filter?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/leave-types/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["leave-types.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * LeaveTypesApi - functional programming interface
+ */
+export const LeaveTypesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = LeaveTypesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve a specific leave type
+         * @summary Retrieve a specific leave type
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLeaveTypes(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLeaveTypes200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeaveTypes(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveTypesApi.getLeaveTypes']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of leave types  - Requires: `API Tier 2`  - Filterable fields: `name`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave types
+         * @param {string} [filter] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listLeaveTypes(filter?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListLeaveTypes200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLeaveTypes(filter, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LeaveTypesApi.listLeaveTypes']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * LeaveTypesApi - factory interface
+ */
+export const LeaveTypesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = LeaveTypesApiFp(configuration)
+    return {
+        /**
+         * Retrieve a specific leave type
+         * @summary Retrieve a specific leave type
+         * @param {LeaveTypesApiGetLeaveTypesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLeaveTypes(requestParameters: LeaveTypesApiGetLeaveTypesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetLeaveTypes200Response> {
+            return localVarFp.getLeaveTypes(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of leave types  - Requires: `API Tier 2`  - Filterable fields: `name`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List leave types
+         * @param {LeaveTypesApiListLeaveTypesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLeaveTypes(requestParameters: LeaveTypesApiListLeaveTypesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListLeaveTypes200Response> {
+            return localVarFp.listLeaveTypes(requestParameters.filter, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getLeaveTypes operation in LeaveTypesApi.
+ */
+export interface LeaveTypesApiGetLeaveTypesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listLeaveTypes operation in LeaveTypesApi.
+ */
+export interface LeaveTypesApiListLeaveTypesRequest {
+    readonly filter?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * LeaveTypesApi - object-oriented interface
+ */
+export class LeaveTypesApi extends BaseAPI {
+    /**
+     * Retrieve a specific leave type
+     * @summary Retrieve a specific leave type
+     * @param {LeaveTypesApiGetLeaveTypesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getLeaveTypes(requestParameters: LeaveTypesApiGetLeaveTypesRequest, options?: RawAxiosRequestConfig) {
+        return LeaveTypesApiFp(this.configuration).getLeaveTypes(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of leave types  - Requires: `API Tier 2`  - Filterable fields: `name`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List leave types
+     * @param {LeaveTypesApiListLeaveTypesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLeaveTypes(requestParameters: LeaveTypesApiListLeaveTypesRequest = {}, options?: RawAxiosRequestConfig) {
+        return LeaveTypesApiFp(this.configuration).listLeaveTypes(requestParameters.filter, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * LegalEntitiesApi - axios parameter creator
+ */
+export const LegalEntitiesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve a specific legal entity
+         * @summary Retrieve a specific legal entity
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLegalEntities: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getLegalEntities', 'id', id)
+            const localVarPath = `/legal-entities/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["legal-entities.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of legal entities  - Requires: `API Tier 2`  - Expandable fields: `parent`, `company`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List legal entities
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLegalEntities: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/legal-entities/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["legal-entities.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * LegalEntitiesApi - functional programming interface
+ */
+export const LegalEntitiesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = LegalEntitiesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve a specific legal entity
+         * @summary Retrieve a specific legal entity
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLegalEntities(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLegalEntities200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLegalEntities(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LegalEntitiesApi.getLegalEntities']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of legal entities  - Requires: `API Tier 2`  - Expandable fields: `parent`, `company`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List legal entities
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listLegalEntities(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListLegalEntities200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLegalEntities(expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LegalEntitiesApi.listLegalEntities']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * LegalEntitiesApi - factory interface
+ */
+export const LegalEntitiesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = LegalEntitiesApiFp(configuration)
+    return {
+        /**
+         * Retrieve a specific legal entity
+         * @summary Retrieve a specific legal entity
+         * @param {LegalEntitiesApiGetLegalEntitiesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLegalEntities(requestParameters: LegalEntitiesApiGetLegalEntitiesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetLegalEntities200Response> {
+            return localVarFp.getLegalEntities(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of legal entities  - Requires: `API Tier 2`  - Expandable fields: `parent`, `company`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List legal entities
+         * @param {LegalEntitiesApiListLegalEntitiesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLegalEntities(requestParameters: LegalEntitiesApiListLegalEntitiesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListLegalEntities200Response> {
+            return localVarFp.listLegalEntities(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getLegalEntities operation in LegalEntitiesApi.
+ */
+export interface LegalEntitiesApiGetLegalEntitiesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listLegalEntities operation in LegalEntitiesApi.
+ */
+export interface LegalEntitiesApiListLegalEntitiesRequest {
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * LegalEntitiesApi - object-oriented interface
+ */
+export class LegalEntitiesApi extends BaseAPI {
+    /**
+     * Retrieve a specific legal entity
+     * @summary Retrieve a specific legal entity
+     * @param {LegalEntitiesApiGetLegalEntitiesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getLegalEntities(requestParameters: LegalEntitiesApiGetLegalEntitiesRequest, options?: RawAxiosRequestConfig) {
+        return LegalEntitiesApiFp(this.configuration).getLegalEntities(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of legal entities  - Requires: `API Tier 2`  - Expandable fields: `parent`, `company`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List legal entities
+     * @param {LegalEntitiesApiListLegalEntitiesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLegalEntities(requestParameters: LegalEntitiesApiListLegalEntitiesRequest = {}, options?: RawAxiosRequestConfig) {
+        return LegalEntitiesApiFp(this.configuration).listLegalEntities(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * LocationFactorsApi - axios parameter creator
+ */
+export const LocationFactorsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve a specific location factor
+         * @summary Retrieve a specific location factor
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLocationFactors: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getLocationFactors', 'id', id)
+            const localVarPath = `/location-factors/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["location-factors.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of location factors  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List location factors
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLocationFactors: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/location-factors/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["location-factors.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * LocationFactorsApi - functional programming interface
+ */
+export const LocationFactorsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = LocationFactorsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve a specific location factor
+         * @summary Retrieve a specific location factor
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLocationFactors(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLocationFactors200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLocationFactors(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LocationFactorsApi.getLocationFactors']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of location factors  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List location factors
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listLocationFactors(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListLocationFactors200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLocationFactors(orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['LocationFactorsApi.listLocationFactors']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * LocationFactorsApi - factory interface
+ */
+export const LocationFactorsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = LocationFactorsApiFp(configuration)
+    return {
+        /**
+         * Retrieve a specific location factor
+         * @summary Retrieve a specific location factor
+         * @param {LocationFactorsApiGetLocationFactorsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLocationFactors(requestParameters: LocationFactorsApiGetLocationFactorsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetLocationFactors200Response> {
+            return localVarFp.getLocationFactors(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of location factors  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List location factors
+         * @param {LocationFactorsApiListLocationFactorsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLocationFactors(requestParameters: LocationFactorsApiListLocationFactorsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListLocationFactors200Response> {
+            return localVarFp.listLocationFactors(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getLocationFactors operation in LocationFactorsApi.
+ */
+export interface LocationFactorsApiGetLocationFactorsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listLocationFactors operation in LocationFactorsApi.
+ */
+export interface LocationFactorsApiListLocationFactorsRequest {
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * LocationFactorsApi - object-oriented interface
+ */
+export class LocationFactorsApi extends BaseAPI {
+    /**
+     * Retrieve a specific location factor
+     * @summary Retrieve a specific location factor
+     * @param {LocationFactorsApiGetLocationFactorsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getLocationFactors(requestParameters: LocationFactorsApiGetLocationFactorsRequest, options?: RawAxiosRequestConfig) {
+        return LocationFactorsApiFp(this.configuration).getLocationFactors(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of location factors  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List location factors
+     * @param {LocationFactorsApiListLocationFactorsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLocationFactors(requestParameters: LocationFactorsApiListLocationFactorsRequest = {}, options?: RawAxiosRequestConfig) {
+        return LocationFactorsApiFp(this.configuration).listLocationFactors(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
 }
 
 
@@ -11076,11 +19492,12 @@ export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
          * SSO information of the current user  - Requires: `API Tier 1`  - Expandable fields: `company`
          * @summary Retrieve my SSO information
          * @param {string} [expand] 
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSsoMe: async (expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/sso-me`;
+        listSsoMe: async (expand?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sso-me/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -11102,6 +19519,10 @@ export const MeApiAxiosParamCreator = function (configuration?: Configuration) {
 
             if (expand !== undefined) {
                 localVarQueryParameter['expand'] = expand;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -11128,11 +19549,12 @@ export const MeApiFp = function(configuration?: Configuration) {
          * SSO information of the current user  - Requires: `API Tier 1`  - Expandable fields: `company`
          * @summary Retrieve my SSO information
          * @param {string} [expand] 
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSsoMe(expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SSOMe>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSsoMe(expand, options);
+        async listSsoMe(expand?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SSOMe>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSsoMe(expand, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MeApi.listSsoMe']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -11154,7 +19576,7 @@ export const MeApiFactory = function (configuration?: Configuration, basePath?: 
          * @throws {RequiredError}
          */
         listSsoMe(requestParameters: MeApiListSsoMeRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<SSOMe> {
-            return localVarFp.listSsoMe(requestParameters.expand, options).then((request) => request(axios, basePath));
+            return localVarFp.listSsoMe(requestParameters.expand, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -11164,6 +19586,8 @@ export const MeApiFactory = function (configuration?: Configuration, basePath?: 
  */
 export interface MeApiListSsoMeRequest {
     readonly expand?: string
+
+    readonly cursor?: string
 }
 
 /**
@@ -11178,7 +19602,7 @@ export class MeApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listSsoMe(requestParameters: MeApiListSsoMeRequest = {}, options?: RawAxiosRequestConfig) {
-        return MeApiFp(this.configuration).listSsoMe(requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+        return MeApiFp(this.configuration).listSsoMe(requestParameters.expand, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -11316,12 +19740,10 @@ export const ObjectCategoriesApiAxiosParamCreator = function (configuration?: Co
         /**
          * A List of object categories  - Requires: `API Tier 1`
          * @summary List object categories
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listObjectCategories: async (limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listObjectCategories: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/object-categories/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11341,14 +19763,6 @@ export const ObjectCategoriesApiAxiosParamCreator = function (configuration?: Co
             // authentication BearerTokenProduction required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -11457,13 +19871,11 @@ export const ObjectCategoriesApiFp = function(configuration?: Configuration) {
         /**
          * A List of object categories  - Requires: `API Tier 1`
          * @summary List object categories
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listObjectCategories(limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListObjectCategories200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listObjectCategories(limit, cursor, options);
+        async listObjectCategories(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListObjectCategories200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listObjectCategories(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ObjectCategoriesApi.listObjectCategories']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -11524,12 +19936,11 @@ export const ObjectCategoriesApiFactory = function (configuration?: Configuratio
         /**
          * A List of object categories  - Requires: `API Tier 1`
          * @summary List object categories
-         * @param {ObjectCategoriesApiListObjectCategoriesRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listObjectCategories(requestParameters: ObjectCategoriesApiListObjectCategoriesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListObjectCategories200Response> {
-            return localVarFp.listObjectCategories(requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        listObjectCategories(options?: RawAxiosRequestConfig): AxiosPromise<ListObjectCategories200Response> {
+            return localVarFp.listObjectCategories(options).then((request) => request(axios, basePath));
         },
         /**
          * Updated a specific object category
@@ -11563,21 +19974,6 @@ export interface ObjectCategoriesApiDeleteObjectCategoriesRequest {
  */
 export interface ObjectCategoriesApiGetObjectCategoriesRequest {
     readonly id: string
-}
-
-/**
- * Request parameters for listObjectCategories operation in ObjectCategoriesApi.
- */
-export interface ObjectCategoriesApiListObjectCategoriesRequest {
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
 }
 
 /**
@@ -11629,12 +20025,11 @@ export class ObjectCategoriesApi extends BaseAPI {
     /**
      * A List of object categories  - Requires: `API Tier 1`
      * @summary List object categories
-     * @param {ObjectCategoriesApiListObjectCategoriesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listObjectCategories(requestParameters: ObjectCategoriesApiListObjectCategoriesRequest = {}, options?: RawAxiosRequestConfig) {
-        return ObjectCategoriesApiFp(this.configuration).listObjectCategories(requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    public listObjectCategories(options?: RawAxiosRequestConfig) {
+        return ObjectCategoriesApiFp(this.configuration).listObjectCategories(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -11646,6 +20041,2072 @@ export class ObjectCategoriesApi extends BaseAPI {
      */
     public updateObjectCategories(requestParameters: ObjectCategoriesApiUpdateObjectCategoriesRequest, options?: RawAxiosRequestConfig) {
         return ObjectCategoriesApiFp(this.configuration).updateObjectCategories(requestParameters.id, requestParameters.createObjectCategoriesRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * ReportApi - axios parameter creator
+ */
+export const ReportApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve the status and data for a specific report run
+         * @summary Retrieve a report run
+         * @param {string} runId The ID of the report run to retrieve
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReportRuns: async (runId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'runId' is not null or undefined
+            assertParamExists('getReportRuns', 'runId', runId)
+            const localVarPath = `/report-runs/{run_id}/`
+                .replace(`{${"run_id"}}`, encodeURIComponent(String(runId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", [], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Trigger a new report run
+         * @summary Trigger a report run
+         * @param {ReportRunPostRequest} [reportRunPostRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        triggerReportRuns: async (reportRunPostRequest?: ReportRunPostRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/report-runs/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["report-runs.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(reportRunPostRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ReportApi - functional programming interface
+ */
+export const ReportApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ReportApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve the status and data for a specific report run
+         * @summary Retrieve a report run
+         * @param {string} runId The ID of the report run to retrieve
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getReportRuns(runId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetReportRuns200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReportRuns(runId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReportApi.getReportRuns']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Trigger a new report run
+         * @summary Trigger a report run
+         * @param {ReportRunPostRequest} [reportRunPostRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async triggerReportRuns(reportRunPostRequest?: ReportRunPostRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportRun>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.triggerReportRuns(reportRunPostRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ReportApi.triggerReportRuns']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * ReportApi - factory interface
+ */
+export const ReportApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ReportApiFp(configuration)
+    return {
+        /**
+         * Retrieve the status and data for a specific report run
+         * @summary Retrieve a report run
+         * @param {ReportApiGetReportRunsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReportRuns(requestParameters: ReportApiGetReportRunsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetReportRuns200Response> {
+            return localVarFp.getReportRuns(requestParameters.runId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Trigger a new report run
+         * @summary Trigger a report run
+         * @param {ReportApiTriggerReportRunsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        triggerReportRuns(requestParameters: ReportApiTriggerReportRunsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ReportRun> {
+            return localVarFp.triggerReportRuns(requestParameters.reportRunPostRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getReportRuns operation in ReportApi.
+ */
+export interface ReportApiGetReportRunsRequest {
+    /**
+     * The ID of the report run to retrieve
+     */
+    readonly runId: string
+}
+
+/**
+ * Request parameters for triggerReportRuns operation in ReportApi.
+ */
+export interface ReportApiTriggerReportRunsRequest {
+    readonly reportRunPostRequest?: ReportRunPostRequest
+}
+
+/**
+ * ReportApi - object-oriented interface
+ */
+export class ReportApi extends BaseAPI {
+    /**
+     * Retrieve the status and data for a specific report run
+     * @summary Retrieve a report run
+     * @param {ReportApiGetReportRunsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getReportRuns(requestParameters: ReportApiGetReportRunsRequest, options?: RawAxiosRequestConfig) {
+        return ReportApiFp(this.configuration).getReportRuns(requestParameters.runId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Trigger a new report run
+     * @summary Trigger a report run
+     * @param {ReportApiTriggerReportRunsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public triggerReportRuns(requestParameters: ReportApiTriggerReportRunsRequest = {}, options?: RawAxiosRequestConfig) {
+        return ReportApiFp(this.configuration).triggerReportRuns(requestParameters.reportRunPostRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * SchedulesApi - axios parameter creator
+ */
+export const SchedulesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new schedule
+         * @summary Create a new schedule
+         * @param {ScheduleRequest} [scheduleRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSchedules: async (scheduleRequest?: ScheduleRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/schedules/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["schedules.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(scheduleRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific schedule
+         * @summary Retrieve a specific schedule
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSchedules: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSchedules', 'id', id)
+            const localVarPath = `/schedules/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["schedules.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of schedules  - Requires: `API Tier 2`  - Expandable fields: `managers`, `observers`, `members`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List schedules
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSchedules: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/schedules/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["schedules.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific schedule
+         * @summary Update a schedule
+         * @param {string} id ID of the resource to patch
+         * @param {ScheduleRequest} [scheduleRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSchedules: async (id: string, scheduleRequest?: ScheduleRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateSchedules', 'id', id)
+            const localVarPath = `/schedules/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["schedules.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(scheduleRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SchedulesApi - functional programming interface
+ */
+export const SchedulesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SchedulesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new schedule
+         * @summary Create a new schedule
+         * @param {ScheduleRequest} [scheduleRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSchedules(scheduleRequest?: ScheduleRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSchedules(scheduleRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SchedulesApi.createSchedules']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific schedule
+         * @summary Retrieve a specific schedule
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSchedules(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetSchedules200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSchedules(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SchedulesApi.getSchedules']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of schedules  - Requires: `API Tier 2`  - Expandable fields: `managers`, `observers`, `members`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List schedules
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSchedules(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSchedules200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSchedules(expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SchedulesApi.listSchedules']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific schedule
+         * @summary Update a schedule
+         * @param {string} id ID of the resource to patch
+         * @param {ScheduleRequest} [scheduleRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateSchedules(id: string, scheduleRequest?: ScheduleRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSchedules(id, scheduleRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SchedulesApi.updateSchedules']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * SchedulesApi - factory interface
+ */
+export const SchedulesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SchedulesApiFp(configuration)
+    return {
+        /**
+         * Create a new schedule
+         * @summary Create a new schedule
+         * @param {SchedulesApiCreateSchedulesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSchedules(requestParameters: SchedulesApiCreateSchedulesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Schedule> {
+            return localVarFp.createSchedules(requestParameters.scheduleRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific schedule
+         * @summary Retrieve a specific schedule
+         * @param {SchedulesApiGetSchedulesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSchedules(requestParameters: SchedulesApiGetSchedulesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetSchedules200Response> {
+            return localVarFp.getSchedules(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of schedules  - Requires: `API Tier 2`  - Expandable fields: `managers`, `observers`, `members`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List schedules
+         * @param {SchedulesApiListSchedulesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSchedules(requestParameters: SchedulesApiListSchedulesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListSchedules200Response> {
+            return localVarFp.listSchedules(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific schedule
+         * @summary Update a schedule
+         * @param {SchedulesApiUpdateSchedulesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSchedules(requestParameters: SchedulesApiUpdateSchedulesRequest, options?: RawAxiosRequestConfig): AxiosPromise<Schedule> {
+            return localVarFp.updateSchedules(requestParameters.id, requestParameters.scheduleRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createSchedules operation in SchedulesApi.
+ */
+export interface SchedulesApiCreateSchedulesRequest {
+    readonly scheduleRequest?: ScheduleRequest
+}
+
+/**
+ * Request parameters for getSchedules operation in SchedulesApi.
+ */
+export interface SchedulesApiGetSchedulesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listSchedules operation in SchedulesApi.
+ */
+export interface SchedulesApiListSchedulesRequest {
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateSchedules operation in SchedulesApi.
+ */
+export interface SchedulesApiUpdateSchedulesRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly scheduleRequest?: ScheduleRequest
+}
+
+/**
+ * SchedulesApi - object-oriented interface
+ */
+export class SchedulesApi extends BaseAPI {
+    /**
+     * Create a new schedule
+     * @summary Create a new schedule
+     * @param {SchedulesApiCreateSchedulesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSchedules(requestParameters: SchedulesApiCreateSchedulesRequest = {}, options?: RawAxiosRequestConfig) {
+        return SchedulesApiFp(this.configuration).createSchedules(requestParameters.scheduleRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific schedule
+     * @summary Retrieve a specific schedule
+     * @param {SchedulesApiGetSchedulesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getSchedules(requestParameters: SchedulesApiGetSchedulesRequest, options?: RawAxiosRequestConfig) {
+        return SchedulesApiFp(this.configuration).getSchedules(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of schedules  - Requires: `API Tier 2`  - Expandable fields: `managers`, `observers`, `members`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List schedules
+     * @param {SchedulesApiListSchedulesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSchedules(requestParameters: SchedulesApiListSchedulesRequest = {}, options?: RawAxiosRequestConfig) {
+        return SchedulesApiFp(this.configuration).listSchedules(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific schedule
+     * @summary Update a schedule
+     * @param {SchedulesApiUpdateSchedulesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSchedules(requestParameters: SchedulesApiUpdateSchedulesRequest, options?: RawAxiosRequestConfig) {
+        return SchedulesApiFp(this.configuration).updateSchedules(requestParameters.id, requestParameters.scheduleRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * SettingApi - axios parameter creator
+ */
+export const SettingApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new Setting
+         * @summary Create a new Setting
+         * @param {SettingRequest} [settingRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomSettings: async (settingRequest?: SettingRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/custom-settings/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["custom-settings.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(settingRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a Setting
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomSettings: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteCustomSettings', 'id', id)
+            const localVarPath = `/custom-settings/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["custom-settings.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific Setting
+         * @summary Retrieve a specific Setting
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomSettings: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCustomSettings', 'id', id)
+            const localVarPath = `/custom-settings/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["custom-settings.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of Setting  - Requires: `Functions API`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List Setting
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCustomSettings: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/custom-settings/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["custom-settings.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific Setting
+         * @summary Update a Setting
+         * @param {string} id ID of the resource to patch
+         * @param {SettingRequest} [settingRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCustomSettings: async (id: string, settingRequest?: SettingRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateCustomSettings', 'id', id)
+            const localVarPath = `/custom-settings/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["custom-settings.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(settingRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SettingApi - functional programming interface
+ */
+export const SettingApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SettingApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new Setting
+         * @summary Create a new Setting
+         * @param {SettingRequest} [settingRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomSettings(settingRequest?: SettingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Setting>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomSettings(settingRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SettingApi.createCustomSettings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a Setting
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCustomSettings(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomSettings(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SettingApi.deleteCustomSettings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific Setting
+         * @summary Retrieve a specific Setting
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomSettings(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCustomSettings200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomSettings(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SettingApi.getCustomSettings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of Setting  - Requires: `Functions API`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List Setting
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCustomSettings(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCustomSettings200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCustomSettings(orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SettingApi.listCustomSettings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific Setting
+         * @summary Update a Setting
+         * @param {string} id ID of the resource to patch
+         * @param {SettingRequest} [settingRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateCustomSettings(id: string, settingRequest?: SettingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Setting>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCustomSettings(id, settingRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SettingApi.updateCustomSettings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * SettingApi - factory interface
+ */
+export const SettingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SettingApiFp(configuration)
+    return {
+        /**
+         * Create a new Setting
+         * @summary Create a new Setting
+         * @param {SettingApiCreateCustomSettingsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomSettings(requestParameters: SettingApiCreateCustomSettingsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Setting> {
+            return localVarFp.createCustomSettings(requestParameters.settingRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a Setting
+         * @param {SettingApiDeleteCustomSettingsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomSettings(requestParameters: SettingApiDeleteCustomSettingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteCustomSettings(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific Setting
+         * @summary Retrieve a specific Setting
+         * @param {SettingApiGetCustomSettingsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomSettings(requestParameters: SettingApiGetCustomSettingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetCustomSettings200Response> {
+            return localVarFp.getCustomSettings(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of Setting  - Requires: `Functions API`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List Setting
+         * @param {SettingApiListCustomSettingsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCustomSettings(requestParameters: SettingApiListCustomSettingsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListCustomSettings200Response> {
+            return localVarFp.listCustomSettings(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific Setting
+         * @summary Update a Setting
+         * @param {SettingApiUpdateCustomSettingsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCustomSettings(requestParameters: SettingApiUpdateCustomSettingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Setting> {
+            return localVarFp.updateCustomSettings(requestParameters.id, requestParameters.settingRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createCustomSettings operation in SettingApi.
+ */
+export interface SettingApiCreateCustomSettingsRequest {
+    readonly settingRequest?: SettingRequest
+}
+
+/**
+ * Request parameters for deleteCustomSettings operation in SettingApi.
+ */
+export interface SettingApiDeleteCustomSettingsRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getCustomSettings operation in SettingApi.
+ */
+export interface SettingApiGetCustomSettingsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listCustomSettings operation in SettingApi.
+ */
+export interface SettingApiListCustomSettingsRequest {
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateCustomSettings operation in SettingApi.
+ */
+export interface SettingApiUpdateCustomSettingsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly settingRequest?: SettingRequest
+}
+
+/**
+ * SettingApi - object-oriented interface
+ */
+export class SettingApi extends BaseAPI {
+    /**
+     * Create a new Setting
+     * @summary Create a new Setting
+     * @param {SettingApiCreateCustomSettingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCustomSettings(requestParameters: SettingApiCreateCustomSettingsRequest = {}, options?: RawAxiosRequestConfig) {
+        return SettingApiFp(this.configuration).createCustomSettings(requestParameters.settingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a Setting
+     * @param {SettingApiDeleteCustomSettingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCustomSettings(requestParameters: SettingApiDeleteCustomSettingsRequest, options?: RawAxiosRequestConfig) {
+        return SettingApiFp(this.configuration).deleteCustomSettings(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific Setting
+     * @summary Retrieve a specific Setting
+     * @param {SettingApiGetCustomSettingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getCustomSettings(requestParameters: SettingApiGetCustomSettingsRequest, options?: RawAxiosRequestConfig) {
+        return SettingApiFp(this.configuration).getCustomSettings(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of Setting  - Requires: `Functions API`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List Setting
+     * @param {SettingApiListCustomSettingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomSettings(requestParameters: SettingApiListCustomSettingsRequest = {}, options?: RawAxiosRequestConfig) {
+        return SettingApiFp(this.configuration).listCustomSettings(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific Setting
+     * @summary Update a Setting
+     * @param {SettingApiUpdateCustomSettingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCustomSettings(requestParameters: SettingApiUpdateCustomSettingsRequest, options?: RawAxiosRequestConfig) {
+        return SettingApiFp(this.configuration).updateCustomSettings(requestParameters.id, requestParameters.settingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * ShiftAssignmentsApi - axios parameter creator
+ */
+export const ShiftAssignmentsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new shift assignment
+         * @summary Create a new shift assignment
+         * @param {ShiftAssignmentRequest} [shiftAssignmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createShiftassignments: async (shiftAssignmentRequest?: ShiftAssignmentRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/shiftassignments/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shiftassignments.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(shiftAssignmentRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific shift assignment
+         * @summary Retrieve a specific shift assignment
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getShiftassignments: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getShiftassignments', 'id', id)
+            const localVarPath = `/shiftassignments/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shiftassignments.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of shift assignments  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `schedule_id`, `shift_data.start_time`, `shift_data.end_time`  - Expandable fields: `worker`, `schedule`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List shift assignments
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listShiftassignments: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/shiftassignments/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shiftassignments.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific shift assignment
+         * @summary Update a shift assignment
+         * @param {string} id ID of the resource to patch
+         * @param {ShiftAssignmentUpdateRequest} [shiftAssignmentUpdateRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateShiftassignments: async (id: string, shiftAssignmentUpdateRequest?: ShiftAssignmentUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateShiftassignments', 'id', id)
+            const localVarPath = `/shiftassignments/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shiftassignments.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(shiftAssignmentUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update custom fields for a shift assignment. The request body should contain a dictionary mapping custom field names to their values.  - Requires: `API Tier 2`
+         * @summary Update custom fields for a shift assignment
+         * @param {string} id 
+         * @param {UpdateShiftassignmentsCustomfieldsRequest} updateShiftassignmentsCustomfieldsRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateShiftassignmentsCustomfields: async (id: string, updateShiftassignmentsCustomfieldsRequest: UpdateShiftassignmentsCustomfieldsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateShiftassignmentsCustomfields', 'id', id)
+            // verify required parameter 'updateShiftassignmentsCustomfieldsRequest' is not null or undefined
+            assertParamExists('updateShiftassignmentsCustomfields', 'updateShiftassignmentsCustomfieldsRequest', updateShiftassignmentsCustomfieldsRequest)
+            const localVarPath = `/shiftassignments/{id}/customfields/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shiftassignments.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(updateShiftassignmentsCustomfieldsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ShiftAssignmentsApi - functional programming interface
+ */
+export const ShiftAssignmentsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ShiftAssignmentsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new shift assignment
+         * @summary Create a new shift assignment
+         * @param {ShiftAssignmentRequest} [shiftAssignmentRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createShiftassignments(shiftAssignmentRequest?: ShiftAssignmentRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ShiftAssignment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createShiftassignments(shiftAssignmentRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftAssignmentsApi.createShiftassignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific shift assignment
+         * @summary Retrieve a specific shift assignment
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getShiftassignments(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetShiftassignments200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getShiftassignments(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftAssignmentsApi.getShiftassignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of shift assignments  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `schedule_id`, `shift_data.start_time`, `shift_data.end_time`  - Expandable fields: `worker`, `schedule`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List shift assignments
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listShiftassignments(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListShiftassignments200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listShiftassignments(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftAssignmentsApi.listShiftassignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific shift assignment
+         * @summary Update a shift assignment
+         * @param {string} id ID of the resource to patch
+         * @param {ShiftAssignmentUpdateRequest} [shiftAssignmentUpdateRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateShiftassignments(id: string, shiftAssignmentUpdateRequest?: ShiftAssignmentUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ShiftAssignment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateShiftassignments(id, shiftAssignmentUpdateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftAssignmentsApi.updateShiftassignments']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Update custom fields for a shift assignment. The request body should contain a dictionary mapping custom field names to their values.  - Requires: `API Tier 2`
+         * @summary Update custom fields for a shift assignment
+         * @param {string} id 
+         * @param {UpdateShiftassignmentsCustomfieldsRequest} updateShiftassignmentsCustomfieldsRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateShiftassignmentsCustomfields(id: string, updateShiftassignmentsCustomfieldsRequest: UpdateShiftassignmentsCustomfieldsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetShiftassignments200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateShiftassignmentsCustomfields(id, updateShiftassignmentsCustomfieldsRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftAssignmentsApi.updateShiftassignmentsCustomfields']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * ShiftAssignmentsApi - factory interface
+ */
+export const ShiftAssignmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ShiftAssignmentsApiFp(configuration)
+    return {
+        /**
+         * Create a new shift assignment
+         * @summary Create a new shift assignment
+         * @param {ShiftAssignmentsApiCreateShiftassignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createShiftassignments(requestParameters: ShiftAssignmentsApiCreateShiftassignmentsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ShiftAssignment> {
+            return localVarFp.createShiftassignments(requestParameters.shiftAssignmentRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific shift assignment
+         * @summary Retrieve a specific shift assignment
+         * @param {ShiftAssignmentsApiGetShiftassignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getShiftassignments(requestParameters: ShiftAssignmentsApiGetShiftassignmentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetShiftassignments200Response> {
+            return localVarFp.getShiftassignments(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of shift assignments  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `schedule_id`, `shift_data.start_time`, `shift_data.end_time`  - Expandable fields: `worker`, `schedule`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List shift assignments
+         * @param {ShiftAssignmentsApiListShiftassignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listShiftassignments(requestParameters: ShiftAssignmentsApiListShiftassignmentsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListShiftassignments200Response> {
+            return localVarFp.listShiftassignments(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific shift assignment
+         * @summary Update a shift assignment
+         * @param {ShiftAssignmentsApiUpdateShiftassignmentsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateShiftassignments(requestParameters: ShiftAssignmentsApiUpdateShiftassignmentsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ShiftAssignment> {
+            return localVarFp.updateShiftassignments(requestParameters.id, requestParameters.shiftAssignmentUpdateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update custom fields for a shift assignment. The request body should contain a dictionary mapping custom field names to their values.  - Requires: `API Tier 2`
+         * @summary Update custom fields for a shift assignment
+         * @param {ShiftAssignmentsApiUpdateShiftassignmentsCustomfieldsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateShiftassignmentsCustomfields(requestParameters: ShiftAssignmentsApiUpdateShiftassignmentsCustomfieldsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetShiftassignments200Response> {
+            return localVarFp.updateShiftassignmentsCustomfields(requestParameters.id, requestParameters.updateShiftassignmentsCustomfieldsRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createShiftassignments operation in ShiftAssignmentsApi.
+ */
+export interface ShiftAssignmentsApiCreateShiftassignmentsRequest {
+    readonly shiftAssignmentRequest?: ShiftAssignmentRequest
+}
+
+/**
+ * Request parameters for getShiftassignments operation in ShiftAssignmentsApi.
+ */
+export interface ShiftAssignmentsApiGetShiftassignmentsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listShiftassignments operation in ShiftAssignmentsApi.
+ */
+export interface ShiftAssignmentsApiListShiftassignmentsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateShiftassignments operation in ShiftAssignmentsApi.
+ */
+export interface ShiftAssignmentsApiUpdateShiftassignmentsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly shiftAssignmentUpdateRequest?: ShiftAssignmentUpdateRequest
+}
+
+/**
+ * Request parameters for updateShiftassignmentsCustomfields operation in ShiftAssignmentsApi.
+ */
+export interface ShiftAssignmentsApiUpdateShiftassignmentsCustomfieldsRequest {
+    readonly id: string
+
+    readonly updateShiftassignmentsCustomfieldsRequest: UpdateShiftassignmentsCustomfieldsRequest
+}
+
+/**
+ * ShiftAssignmentsApi - object-oriented interface
+ */
+export class ShiftAssignmentsApi extends BaseAPI {
+    /**
+     * Create a new shift assignment
+     * @summary Create a new shift assignment
+     * @param {ShiftAssignmentsApiCreateShiftassignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createShiftassignments(requestParameters: ShiftAssignmentsApiCreateShiftassignmentsRequest = {}, options?: RawAxiosRequestConfig) {
+        return ShiftAssignmentsApiFp(this.configuration).createShiftassignments(requestParameters.shiftAssignmentRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific shift assignment
+     * @summary Retrieve a specific shift assignment
+     * @param {ShiftAssignmentsApiGetShiftassignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getShiftassignments(requestParameters: ShiftAssignmentsApiGetShiftassignmentsRequest, options?: RawAxiosRequestConfig) {
+        return ShiftAssignmentsApiFp(this.configuration).getShiftassignments(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of shift assignments  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `schedule_id`, `shift_data.start_time`, `shift_data.end_time`  - Expandable fields: `worker`, `schedule`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List shift assignments
+     * @param {ShiftAssignmentsApiListShiftassignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listShiftassignments(requestParameters: ShiftAssignmentsApiListShiftassignmentsRequest = {}, options?: RawAxiosRequestConfig) {
+        return ShiftAssignmentsApiFp(this.configuration).listShiftassignments(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific shift assignment
+     * @summary Update a shift assignment
+     * @param {ShiftAssignmentsApiUpdateShiftassignmentsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateShiftassignments(requestParameters: ShiftAssignmentsApiUpdateShiftassignmentsRequest, options?: RawAxiosRequestConfig) {
+        return ShiftAssignmentsApiFp(this.configuration).updateShiftassignments(requestParameters.id, requestParameters.shiftAssignmentUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update custom fields for a shift assignment. The request body should contain a dictionary mapping custom field names to their values.  - Requires: `API Tier 2`
+     * @summary Update custom fields for a shift assignment
+     * @param {ShiftAssignmentsApiUpdateShiftassignmentsCustomfieldsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateShiftassignmentsCustomfields(requestParameters: ShiftAssignmentsApiUpdateShiftassignmentsCustomfieldsRequest, options?: RawAxiosRequestConfig) {
+        return ShiftAssignmentsApiFp(this.configuration).updateShiftassignmentsCustomfields(requestParameters.id, requestParameters.updateShiftassignmentsCustomfieldsRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * ShiftInputsApi - axios parameter creator
+ */
+export const ShiftInputsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new shift input
+         * @summary Create a new shift input
+         * @param {ShiftInputRequest} [shiftInputRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createShiftInputs: async (shiftInputRequest?: ShiftInputRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/shift-inputs/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shift-inputs.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(shiftInputRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a shift input
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteShiftInputs: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteShiftInputs', 'id', id)
+            const localVarPath = `/shift-inputs/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shift-inputs.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific shift input
+         * @summary Retrieve a specific shift input
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getShiftInputs: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getShiftInputs', 'id', id)
+            const localVarPath = `/shift-inputs/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shift-inputs.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of shift inputs  - Requires: `API Tier 2`  - Filterable fields: `name`  - Expandable fields: `creator`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List shift inputs
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listShiftInputs: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/shift-inputs/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shift-inputs.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific shift input
+         * @summary Update a shift input
+         * @param {string} id ID of the resource to patch
+         * @param {ShiftInputRequest} [shiftInputRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateShiftInputs: async (id: string, shiftInputRequest?: ShiftInputRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateShiftInputs', 'id', id)
+            const localVarPath = `/shift-inputs/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["shift-inputs.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(shiftInputRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ShiftInputsApi - functional programming interface
+ */
+export const ShiftInputsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ShiftInputsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new shift input
+         * @summary Create a new shift input
+         * @param {ShiftInputRequest} [shiftInputRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createShiftInputs(shiftInputRequest?: ShiftInputRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ShiftInput>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createShiftInputs(shiftInputRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftInputsApi.createShiftInputs']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a shift input
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteShiftInputs(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteShiftInputs(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftInputsApi.deleteShiftInputs']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific shift input
+         * @summary Retrieve a specific shift input
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getShiftInputs(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetShiftInputs200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getShiftInputs(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftInputsApi.getShiftInputs']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of shift inputs  - Requires: `API Tier 2`  - Filterable fields: `name`  - Expandable fields: `creator`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List shift inputs
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listShiftInputs(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListShiftInputs200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listShiftInputs(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftInputsApi.listShiftInputs']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific shift input
+         * @summary Update a shift input
+         * @param {string} id ID of the resource to patch
+         * @param {ShiftInputRequest} [shiftInputRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateShiftInputs(id: string, shiftInputRequest?: ShiftInputRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ShiftInput>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateShiftInputs(id, shiftInputRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ShiftInputsApi.updateShiftInputs']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * ShiftInputsApi - factory interface
+ */
+export const ShiftInputsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ShiftInputsApiFp(configuration)
+    return {
+        /**
+         * Create a new shift input
+         * @summary Create a new shift input
+         * @param {ShiftInputsApiCreateShiftInputsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createShiftInputs(requestParameters: ShiftInputsApiCreateShiftInputsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ShiftInput> {
+            return localVarFp.createShiftInputs(requestParameters.shiftInputRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a shift input
+         * @param {ShiftInputsApiDeleteShiftInputsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteShiftInputs(requestParameters: ShiftInputsApiDeleteShiftInputsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteShiftInputs(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific shift input
+         * @summary Retrieve a specific shift input
+         * @param {ShiftInputsApiGetShiftInputsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getShiftInputs(requestParameters: ShiftInputsApiGetShiftInputsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetShiftInputs200Response> {
+            return localVarFp.getShiftInputs(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of shift inputs  - Requires: `API Tier 2`  - Filterable fields: `name`  - Expandable fields: `creator`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List shift inputs
+         * @param {ShiftInputsApiListShiftInputsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listShiftInputs(requestParameters: ShiftInputsApiListShiftInputsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListShiftInputs200Response> {
+            return localVarFp.listShiftInputs(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific shift input
+         * @summary Update a shift input
+         * @param {ShiftInputsApiUpdateShiftInputsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateShiftInputs(requestParameters: ShiftInputsApiUpdateShiftInputsRequest, options?: RawAxiosRequestConfig): AxiosPromise<ShiftInput> {
+            return localVarFp.updateShiftInputs(requestParameters.id, requestParameters.shiftInputRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createShiftInputs operation in ShiftInputsApi.
+ */
+export interface ShiftInputsApiCreateShiftInputsRequest {
+    readonly shiftInputRequest?: ShiftInputRequest
+}
+
+/**
+ * Request parameters for deleteShiftInputs operation in ShiftInputsApi.
+ */
+export interface ShiftInputsApiDeleteShiftInputsRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getShiftInputs operation in ShiftInputsApi.
+ */
+export interface ShiftInputsApiGetShiftInputsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listShiftInputs operation in ShiftInputsApi.
+ */
+export interface ShiftInputsApiListShiftInputsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateShiftInputs operation in ShiftInputsApi.
+ */
+export interface ShiftInputsApiUpdateShiftInputsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly shiftInputRequest?: ShiftInputRequest
+}
+
+/**
+ * ShiftInputsApi - object-oriented interface
+ */
+export class ShiftInputsApi extends BaseAPI {
+    /**
+     * Create a new shift input
+     * @summary Create a new shift input
+     * @param {ShiftInputsApiCreateShiftInputsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createShiftInputs(requestParameters: ShiftInputsApiCreateShiftInputsRequest = {}, options?: RawAxiosRequestConfig) {
+        return ShiftInputsApiFp(this.configuration).createShiftInputs(requestParameters.shiftInputRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a shift input
+     * @param {ShiftInputsApiDeleteShiftInputsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteShiftInputs(requestParameters: ShiftInputsApiDeleteShiftInputsRequest, options?: RawAxiosRequestConfig) {
+        return ShiftInputsApiFp(this.configuration).deleteShiftInputs(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific shift input
+     * @summary Retrieve a specific shift input
+     * @param {ShiftInputsApiGetShiftInputsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getShiftInputs(requestParameters: ShiftInputsApiGetShiftInputsRequest, options?: RawAxiosRequestConfig) {
+        return ShiftInputsApiFp(this.configuration).getShiftInputs(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of shift inputs  - Requires: `API Tier 2`  - Filterable fields: `name`  - Expandable fields: `creator`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List shift inputs
+     * @param {ShiftInputsApiListShiftInputsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listShiftInputs(requestParameters: ShiftInputsApiListShiftInputsRequest = {}, options?: RawAxiosRequestConfig) {
+        return ShiftInputsApiFp(this.configuration).listShiftInputs(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific shift input
+     * @summary Update a shift input
+     * @param {ShiftInputsApiUpdateShiftInputsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateShiftInputs(requestParameters: ShiftInputsApiUpdateShiftInputsRequest, options?: RawAxiosRequestConfig) {
+        return ShiftInputsApiFp(this.configuration).updateShiftInputs(requestParameters.id, requestParameters.shiftInputRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -11666,7 +22127,7 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
         getSupergroups: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getSupergroups', 'id', id)
-            const localVarPath = `/supergroups/{id}`
+            const localVarPath = `/supergroups/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11703,13 +22164,11 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
          * @summary List supergroups
          * @param {string} [filter] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSupergroups: async (filter?: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/supergroups`;
+        listSupergroups: async (filter?: string, orderBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/supergroups/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -11737,14 +22196,6 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['order_by'] = orderBy;
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
-
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -11757,19 +22208,18 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup exclusion members
          * @param {string} groupId 
+         * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSupergroupsGroupIdExclusionMembers: async (groupId: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listSupergroupsGroupIdExclusionMembers: async (groupId: string, expand?: string, orderBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('listSupergroupsGroupIdExclusionMembers', 'groupId', groupId)
-            const localVarPath = `/supergroups/{group_id}/exclusion-members`
+            const localVarPath = `/supergroups/{group_id}/exclusion-members/`
                 .replace(`{${"group_id"}}`, encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11790,16 +22240,12 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -11814,19 +22260,18 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup inclusion members
          * @param {string} groupId 
+         * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSupergroupsGroupIdInclusionMembers: async (groupId: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listSupergroupsGroupIdInclusionMembers: async (groupId: string, expand?: string, orderBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('listSupergroupsGroupIdInclusionMembers', 'groupId', groupId)
-            const localVarPath = `/supergroups/{group_id}/inclusion-members`
+            const localVarPath = `/supergroups/{group_id}/inclusion-members/`
                 .replace(`{${"group_id"}}`, encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11847,16 +22292,12 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -11871,19 +22312,18 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup members
          * @param {string} groupId 
+         * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSupergroupsGroupIdMembers: async (groupId: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listSupergroupsGroupIdMembers: async (groupId: string, expand?: string, orderBy?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('listSupergroupsGroupIdMembers', 'groupId', groupId)
-            const localVarPath = `/supergroups/{group_id}/members`
+            const localVarPath = `/supergroups/{group_id}/members/`
                 .replace(`{${"group_id"}}`, encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11904,16 +22344,12 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -11938,7 +22374,7 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
         updateSupergroupsGroupIdExclusionMembers: async (groupId: string, updateSupergroupsGroupIdInclusionMembersRequest?: UpdateSupergroupsGroupIdInclusionMembersRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('updateSupergroupsGroupIdExclusionMembers', 'groupId', groupId)
-            const localVarPath = `/supergroups/{group_id}/exclusion-members`
+            const localVarPath = `/supergroups/{group_id}/exclusion-members/`
                 .replace(`{${"group_id"}}`, encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11983,7 +22419,7 @@ export const SupergroupsApiAxiosParamCreator = function (configuration?: Configu
         updateSupergroupsGroupIdInclusionMembers: async (groupId: string, updateSupergroupsGroupIdInclusionMembersRequest?: UpdateSupergroupsGroupIdInclusionMembersRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'groupId' is not null or undefined
             assertParamExists('updateSupergroupsGroupIdInclusionMembers', 'groupId', groupId)
-            const localVarPath = `/supergroups/{group_id}/inclusion-members`
+            const localVarPath = `/supergroups/{group_id}/inclusion-members/`
                 .replace(`{${"group_id"}}`, encodeURIComponent(String(groupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -12044,61 +22480,56 @@ export const SupergroupsApiFp = function(configuration?: Configuration) {
          * @summary List supergroups
          * @param {string} [filter] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSupergroups(filter?: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSupergroups200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSupergroups(filter, orderBy, limit, cursor, options);
+        async listSupergroups(filter?: string, orderBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSupergroups200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSupergroups(filter, orderBy, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SupergroupsApi.listSupergroups']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup exclusion members
          * @param {string} groupId 
+         * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSupergroupsGroupIdExclusionMembers(groupId: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSupergroupsGroupIdMembers200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSupergroupsGroupIdExclusionMembers(groupId, orderBy, limit, cursor, options);
+        async listSupergroupsGroupIdExclusionMembers(groupId: string, expand?: string, orderBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSupergroupsGroupIdMembers200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSupergroupsGroupIdExclusionMembers(groupId, expand, orderBy, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SupergroupsApi.listSupergroupsGroupIdExclusionMembers']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup inclusion members
          * @param {string} groupId 
+         * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSupergroupsGroupIdInclusionMembers(groupId: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSupergroupsGroupIdMembers200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSupergroupsGroupIdInclusionMembers(groupId, orderBy, limit, cursor, options);
+        async listSupergroupsGroupIdInclusionMembers(groupId: string, expand?: string, orderBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSupergroupsGroupIdMembers200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSupergroupsGroupIdInclusionMembers(groupId, expand, orderBy, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SupergroupsApi.listSupergroupsGroupIdInclusionMembers']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup members
          * @param {string} groupId 
+         * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSupergroupsGroupIdMembers(groupId: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSupergroupsGroupIdMembers200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSupergroupsGroupIdMembers(groupId, orderBy, limit, cursor, options);
+        async listSupergroupsGroupIdMembers(groupId: string, expand?: string, orderBy?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListSupergroupsGroupIdMembers200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSupergroupsGroupIdMembers(groupId, expand, orderBy, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SupergroupsApi.listSupergroupsGroupIdMembers']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -12158,37 +22589,37 @@ export const SupergroupsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         listSupergroups(requestParameters: SupergroupsApiListSupergroupsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListSupergroups200Response> {
-            return localVarFp.listSupergroups(requestParameters.filter, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listSupergroups(requestParameters.filter, requestParameters.orderBy, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup exclusion members
          * @param {SupergroupsApiListSupergroupsGroupIdExclusionMembersRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         listSupergroupsGroupIdExclusionMembers(requestParameters: SupergroupsApiListSupergroupsGroupIdExclusionMembersRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListSupergroupsGroupIdMembers200Response> {
-            return localVarFp.listSupergroupsGroupIdExclusionMembers(requestParameters.groupId, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listSupergroupsGroupIdExclusionMembers(requestParameters.groupId, requestParameters.expand, requestParameters.orderBy, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup inclusion members
          * @param {SupergroupsApiListSupergroupsGroupIdInclusionMembersRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         listSupergroupsGroupIdInclusionMembers(requestParameters: SupergroupsApiListSupergroupsGroupIdInclusionMembersRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListSupergroupsGroupIdMembers200Response> {
-            return localVarFp.listSupergroupsGroupIdInclusionMembers(requestParameters.groupId, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listSupergroupsGroupIdInclusionMembers(requestParameters.groupId, requestParameters.expand, requestParameters.orderBy, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List supergroup members
          * @param {SupergroupsApiListSupergroupsGroupIdMembersRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         listSupergroupsGroupIdMembers(requestParameters: SupergroupsApiListSupergroupsGroupIdMembersRequest, options?: RawAxiosRequestConfig): AxiosPromise<ListSupergroupsGroupIdMembers200Response> {
-            return localVarFp.listSupergroupsGroupIdMembers(requestParameters.groupId, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listSupergroupsGroupIdMembers(requestParameters.groupId, requestParameters.expand, requestParameters.orderBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Update the list of supergroup exclusion members.
@@ -12230,16 +22661,6 @@ export interface SupergroupsApiListSupergroupsRequest {
     readonly filter?: string
 
     readonly orderBy?: string
-
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
 }
 
 /**
@@ -12248,17 +22669,9 @@ export interface SupergroupsApiListSupergroupsRequest {
 export interface SupergroupsApiListSupergroupsGroupIdExclusionMembersRequest {
     readonly groupId: string
 
+    readonly expand?: string
+
     readonly orderBy?: string
-
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
 }
 
 /**
@@ -12267,17 +22680,9 @@ export interface SupergroupsApiListSupergroupsGroupIdExclusionMembersRequest {
 export interface SupergroupsApiListSupergroupsGroupIdInclusionMembersRequest {
     readonly groupId: string
 
+    readonly expand?: string
+
     readonly orderBy?: string
-
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
 }
 
 /**
@@ -12286,17 +22691,9 @@ export interface SupergroupsApiListSupergroupsGroupIdInclusionMembersRequest {
 export interface SupergroupsApiListSupergroupsGroupIdMembersRequest {
     readonly groupId: string
 
+    readonly expand?: string
+
     readonly orderBy?: string
-
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
-    readonly cursor?: string
 }
 
 /**
@@ -12340,40 +22737,40 @@ export class SupergroupsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listSupergroups(requestParameters: SupergroupsApiListSupergroupsRequest = {}, options?: RawAxiosRequestConfig) {
-        return SupergroupsApiFp(this.configuration).listSupergroups(requestParameters.filter, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return SupergroupsApiFp(this.configuration).listSupergroups(requestParameters.filter, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
      * @summary List supergroup exclusion members
      * @param {SupergroupsApiListSupergroupsGroupIdExclusionMembersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listSupergroupsGroupIdExclusionMembers(requestParameters: SupergroupsApiListSupergroupsGroupIdExclusionMembersRequest, options?: RawAxiosRequestConfig) {
-        return SupergroupsApiFp(this.configuration).listSupergroupsGroupIdExclusionMembers(requestParameters.groupId, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return SupergroupsApiFp(this.configuration).listSupergroupsGroupIdExclusionMembers(requestParameters.groupId, requestParameters.expand, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
      * @summary List supergroup inclusion members
      * @param {SupergroupsApiListSupergroupsGroupIdInclusionMembersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listSupergroupsGroupIdInclusionMembers(requestParameters: SupergroupsApiListSupergroupsGroupIdInclusionMembersRequest, options?: RawAxiosRequestConfig) {
-        return SupergroupsApiFp(this.configuration).listSupergroupsGroupIdInclusionMembers(requestParameters.groupId, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return SupergroupsApiFp(this.configuration).listSupergroupsGroupIdInclusionMembers(requestParameters.groupId, requestParameters.expand, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
      * @summary List supergroup members
      * @param {SupergroupsApiListSupergroupsGroupIdMembersRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listSupergroupsGroupIdMembers(requestParameters: SupergroupsApiListSupergroupsGroupIdMembersRequest, options?: RawAxiosRequestConfig) {
-        return SupergroupsApiFp(this.configuration).listSupergroupsGroupIdMembers(requestParameters.groupId, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return SupergroupsApiFp(this.configuration).listSupergroupsGroupIdMembers(requestParameters.groupId, requestParameters.expand, requestParameters.orderBy, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -12417,7 +22814,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
         getTeams: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getTeams', 'id', id)
-            const localVarPath = `/teams/{id}`
+            const localVarPath = `/teams/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -12458,13 +22855,12 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary List teams
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listTeams: async (expand?: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/teams`;
+        listTeams: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/teams/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -12490,10 +22886,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
 
             if (cursor !== undefined) {
@@ -12539,13 +22931,12 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @summary List teams
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listTeams(expand?: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListTeams200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTeams(expand, orderBy, limit, cursor, options);
+        async listTeams(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListTeams200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTeams(expand, orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TeamsApi.listTeams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -12577,7 +22968,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listTeams(requestParameters: TeamsApiListTeamsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListTeams200Response> {
-            return localVarFp.listTeams(requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listTeams(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -12602,14 +22993,6 @@ export interface TeamsApiListTeamsRequest {
 
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -12636,7 +23019,2169 @@ export class TeamsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listTeams(requestParameters: TeamsApiListTeamsRequest = {}, options?: RawAxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).listTeams(requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return TeamsApiFp(this.configuration).listTeams(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * TimeEntriesApi - axios parameter creator
+ */
+export const TimeEntriesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new time entry
+         * @summary Create a new time entry
+         * @param {TimeEntryRequest} [timeEntryRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTimeEntries: async (timeEntryRequest?: TimeEntryRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/time-entries/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["time-entries.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(timeEntryRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a time entry
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTimeEntries: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteTimeEntries', 'id', id)
+            const localVarPath = `/time-entries/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["time-entries.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific time card
+         * @summary Retrieve a specific time card
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTimeCards: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getTimeCards', 'id', id)
+            const localVarPath = `/time-cards/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["time-cards.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific time entry
+         * @summary Retrieve a specific time entry
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTimeEntries: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getTimeEntries', 'id', id)
+            const localVarPath = `/time-entries/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["time-entries.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of time cards  - Requires: `API Tier 2`  - Filterable fields: `pay_period.start_date`, `worker_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List time cards
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTimeCards: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/time-cards/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["time-cards.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of time entries  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `start_time`, `pay_period.start_date`, `updated_at`  - Expandable fields: `worker`, `time_card`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List time entries
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTimeEntries: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/time-entries/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["time-entries.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific time entry
+         * @summary Update a time entry
+         * @param {string} id ID of the resource to patch
+         * @param {TimeEntryRequest} [timeEntryRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTimeEntries: async (id: string, timeEntryRequest?: TimeEntryRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateTimeEntries', 'id', id)
+            const localVarPath = `/time-entries/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["time-entries.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(timeEntryRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TimeEntriesApi - functional programming interface
+ */
+export const TimeEntriesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TimeEntriesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new time entry
+         * @summary Create a new time entry
+         * @param {TimeEntryRequest} [timeEntryRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createTimeEntries(timeEntryRequest?: TimeEntryRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimeEntry>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTimeEntries(timeEntryRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TimeEntriesApi.createTimeEntries']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a time entry
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteTimeEntries(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTimeEntries(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TimeEntriesApi.deleteTimeEntries']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific time card
+         * @summary Retrieve a specific time card
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTimeCards(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetTimeCards200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTimeCards(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TimeEntriesApi.getTimeCards']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific time entry
+         * @summary Retrieve a specific time entry
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTimeEntries(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetTimeEntries200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTimeEntries(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TimeEntriesApi.getTimeEntries']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of time cards  - Requires: `API Tier 2`  - Filterable fields: `pay_period.start_date`, `worker_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List time cards
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listTimeCards(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListTimeCards200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTimeCards(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TimeEntriesApi.listTimeCards']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of time entries  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `start_time`, `pay_period.start_date`, `updated_at`  - Expandable fields: `worker`, `time_card`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List time entries
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listTimeEntries(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListTimeEntries200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTimeEntries(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TimeEntriesApi.listTimeEntries']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific time entry
+         * @summary Update a time entry
+         * @param {string} id ID of the resource to patch
+         * @param {TimeEntryRequest} [timeEntryRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateTimeEntries(id: string, timeEntryRequest?: TimeEntryRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimeEntry>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTimeEntries(id, timeEntryRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TimeEntriesApi.updateTimeEntries']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * TimeEntriesApi - factory interface
+ */
+export const TimeEntriesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TimeEntriesApiFp(configuration)
+    return {
+        /**
+         * Create a new time entry
+         * @summary Create a new time entry
+         * @param {TimeEntriesApiCreateTimeEntriesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTimeEntries(requestParameters: TimeEntriesApiCreateTimeEntriesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<TimeEntry> {
+            return localVarFp.createTimeEntries(requestParameters.timeEntryRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a time entry
+         * @param {TimeEntriesApiDeleteTimeEntriesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTimeEntries(requestParameters: TimeEntriesApiDeleteTimeEntriesRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteTimeEntries(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific time card
+         * @summary Retrieve a specific time card
+         * @param {TimeEntriesApiGetTimeCardsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTimeCards(requestParameters: TimeEntriesApiGetTimeCardsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetTimeCards200Response> {
+            return localVarFp.getTimeCards(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific time entry
+         * @summary Retrieve a specific time entry
+         * @param {TimeEntriesApiGetTimeEntriesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTimeEntries(requestParameters: TimeEntriesApiGetTimeEntriesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetTimeEntries200Response> {
+            return localVarFp.getTimeEntries(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of time cards  - Requires: `API Tier 2`  - Filterable fields: `pay_period.start_date`, `worker_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List time cards
+         * @param {TimeEntriesApiListTimeCardsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTimeCards(requestParameters: TimeEntriesApiListTimeCardsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListTimeCards200Response> {
+            return localVarFp.listTimeCards(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of time entries  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `start_time`, `pay_period.start_date`, `updated_at`  - Expandable fields: `worker`, `time_card`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List time entries
+         * @param {TimeEntriesApiListTimeEntriesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTimeEntries(requestParameters: TimeEntriesApiListTimeEntriesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListTimeEntries200Response> {
+            return localVarFp.listTimeEntries(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific time entry
+         * @summary Update a time entry
+         * @param {TimeEntriesApiUpdateTimeEntriesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTimeEntries(requestParameters: TimeEntriesApiUpdateTimeEntriesRequest, options?: RawAxiosRequestConfig): AxiosPromise<TimeEntry> {
+            return localVarFp.updateTimeEntries(requestParameters.id, requestParameters.timeEntryRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createTimeEntries operation in TimeEntriesApi.
+ */
+export interface TimeEntriesApiCreateTimeEntriesRequest {
+    readonly timeEntryRequest?: TimeEntryRequest
+}
+
+/**
+ * Request parameters for deleteTimeEntries operation in TimeEntriesApi.
+ */
+export interface TimeEntriesApiDeleteTimeEntriesRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getTimeCards operation in TimeEntriesApi.
+ */
+export interface TimeEntriesApiGetTimeCardsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for getTimeEntries operation in TimeEntriesApi.
+ */
+export interface TimeEntriesApiGetTimeEntriesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listTimeCards operation in TimeEntriesApi.
+ */
+export interface TimeEntriesApiListTimeCardsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for listTimeEntries operation in TimeEntriesApi.
+ */
+export interface TimeEntriesApiListTimeEntriesRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateTimeEntries operation in TimeEntriesApi.
+ */
+export interface TimeEntriesApiUpdateTimeEntriesRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly timeEntryRequest?: TimeEntryRequest
+}
+
+/**
+ * TimeEntriesApi - object-oriented interface
+ */
+export class TimeEntriesApi extends BaseAPI {
+    /**
+     * Create a new time entry
+     * @summary Create a new time entry
+     * @param {TimeEntriesApiCreateTimeEntriesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTimeEntries(requestParameters: TimeEntriesApiCreateTimeEntriesRequest = {}, options?: RawAxiosRequestConfig) {
+        return TimeEntriesApiFp(this.configuration).createTimeEntries(requestParameters.timeEntryRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a time entry
+     * @param {TimeEntriesApiDeleteTimeEntriesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTimeEntries(requestParameters: TimeEntriesApiDeleteTimeEntriesRequest, options?: RawAxiosRequestConfig) {
+        return TimeEntriesApiFp(this.configuration).deleteTimeEntries(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific time card
+     * @summary Retrieve a specific time card
+     * @param {TimeEntriesApiGetTimeCardsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getTimeCards(requestParameters: TimeEntriesApiGetTimeCardsRequest, options?: RawAxiosRequestConfig) {
+        return TimeEntriesApiFp(this.configuration).getTimeCards(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific time entry
+     * @summary Retrieve a specific time entry
+     * @param {TimeEntriesApiGetTimeEntriesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getTimeEntries(requestParameters: TimeEntriesApiGetTimeEntriesRequest, options?: RawAxiosRequestConfig) {
+        return TimeEntriesApiFp(this.configuration).getTimeEntries(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of time cards  - Requires: `API Tier 2`  - Filterable fields: `pay_period.start_date`, `worker_id`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List time cards
+     * @param {TimeEntriesApiListTimeCardsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTimeCards(requestParameters: TimeEntriesApiListTimeCardsRequest = {}, options?: RawAxiosRequestConfig) {
+        return TimeEntriesApiFp(this.configuration).listTimeCards(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of time entries  - Requires: `API Tier 2`  - Filterable fields: `worker_id`, `start_time`, `pay_period.start_date`, `updated_at`  - Expandable fields: `worker`, `time_card`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List time entries
+     * @param {TimeEntriesApiListTimeEntriesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTimeEntries(requestParameters: TimeEntriesApiListTimeEntriesRequest = {}, options?: RawAxiosRequestConfig) {
+        return TimeEntriesApiFp(this.configuration).listTimeEntries(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific time entry
+     * @summary Update a time entry
+     * @param {TimeEntriesApiUpdateTimeEntriesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTimeEntries(requestParameters: TimeEntriesApiUpdateTimeEntriesRequest, options?: RawAxiosRequestConfig) {
+        return TimeEntriesApiFp(this.configuration).updateTimeEntries(requestParameters.id, requestParameters.timeEntryRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * TitlesApi - axios parameter creator
+ */
+export const TitlesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new title
+         * @summary Create a new title
+         * @param {TitleRequest} [titleRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTitles: async (titleRequest?: TitleRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/titles/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["titles.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(titleRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a title
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTitles: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteTitles', 'id', id)
+            const localVarPath = `/titles/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["titles.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific title
+         * @summary Retrieve a specific title
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTitles: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getTitles', 'id', id)
+            const localVarPath = `/titles/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["titles.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of titles  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List titles
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTitles: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/titles/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["titles.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific title
+         * @summary Update a title
+         * @param {string} id ID of the resource to patch
+         * @param {TitleRequest} [titleRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTitles: async (id: string, titleRequest?: TitleRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateTitles', 'id', id)
+            const localVarPath = `/titles/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["titles.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(titleRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TitlesApi - functional programming interface
+ */
+export const TitlesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TitlesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new title
+         * @summary Create a new title
+         * @param {TitleRequest} [titleRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createTitles(titleRequest?: TitleRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Title>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTitles(titleRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TitlesApi.createTitles']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a title
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteTitles(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTitles(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TitlesApi.deleteTitles']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific title
+         * @summary Retrieve a specific title
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTitles(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetTitles200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTitles(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TitlesApi.getTitles']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of titles  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List titles
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listTitles(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListTitles200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTitles(orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TitlesApi.listTitles']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific title
+         * @summary Update a title
+         * @param {string} id ID of the resource to patch
+         * @param {TitleRequest} [titleRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateTitles(id: string, titleRequest?: TitleRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Title>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTitles(id, titleRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TitlesApi.updateTitles']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * TitlesApi - factory interface
+ */
+export const TitlesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TitlesApiFp(configuration)
+    return {
+        /**
+         * Create a new title
+         * @summary Create a new title
+         * @param {TitlesApiCreateTitlesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTitles(requestParameters: TitlesApiCreateTitlesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Title> {
+            return localVarFp.createTitles(requestParameters.titleRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a title
+         * @param {TitlesApiDeleteTitlesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTitles(requestParameters: TitlesApiDeleteTitlesRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteTitles(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific title
+         * @summary Retrieve a specific title
+         * @param {TitlesApiGetTitlesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTitles(requestParameters: TitlesApiGetTitlesRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetTitles200Response> {
+            return localVarFp.getTitles(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of titles  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List titles
+         * @param {TitlesApiListTitlesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTitles(requestParameters: TitlesApiListTitlesRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListTitles200Response> {
+            return localVarFp.listTitles(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific title
+         * @summary Update a title
+         * @param {TitlesApiUpdateTitlesRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTitles(requestParameters: TitlesApiUpdateTitlesRequest, options?: RawAxiosRequestConfig): AxiosPromise<Title> {
+            return localVarFp.updateTitles(requestParameters.id, requestParameters.titleRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createTitles operation in TitlesApi.
+ */
+export interface TitlesApiCreateTitlesRequest {
+    readonly titleRequest?: TitleRequest
+}
+
+/**
+ * Request parameters for deleteTitles operation in TitlesApi.
+ */
+export interface TitlesApiDeleteTitlesRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getTitles operation in TitlesApi.
+ */
+export interface TitlesApiGetTitlesRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listTitles operation in TitlesApi.
+ */
+export interface TitlesApiListTitlesRequest {
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateTitles operation in TitlesApi.
+ */
+export interface TitlesApiUpdateTitlesRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly titleRequest?: TitleRequest
+}
+
+/**
+ * TitlesApi - object-oriented interface
+ */
+export class TitlesApi extends BaseAPI {
+    /**
+     * Create a new title
+     * @summary Create a new title
+     * @param {TitlesApiCreateTitlesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTitles(requestParameters: TitlesApiCreateTitlesRequest = {}, options?: RawAxiosRequestConfig) {
+        return TitlesApiFp(this.configuration).createTitles(requestParameters.titleRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a title
+     * @param {TitlesApiDeleteTitlesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTitles(requestParameters: TitlesApiDeleteTitlesRequest, options?: RawAxiosRequestConfig) {
+        return TitlesApiFp(this.configuration).deleteTitles(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific title
+     * @summary Retrieve a specific title
+     * @param {TitlesApiGetTitlesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getTitles(requestParameters: TitlesApiGetTitlesRequest, options?: RawAxiosRequestConfig) {
+        return TitlesApiFp(this.configuration).getTitles(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of titles  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List titles
+     * @param {TitlesApiListTitlesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTitles(requestParameters: TitlesApiListTitlesRequest = {}, options?: RawAxiosRequestConfig) {
+        return TitlesApiFp(this.configuration).listTitles(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific title
+     * @summary Update a title
+     * @param {TitlesApiUpdateTitlesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTitles(requestParameters: TitlesApiUpdateTitlesRequest, options?: RawAxiosRequestConfig) {
+        return TitlesApiFp(this.configuration).updateTitles(requestParameters.id, requestParameters.titleRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * TracksAndLevelsApi - axios parameter creator
+ */
+export const TracksAndLevelsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve a specific level
+         * @summary Retrieve a specific level
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLevels: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getLevels', 'id', id)
+            const localVarPath = `/levels/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["levels.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific track
+         * @summary Retrieve a specific track
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTracks: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getTracks', 'id', id)
+            const localVarPath = `/tracks/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["tracks.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of levels  - Requires: `API Tier 2`  - Expandable fields: `parent`, `track`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List levels
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLevels: async (expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/levels/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["levels.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of tracks  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List tracks
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTracks: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/tracks/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["tracks.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TracksAndLevelsApi - functional programming interface
+ */
+export const TracksAndLevelsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TracksAndLevelsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve a specific level
+         * @summary Retrieve a specific level
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getLevels(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLevels200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLevels(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TracksAndLevelsApi.getLevels']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific track
+         * @summary Retrieve a specific track
+         * @param {string} id ID of the resource to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTracks(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetTracks200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTracks(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TracksAndLevelsApi.getTracks']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of levels  - Requires: `API Tier 2`  - Expandable fields: `parent`, `track`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List levels
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listLevels(expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListLevels200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLevels(expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TracksAndLevelsApi.listLevels']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of tracks  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List tracks
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listTracks(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListTracks200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTracks(orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TracksAndLevelsApi.listTracks']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * TracksAndLevelsApi - factory interface
+ */
+export const TracksAndLevelsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TracksAndLevelsApiFp(configuration)
+    return {
+        /**
+         * Retrieve a specific level
+         * @summary Retrieve a specific level
+         * @param {TracksAndLevelsApiGetLevelsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getLevels(requestParameters: TracksAndLevelsApiGetLevelsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetLevels200Response> {
+            return localVarFp.getLevels(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific track
+         * @summary Retrieve a specific track
+         * @param {TracksAndLevelsApiGetTracksRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTracks(requestParameters: TracksAndLevelsApiGetTracksRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetTracks200Response> {
+            return localVarFp.getTracks(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of levels  - Requires: `API Tier 2`  - Expandable fields: `parent`, `track`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List levels
+         * @param {TracksAndLevelsApiListLevelsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listLevels(requestParameters: TracksAndLevelsApiListLevelsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListLevels200Response> {
+            return localVarFp.listLevels(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of tracks  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List tracks
+         * @param {TracksAndLevelsApiListTracksRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTracks(requestParameters: TracksAndLevelsApiListTracksRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListTracks200Response> {
+            return localVarFp.listTracks(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getLevels operation in TracksAndLevelsApi.
+ */
+export interface TracksAndLevelsApiGetLevelsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for getTracks operation in TracksAndLevelsApi.
+ */
+export interface TracksAndLevelsApiGetTracksRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listLevels operation in TracksAndLevelsApi.
+ */
+export interface TracksAndLevelsApiListLevelsRequest {
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for listTracks operation in TracksAndLevelsApi.
+ */
+export interface TracksAndLevelsApiListTracksRequest {
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * TracksAndLevelsApi - object-oriented interface
+ */
+export class TracksAndLevelsApi extends BaseAPI {
+    /**
+     * Retrieve a specific level
+     * @summary Retrieve a specific level
+     * @param {TracksAndLevelsApiGetLevelsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getLevels(requestParameters: TracksAndLevelsApiGetLevelsRequest, options?: RawAxiosRequestConfig) {
+        return TracksAndLevelsApiFp(this.configuration).getLevels(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific track
+     * @summary Retrieve a specific track
+     * @param {TracksAndLevelsApiGetTracksRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getTracks(requestParameters: TracksAndLevelsApiGetTracksRequest, options?: RawAxiosRequestConfig) {
+        return TracksAndLevelsApiFp(this.configuration).getTracks(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of levels  - Requires: `API Tier 2`  - Expandable fields: `parent`, `track`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List levels
+     * @param {TracksAndLevelsApiListLevelsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLevels(requestParameters: TracksAndLevelsApiListLevelsRequest = {}, options?: RawAxiosRequestConfig) {
+        return TracksAndLevelsApiFp(this.configuration).listLevels(requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of tracks  - Requires: `API Tier 2`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List tracks
+     * @param {TracksAndLevelsApiListTracksRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTracks(requestParameters: TracksAndLevelsApiListTracksRequest = {}, options?: RawAxiosRequestConfig) {
+        return TracksAndLevelsApiFp(this.configuration).listTracks(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * UnassignedShiftsApi - axios parameter creator
+ */
+export const UnassignedShiftsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Assign a worker to an unassigned shift (open shift). The shift must be an open shift and not at capacity.  - Requires: `API Tier 2`
+         * @summary Assign a worker to an unassigned shift
+         * @param {string} id 
+         * @param {AssignUnassignedshiftsRequest} assignUnassignedshiftsRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        assignUnassignedshifts: async (id: string, assignUnassignedshiftsRequest: AssignUnassignedshiftsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('assignUnassignedshifts', 'id', id)
+            // verify required parameter 'assignUnassignedshiftsRequest' is not null or undefined
+            assertParamExists('assignUnassignedshifts', 'assignUnassignedshiftsRequest', assignUnassignedshiftsRequest)
+            const localVarPath = `/unassignedshifts/{id}/assign/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["unassignedshifts.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(assignUnassignedshiftsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new unassigned shift
+         * @summary Create a new unassigned shift
+         * @param {UnassignedShiftRequest} [unassignedShiftRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createUnassignedshifts: async (unassignedShiftRequest?: UnassignedShiftRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/unassignedshifts/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["unassignedshifts.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(unassignedShiftRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific unassigned shift
+         * @summary Retrieve a specific unassigned shift
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUnassignedshifts: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getUnassignedshifts', 'id', id)
+            const localVarPath = `/unassignedshifts/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["unassignedshifts.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * A List of unassigned shifts  - Requires: `API Tier 2`  - Filterable fields: `schedule_id`, `shift_data.start_time`, `shift_data.end_time`  - Expandable fields: `schedule`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List unassigned shifts
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUnassignedshifts: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/unassignedshifts/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["unassignedshifts.read"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (expand !== undefined) {
+                localVarQueryParameter['expand'] = expand;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updated a specific unassigned shift
+         * @summary Update a unassigned shift
+         * @param {string} id ID of the resource to patch
+         * @param {UnassignedShiftUpdateRequest} [unassignedShiftUpdateRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUnassignedshifts: async (id: string, unassignedShiftUpdateRequest?: UnassignedShiftUpdateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateUnassignedshifts', 'id', id)
+            const localVarPath = `/unassignedshifts/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["unassignedshifts.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(unassignedShiftUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update custom fields for a unassigned shift. The request body should contain a dictionary mapping custom field names to their values.  - Requires: `API Tier 2`
+         * @summary Update custom fields for a unassigned shift
+         * @param {string} id 
+         * @param {UpdateShiftassignmentsCustomfieldsRequest} updateShiftassignmentsCustomfieldsRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUnassignedshiftsCustomfields: async (id: string, updateShiftassignmentsCustomfieldsRequest: UpdateShiftassignmentsCustomfieldsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateUnassignedshiftsCustomfields', 'id', id)
+            // verify required parameter 'updateShiftassignmentsCustomfieldsRequest' is not null or undefined
+            assertParamExists('updateUnassignedshiftsCustomfields', 'updateShiftassignmentsCustomfieldsRequest', updateShiftassignmentsCustomfieldsRequest)
+            const localVarPath = `/unassignedshifts/{id}/customfields/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["unassignedshifts.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(updateShiftassignmentsCustomfieldsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * UnassignedShiftsApi - functional programming interface
+ */
+export const UnassignedShiftsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = UnassignedShiftsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Assign a worker to an unassigned shift (open shift). The shift must be an open shift and not at capacity.  - Requires: `API Tier 2`
+         * @summary Assign a worker to an unassigned shift
+         * @param {string} id 
+         * @param {AssignUnassignedshiftsRequest} assignUnassignedshiftsRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async assignUnassignedshifts(id: string, assignUnassignedshiftsRequest: AssignUnassignedshiftsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssignUnassignedshifts200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.assignUnassignedshifts(id, assignUnassignedshiftsRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UnassignedShiftsApi.assignUnassignedshifts']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Create a new unassigned shift
+         * @summary Create a new unassigned shift
+         * @param {UnassignedShiftRequest} [unassignedShiftRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createUnassignedshifts(unassignedShiftRequest?: UnassignedShiftRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UnassignedShift>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createUnassignedshifts(unassignedShiftRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UnassignedShiftsApi.createUnassignedshifts']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a specific unassigned shift
+         * @summary Retrieve a specific unassigned shift
+         * @param {string} id ID of the resource to return
+         * @param {string} [expand] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUnassignedshifts(id: string, expand?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUnassignedshifts200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUnassignedshifts(id, expand, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UnassignedShiftsApi.getUnassignedshifts']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * A List of unassigned shifts  - Requires: `API Tier 2`  - Filterable fields: `schedule_id`, `shift_data.start_time`, `shift_data.end_time`  - Expandable fields: `schedule`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List unassigned shifts
+         * @param {string} [filter] 
+         * @param {string} [expand] 
+         * @param {string} [orderBy] 
+         * @param {string} [cursor] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUnassignedshifts(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListUnassignedshifts200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUnassignedshifts(filter, expand, orderBy, cursor, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UnassignedShiftsApi.listUnassignedshifts']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific unassigned shift
+         * @summary Update a unassigned shift
+         * @param {string} id ID of the resource to patch
+         * @param {UnassignedShiftUpdateRequest} [unassignedShiftUpdateRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateUnassignedshifts(id: string, unassignedShiftUpdateRequest?: UnassignedShiftUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UnassignedShift>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUnassignedshifts(id, unassignedShiftUpdateRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UnassignedShiftsApi.updateUnassignedshifts']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Update custom fields for a unassigned shift. The request body should contain a dictionary mapping custom field names to their values.  - Requires: `API Tier 2`
+         * @summary Update custom fields for a unassigned shift
+         * @param {string} id 
+         * @param {UpdateShiftassignmentsCustomfieldsRequest} updateShiftassignmentsCustomfieldsRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateUnassignedshiftsCustomfields(id: string, updateShiftassignmentsCustomfieldsRequest: UpdateShiftassignmentsCustomfieldsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUnassignedshifts200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUnassignedshiftsCustomfields(id, updateShiftassignmentsCustomfieldsRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UnassignedShiftsApi.updateUnassignedshiftsCustomfields']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * UnassignedShiftsApi - factory interface
+ */
+export const UnassignedShiftsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = UnassignedShiftsApiFp(configuration)
+    return {
+        /**
+         * Assign a worker to an unassigned shift (open shift). The shift must be an open shift and not at capacity.  - Requires: `API Tier 2`
+         * @summary Assign a worker to an unassigned shift
+         * @param {UnassignedShiftsApiAssignUnassignedshiftsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        assignUnassignedshifts(requestParameters: UnassignedShiftsApiAssignUnassignedshiftsRequest, options?: RawAxiosRequestConfig): AxiosPromise<AssignUnassignedshifts200Response> {
+            return localVarFp.assignUnassignedshifts(requestParameters.id, requestParameters.assignUnassignedshiftsRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new unassigned shift
+         * @summary Create a new unassigned shift
+         * @param {UnassignedShiftsApiCreateUnassignedshiftsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createUnassignedshifts(requestParameters: UnassignedShiftsApiCreateUnassignedshiftsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<UnassignedShift> {
+            return localVarFp.createUnassignedshifts(requestParameters.unassignedShiftRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific unassigned shift
+         * @summary Retrieve a specific unassigned shift
+         * @param {UnassignedShiftsApiGetUnassignedshiftsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUnassignedshifts(requestParameters: UnassignedShiftsApiGetUnassignedshiftsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetUnassignedshifts200Response> {
+            return localVarFp.getUnassignedshifts(requestParameters.id, requestParameters.expand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * A List of unassigned shifts  - Requires: `API Tier 2`  - Filterable fields: `schedule_id`, `shift_data.start_time`, `shift_data.end_time`  - Expandable fields: `schedule`  - Sortable fields: `id`, `created_at`, `updated_at`
+         * @summary List unassigned shifts
+         * @param {UnassignedShiftsApiListUnassignedshiftsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUnassignedshifts(requestParameters: UnassignedShiftsApiListUnassignedshiftsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListUnassignedshifts200Response> {
+            return localVarFp.listUnassignedshifts(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific unassigned shift
+         * @summary Update a unassigned shift
+         * @param {UnassignedShiftsApiUpdateUnassignedshiftsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUnassignedshifts(requestParameters: UnassignedShiftsApiUpdateUnassignedshiftsRequest, options?: RawAxiosRequestConfig): AxiosPromise<UnassignedShift> {
+            return localVarFp.updateUnassignedshifts(requestParameters.id, requestParameters.unassignedShiftUpdateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update custom fields for a unassigned shift. The request body should contain a dictionary mapping custom field names to their values.  - Requires: `API Tier 2`
+         * @summary Update custom fields for a unassigned shift
+         * @param {UnassignedShiftsApiUpdateUnassignedshiftsCustomfieldsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUnassignedshiftsCustomfields(requestParameters: UnassignedShiftsApiUpdateUnassignedshiftsCustomfieldsRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetUnassignedshifts200Response> {
+            return localVarFp.updateUnassignedshiftsCustomfields(requestParameters.id, requestParameters.updateShiftassignmentsCustomfieldsRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for assignUnassignedshifts operation in UnassignedShiftsApi.
+ */
+export interface UnassignedShiftsApiAssignUnassignedshiftsRequest {
+    readonly id: string
+
+    readonly assignUnassignedshiftsRequest: AssignUnassignedshiftsRequest
+}
+
+/**
+ * Request parameters for createUnassignedshifts operation in UnassignedShiftsApi.
+ */
+export interface UnassignedShiftsApiCreateUnassignedshiftsRequest {
+    readonly unassignedShiftRequest?: UnassignedShiftRequest
+}
+
+/**
+ * Request parameters for getUnassignedshifts operation in UnassignedShiftsApi.
+ */
+export interface UnassignedShiftsApiGetUnassignedshiftsRequest {
+    /**
+     * ID of the resource to return
+     */
+    readonly id: string
+
+    readonly expand?: string
+}
+
+/**
+ * Request parameters for listUnassignedshifts operation in UnassignedShiftsApi.
+ */
+export interface UnassignedShiftsApiListUnassignedshiftsRequest {
+    readonly filter?: string
+
+    readonly expand?: string
+
+    readonly orderBy?: string
+
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateUnassignedshifts operation in UnassignedShiftsApi.
+ */
+export interface UnassignedShiftsApiUpdateUnassignedshiftsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly unassignedShiftUpdateRequest?: UnassignedShiftUpdateRequest
+}
+
+/**
+ * Request parameters for updateUnassignedshiftsCustomfields operation in UnassignedShiftsApi.
+ */
+export interface UnassignedShiftsApiUpdateUnassignedshiftsCustomfieldsRequest {
+    readonly id: string
+
+    readonly updateShiftassignmentsCustomfieldsRequest: UpdateShiftassignmentsCustomfieldsRequest
+}
+
+/**
+ * UnassignedShiftsApi - object-oriented interface
+ */
+export class UnassignedShiftsApi extends BaseAPI {
+    /**
+     * Assign a worker to an unassigned shift (open shift). The shift must be an open shift and not at capacity.  - Requires: `API Tier 2`
+     * @summary Assign a worker to an unassigned shift
+     * @param {UnassignedShiftsApiAssignUnassignedshiftsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public assignUnassignedshifts(requestParameters: UnassignedShiftsApiAssignUnassignedshiftsRequest, options?: RawAxiosRequestConfig) {
+        return UnassignedShiftsApiFp(this.configuration).assignUnassignedshifts(requestParameters.id, requestParameters.assignUnassignedshiftsRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new unassigned shift
+     * @summary Create a new unassigned shift
+     * @param {UnassignedShiftsApiCreateUnassignedshiftsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createUnassignedshifts(requestParameters: UnassignedShiftsApiCreateUnassignedshiftsRequest = {}, options?: RawAxiosRequestConfig) {
+        return UnassignedShiftsApiFp(this.configuration).createUnassignedshifts(requestParameters.unassignedShiftRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific unassigned shift
+     * @summary Retrieve a specific unassigned shift
+     * @param {UnassignedShiftsApiGetUnassignedshiftsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getUnassignedshifts(requestParameters: UnassignedShiftsApiGetUnassignedshiftsRequest, options?: RawAxiosRequestConfig) {
+        return UnassignedShiftsApiFp(this.configuration).getUnassignedshifts(requestParameters.id, requestParameters.expand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * A List of unassigned shifts  - Requires: `API Tier 2`  - Filterable fields: `schedule_id`, `shift_data.start_time`, `shift_data.end_time`  - Expandable fields: `schedule`  - Sortable fields: `id`, `created_at`, `updated_at`
+     * @summary List unassigned shifts
+     * @param {UnassignedShiftsApiListUnassignedshiftsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUnassignedshifts(requestParameters: UnassignedShiftsApiListUnassignedshiftsRequest = {}, options?: RawAxiosRequestConfig) {
+        return UnassignedShiftsApiFp(this.configuration).listUnassignedshifts(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific unassigned shift
+     * @summary Update a unassigned shift
+     * @param {UnassignedShiftsApiUpdateUnassignedshiftsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateUnassignedshifts(requestParameters: UnassignedShiftsApiUpdateUnassignedshiftsRequest, options?: RawAxiosRequestConfig) {
+        return UnassignedShiftsApiFp(this.configuration).updateUnassignedshifts(requestParameters.id, requestParameters.unassignedShiftUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update custom fields for a unassigned shift. The request body should contain a dictionary mapping custom field names to their values.  - Requires: `API Tier 2`
+     * @summary Update custom fields for a unassigned shift
+     * @param {UnassignedShiftsApiUpdateUnassignedshiftsCustomfieldsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateUnassignedshiftsCustomfields(requestParameters: UnassignedShiftsApiUpdateUnassignedshiftsCustomfieldsRequest, options?: RawAxiosRequestConfig) {
+        return UnassignedShiftsApiFp(this.configuration).updateUnassignedshiftsCustomfields(requestParameters.id, requestParameters.updateShiftassignmentsCustomfieldsRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -12657,7 +25202,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         getUsers: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getUsers', 'id', id)
-            const localVarPath = `/users/{id}`
+            const localVarPath = `/users/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -12693,13 +25238,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * A List of users  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List users
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsers: async (orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/users`;
+        listUsers: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/users/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -12721,10 +25265,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
 
             if (cursor !== undefined) {
@@ -12768,13 +25308,12 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * A List of users  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List users
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUsers(orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListUsers200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUsers(orderBy, limit, cursor, options);
+        async listUsers(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListUsers200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUsers(orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UsersApi.listUsers']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -12806,7 +25345,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listUsers(requestParameters: UsersApiListUsersRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListUsers200Response> {
-            return localVarFp.listUsers(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listUsers(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -12827,14 +25366,6 @@ export interface UsersApiGetUsersRequest {
 export interface UsersApiListUsersRequest {
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -12861,7 +25392,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listUsers(requestParameters: UsersApiListUsersRequest = {}, options?: RawAxiosRequestConfig) {
-        return UsersApiFp(this.configuration).listUsers(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUsers(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -12873,6 +25404,88 @@ export class UsersApi extends BaseAPI {
 export const WorkLocationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Create a new work location
+         * @summary Create a new work location
+         * @param {WorkLocationRequest} [workLocationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkLocations: async (workLocationRequest?: WorkLocationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/work-locations/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["work-locations.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(workLocationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete a work location
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkLocations: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteWorkLocations', 'id', id)
+            const localVarPath = `/work-locations/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["work-locations.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieve a specific work location
          * @summary Retrieve a specific work location
          * @param {string} id ID of the resource to return
@@ -12882,7 +25495,7 @@ export const WorkLocationsApiAxiosParamCreator = function (configuration?: Confi
         getWorkLocations: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getWorkLocations', 'id', id)
-            const localVarPath = `/work-locations/{id}`
+            const localVarPath = `/work-locations/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -12918,13 +25531,12 @@ export const WorkLocationsApiAxiosParamCreator = function (configuration?: Confi
          * A List of work locations  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List work locations
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkLocations: async (orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/work-locations`;
+        listWorkLocations: async (orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/work-locations/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -12948,10 +25560,6 @@ export const WorkLocationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['order_by'] = orderBy;
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
             if (cursor !== undefined) {
                 localVarQueryParameter['cursor'] = cursor;
             }
@@ -12967,6 +25575,51 @@ export const WorkLocationsApiAxiosParamCreator = function (configuration?: Confi
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Updated a specific work location
+         * @summary Update a work location
+         * @param {string} id ID of the resource to patch
+         * @param {WorkLocationRequest} [workLocationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateWorkLocations: async (id: string, workLocationRequest?: WorkLocationRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateWorkLocations', 'id', id)
+            const localVarPath = `/work-locations/{id}/`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication OAuth2Production required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2Production", ["work-locations.read-write"], configuration)
+
+            // authentication BearerTokenProduction required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(workLocationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -12976,6 +25629,32 @@ export const WorkLocationsApiAxiosParamCreator = function (configuration?: Confi
 export const WorkLocationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = WorkLocationsApiAxiosParamCreator(configuration)
     return {
+        /**
+         * Create a new work location
+         * @summary Create a new work location
+         * @param {WorkLocationRequest} [workLocationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createWorkLocations(workLocationRequest?: WorkLocationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkLocation>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkLocations(workLocationRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['WorkLocationsApi.createWorkLocations']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Delete a work location
+         * @param {string} id ID of the resource to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteWorkLocations(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkLocations(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['WorkLocationsApi.deleteWorkLocations']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
         /**
          * Retrieve a specific work location
          * @summary Retrieve a specific work location
@@ -12993,15 +25672,28 @@ export const WorkLocationsApiFp = function(configuration?: Configuration) {
          * A List of work locations  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
          * @summary List work locations
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkLocations(orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkLocations200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkLocations(orderBy, limit, cursor, options);
+        async listWorkLocations(orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkLocations200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkLocations(orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkLocationsApi.listWorkLocations']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updated a specific work location
+         * @summary Update a work location
+         * @param {string} id ID of the resource to patch
+         * @param {WorkLocationRequest} [workLocationRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateWorkLocations(id: string, workLocationRequest?: WorkLocationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkLocation>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkLocations(id, workLocationRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['WorkLocationsApi.updateWorkLocations']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -13013,6 +25705,26 @@ export const WorkLocationsApiFp = function(configuration?: Configuration) {
 export const WorkLocationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = WorkLocationsApiFp(configuration)
     return {
+        /**
+         * Create a new work location
+         * @summary Create a new work location
+         * @param {WorkLocationsApiCreateWorkLocationsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkLocations(requestParameters: WorkLocationsApiCreateWorkLocationsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<WorkLocation> {
+            return localVarFp.createWorkLocations(requestParameters.workLocationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete a work location
+         * @param {WorkLocationsApiDeleteWorkLocationsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkLocations(requestParameters: WorkLocationsApiDeleteWorkLocationsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteWorkLocations(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
         /**
          * Retrieve a specific work location
          * @summary Retrieve a specific work location
@@ -13031,10 +25743,37 @@ export const WorkLocationsApiFactory = function (configuration?: Configuration, 
          * @throws {RequiredError}
          */
         listWorkLocations(requestParameters: WorkLocationsApiListWorkLocationsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListWorkLocations200Response> {
-            return localVarFp.listWorkLocations(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listWorkLocations(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updated a specific work location
+         * @summary Update a work location
+         * @param {WorkLocationsApiUpdateWorkLocationsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateWorkLocations(requestParameters: WorkLocationsApiUpdateWorkLocationsRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkLocation> {
+            return localVarFp.updateWorkLocations(requestParameters.id, requestParameters.workLocationRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
+
+/**
+ * Request parameters for createWorkLocations operation in WorkLocationsApi.
+ */
+export interface WorkLocationsApiCreateWorkLocationsRequest {
+    readonly workLocationRequest?: WorkLocationRequest
+}
+
+/**
+ * Request parameters for deleteWorkLocations operation in WorkLocationsApi.
+ */
+export interface WorkLocationsApiDeleteWorkLocationsRequest {
+    /**
+     * ID of the resource to delete
+     */
+    readonly id: string
+}
 
 /**
  * Request parameters for getWorkLocations operation in WorkLocationsApi.
@@ -13052,21 +25791,47 @@ export interface WorkLocationsApiGetWorkLocationsRequest {
 export interface WorkLocationsApiListWorkLocationsRequest {
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
+}
+
+/**
+ * Request parameters for updateWorkLocations operation in WorkLocationsApi.
+ */
+export interface WorkLocationsApiUpdateWorkLocationsRequest {
+    /**
+     * ID of the resource to patch
+     */
+    readonly id: string
+
+    readonly workLocationRequest?: WorkLocationRequest
 }
 
 /**
  * WorkLocationsApi - object-oriented interface
  */
 export class WorkLocationsApi extends BaseAPI {
+    /**
+     * Create a new work location
+     * @summary Create a new work location
+     * @param {WorkLocationsApiCreateWorkLocationsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createWorkLocations(requestParameters: WorkLocationsApiCreateWorkLocationsRequest = {}, options?: RawAxiosRequestConfig) {
+        return WorkLocationsApiFp(this.configuration).createWorkLocations(requestParameters.workLocationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete a work location
+     * @param {WorkLocationsApiDeleteWorkLocationsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteWorkLocations(requestParameters: WorkLocationsApiDeleteWorkLocationsRequest, options?: RawAxiosRequestConfig) {
+        return WorkLocationsApiFp(this.configuration).deleteWorkLocations(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Retrieve a specific work location
      * @summary Retrieve a specific work location
@@ -13086,7 +25851,18 @@ export class WorkLocationsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listWorkLocations(requestParameters: WorkLocationsApiListWorkLocationsRequest = {}, options?: RawAxiosRequestConfig) {
-        return WorkLocationsApiFp(this.configuration).listWorkLocations(requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return WorkLocationsApiFp(this.configuration).listWorkLocations(requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updated a specific work location
+     * @summary Update a work location
+     * @param {WorkLocationsApiUpdateWorkLocationsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateWorkLocations(requestParameters: WorkLocationsApiUpdateWorkLocationsRequest, options?: RawAxiosRequestConfig) {
+        return WorkLocationsApiFp(this.configuration).updateWorkLocations(requestParameters.id, requestParameters.workLocationRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -13108,7 +25884,7 @@ export const WorkersApiAxiosParamCreator = function (configuration?: Configurati
         getWorkers: async (id: string, expand?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getWorkers', 'id', id)
-            const localVarPath = `/workers/{id}`
+            const localVarPath = `/workers/{id}/`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -13150,13 +25926,12 @@ export const WorkersApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [filter] 
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkers: async (filter?: string, expand?: string, orderBy?: string, limit?: number, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/workers`;
+        listWorkers: async (filter?: string, expand?: string, orderBy?: string, cursor?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workers/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -13186,10 +25961,6 @@ export const WorkersApiAxiosParamCreator = function (configuration?: Configurati
 
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
             }
 
             if (cursor !== undefined) {
@@ -13236,13 +26007,12 @@ export const WorkersApiFp = function(configuration?: Configuration) {
          * @param {string} [filter] 
          * @param {string} [expand] 
          * @param {string} [orderBy] 
-         * @param {number} [limit] Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-         * @param {string} [cursor] Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
+         * @param {string} [cursor] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkers(filter?: string, expand?: string, orderBy?: string, limit?: number, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkers200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkers(filter, expand, orderBy, limit, cursor, options);
+        async listWorkers(filter?: string, expand?: string, orderBy?: string, cursor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkers200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkers(filter, expand, orderBy, cursor, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkersApi.listWorkers']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -13274,7 +26044,7 @@ export const WorkersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         listWorkers(requestParameters: WorkersApiListWorkersRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ListWorkers200Response> {
-            return localVarFp.listWorkers(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(axios, basePath));
+            return localVarFp.listWorkers(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -13301,14 +26071,6 @@ export interface WorkersApiListWorkersRequest {
 
     readonly orderBy?: string
 
-    /**
-     * Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned.
-     */
-    readonly limit?: number
-
-    /**
-     * Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page.
-     */
     readonly cursor?: string
 }
 
@@ -13335,7 +26097,7 @@ export class WorkersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public listWorkers(requestParameters: WorkersApiListWorkersRequest = {}, options?: RawAxiosRequestConfig) {
-        return WorkersApiFp(this.configuration).listWorkers(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.limit, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
+        return WorkersApiFp(this.configuration).listWorkers(requestParameters.filter, requestParameters.expand, requestParameters.orderBy, requestParameters.cursor, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -7,7 +7,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **startTime** | **string** | The start time of the shift segment | [default to undefined]
-**endTime** | **string** | The end time of the shift segment | [default to undefined]
+**durationMinutes** | **number** | The duration of the shift segment in minutes (input only for creation) | [default to undefined]
+**endTime** | **string** | The end time of the shift segment (calculated from start_time + duration_minutes) | [optional] [default to undefined]
 **jobCodesId** | **Array&lt;string&gt;** | The IDs of the job codes associated with the shift segment | [optional] [default to undefined]
 
 ## Example
@@ -17,6 +18,7 @@ import { ShiftSegment } from 'rippling-typescript-sdk';
 
 const instance: ShiftSegment = {
     startTime,
+    durationMinutes,
     endTime,
     jobCodesId,
 };

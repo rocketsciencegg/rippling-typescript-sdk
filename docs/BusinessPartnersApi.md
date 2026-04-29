@@ -4,14 +4,14 @@ All URIs are relative to *https://rest.ripplingapis.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**createBusinessPartnerGroups**](#createbusinesspartnergroups) | **POST** /business-partner-groups | Create a new business partner group|
-|[**createBusinessPartners**](#createbusinesspartners) | **POST** /business-partners | Create a new business partner|
-|[**deleteBusinessPartnerGroups**](#deletebusinesspartnergroups) | **DELETE** /business-partner-groups/{id} | Delete a business partner group|
-|[**deleteBusinessPartners**](#deletebusinesspartners) | **DELETE** /business-partners/{id} | Delete a business partner|
-|[**getBusinessPartnerGroups**](#getbusinesspartnergroups) | **GET** /business-partner-groups/{id} | Retrieve a specific business partner group|
-|[**getBusinessPartners**](#getbusinesspartners) | **GET** /business-partners/{id} | Retrieve a specific business partner|
-|[**listBusinessPartnerGroups**](#listbusinesspartnergroups) | **GET** /business-partner-groups | List business partner groups|
-|[**listBusinessPartners**](#listbusinesspartners) | **GET** /business-partners | List business partners|
+|[**createBusinessPartnerGroups**](#createbusinesspartnergroups) | **POST** /business-partner-groups/ | Create a new business partner group|
+|[**createBusinessPartners**](#createbusinesspartners) | **POST** /business-partners/ | Create a new business partner|
+|[**deleteBusinessPartnerGroups**](#deletebusinesspartnergroups) | **DELETE** /business-partner-groups/{id}/ | Delete a business partner group|
+|[**deleteBusinessPartners**](#deletebusinesspartners) | **DELETE** /business-partners/{id}/ | Delete a business partner|
+|[**getBusinessPartnerGroups**](#getbusinesspartnergroups) | **GET** /business-partner-groups/{id}/ | Retrieve a specific business partner group|
+|[**getBusinessPartners**](#getbusinesspartners) | **GET** /business-partners/{id}/ | Retrieve a specific business partner|
+|[**listBusinessPartnerGroups**](#listbusinesspartnergroups) | **GET** /business-partner-groups/ | List business partner groups|
+|[**listBusinessPartners**](#listbusinesspartners) | **GET** /business-partners/ | List business partners|
 
 # **createBusinessPartnerGroups**
 > BusinessPartnerGroup createBusinessPartnerGroups()
@@ -343,13 +343,11 @@ const apiInstance = new BusinessPartnersApi(configuration);
 
 let expand: string; // (optional) (default to undefined)
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
+let cursor: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listBusinessPartnerGroups(
     expand,
     orderBy,
-    limit,
     cursor
 );
 ```
@@ -360,8 +358,7 @@ const { status, data } = await apiInstance.listBusinessPartnerGroups(
 |------------- | ------------- | ------------- | -------------|
 | **expand** | [**string**] |  | (optional) defaults to undefined|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
+| **cursor** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -404,14 +401,12 @@ const apiInstance = new BusinessPartnersApi(configuration);
 let filter: string; // (optional) (default to undefined)
 let expand: string; // (optional) (default to undefined)
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
+let cursor: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listBusinessPartners(
     filter,
     expand,
     orderBy,
-    limit,
     cursor
 );
 ```
@@ -423,8 +418,7 @@ const { status, data } = await apiInstance.listBusinessPartners(
 | **filter** | [**string**] |  | (optional) defaults to undefined|
 | **expand** | [**string**] |  | (optional) defaults to undefined|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
+| **cursor** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

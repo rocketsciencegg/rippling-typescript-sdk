@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **createdAt** | **string** | Record creation date | [default to undefined]
 **updatedAt** | **string** | Record update date | [default to undefined]
 **name** | **string** | Name used to identify business partner group | [default to undefined]
-**domain** | **string** | Type of business partner group | [optional] [default to undefined]
+**domain** | [**BusinessPartnerGroupDomain**](BusinessPartnerGroupDomain.md) | Type of business partner group | [optional] [default to undefined]
 **defaultBusinessPartnerId** | **string** | Id of Optional default business partner worker to whom all employees will be mapped if not explicitly mapped to a business partner in the group. | [optional] [default to undefined]
 **defaultBusinessPartner** | [**Worker**](Worker.md) | Optional default business partner worker to whom all employees will be mapped if not explicitly mapped to a business partner in the group.  Expandable field | [optional] [default to undefined]
 

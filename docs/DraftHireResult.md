@@ -6,7 +6,6 @@ Result for an individual draft hire creation.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**referenceId** | **string** | External reference ID from the request | [default to undefined]
 **draftHireId** | **string** | Generated draft hire ID if successful | [optional] [default to undefined]
 **status** | **string** | Status of the creation (success, error, warning) | [default to undefined]
 **message** | **string** | Success or error message | [optional] [default to undefined]
@@ -18,7 +17,6 @@ Name | Type | Description | Notes
 import { DraftHireResult } from 'rippling-typescript-sdk';
 
 const instance: DraftHireResult = {
-    referenceId,
     draftHireId,
     status,
     message,

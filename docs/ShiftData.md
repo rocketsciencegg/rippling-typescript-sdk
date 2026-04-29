@@ -8,8 +8,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **startTime** | **string** | The start time of the shift | [default to undefined]
 **endTime** | **string** | The end time of the shift | [default to undefined]
-**shiftSegments** | [**Array&lt;ShiftSegment&gt;**](ShiftSegment.md) | The segments of the shift | [default to undefined]
-**shiftBreaks** | [**Array&lt;ShiftBreak&gt;**](ShiftBreak.md) | The breaks of the shift | [default to undefined]
+**shiftSegments** | [**Array&lt;ShiftSegment&gt;**](ShiftSegment.md) | The segments of the shift | [optional] [default to undefined]
+**shiftBreaks** | [**Array&lt;ShiftBreak&gt;**](ShiftBreak.md) | The breaks of the shift | [optional] [default to undefined]
+**notes** | **string** | Notes for the shift, max length 256 characters | [optional] [default to undefined]
 
 ## Example
 
@@ -21,6 +22,7 @@ const instance: ShiftData = {
     endTime,
     shiftSegments,
     shiftBreaks,
+    notes,
 };
 ```
 

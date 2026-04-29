@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **updatedAt** | **string** | Record update date | [default to undefined]
 **name** | **string** | The name of the custom object datarow | [default to undefined]
 **externalId** | **string** | The external id of the custom object datarow | [optional] [default to undefined]
-**createdBy** | [**CustomObjectDataRowCreatedBy**](CustomObjectDataRowCreatedBy.md) |  | [optional] [default to undefined]
-**lastModifiedBy** | [**CustomObjectDataRowCreatedBy**](CustomObjectDataRowCreatedBy.md) |  | [optional] [default to undefined]
-**ownerRole** | [**CustomObjectDataRowCreatedBy**](CustomObjectDataRowCreatedBy.md) |  | [optional] [default to undefined]
+**createdBy** | [**DisplayValueRef**](DisplayValueRef.md) |  | [optional] [default to undefined]
+**lastModifiedBy** | [**DisplayValueRef**](DisplayValueRef.md) |  | [optional] [default to undefined]
+**ownerRole** | [**DisplayValueRef**](DisplayValueRef.md) |  | [optional] [default to undefined]
 **systemUpdatedAt** | **string** |  | [optional] [default to undefined]
 
 ## Example

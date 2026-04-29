@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **locale** | [**LocaleSettings**](LocaleSettings.md) |  | [optional] [default to undefined]
 **emergencyContactName** | **string** | Emergency contact name | [optional] [default to undefined]
 **emergencyContactPhone** | [**PhoneNumber**](PhoneNumber.md) |  | [optional] [default to undefined]
+**personalPhone** | [**PhoneNumber**](PhoneNumber.md) |  | [optional] [default to undefined]
 **inviteEmail** | **string** | Invite email of the candidate | [default to undefined]
 
 ## Example
@@ -36,6 +37,7 @@ const instance: PersonalInfo = {
     locale,
     emergencyContactName,
     emergencyContactPhone,
+    personalPhone,
     inviteEmail,
 };
 ```

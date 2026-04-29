@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **employmentInfo** | [**EmploymentInfo**](EmploymentInfo.md) | Employment information for the draft hire position | [default to undefined]
 **workLocationInfo** | [**WorkLocationInfo**](WorkLocationInfo.md) | Work location information | [default to undefined]
 **customFields** | [**Array&lt;CustomFieldInfo&gt;**](CustomFieldInfo.md) | Custom fields for the draft hire | [optional] [default to undefined]
-**referenceId** | **string** | External reference ID for tracking purposes | [default to undefined]
 
 ## Example
 
@@ -22,7 +21,6 @@ const instance: DraftHire = {
     employmentInfo,
     workLocationInfo,
     customFields,
-    referenceId,
 };
 ```
 

@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | **string** | A valid email address. | [optional] [default to undefined]
-**type** | **string** | The classification of the email. | [optional] [default to undefined]
+**type** | [**ContactType**](ContactType.md) | The classification of the email. | [optional] [default to undefined]
 **display** | **string** | The display value of the email address. | [optional] [default to undefined]
 
 ## Example
