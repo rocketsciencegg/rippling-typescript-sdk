@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **updatedAt** | **string** | Record update date | [default to undefined]
 **fullName** | **string** | The group member\&#39;s full name. | [optional] [default to undefined]
 **workEmail** | **string** | The group member\&#39;s associated work email address. | [optional] [default to undefined]
+**workerId** | **string** | The worker\&#39;s identifier associated with this group member. | [optional] [default to undefined]
+**worker** | [**Worker**](Worker.md) | The worker associated with this group member.  Expandable field | [optional] [default to undefined]
 
 ## Example
 
@@ -23,6 +25,8 @@ const instance: GroupMember = {
     updatedAt,
     fullName,
     workEmail,
+    workerId,
+    worker,
 };
 ```
 

@@ -179,21 +179,11 @@ import {
 const configuration = new Configuration();
 const apiInstance = new ObjectCategoriesApi(configuration);
 
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
-
-const { status, data } = await apiInstance.listObjectCategories(
-    limit,
-    cursor
-);
+const { status, data } = await apiInstance.listObjectCategories();
 ```
 
 ### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
+This endpoint does not have any parameters.
 
 
 ### Return type

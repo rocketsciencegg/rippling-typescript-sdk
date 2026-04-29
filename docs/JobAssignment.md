@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **basePayRate** | **number** | Base compensation rate of worker | [optional] [default to undefined]
 **jobCodeId** | **string** | Identifier of job that is assigned to worker | [default to undefined]
 **jobCode** | [**JobCode**](JobCode.md) | Job that is assigned to worker  Expandable field | [optional] [default to undefined]
-**jobPayRate** | **number** | The pay rate for job assigned to worker. This can be different from the job\&#39;s standard pay rate and can be overriden for a worker. | [default to undefined]
+**jobPayRate** | **number** | The pay rate for job assigned to worker. This can be different from the job\&#39;s standard pay rate and can be overriden for a worker. | [optional] [default to undefined]
 **jobPayRateExceptionsId** | **Array&lt;string&gt;** | Identifier of pay rate exceptions applicable for the worker based on certain exception dimension values. | [optional] [default to undefined]
 **jobPayRateExceptions** | [**Array&lt;JobPayRateException&gt;**](JobPayRateException.md) | Pay rate exceptions applicable for the worker based on certain exception dimension values.  Expandable field | [optional] [default to undefined]
 

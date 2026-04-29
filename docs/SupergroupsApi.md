@@ -4,13 +4,13 @@ All URIs are relative to *https://rest.ripplingapis.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**getSupergroups**](#getsupergroups) | **GET** /supergroups/{id} | Retrieve a specific supergroup|
-|[**listSupergroups**](#listsupergroups) | **GET** /supergroups | List supergroups|
-|[**listSupergroupsGroupIdExclusionMembers**](#listsupergroupsgroupidexclusionmembers) | **GET** /supergroups/{group_id}/exclusion-members | List supergroup exclusion members|
-|[**listSupergroupsGroupIdInclusionMembers**](#listsupergroupsgroupidinclusionmembers) | **GET** /supergroups/{group_id}/inclusion-members | List supergroup inclusion members|
-|[**listSupergroupsGroupIdMembers**](#listsupergroupsgroupidmembers) | **GET** /supergroups/{group_id}/members | List supergroup members|
-|[**updateSupergroupsGroupIdExclusionMembers**](#updatesupergroupsgroupidexclusionmembers) | **PATCH** /supergroups/{group_id}/exclusion-members | Update supergroup exclusion members|
-|[**updateSupergroupsGroupIdInclusionMembers**](#updatesupergroupsgroupidinclusionmembers) | **PATCH** /supergroups/{group_id}/inclusion-members | Update supergroup inclusion members|
+|[**getSupergroups**](#getsupergroups) | **GET** /supergroups/{id}/ | Retrieve a specific supergroup|
+|[**listSupergroups**](#listsupergroups) | **GET** /supergroups/ | List supergroups|
+|[**listSupergroupsGroupIdExclusionMembers**](#listsupergroupsgroupidexclusionmembers) | **GET** /supergroups/{group_id}/exclusion-members/ | List supergroup exclusion members|
+|[**listSupergroupsGroupIdInclusionMembers**](#listsupergroupsgroupidinclusionmembers) | **GET** /supergroups/{group_id}/inclusion-members/ | List supergroup inclusion members|
+|[**listSupergroupsGroupIdMembers**](#listsupergroupsgroupidmembers) | **GET** /supergroups/{group_id}/members/ | List supergroup members|
+|[**updateSupergroupsGroupIdExclusionMembers**](#updatesupergroupsgroupidexclusionmembers) | **PATCH** /supergroups/{group_id}/exclusion-members/ | Update supergroup exclusion members|
+|[**updateSupergroupsGroupIdInclusionMembers**](#updatesupergroupsgroupidinclusionmembers) | **PATCH** /supergroups/{group_id}/inclusion-members/ | Update supergroup inclusion members|
 
 # **getSupergroups**
 > GetSupergroups200Response getSupergroups()
@@ -81,14 +81,10 @@ const apiInstance = new SupergroupsApi(configuration);
 
 let filter: string; // (optional) (default to undefined)
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listSupergroups(
     filter,
-    orderBy,
-    limit,
-    cursor
+    orderBy
 );
 ```
 
@@ -98,8 +94,6 @@ const { status, data } = await apiInstance.listSupergroups(
 |------------- | ------------- | ------------- | -------------|
 | **filter** | [**string**] |  | (optional) defaults to undefined|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -126,7 +120,7 @@ const { status, data } = await apiInstance.listSupergroups(
 # **listSupergroupsGroupIdExclusionMembers**
 > ListSupergroupsGroupIdMembers200Response listSupergroupsGroupIdExclusionMembers()
 
-Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+Retrieve supergroup exclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
 
 ### Example
 
@@ -140,15 +134,13 @@ const configuration = new Configuration();
 const apiInstance = new SupergroupsApi(configuration);
 
 let groupId: string; // (default to undefined)
+let expand: string; // (optional) (default to undefined)
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listSupergroupsGroupIdExclusionMembers(
     groupId,
-    orderBy,
-    limit,
-    cursor
+    expand,
+    orderBy
 );
 ```
 
@@ -157,9 +149,8 @@ const { status, data } = await apiInstance.listSupergroupsGroupIdExclusionMember
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **groupId** | [**string**] |  | defaults to undefined|
+| **expand** | [**string**] |  | (optional) defaults to undefined|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -186,7 +177,7 @@ const { status, data } = await apiInstance.listSupergroupsGroupIdExclusionMember
 # **listSupergroupsGroupIdInclusionMembers**
 > ListSupergroupsGroupIdMembers200Response listSupergroupsGroupIdInclusionMembers()
 
-Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+Retrieve supergroup inclusion members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
 
 ### Example
 
@@ -200,15 +191,13 @@ const configuration = new Configuration();
 const apiInstance = new SupergroupsApi(configuration);
 
 let groupId: string; // (default to undefined)
+let expand: string; // (optional) (default to undefined)
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listSupergroupsGroupIdInclusionMembers(
     groupId,
-    orderBy,
-    limit,
-    cursor
+    expand,
+    orderBy
 );
 ```
 
@@ -217,9 +206,8 @@ const { status, data } = await apiInstance.listSupergroupsGroupIdInclusionMember
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **groupId** | [**string**] |  | defaults to undefined|
+| **expand** | [**string**] |  | (optional) defaults to undefined|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -246,7 +234,7 @@ const { status, data } = await apiInstance.listSupergroupsGroupIdInclusionMember
 # **listSupergroupsGroupIdMembers**
 > ListSupergroupsGroupIdMembers200Response listSupergroupsGroupIdMembers()
 
-Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Sortable fields: `id`, `created_at`, `updated_at`
+Retrieve supergroup members matching the input parameters.  - Requires: `API Tier 1`  - Expandable fields: `worker`  - Sortable fields: `id`, `created_at`, `updated_at`
 
 ### Example
 
@@ -260,15 +248,13 @@ const configuration = new Configuration();
 const apiInstance = new SupergroupsApi(configuration);
 
 let groupId: string; // (default to undefined)
+let expand: string; // (optional) (default to undefined)
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listSupergroupsGroupIdMembers(
     groupId,
-    orderBy,
-    limit,
-    cursor
+    expand,
+    orderBy
 );
 ```
 
@@ -277,9 +263,8 @@ const { status, data } = await apiInstance.listSupergroupsGroupIdMembers(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **groupId** | [**string**] |  | defaults to undefined|
+| **expand** | [**string**] |  | (optional) defaults to undefined|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
 
 
 ### Return type

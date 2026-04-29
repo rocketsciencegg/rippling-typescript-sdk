@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **observers** | [**Array&lt;Worker&gt;**](Worker.md) | The observers of the schedule.  Expandable field | [optional] [default to undefined]
 **members** | [**Array&lt;Worker&gt;**](Worker.md) | The members of the schedule.  Expandable field | [optional] [default to undefined]
 **canEdit** | **boolean** | Whether the requesting role can edit the schedule. | [optional] [default to undefined]
+**settings** | [**ScheduleSettings**](ScheduleSettings.md) | The settings of the schedule. | [optional] [default to undefined]
 
 ## Example
 
@@ -35,6 +36,7 @@ const instance: Schedule = {
     observers,
     members,
     canEdit,
+    settings,
 };
 ```
 

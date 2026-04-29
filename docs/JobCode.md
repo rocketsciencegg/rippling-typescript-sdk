@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **workLocation** | [**WorkLocation**](WorkLocation.md) | The work location associated with the job code.  Expandable field | [optional] [default to undefined]
 **departmentId** | **string** | The department associated with the job code. | [optional] [default to undefined]
 **department** | [**Department**](Department.md) | The department associated with the job code.  Expandable field | [optional] [default to undefined]
-**payRate** | **number** | The pay rate for job, if job code is associated with pay rate. | [optional] [default to undefined]
+**payRate** | **number** | The pay rate for this job code. Only applicable if the associated job dimension includes the \&#39;PAY_RATE\&#39; organizational attribute. | [optional] [default to undefined]
 **payRateExceptionsId** | **Array&lt;string&gt;** | Pay rate overrides id for the job based on exception dimension values. | [optional] [default to undefined]
 **payRateExceptions** | [**Array&lt;JobPayRateException&gt;**](JobPayRateException.md) | Pay rate overrides for the job based on exception dimension values.  Expandable field | [optional] [default to undefined]
 

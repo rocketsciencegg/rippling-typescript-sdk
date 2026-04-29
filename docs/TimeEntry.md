@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **tags** | **Array&lt;string&gt;** | The tags associated with the time entry. | [optional] [default to undefined]
 **idempotencyKey** | **string** | The unique key of the time entry in an outside system. If set, no other time entry with the same key can be created. | [optional] [default to undefined]
 **createExtraHoursRun** | **boolean** | Whether the time entry should create an extra hours run. | [optional] [default to undefined]
-**status** | **string** | The status of the time entry. | [optional] [default to undefined]
+**status** | [**TimeEntryStatus**](TimeEntryStatus.md) | The status of the time entry. | [optional] [default to undefined]
 **payPeriod** | [**PayPeriod**](PayPeriod.md) | The pay period associated with the time card. | [optional] [default to undefined]
 **shiftInputValues** | [**Array&lt;ShiftInputValue&gt;**](ShiftInputValue.md) | Arbitrary shift inputs collected on the time entry | [optional] [default to undefined]
 

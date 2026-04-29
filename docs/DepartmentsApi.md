@@ -4,8 +4,62 @@ All URIs are relative to *https://rest.ripplingapis.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**getDepartments**](#getdepartments) | **GET** /departments/{id} | Retrieve a specific department|
-|[**listDepartments**](#listdepartments) | **GET** /departments | List departments|
+|[**createDepartments**](#createdepartments) | **POST** /departments/ | Create a new department|
+|[**getDepartments**](#getdepartments) | **GET** /departments/{id}/ | Retrieve a specific department|
+|[**listDepartments**](#listdepartments) | **GET** /departments/ | List departments|
+|[**updateDepartments**](#updatedepartments) | **PATCH** /departments/{id}/ | Update a department|
+
+# **createDepartments**
+> Department createDepartments()
+
+Create a new department
+
+### Example
+
+```typescript
+import {
+    DepartmentsApi,
+    Configuration,
+    DepartmentRequest
+} from 'rippling-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new DepartmentsApi(configuration);
+
+let departmentRequest: DepartmentRequest; // (optional)
+
+const { status, data } = await apiInstance.createDepartments(
+    departmentRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **departmentRequest** | **DepartmentRequest**|  | |
+
+
+### Return type
+
+**Department**
+
+### Authorization
+
+[OAuth2Production](../README.md#OAuth2Production), [BearerTokenProduction](../README.md#BearerTokenProduction)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Created a new department |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDepartments**
 > GetDepartments200Response getDepartments()
@@ -79,13 +133,11 @@ const apiInstance = new DepartmentsApi(configuration);
 
 let expand: string; // (optional) (default to undefined)
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
+let cursor: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listDepartments(
     expand,
     orderBy,
-    limit,
     cursor
 );
 ```
@@ -96,8 +148,7 @@ const { status, data } = await apiInstance.listDepartments(
 |------------- | ------------- | ------------- | -------------|
 | **expand** | [**string**] |  | (optional) defaults to undefined|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
+| **cursor** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -118,6 +169,61 @@ const { status, data } = await apiInstance.listDepartments(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | A list of departments |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateDepartments**
+> Department updateDepartments()
+
+Updated a specific department
+
+### Example
+
+```typescript
+import {
+    DepartmentsApi,
+    Configuration,
+    DepartmentRequest
+} from 'rippling-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new DepartmentsApi(configuration);
+
+let id: string; //ID of the resource to patch (default to undefined)
+let departmentRequest: DepartmentRequest; // (optional)
+
+const { status, data } = await apiInstance.updateDepartments(
+    id,
+    departmentRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **departmentRequest** | **DepartmentRequest**|  | |
+| **id** | [**string**] | ID of the resource to patch | defaults to undefined|
+
+
+### Return type
+
+**Department**
+
+### Authorization
+
+[OAuth2Production](../README.md#OAuth2Production), [BearerTokenProduction](../README.md#BearerTokenProduction)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Update a specific department |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

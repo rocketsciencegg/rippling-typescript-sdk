@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **overtimeExemption** | **string** | Overtime exemption | [optional] [default to undefined]
 **departmentId** | **string** | Department ID | [optional] [default to undefined]
 **teamsIds** | **Array&lt;string&gt;** | Teams IDs | [optional] [default to undefined]
-**title** | **string** | Title | [optional] [default to undefined]
+**title** | **string** | Title | [default to undefined]
 **levelId** | **string** | Level ID | [optional] [default to undefined]
 **jobTitle** | **string** | Job title | [optional] [default to undefined]
 **probationEndDate** | **string** | Probation end date | [optional] [default to undefined]
@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **equityValue** | **number** | Equity value | [optional] [default to undefined]
 **offerExpirationDate** | **string** | Offer expiration date | [optional] [default to undefined]
 **equityVestingSchedule** | [**EquityVestingSchedule**](EquityVestingSchedule.md) |  | [optional] [default to undefined]
+**eeocJobClassification** | **string** | EEOC job classification (e.g., EXECUTIVE, MID_LEVEL, PROFESSIONALS, TECHNICIANS, SALES_WORKERS, SUPPORT_WORKERS, CRAFT_WORKERS, OPERATIVES, HELPERS, SERVICE_WORKERS) | [optional] [default to undefined]
 
 ## Example
 
@@ -65,6 +66,7 @@ const instance: EmploymentInfo = {
     equityValue,
     offerExpirationDate,
     equityVestingSchedule,
+    eeocJobClassification,
 };
 ```
 

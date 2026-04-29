@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **string** | The code of the country. | [default to undefined]
+**code** | [**CountryCode**](CountryCode.md) | The code of the country. | [default to undefined]
 
 ## Example
 

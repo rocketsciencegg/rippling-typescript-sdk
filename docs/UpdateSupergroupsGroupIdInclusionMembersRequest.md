@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operations** | [**Array&lt;UpdateSupergroupsGroupIdInclusionMembersRequestOperationsInner&gt;**](UpdateSupergroupsGroupIdInclusionMembersRequestOperationsInner.md) |  | [optional] [default to undefined]
+**operations** | [**Array&lt;SupergroupMembershipOperation&gt;**](SupergroupMembershipOperation.md) |  | [optional] [default to undefined]
 
 ## Example
 

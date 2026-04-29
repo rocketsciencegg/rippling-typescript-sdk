@@ -4,7 +4,7 @@ All URIs are relative to *https://rest.ripplingapis.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**listSsoMe**](#listssome) | **GET** /sso-me | Retrieve my SSO information|
+|[**listSsoMe**](#listssome) | **GET** /sso-me/ | Retrieve my SSO information|
 
 # **listSsoMe**
 > SSOMe listSsoMe()
@@ -23,9 +23,11 @@ const configuration = new Configuration();
 const apiInstance = new MeApi(configuration);
 
 let expand: string; // (optional) (default to undefined)
+let cursor: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listSsoMe(
-    expand
+    expand,
+    cursor
 );
 ```
 
@@ -34,6 +36,7 @@ const { status, data } = await apiInstance.listSsoMe(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **expand** | [**string**] |  | (optional) defaults to undefined|
+| **cursor** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

@@ -4,8 +4,8 @@ All URIs are relative to *https://rest.ripplingapis.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**getWorkers**](#getworkers) | **GET** /workers/{id} | Retrieve a specific worker|
-|[**listWorkers**](#listworkers) | **GET** /workers | List workers|
+|[**getWorkers**](#getworkers) | **GET** /workers/{id}/ | Retrieve a specific worker|
+|[**listWorkers**](#listworkers) | **GET** /workers/ | List workers|
 
 # **getWorkers**
 > GetWorkers200Response getWorkers()
@@ -80,14 +80,12 @@ const apiInstance = new WorkersApi(configuration);
 let filter: string; // (optional) (default to undefined)
 let expand: string; // (optional) (default to undefined)
 let orderBy: string; // (optional) (default to undefined)
-let limit: number; //Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. (optional) (default to undefined)
-let cursor: string; //Opaque cursor from a prior response\'s next_link. Omit to start at the first page. (optional) (default to undefined)
+let cursor: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listWorkers(
     filter,
     expand,
     orderBy,
-    limit,
     cursor
 );
 ```
@@ -99,8 +97,7 @@ const { status, data } = await apiInstance.listWorkers(
 | **filter** | [**string**] |  | (optional) defaults to undefined|
 | **expand** | [**string**] |  | (optional) defaults to undefined|
 | **orderBy** | [**string**] |  | (optional) defaults to undefined|
-| **limit** | [**number**] | Maximum number of results to return on this page (default 50, typical max 100). If higher than the endpoint maximum, a 400 error is returned. | (optional) defaults to undefined|
-| **cursor** | [**string**] | Opaque cursor from a prior response\&#39;s next_link. Omit to start at the first page. | (optional) defaults to undefined|
+| **cursor** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

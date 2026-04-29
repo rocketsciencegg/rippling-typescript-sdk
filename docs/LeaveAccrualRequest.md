@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **workerId** | **string** | The ID of the worker for whom the accrual is for | [default to undefined]
 **grantorId** | **string** | The ID of the worker who granted this accrual. This is typically the Time Off admin. | [default to undefined]
 **leaveTypeId** | **string** | The company leave type ID associated with this accrual | [default to undefined]
+**accrualType** | [**LeaveAccrualType**](LeaveAccrualType.md) | The type of accrual | [optional] [default to undefined]
 **accrualDate** | **string** | The date when this accrual becomes effective | [default to undefined]
 **numHours** | **number** | The number of hours accrued. It can be negative for deductions. This is applicable if the policy tracks in hours. | [optional] [default to undefined]
 **numDays** | **number** | The number of days accrued. It can be negative for deductions. This is applicable if the policy tracks in days. | [optional] [default to undefined]
@@ -25,6 +26,7 @@ const instance: LeaveAccrualRequest = {
     workerId,
     grantorId,
     leaveTypeId,
+    accrualType,
     accrualDate,
     numHours,
     numDays,
