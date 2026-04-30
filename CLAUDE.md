@@ -88,7 +88,7 @@ All `.ts` files, `README.md` content (beyond what's protected), `docs/`, and `gi
 
 ## Rippling API gotchas (caller-facing)
 
-The SDK types are honest reflections of the OpenAPI spec, but the spec has a few sharp edges that aren't visible in the type signatures. Surface area where consumers (`apps/max`, `apps/marvin`, `apps/ripprunn`) have hit 4xx errors and what works:
+The SDK types are honest reflections of the OpenAPI spec, but the spec has a few sharp edges that aren't visible in the type signatures. Notes from real 4xx responses we've hit:
 
 - **Filter syntax mixes quoted strings with unquoted dates.** `worker_id eq 'X'` (quoted) but `start_date eq 2026-04-30` (unquoted, no surrounding `'`). Quoting a date returns 400 `start_date parameter is of the wrong type, expected: datetime.date | None, got: str`.
 - **`start_time` / `end_time` on `LeaveRequestRequest` want full ISO 8601 datetimes**, not bare `HH:MM:SS`. Bare time-of-day returns 400 `Invalid JSON provided.`. With an explicit offset like `2026-04-30T09:00:00-04:00`, Rippling normalizes to UTC on storage and echoes back as `2026-04-30T13:00:00+00:00`.
