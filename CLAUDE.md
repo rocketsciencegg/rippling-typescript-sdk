@@ -85,3 +85,13 @@ const api = new WorkersApi(config);
 ## Key Files Not to Edit Manually
 
 All `.ts` files, `README.md` content (beyond what's protected), `docs/`, and `git_push.sh` are generated. To make persistent changes, modify `rippling.json` or the generator configuration in the `justfile`, then regenerate.
+
+## Rippling API gotchas (caller-facing)
+
+The SDK types are honest reflections of the OpenAPI spec, but the spec has a few sharp edges that aren't visible in the type signatures. Surface area where consumers (`apps/max`, `apps/marvin`, `apps/ripprunn`) have hit 4xx errors and what works:
+
+- **Filter syntax mixes quoted strings with unquoted dates.** `worker_id eq 'X'` (quoted) but `start_date eq 2026-04-30` (unquoted, no surrounding `'`). Quoting a date returns 400 `start_date parameter is of the wrong type, expected: datetime.date | None, got: str`.
+- **`start_time` / `end_time` on `LeaveRequestRequest` want full ISO 8601 datetimes**, not bare `HH:MM:SS`. Bare time-of-day returns 400 `Invalid JSON provided.`. With an explicit offset like `2026-04-30T09:00:00-04:00`, Rippling normalizes to UTC on storage and echoes back as `2026-04-30T13:00:00+00:00`.
+- **`updateLeaveRequests` (PATCH) is genuinely partial**, but the SDK reuses `LeaveRequestRequest` from create where `worker_id`, `status`, `start_date`, `end_date` are required. Sending the full echo for a status-only update returns 400 `Status cannot be updated with other fields.`. Callers need to cast around the strict typing to send `{ status: 'CANCELED' }` only.
+- **Leave types are per legal entity.** A single org typically has multiple types named `"Work From Home"` / `"Work From Home (UK)"` etc. Posting the wrong one for a worker 400s. Resolution must be per-worker via `Worker.country` or (when scoped) the worker's `LeaveBalances`.
+- **Auto-approval timing.** A `LeaveRequest` posted with `status: PENDING` may be promoted to `APPROVED` server-side within seconds. Cancellation via PATCH works on both states.
