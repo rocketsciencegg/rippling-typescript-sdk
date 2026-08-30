@@ -9,6 +9,7 @@ package.json
 tsconfig.json
 .gitignore
 .npmignore
+.node-version
 
 # Prevent generator from creating unwanted files
 git_push.sh
