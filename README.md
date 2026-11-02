@@ -7,13 +7,13 @@ TypeScript SDK for the [Rippling Platform API](https://developer.rippling.com) (
 ## Installation
 
 ```bash
-npm install github:rocketsciencegg/rippling-typescript-sdk
+pnpm add github:rocketsciencegg/rippling-typescript-sdk
 ```
 
 Pin a specific version:
 
 ```bash
-npm install github:rocketsciencegg/rippling-typescript-sdk#v1.0.0
+pnpm add github:rocketsciencegg/rippling-typescript-sdk#v1.0.0
 ```
 
 ## Quick Start

@@ -1,11 +1,14 @@
 version: 2
 updates:
+  # npm is the ecosystem Dependabot uses for pnpm-lock.yaml.
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
     labels: ["dependencies"]
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -13,3 +16,5 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 5
     labels: ["dependencies"]
+    cooldown:
+      default-days: 7
