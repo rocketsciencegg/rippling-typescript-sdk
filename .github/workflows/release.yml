@@ -8,18 +8,24 @@ on:
         type: string
 
 permissions:
-  contents: write
+  contents: read
+
+# workflow_dispatch may write the default-branch cache. This job tags and
+# publishes, so it neither restores nor saves.
+# https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#cache-mode
+cache-mode: none
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Setup pnpm
         uses: pnpm/setup@731dfb6463bbd11c11fd0ee11fe00ed0e36d48a1 # v3.2.0
         with:
           node-version-file: .node-version
-          cache: true
           install: false
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec tsc

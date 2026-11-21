@@ -5,6 +5,14 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
+# Restores are allowed. Saves are not, except the push-to-main install job,
+# which overrides this. Values: read | write | write-only | none.
+# https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#cache-mode
+cache-mode: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,8 +22,15 @@ jobs:
         uses: pnpm/setup@731dfb6463bbd11c11fd0ee11fe00ed0e36d48a1 # v3.2.0
         with:
           node-version-file: .node-version
-          cache: true
           install: false
+      - name: Resolve pnpm store path
+        id: pnpm-store
+        run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+      - name: Restore pnpm store
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: pnpm-store-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('pnpm-lock.yaml') }}
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec tsc
 
@@ -27,3 +42,25 @@ jobs:
       # nothing anywhere complains.
       - name: committed dist/ must match a fresh build
         run: git diff --exit-code dist/ || (echo "::error::dist/ is stale — run 'pnpm exec tsc' and commit dist/" && exit 1)
+
+  # The only job allowed to create or replace a cache. Pull requests do not run it.
+  pnpm-store:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    cache-mode: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setup pnpm
+        uses: pnpm/setup@731dfb6463bbd11c11fd0ee11fe00ed0e36d48a1 # v3.2.0
+        with:
+          node-version-file: .node-version
+          install: false
+      - name: Resolve pnpm store path
+        id: pnpm-store
+        run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+      - name: Cache pnpm store
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: pnpm-store-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('pnpm-lock.yaml') }}
+      - run: pnpm install --frozen-lockfile
