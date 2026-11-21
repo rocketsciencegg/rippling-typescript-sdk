@@ -15,7 +15,7 @@ pnpm install         # Install dependencies from pnpm-lock.yaml (frozen in CI)
 pnpm run build       # Compile TypeScript to dist/ (runs tsc)
 just build           # Regenerate SDK from rippling.json OpenAPI spec + compile
 just compile         # Compile TypeScript only (no regeneration)
-just install         # Install system deps (openjdk) via brew
+just install-jdk     # Install system deps (openjdk) via brew
 just clean           # Remove dist/ directory
 ```
 
