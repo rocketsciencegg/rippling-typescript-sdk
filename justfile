@@ -7,7 +7,7 @@ help:
     @just --list
 
 # Install system dependencies (macOS)
-install:
+install-jdk:
     brew install openjdk
 
 # Remove build output
